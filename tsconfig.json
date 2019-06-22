@@ -1,0 +1,25 @@
+{
+	"compilerOptions": {
+		"target": "es6",
+		"module": "commonjs",
+		"lib": [
+			"es6"
+		],
+		"jsx": "react",
+		"strict": true,
+		"types": [
+			"jest"
+		],
+		"esModuleInterop": true
+	},
+	"exclude": [
+		"index.js",
+		"android",
+		"ios",
+		"build",
+		"node_modules",
+		".coverage",
+		"native-assets",
+		"jest"
+	]
+}
