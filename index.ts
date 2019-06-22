@@ -5,12 +5,15 @@ import { stringArg, idArg } from 'nexus'
 import { prismaObjectType, makePrismaSchema } from 'nexus-prisma'
 import { GraphQLServer } from 'graphql-yoga'
 
+const Chance = require('chance')
+const chance = new Chance()
+
 // A `main` function so that we can use async/await
 async function main() {
   // Create a new user with a new post
   const newUser = await prisma.createUser({
-    name: 'Bob',
-    email: 'bob@prisma.io',
+    name: chance.first(),
+    email: chance.email(),
     posts: {
       create: [
         {
