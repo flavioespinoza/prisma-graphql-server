@@ -21,78 +21,65 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const prisma_client_1 = require("./generated/prisma-client");
 const nexus_prisma_1 = __importDefault(require("./generated/nexus-prisma"));
 const path = __importStar(require("path"));
-const nexus_1 = require("nexus");
 const nexus_prisma_2 = require("nexus-prisma");
 const graphql_yoga_1 = require("graphql-yoga");
+const datedash_1 = __importDefault(require("datedash"));
+const lodash_1 = __importDefault(require("lodash"));
+const { prismaExtendType } = require("nexus-prisma");
+const { queryField } = require("nexus");
+const log = require('ololog');
 const Chance = require('chance');
 const chance = new Chance();
+const _createUser = () => __awaiter(this, void 0, void 0, function* () {
+    try {
+        const address = () => {
+            let _address = chance.address();
+            let _city = chance.city();
+            let _state = chance.state();
+            let _zipcode = chance.postcode();
+            return `${_address} ${_city} ${_state} ${_zipcode}`;
+        };
+        let _birthday = chance.birthday({ string: true });
+        let _birthDate = lodash_1.default.reverse(datedash_1.default.date(_birthday, '-'));
+        return yield prisma_client_1.prisma.createUser({
+            email: chance.email(),
+            phoneNumber: chance.phoneNumber(),
+            name: chance.first(),
+            address: address(),
+            birthDate: _birthDate
+        });
+    }
+    catch (err) {
+        log.ligthYellow('User', err);
+    }
+});
 // A `main` function so that we can use async/await
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
-        // Create a new user with a new post
-        const newUser = yield prisma_client_1.prisma.createUser({
-            name: chance.first(),
-            email: chance.email(),
-            posts: {
-                create: [
-                    {
-                        title: 'Join us for GraphQL Conf in 2019',
-                    },
-                    {
-                        title: 'Subscribe to GraphQL Weekly for GraphQL news',
-                    },
-                ],
-            },
-        });
-        console.log(`Created new user: ${newUser.name} (ID: ${newUser.id})`);
+        const newUser = yield _createUser();
+        log.lightBlue(`Created new user:`, JSON.stringify(newUser, null, 2));
         // Read all users from the database and print them to the console
-        const allUsers = yield prisma_client_1.prisma.users();
-        console.log(allUsers);
-        const allPosts = yield prisma_client_1.prisma.posts();
-        console.log(allPosts);
+        // const allUsers = await prisma.users()
     });
 }
-main().catch(e => console.error(e));
+let user_count = 12;
+for (let i = 0; i < user_count; i++) {
+    main().catch(e => console.error(e));
+    if (i === 11) {
+        log.lightCyan(user_count + ' new Users loaded to MongoDB');
+    }
+}
 const Query = nexus_prisma_2.prismaObjectType({
-    name: 'Query',
+    name: "Query",
     definition(t) {
-        t.prismaFields(['post']);
-        t.list.field('feed', {
-            type: 'Post',
-            resolve: (_, args, ctx) => ctx.prisma.posts({ where: { published: true } }),
-        });
-        t.list.field('postsByUser', {
-            type: 'Post',
-            args: { email: nexus_1.stringArg() },
-            resolve: (_, { email }, ctx) => ctx.prisma.posts({ where: { author: { email } } }),
-        });
-    },
+        t.prismaFields([]);
+    }
 });
 const Mutation = nexus_prisma_2.prismaObjectType({
     name: 'Mutation',
     definition(t) {
-        t.prismaFields(['createUser', 'deletePost']);
-        t.field('createDraft', {
-            type: 'Post',
-            args: {
-                title: nexus_1.stringArg(),
-                authorId: nexus_1.idArg({ nullable: true }),
-            },
-            resolve: (_, { title, authorId }, ctx) => ctx.prisma.createPost({
-                title,
-                author: { connect: { id: authorId } },
-            }),
-        });
-        t.field('publish', {
-            type: 'Post',
-            nullable: true,
-            args: { id: nexus_1.idArg() },
-            resolve: (_, { id }, ctx) => ctx.prisma.updatePost({
-                where: { id },
-                data: { published: true },
-            }),
-        });
-    },
+        t.prismaFields(['createUser']);
+    }
 });
 const schema = nexus_prisma_2.makePrismaSchema({
     types: [Query, Mutation],
