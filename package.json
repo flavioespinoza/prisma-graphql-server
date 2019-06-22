@@ -12,7 +12,6 @@
 		"dev": "ts-node ./index.ts",
 		"types": "graphql-codegen",
 		"gen": "graphqlgen",
-		"prebuild": "prisma generate && npx nexus-prisma-generate --client ./generated/prisma-client --output ./generated/nexus-prisma",
 		"nexus": "npx nexus-prisma-generate --client ./generated/prisma-client --output ./generated/nexus-prisma",
 		"build": "tsc"
 	},
