@@ -10,7 +10,6 @@ import _ from 'lodash'
 const { prismaExtendType } = require("nexus-prisma")
 const { queryField } = require("nexus")
 
-const log = require('ololog')
 const Chance = require('chance')
 const chance = new Chance()
 
@@ -25,17 +24,22 @@ const _createUser = async () => {
 		}
 
 		let _birthday = chance.birthday({ string: true })
-		let _birthDate = _.reverse(_d.date(_birthday, '-'))
+		let _birthDate = _d.date(_birthday, '-')
 
-		return await prisma.createUser({
+		const new_user = await prisma.createUser({
 			email: chance.email(),
-			phoneNumber: chance.phoneNumber(),
+			phoneNumber: chance.phone(),
 			name: chance.first(),
 			address: address(),
 			birthDate: _birthDate
 		})
+
+		console.log(new_user)
+
+		return new_user
+
 	} catch (err) {
-		log.ligthYellow('User', err)
+		console.error('User', err)
 	}
 }
 
@@ -44,7 +48,7 @@ async function main() {
 
 	const newUser = await _createUser()
 
-	log.lightBlue(`Created new user:`, JSON.stringify(newUser, null, 2))
+	console.log(`Created new user:`, JSON.stringify(newUser, null, 2))
 
 	// Read all users from the database and print them to the console
 	// const allUsers = await prisma.users()
@@ -56,7 +60,7 @@ let user_count = 12
 for (let i = 0; i < user_count; i++) {
 	main().catch(e => console.error(e))
 	if (i === 11) {
-		log.lightCyan(user_count + ' new Users loaded to MongoDB')
+		console.log(user_count + ' new Users loaded to MongoDB')
 	}
 }
 

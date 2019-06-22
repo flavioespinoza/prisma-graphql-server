@@ -6,12 +6,12 @@ language: typescript
 # The file path pointing to your GraphQL schema
 schema: ./datamodel.schema.graphql
 
-output: ./generated/resolvers.ts
+output: ./generated/prisma-client/resolvers.ts
 
 models:
   files:
     - ./generated/prisma-client/index.ts
 
 resolver-scaffolding:
-  output: ./generated/lib/
+  output: ./generated/prisma-client/lib/
   layout: file-per-type

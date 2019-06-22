@@ -3,7 +3,7 @@
 GraphQL layer tools incl. ORM, Migrations and Admin UI (Postgres, MySQL & MongoDB)
 
 ## Getting Started
-
+yarn add @flavioespinoza/log_log
 
 
 ### Local Dev Environment
