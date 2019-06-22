@@ -1,6 +1,6 @@
 {
 	"name": "prisma-graphql-server",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "GraphQL layer tools incl. ORM, Migrations and Admin UI (Postgres, MySQL & MongoDB)",
 	"main": "index.js",
 	"directories": {
@@ -12,7 +12,7 @@
 		"dev": "ts-node ./index.ts",
 		"types": "graphql-codegen",
 		"gen": "graphqlgen",
-		"prebuild": "npx nexus-prisma-generate --client ./generated/prisma-client --output ./generated/nexus-prisma",
+		"prebuild": "prisma generate && npx nexus-prisma-generate --client ./generated/prisma-client --output ./generated/nexus-prisma",
 		"build": "tsc"
 	},
 	"repository": {
