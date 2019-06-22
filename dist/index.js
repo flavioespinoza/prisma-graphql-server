@@ -24,13 +24,15 @@ const path = __importStar(require("path"));
 const nexus_1 = require("nexus");
 const nexus_prisma_2 = require("nexus-prisma");
 const graphql_yoga_1 = require("graphql-yoga");
+const Chance = require('chance');
+const chance = new Chance();
 // A `main` function so that we can use async/await
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
         // Create a new user with a new post
         const newUser = yield prisma_client_1.prisma.createUser({
-            name: 'Bob',
-            email: 'bob@prisma.io',
+            name: chance.first(),
+            email: chance.email(),
             posts: {
                 create: [
                     {
