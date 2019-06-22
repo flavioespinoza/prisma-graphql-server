@@ -14,12 +14,8 @@
 	},
 	"exclude": [
 		"index.js",
-		"android",
-		"ios",
 		"build",
 		"node_modules",
-		".coverage",
-		"native-assets",
 		"jest"
 	]
 }

@@ -1,8 +1,12 @@
-# prisma-graphql
+# prisma-graphql-server
 
 GraphQL layer tools incl. ORM, Migrations and Admin UI (Postgres, MySQL & MongoDB)
 
 ## Getting Started
+
+### Docker
+
+### Local Dev Environment
 
 Clone the repo
 ```bash
@@ -29,9 +33,11 @@ Deploy Prisma GraphQL Api
 prisma deploy
 ```
 
-## GraphQL Client
-playground: http://localhost:4466/
-db_admin: http://localhost:4466/_admin
+## GraphQL Local Dev Client
+
+- playground: http://localhost:4466/
+
+- db_admin: http://localhost:4466/_admin
 
 ## Prisma
 
@@ -40,13 +46,13 @@ Simplified and TypeScript GraphQL client & server layer.
 - [overview video](https://www.youtube.com/watch?v=nKmjKKyK5vc)
 - [github](https://github.com/prisma/prisma)
 
-#### prisma-client
+### prisma-client
 
 The Prisma client is an TypeScript auto-generated library that provides type-safe access to your database. It is used as a replacement for traditional ORMs in your API servers or microservice architecure.
 - [docs](https://www.prisma.io/client/client-typescript/)
 - [getting started](https://www.prisma.io/docs/1.34/get-started/01-setting-up-prisma-new-database-TYPESCRIPT-t002/)
 
-#### nexus-prisma
+### nexus-prisma
 
 GraphQL ORM + CRUD schema generator for GraphQL enpoints
 - [getting started](https://nexus.js.org/docs/database-access-with-prisma#getting-started)
@@ -58,13 +64,13 @@ Generate CRUD building blocks
 npx nexus-prisma-generate --client ./generated/prisma-client --output ./generated/nexus-prisma
 ```
 
-#### prisma-examples
+### prisma-examples
 
 [all prisma examples](https://github.com/prisma/prisma-examples)
 
 Below are select few ready-to-run examples demonstrating various use cases
 
-##### Docker TypeScript
+#### Docker TypeScript
 
 | Demo | Description |
 |:------|:----------|
@@ -72,7 +78,7 @@ Below are select few ready-to-run examples demonstrating various use cases
 | [`docker-mysql`](https://github.com/prisma/prisma-examples/tree/master/typescript/docker-mysql) | Set up Prisma locally with MySQL |
 | [`docker-postgres`](https://github.com/prisma/prisma-examples/tree/master/typescript/docker-postgres) | Set up Prisma locally with PostgreSQL |
 
-##### Golang
+#### Golang
 
 | Demo | Description |
 |:------|:----------|
@@ -82,7 +88,7 @@ Below are select few ready-to-run examples demonstrating various use cases
 | [`rest-gin`](https://github.com/prisma/prisma-examples/tree/master/go/rest-gin) | Simple REST API with [Gin](https://github.com/gin-gonic/gin) |
 | [`script`](https://github.com/prisma/prisma-examples/tree/master/go/script) | Simple usage of Prisma client in script |
 
-##### Docker Node.js
+#### Docker Node.js
 
 | Demo | Description |
 |:------|:----------|
@@ -90,15 +96,3 @@ Below are select few ready-to-run examples demonstrating various use cases
 | [`docker-mysql`](https://github.com/prisma/prisma-examples/tree/master/node/docker-mysql) | Set up Prisma locally with MySQL |
 | [`docker-postgres`](https://github.com/prisma/prisma-examples/tree/master/node/docker-postgres) | Set up Prisma locally with PostgreSQL |
 
-
-# git 
-
-
-
-```bash
-git init
-git add .
-git commit -m "first commit"
-git remote add origin https://github.com/flavioespinoza/prisma-graphql-server.git
-git push -u origin master
-```

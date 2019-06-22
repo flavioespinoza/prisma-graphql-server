@@ -1,38 +1,19 @@
 {
-  "name": "prisma-graphql-server",
-  "version": "1.0.1",
-  "description": "GraphQL layer tools incl. ORM, Migrations and Admin UI (Postgres, MySQL & MongoDB)",
+  "name": "prisma-graphql",
+  "version": "1.0.0",
+  "description": "",
   "main": "index.js",
-  "directories": {
-    "doc": "doc"
-  },
   "scripts": {
-		"test": "test",
-		"start": "ts-node ./index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node ./index.ts",
     "dev": "ts-node-dev --no-notify --respawn --transpileOnly index.ts",
     "types": "graphql-codegen",
     "gen": "graphqlgen"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/flavioespinoza/prisma-graphql-server.git"
-  },
-  "keywords": [
-    "prisma",
-    "prisma nexus",
-    "prisma-nexus",
-    "nexus",
-    "graphql",
-    "graphql server",
-    "graphql-server"
-  ],
+  "keywords": [],
   "author": "Flavio Espinoza <flavio.espinoza@gmail.com> (@FlavioEspinoza)",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/flavioespinoza/prisma-graphql-server/issues"
-  },
-	"homepage": "https://github.com/flavioespinoza/prisma-graphql-server#readme",
-	"dependencies": {
+  "dependencies": {
     "@graphql-codegen/typescript-operations": "^1.3.0",
     "@graphql-codegen/typescript-react-apollo": "^1.3.0",
     "@types/jest": "^24.0.15",
