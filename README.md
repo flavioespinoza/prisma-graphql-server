@@ -33,7 +33,7 @@ Deploy Prisma GraphQL Api
 prisma deploy
 ```
 
-## GraphQL Local Dev Client
+### Local Dev Client
 
 - playground: http://localhost:4466/
 
