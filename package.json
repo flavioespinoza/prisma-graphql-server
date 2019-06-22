@@ -11,7 +11,9 @@
     "start": "ts-node ./index.ts",
     "dev": "ts-node-dev --no-notify --respawn --transpileOnly index.ts",
     "types": "graphql-codegen",
-    "gen": "graphqlgen"
+		"gen": "graphqlgen",
+		"prebuild": "npx nexus-prisma-generate --client ./generated/prisma-client --output ./generated/nexus-prisma",
+		"build": "tsc"
   },
   "repository": {
     "type": "git",
