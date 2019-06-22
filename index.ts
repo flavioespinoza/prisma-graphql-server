@@ -5,28 +5,23 @@ import { stringArg, idArg } from 'nexus'
 import { prismaObjectType, makePrismaSchema } from 'nexus-prisma'
 import { GraphQLServer } from 'graphql-yoga'
 
-const log = require('ololog')
-const Chance = require('chance')
-const chance = new Chance()
-
 // A `main` function so that we can use async/await
 async function main() {
   // Create a new user with a new post
   const newUser = await prisma.createUser({
-    name: chance.first(),
-    email: chance.email(),
+    name: 'Bob',
+    email: 'bob@prisma.io',
     posts: {
       create: [
         {
-          title: `Join us for 2019 ${chance.city()} Salsa Festival!`,
+          title: 'Join us for GraphQL Conf in 2019',
         },
         {
-          title: `Join us for 2019 ${chance.city()} Bachata Festival!`,
+          title: 'Subscribe to GraphQL Weekly for GraphQL news',
         },
       ],
     },
-	})
-	
+  })
   console.log(`Created new user: ${newUser.name} (ID: ${newUser.id})`)
 
   // Read all users from the database and print them to the console
@@ -45,7 +40,7 @@ const Query = prismaObjectType({
     t.prismaFields(['post'])
     t.list.field('feed', {
       type: 'Post',
-      resolve: (_, _args, ctx) =>
+      resolve: (_, args, ctx) =>
         ctx.prisma.posts({ where: { published: true } }),
     })
     t.list.field('postsByUser', {
@@ -88,10 +83,12 @@ const Mutation = prismaObjectType({
 
 const schema = makePrismaSchema({
   types: [Query, Mutation],
+
   prisma: {
     datamodelInfo,
     client: prisma,
   },
+
   outputs: {
     schema: path.join(__dirname, './generated/schema.graphql'),
     typegen: path.join(__dirname, './generated/nexus.ts'),
@@ -103,4 +100,4 @@ const PrismaServer = new GraphQLServer({
   context: { prisma },
 })
 
-PrismaServer.start(() => log.lightCyan('PrismaServer is running on http://localhost:4000'))
+PrismaServer.start(() => console.log('PrismaServer is running on http://localhost:4000'))

@@ -1,21 +1,27 @@
 {
 	"compilerOptions": {
-		"target": "es6",
+		"target": "es5",
+		"moduleResolution": "node",
 		"module": "commonjs",
+		"sourceMap": true,
+		"outDir": "dist",
 		"lib": [
-			"es6"
+			"es2016",
+			"esnext.asynciterable",
+			"dom"
 		],
-		"jsx": "react",
-		"strict": true,
 		"types": [
 			"jest"
 		],
 		"esModuleInterop": true
 	},
+	"include": [
+		"generated/**/*",
+		"./index.ts"
+	],
 	"exclude": [
-		"index.js",
-		"build",
 		"node_modules",
-		"jest"
+		"**/*.spec.ts",
+		"**/*.test.ts",
 	]
 }

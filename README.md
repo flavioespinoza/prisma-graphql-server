@@ -4,7 +4,7 @@ GraphQL layer tools incl. ORM, Migrations and Admin UI (Postgres, MySQL & MongoD
 
 ## Getting Started
 
-### Docker
+
 
 ### Local Dev Environment
 
