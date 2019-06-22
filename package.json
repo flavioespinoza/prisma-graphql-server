@@ -1,6 +1,6 @@
 {
 	"name": "prisma-graphql-server",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"description": "GraphQL layer tools incl. ORM, Migrations and Admin UI (Postgres, MySQL & MongoDB)",
 	"main": "index.js",
 	"directories": {
