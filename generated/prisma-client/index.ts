@@ -331,12 +331,12 @@ export type UserOrderByInput =
   | "createdAt_DESC"
   | "updatedAt_ASC"
   | "updatedAt_DESC"
-  | "email_ASC"
-  | "email_DESC"
   | "name_ASC"
   | "name_DESC"
-  | "role_ASC"
-  | "role_DESC";
+  | "email_ASC"
+  | "email_DESC"
+  | "auth_level_ASC"
+  | "auth_level_DESC";
 
 export type MutationType = "CREATED" | "UPDATED" | "DELETED";
 
@@ -412,20 +412,6 @@ export interface UserWhereInput {
   updatedAt_lte?: Maybe<DateTimeInput>;
   updatedAt_gt?: Maybe<DateTimeInput>;
   updatedAt_gte?: Maybe<DateTimeInput>;
-  email?: Maybe<String>;
-  email_not?: Maybe<String>;
-  email_in?: Maybe<String[] | String>;
-  email_not_in?: Maybe<String[] | String>;
-  email_lt?: Maybe<String>;
-  email_lte?: Maybe<String>;
-  email_gt?: Maybe<String>;
-  email_gte?: Maybe<String>;
-  email_contains?: Maybe<String>;
-  email_not_contains?: Maybe<String>;
-  email_starts_with?: Maybe<String>;
-  email_not_starts_with?: Maybe<String>;
-  email_ends_with?: Maybe<String>;
-  email_not_ends_with?: Maybe<String>;
   name?: Maybe<String>;
   name_not?: Maybe<String>;
   name_in?: Maybe<String[] | String>;
@@ -440,11 +426,25 @@ export interface UserWhereInput {
   name_not_starts_with?: Maybe<String>;
   name_ends_with?: Maybe<String>;
   name_not_ends_with?: Maybe<String>;
-  role?: Maybe<AuthLevel>;
-  role_not?: Maybe<AuthLevel>;
-  role_in?: Maybe<AuthLevel[] | AuthLevel>;
-  role_not_in?: Maybe<AuthLevel[] | AuthLevel>;
+  email?: Maybe<String>;
+  email_not?: Maybe<String>;
+  email_in?: Maybe<String[] | String>;
+  email_not_in?: Maybe<String[] | String>;
+  email_lt?: Maybe<String>;
+  email_lte?: Maybe<String>;
+  email_gt?: Maybe<String>;
+  email_gte?: Maybe<String>;
+  email_contains?: Maybe<String>;
+  email_not_contains?: Maybe<String>;
+  email_starts_with?: Maybe<String>;
+  email_not_starts_with?: Maybe<String>;
+  email_ends_with?: Maybe<String>;
+  email_not_ends_with?: Maybe<String>;
   id_proof?: Maybe<IdentityProofWhereInput>;
+  auth_level?: Maybe<AuthLevel>;
+  auth_level_not?: Maybe<AuthLevel>;
+  auth_level_in?: Maybe<AuthLevel[] | AuthLevel>;
+  auth_level_not_in?: Maybe<AuthLevel[] | AuthLevel>;
   AND?: Maybe<UserWhereInput[] | UserWhereInput>;
   OR?: Maybe<UserWhereInput[] | UserWhereInput>;
   NOT?: Maybe<UserWhereInput[] | UserWhereInput>;
@@ -648,10 +648,10 @@ export interface UserCreateOneInput {
 
 export interface UserCreateInput {
   id?: Maybe<ID_Input>;
+  name: String;
   email: String;
-  name?: Maybe<String>;
-  role?: Maybe<AuthLevel>;
   id_proof?: Maybe<IdentityProofCreateOneInput>;
+  auth_level?: Maybe<AuthLevel>;
 }
 
 export interface IdentityProofCreateOneInput {
@@ -783,10 +783,10 @@ export interface UserUpdateOneRequiredInput {
 }
 
 export interface UserUpdateDataInput {
-  email?: Maybe<String>;
   name?: Maybe<String>;
-  role?: Maybe<AuthLevel>;
+  email?: Maybe<String>;
   id_proof?: Maybe<IdentityProofUpdateOneInput>;
+  auth_level?: Maybe<AuthLevel>;
 }
 
 export interface IdentityProofUpdateOneInput {
@@ -1220,16 +1220,16 @@ export interface TaxIdUpdateInput {
 }
 
 export interface UserUpdateInput {
-  email?: Maybe<String>;
   name?: Maybe<String>;
-  role?: Maybe<AuthLevel>;
+  email?: Maybe<String>;
   id_proof?: Maybe<IdentityProofUpdateOneInput>;
+  auth_level?: Maybe<AuthLevel>;
 }
 
 export interface UserUpdateManyMutationInput {
-  email?: Maybe<String>;
   name?: Maybe<String>;
-  role?: Maybe<AuthLevel>;
+  email?: Maybe<String>;
+  auth_level?: Maybe<AuthLevel>;
 }
 
 export interface AttributeSubscriptionWhereInput {
@@ -1460,19 +1460,19 @@ export interface User {
   id: ID_Output;
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
+  name: String;
   email: String;
-  name?: String;
-  role?: AuthLevel;
+  auth_level?: AuthLevel;
 }
 
 export interface UserPromise extends Promise<User>, Fragmentable {
   id: () => Promise<ID_Output>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
-  email: () => Promise<String>;
   name: () => Promise<String>;
-  role: () => Promise<AuthLevel>;
+  email: () => Promise<String>;
   id_proof: <T = IdentityProofPromise>() => T;
+  auth_level: () => Promise<AuthLevel>;
 }
 
 export interface UserSubscription
@@ -1481,10 +1481,10 @@ export interface UserSubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  email: () => Promise<AsyncIterator<String>>;
   name: () => Promise<AsyncIterator<String>>;
-  role: () => Promise<AsyncIterator<AuthLevel>>;
+  email: () => Promise<AsyncIterator<String>>;
   id_proof: <T = IdentityProofSubscription>() => T;
+  auth_level: () => Promise<AsyncIterator<AuthLevel>>;
 }
 
 export interface UserNullablePromise
@@ -1493,10 +1493,10 @@ export interface UserNullablePromise
   id: () => Promise<ID_Output>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
-  email: () => Promise<String>;
   name: () => Promise<String>;
-  role: () => Promise<AuthLevel>;
+  email: () => Promise<String>;
   id_proof: <T = IdentityProofPromise>() => T;
+  auth_level: () => Promise<AuthLevel>;
 }
 
 export interface IdentityProof {
@@ -2342,9 +2342,9 @@ export interface UserPreviousValues {
   id: ID_Output;
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
+  name: String;
   email: String;
-  name?: String;
-  role?: AuthLevel;
+  auth_level?: AuthLevel;
 }
 
 export interface UserPreviousValuesPromise
@@ -2353,9 +2353,9 @@ export interface UserPreviousValuesPromise
   id: () => Promise<ID_Output>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
-  email: () => Promise<String>;
   name: () => Promise<String>;
-  role: () => Promise<AuthLevel>;
+  email: () => Promise<String>;
+  auth_level: () => Promise<AuthLevel>;
 }
 
 export interface UserPreviousValuesSubscription
@@ -2364,9 +2364,9 @@ export interface UserPreviousValuesSubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  email: () => Promise<AsyncIterator<String>>;
   name: () => Promise<AsyncIterator<String>>;
-  role: () => Promise<AsyncIterator<AuthLevel>>;
+  email: () => Promise<AsyncIterator<String>>;
+  auth_level: () => Promise<AsyncIterator<AuthLevel>>;
 }
 
 /*

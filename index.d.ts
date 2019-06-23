@@ -11,3 +11,5 @@
  * */
 
 declare module 'chance'
+declare module 'id'
+declare module 'id'

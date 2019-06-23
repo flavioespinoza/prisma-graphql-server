@@ -78,12 +78,12 @@ export type UserOrderByInput =
   | "createdAt_DESC"
   | "updatedAt_ASC"
   | "updatedAt_DESC"
-  | "email_ASC"
-  | "email_DESC"
   | "name_ASC"
   | "name_DESC"
-  | "role_ASC"
-  | "role_DESC";
+  | "email_ASC"
+  | "email_DESC"
+  | "auth_level_ASC"
+  | "auth_level_DESC";
 export type MutationType = "CREATED" | "UPDATED" | "DELETED";
 
 export namespace QueryResolvers {
@@ -268,20 +268,6 @@ export namespace QueryResolvers {
     updatedAt_lte?: string | null;
     updatedAt_gt?: string | null;
     updatedAt_gte?: string | null;
-    email?: string | null;
-    email_not?: string | null;
-    email_in?: string[] | null;
-    email_not_in?: string[] | null;
-    email_lt?: string | null;
-    email_lte?: string | null;
-    email_gt?: string | null;
-    email_gte?: string | null;
-    email_contains?: string | null;
-    email_not_contains?: string | null;
-    email_starts_with?: string | null;
-    email_not_starts_with?: string | null;
-    email_ends_with?: string | null;
-    email_not_ends_with?: string | null;
     name?: string | null;
     name_not?: string | null;
     name_in?: string[] | null;
@@ -296,10 +282,24 @@ export namespace QueryResolvers {
     name_not_starts_with?: string | null;
     name_ends_with?: string | null;
     name_not_ends_with?: string | null;
-    role?: AuthLevel | null;
-    role_not?: AuthLevel | null;
-    role_in?: AuthLevel[] | null;
-    role_not_in?: AuthLevel[] | null;
+    email?: string | null;
+    email_not?: string | null;
+    email_in?: string[] | null;
+    email_not_in?: string[] | null;
+    email_lt?: string | null;
+    email_lte?: string | null;
+    email_gt?: string | null;
+    email_gte?: string | null;
+    email_contains?: string | null;
+    email_not_contains?: string | null;
+    email_starts_with?: string | null;
+    email_not_starts_with?: string | null;
+    email_ends_with?: string | null;
+    email_not_ends_with?: string | null;
+    auth_level?: AuthLevel | null;
+    auth_level_not?: AuthLevel | null;
+    auth_level_in?: AuthLevel[] | null;
+    auth_level_not_in?: AuthLevel[] | null;
     id_proof?: IdentityProofWhereInput | null;
   }
   export interface EmailWhereInput {
@@ -1380,20 +1380,6 @@ export namespace AttributeResolvers {
     updatedAt_lte?: string | null;
     updatedAt_gt?: string | null;
     updatedAt_gte?: string | null;
-    email?: string | null;
-    email_not?: string | null;
-    email_in?: string[] | null;
-    email_not_in?: string[] | null;
-    email_lt?: string | null;
-    email_lte?: string | null;
-    email_gt?: string | null;
-    email_gte?: string | null;
-    email_contains?: string | null;
-    email_not_contains?: string | null;
-    email_starts_with?: string | null;
-    email_not_starts_with?: string | null;
-    email_ends_with?: string | null;
-    email_not_ends_with?: string | null;
     name?: string | null;
     name_not?: string | null;
     name_in?: string[] | null;
@@ -1408,10 +1394,24 @@ export namespace AttributeResolvers {
     name_not_starts_with?: string | null;
     name_ends_with?: string | null;
     name_not_ends_with?: string | null;
-    role?: AuthLevel | null;
-    role_not?: AuthLevel | null;
-    role_in?: AuthLevel[] | null;
-    role_not_in?: AuthLevel[] | null;
+    email?: string | null;
+    email_not?: string | null;
+    email_in?: string[] | null;
+    email_not_in?: string[] | null;
+    email_lt?: string | null;
+    email_lte?: string | null;
+    email_gt?: string | null;
+    email_gte?: string | null;
+    email_contains?: string | null;
+    email_not_contains?: string | null;
+    email_starts_with?: string | null;
+    email_not_starts_with?: string | null;
+    email_ends_with?: string | null;
+    email_not_ends_with?: string | null;
+    auth_level?: AuthLevel | null;
+    auth_level_not?: AuthLevel | null;
+    auth_level_in?: AuthLevel[] | null;
+    auth_level_not_in?: AuthLevel[] | null;
     id_proof?: IdentityProofWhereInput | null;
   }
   export interface AttributeWhereInput {
@@ -1849,9 +1849,10 @@ export namespace UserResolvers {
     id: (parent: User) => parent.id,
     createdAt: (parent: User) => parent.createdAt,
     updatedAt: (parent: User) => parent.updatedAt,
+    name: (parent: User) => parent.name,
     email: (parent: User) => parent.email,
-    name: (parent: User) => (parent.name === undefined ? null : parent.name),
-    role: (parent: User) => (parent.role === undefined ? null : parent.role)
+    auth_level: (parent: User) =>
+      parent.auth_level === undefined ? null : parent.auth_level
   };
 
   export type IdResolver =
@@ -1905,6 +1906,23 @@ export namespace UserResolvers {
         ) => string | Promise<string>;
       };
 
+  export type NameResolver =
+    | ((
+        parent: User,
+        args: {},
+        ctx: Context,
+        info: GraphQLResolveInfo
+      ) => string | Promise<string>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: User,
+          args: {},
+          ctx: Context,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>;
+      };
+
   export type EmailResolver =
     | ((
         parent: User,
@@ -1922,40 +1940,6 @@ export namespace UserResolvers {
         ) => string | Promise<string>;
       };
 
-  export type NameResolver =
-    | ((
-        parent: User,
-        args: {},
-        ctx: Context,
-        info: GraphQLResolveInfo
-      ) => string | null | Promise<string | null>)
-    | {
-        fragment: string;
-        resolve: (
-          parent: User,
-          args: {},
-          ctx: Context,
-          info: GraphQLResolveInfo
-        ) => string | null | Promise<string | null>;
-      };
-
-  export type RoleResolver =
-    | ((
-        parent: User,
-        args: {},
-        ctx: Context,
-        info: GraphQLResolveInfo
-      ) => AuthLevel | null | Promise<AuthLevel | null>)
-    | {
-        fragment: string;
-        resolve: (
-          parent: User,
-          args: {},
-          ctx: Context,
-          info: GraphQLResolveInfo
-        ) => AuthLevel | null | Promise<AuthLevel | null>;
-      };
-
   export type Id_proofResolver =
     | ((
         parent: User,
@@ -1971,6 +1955,23 @@ export namespace UserResolvers {
           ctx: Context,
           info: GraphQLResolveInfo
         ) => IdentityProof | null | Promise<IdentityProof | null>;
+      };
+
+  export type Auth_levelResolver =
+    | ((
+        parent: User,
+        args: {},
+        ctx: Context,
+        info: GraphQLResolveInfo
+      ) => AuthLevel | null | Promise<AuthLevel | null>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: User,
+          args: {},
+          ctx: Context,
+          info: GraphQLResolveInfo
+        ) => AuthLevel | null | Promise<AuthLevel | null>;
       };
 
   export interface Type {
@@ -2025,6 +2026,23 @@ export namespace UserResolvers {
           ) => string | Promise<string>;
         };
 
+    name:
+      | ((
+          parent: User,
+          args: {},
+          ctx: Context,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: User,
+            args: {},
+            ctx: Context,
+            info: GraphQLResolveInfo
+          ) => string | Promise<string>;
+        };
+
     email:
       | ((
           parent: User,
@@ -2042,40 +2060,6 @@ export namespace UserResolvers {
           ) => string | Promise<string>;
         };
 
-    name:
-      | ((
-          parent: User,
-          args: {},
-          ctx: Context,
-          info: GraphQLResolveInfo
-        ) => string | null | Promise<string | null>)
-      | {
-          fragment: string;
-          resolve: (
-            parent: User,
-            args: {},
-            ctx: Context,
-            info: GraphQLResolveInfo
-          ) => string | null | Promise<string | null>;
-        };
-
-    role:
-      | ((
-          parent: User,
-          args: {},
-          ctx: Context,
-          info: GraphQLResolveInfo
-        ) => AuthLevel | null | Promise<AuthLevel | null>)
-      | {
-          fragment: string;
-          resolve: (
-            parent: User,
-            args: {},
-            ctx: Context,
-            info: GraphQLResolveInfo
-          ) => AuthLevel | null | Promise<AuthLevel | null>;
-        };
-
     id_proof:
       | ((
           parent: User,
@@ -2091,6 +2075,23 @@ export namespace UserResolvers {
             ctx: Context,
             info: GraphQLResolveInfo
           ) => IdentityProof | null | Promise<IdentityProof | null>;
+        };
+
+    auth_level:
+      | ((
+          parent: User,
+          args: {},
+          ctx: Context,
+          info: GraphQLResolveInfo
+        ) => AuthLevel | null | Promise<AuthLevel | null>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: User,
+            args: {},
+            ctx: Context,
+            info: GraphQLResolveInfo
+          ) => AuthLevel | null | Promise<AuthLevel | null>;
         };
 
     __isTypeOf?: GraphQLIsTypeOfFn<
@@ -2253,20 +2254,6 @@ export namespace IdentityProofResolvers {
     updatedAt_lte?: string | null;
     updatedAt_gt?: string | null;
     updatedAt_gte?: string | null;
-    email?: string | null;
-    email_not?: string | null;
-    email_in?: string[] | null;
-    email_not_in?: string[] | null;
-    email_lt?: string | null;
-    email_lte?: string | null;
-    email_gt?: string | null;
-    email_gte?: string | null;
-    email_contains?: string | null;
-    email_not_contains?: string | null;
-    email_starts_with?: string | null;
-    email_not_starts_with?: string | null;
-    email_ends_with?: string | null;
-    email_not_ends_with?: string | null;
     name?: string | null;
     name_not?: string | null;
     name_in?: string[] | null;
@@ -2281,10 +2268,24 @@ export namespace IdentityProofResolvers {
     name_not_starts_with?: string | null;
     name_ends_with?: string | null;
     name_not_ends_with?: string | null;
-    role?: AuthLevel | null;
-    role_not?: AuthLevel | null;
-    role_in?: AuthLevel[] | null;
-    role_not_in?: AuthLevel[] | null;
+    email?: string | null;
+    email_not?: string | null;
+    email_in?: string[] | null;
+    email_not_in?: string[] | null;
+    email_lt?: string | null;
+    email_lte?: string | null;
+    email_gt?: string | null;
+    email_gte?: string | null;
+    email_contains?: string | null;
+    email_not_contains?: string | null;
+    email_starts_with?: string | null;
+    email_not_starts_with?: string | null;
+    email_ends_with?: string | null;
+    email_not_ends_with?: string | null;
+    auth_level?: AuthLevel | null;
+    auth_level_not?: AuthLevel | null;
+    auth_level_in?: AuthLevel[] | null;
+    auth_level_not_in?: AuthLevel[] | null;
     id_proof?: IdentityProofWhereInput | null;
   }
   export interface AttributeWhereInput {
@@ -2729,20 +2730,6 @@ export namespace EmailResolvers {
     updatedAt_lte?: string | null;
     updatedAt_gt?: string | null;
     updatedAt_gte?: string | null;
-    email?: string | null;
-    email_not?: string | null;
-    email_in?: string[] | null;
-    email_not_in?: string[] | null;
-    email_lt?: string | null;
-    email_lte?: string | null;
-    email_gt?: string | null;
-    email_gte?: string | null;
-    email_contains?: string | null;
-    email_not_contains?: string | null;
-    email_starts_with?: string | null;
-    email_not_starts_with?: string | null;
-    email_ends_with?: string | null;
-    email_not_ends_with?: string | null;
     name?: string | null;
     name_not?: string | null;
     name_in?: string[] | null;
@@ -2757,10 +2744,24 @@ export namespace EmailResolvers {
     name_not_starts_with?: string | null;
     name_ends_with?: string | null;
     name_not_ends_with?: string | null;
-    role?: AuthLevel | null;
-    role_not?: AuthLevel | null;
-    role_in?: AuthLevel[] | null;
-    role_not_in?: AuthLevel[] | null;
+    email?: string | null;
+    email_not?: string | null;
+    email_in?: string[] | null;
+    email_not_in?: string[] | null;
+    email_lt?: string | null;
+    email_lte?: string | null;
+    email_gt?: string | null;
+    email_gte?: string | null;
+    email_contains?: string | null;
+    email_not_contains?: string | null;
+    email_starts_with?: string | null;
+    email_not_starts_with?: string | null;
+    email_ends_with?: string | null;
+    email_not_ends_with?: string | null;
+    auth_level?: AuthLevel | null;
+    auth_level_not?: AuthLevel | null;
+    auth_level_in?: AuthLevel[] | null;
+    auth_level_not_in?: AuthLevel[] | null;
     id_proof?: IdentityProofWhereInput | null;
   }
   export interface IdentityProofWhereInput {
@@ -3177,20 +3178,6 @@ export namespace PhoneNumberResolvers {
     updatedAt_lte?: string | null;
     updatedAt_gt?: string | null;
     updatedAt_gte?: string | null;
-    email?: string | null;
-    email_not?: string | null;
-    email_in?: string[] | null;
-    email_not_in?: string[] | null;
-    email_lt?: string | null;
-    email_lte?: string | null;
-    email_gt?: string | null;
-    email_gte?: string | null;
-    email_contains?: string | null;
-    email_not_contains?: string | null;
-    email_starts_with?: string | null;
-    email_not_starts_with?: string | null;
-    email_ends_with?: string | null;
-    email_not_ends_with?: string | null;
     name?: string | null;
     name_not?: string | null;
     name_in?: string[] | null;
@@ -3205,10 +3192,24 @@ export namespace PhoneNumberResolvers {
     name_not_starts_with?: string | null;
     name_ends_with?: string | null;
     name_not_ends_with?: string | null;
-    role?: AuthLevel | null;
-    role_not?: AuthLevel | null;
-    role_in?: AuthLevel[] | null;
-    role_not_in?: AuthLevel[] | null;
+    email?: string | null;
+    email_not?: string | null;
+    email_in?: string[] | null;
+    email_not_in?: string[] | null;
+    email_lt?: string | null;
+    email_lte?: string | null;
+    email_gt?: string | null;
+    email_gte?: string | null;
+    email_contains?: string | null;
+    email_not_contains?: string | null;
+    email_starts_with?: string | null;
+    email_not_starts_with?: string | null;
+    email_ends_with?: string | null;
+    email_not_ends_with?: string | null;
+    auth_level?: AuthLevel | null;
+    auth_level_not?: AuthLevel | null;
+    auth_level_in?: AuthLevel[] | null;
+    auth_level_not_in?: AuthLevel[] | null;
     id_proof?: IdentityProofWhereInput | null;
   }
   export interface IdentityProofWhereInput {
@@ -5006,9 +5007,9 @@ export namespace MutationResolvers {
   }
   export interface UserCreateInput {
     id?: string | null;
+    name: string;
     email: string;
-    name?: string | null;
-    role?: AuthLevel | null;
+    auth_level?: AuthLevel | null;
     id_proof?: IdentityProofCreateOneInput | null;
   }
   export interface EmailCreateInput {
@@ -5047,9 +5048,9 @@ export namespace MutationResolvers {
     id?: string | null;
   }
   export interface UserUpdateInput {
-    email?: string | null;
     name?: string | null;
-    role?: AuthLevel | null;
+    email?: string | null;
+    auth_level?: AuthLevel | null;
     id_proof?: IdentityProofUpdateOneInput | null;
   }
   export interface UserWhereUniqueInput {
@@ -5109,9 +5110,9 @@ export namespace MutationResolvers {
     phone_number_none?: PhoneNumberWhereInput | null;
   }
   export interface UserUpdateManyMutationInput {
-    email?: string | null;
     name?: string | null;
-    role?: AuthLevel | null;
+    email?: string | null;
+    auth_level?: AuthLevel | null;
   }
   export interface UserWhereInput {
     AND?: UserWhereInput[] | null;
@@ -5147,20 +5148,6 @@ export namespace MutationResolvers {
     updatedAt_lte?: string | null;
     updatedAt_gt?: string | null;
     updatedAt_gte?: string | null;
-    email?: string | null;
-    email_not?: string | null;
-    email_in?: string[] | null;
-    email_not_in?: string[] | null;
-    email_lt?: string | null;
-    email_lte?: string | null;
-    email_gt?: string | null;
-    email_gte?: string | null;
-    email_contains?: string | null;
-    email_not_contains?: string | null;
-    email_starts_with?: string | null;
-    email_not_starts_with?: string | null;
-    email_ends_with?: string | null;
-    email_not_ends_with?: string | null;
     name?: string | null;
     name_not?: string | null;
     name_in?: string[] | null;
@@ -5175,10 +5162,24 @@ export namespace MutationResolvers {
     name_not_starts_with?: string | null;
     name_ends_with?: string | null;
     name_not_ends_with?: string | null;
-    role?: AuthLevel | null;
-    role_not?: AuthLevel | null;
-    role_in?: AuthLevel[] | null;
-    role_not_in?: AuthLevel[] | null;
+    email?: string | null;
+    email_not?: string | null;
+    email_in?: string[] | null;
+    email_not_in?: string[] | null;
+    email_lt?: string | null;
+    email_lte?: string | null;
+    email_gt?: string | null;
+    email_gte?: string | null;
+    email_contains?: string | null;
+    email_not_contains?: string | null;
+    email_starts_with?: string | null;
+    email_not_starts_with?: string | null;
+    email_ends_with?: string | null;
+    email_not_ends_with?: string | null;
+    auth_level?: AuthLevel | null;
+    auth_level_not?: AuthLevel | null;
+    auth_level_in?: AuthLevel[] | null;
+    auth_level_not_in?: AuthLevel[] | null;
     id_proof?: IdentityProofWhereInput | null;
   }
   export interface TaxIdWhereInput {
@@ -5598,9 +5599,9 @@ export namespace MutationResolvers {
     create: PhoneNumberCreateWithoutAttributeInput;
   }
   export interface UserUpdateDataInput {
-    email?: string | null;
     name?: string | null;
-    role?: AuthLevel | null;
+    email?: string | null;
+    auth_level?: AuthLevel | null;
     id_proof?: IdentityProofUpdateOneInput | null;
   }
   export interface UserUpsertNestedInput {
@@ -7243,20 +7244,6 @@ export namespace SubscriptionResolvers {
     updatedAt_lte?: string | null;
     updatedAt_gt?: string | null;
     updatedAt_gte?: string | null;
-    email?: string | null;
-    email_not?: string | null;
-    email_in?: string[] | null;
-    email_not_in?: string[] | null;
-    email_lt?: string | null;
-    email_lte?: string | null;
-    email_gt?: string | null;
-    email_gte?: string | null;
-    email_contains?: string | null;
-    email_not_contains?: string | null;
-    email_starts_with?: string | null;
-    email_not_starts_with?: string | null;
-    email_ends_with?: string | null;
-    email_not_ends_with?: string | null;
     name?: string | null;
     name_not?: string | null;
     name_in?: string[] | null;
@@ -7271,10 +7258,24 @@ export namespace SubscriptionResolvers {
     name_not_starts_with?: string | null;
     name_ends_with?: string | null;
     name_not_ends_with?: string | null;
-    role?: AuthLevel | null;
-    role_not?: AuthLevel | null;
-    role_in?: AuthLevel[] | null;
-    role_not_in?: AuthLevel[] | null;
+    email?: string | null;
+    email_not?: string | null;
+    email_in?: string[] | null;
+    email_not_in?: string[] | null;
+    email_lt?: string | null;
+    email_lte?: string | null;
+    email_gt?: string | null;
+    email_gte?: string | null;
+    email_contains?: string | null;
+    email_not_contains?: string | null;
+    email_starts_with?: string | null;
+    email_not_starts_with?: string | null;
+    email_ends_with?: string | null;
+    email_not_ends_with?: string | null;
+    auth_level?: AuthLevel | null;
+    auth_level_not?: AuthLevel | null;
+    auth_level_in?: AuthLevel[] | null;
+    auth_level_not_in?: AuthLevel[] | null;
     id_proof?: IdentityProofWhereInput | null;
   }
   export interface EmailWhereInput {
@@ -8715,11 +8716,10 @@ export namespace UserPreviousValuesResolvers {
     id: (parent: UserPreviousValues) => parent.id,
     createdAt: (parent: UserPreviousValues) => parent.createdAt,
     updatedAt: (parent: UserPreviousValues) => parent.updatedAt,
+    name: (parent: UserPreviousValues) => parent.name,
     email: (parent: UserPreviousValues) => parent.email,
-    name: (parent: UserPreviousValues) =>
-      parent.name === undefined ? null : parent.name,
-    role: (parent: UserPreviousValues) =>
-      parent.role === undefined ? null : parent.role
+    auth_level: (parent: UserPreviousValues) =>
+      parent.auth_level === undefined ? null : parent.auth_level
   };
 
   export type IdResolver =
@@ -8773,6 +8773,23 @@ export namespace UserPreviousValuesResolvers {
         ) => string | Promise<string>;
       };
 
+  export type NameResolver =
+    | ((
+        parent: UserPreviousValues,
+        args: {},
+        ctx: Context,
+        info: GraphQLResolveInfo
+      ) => string | Promise<string>)
+    | {
+        fragment: string;
+        resolve: (
+          parent: UserPreviousValues,
+          args: {},
+          ctx: Context,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>;
+      };
+
   export type EmailResolver =
     | ((
         parent: UserPreviousValues,
@@ -8790,24 +8807,7 @@ export namespace UserPreviousValuesResolvers {
         ) => string | Promise<string>;
       };
 
-  export type NameResolver =
-    | ((
-        parent: UserPreviousValues,
-        args: {},
-        ctx: Context,
-        info: GraphQLResolveInfo
-      ) => string | null | Promise<string | null>)
-    | {
-        fragment: string;
-        resolve: (
-          parent: UserPreviousValues,
-          args: {},
-          ctx: Context,
-          info: GraphQLResolveInfo
-        ) => string | null | Promise<string | null>;
-      };
-
-  export type RoleResolver =
+  export type Auth_levelResolver =
     | ((
         parent: UserPreviousValues,
         args: {},
@@ -8876,6 +8876,23 @@ export namespace UserPreviousValuesResolvers {
           ) => string | Promise<string>;
         };
 
+    name:
+      | ((
+          parent: UserPreviousValues,
+          args: {},
+          ctx: Context,
+          info: GraphQLResolveInfo
+        ) => string | Promise<string>)
+      | {
+          fragment: string;
+          resolve: (
+            parent: UserPreviousValues,
+            args: {},
+            ctx: Context,
+            info: GraphQLResolveInfo
+          ) => string | Promise<string>;
+        };
+
     email:
       | ((
           parent: UserPreviousValues,
@@ -8893,24 +8910,7 @@ export namespace UserPreviousValuesResolvers {
           ) => string | Promise<string>;
         };
 
-    name:
-      | ((
-          parent: UserPreviousValues,
-          args: {},
-          ctx: Context,
-          info: GraphQLResolveInfo
-        ) => string | null | Promise<string | null>)
-      | {
-          fragment: string;
-          resolve: (
-            parent: UserPreviousValues,
-            args: {},
-            ctx: Context,
-            info: GraphQLResolveInfo
-          ) => string | null | Promise<string | null>;
-        };
-
-    role:
+    auth_level:
       | ((
           parent: UserPreviousValues,
           args: {},

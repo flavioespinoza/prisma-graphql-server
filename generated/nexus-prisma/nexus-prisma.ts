@@ -784,19 +784,19 @@ type UserObject =
   | { name: 'id', args?: [] | false, alias?: string  } 
   | { name: 'createdAt', args?: [] | false, alias?: string  } 
   | { name: 'updatedAt', args?: [] | false, alias?: string  } 
-  | { name: 'email', args?: [] | false, alias?: string  } 
   | { name: 'name', args?: [] | false, alias?: string  } 
-  | { name: 'role', args?: [] | false, alias?: string  } 
+  | { name: 'email', args?: [] | false, alias?: string  } 
   | { name: 'id_proof', args?: [] | false, alias?: string  } 
+  | { name: 'auth_level', args?: [] | false, alias?: string  } 
 
 type UserFields =
   | 'id'
   | 'createdAt'
   | 'updatedAt'
-  | 'email'
   | 'name'
-  | 'role'
+  | 'email'
   | 'id_proof'
+  | 'auth_level'
 
 
 
@@ -827,7 +827,7 @@ export interface UserFieldDetails {
     nullable: false
     resolve: undefined
   }
-  email: {
+  name: {
     type: 'String'
     args: {}
     description: string
@@ -835,26 +835,13 @@ export interface UserFieldDetails {
     nullable: false
     resolve: undefined
   }
-  name: {
+  email: {
     type: 'String'
     args: {}
     description: string
     list: undefined
-    nullable: true
+    nullable: false
     resolve: undefined
-  }
-  role: {
-    type: 'AuthLevel'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"User">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.AuthLevel | null> | prisma.AuthLevel | null
   }
   id_proof: {
     type: 'IdentityProof'
@@ -868,6 +855,19 @@ export interface UserFieldDetails {
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.IdentityProof | null> | prisma.IdentityProof | null
+  }
+  auth_level: {
+    type: 'AuthLevel'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"User">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AuthLevel | null> | prisma.AuthLevel | null
   }
 }
   
@@ -3556,17 +3556,17 @@ type UserPreviousValuesObject =
   | { name: 'id', args?: [] | false, alias?: string  } 
   | { name: 'createdAt', args?: [] | false, alias?: string  } 
   | { name: 'updatedAt', args?: [] | false, alias?: string  } 
-  | { name: 'email', args?: [] | false, alias?: string  } 
   | { name: 'name', args?: [] | false, alias?: string  } 
-  | { name: 'role', args?: [] | false, alias?: string  } 
+  | { name: 'email', args?: [] | false, alias?: string  } 
+  | { name: 'auth_level', args?: [] | false, alias?: string  } 
 
 type UserPreviousValuesFields =
   | 'id'
   | 'createdAt'
   | 'updatedAt'
-  | 'email'
   | 'name'
-  | 'role'
+  | 'email'
+  | 'auth_level'
 
 
 
@@ -3597,6 +3597,14 @@ export interface UserPreviousValuesFieldDetails {
     nullable: false
     resolve: undefined
   }
+  name: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
   email: {
     type: 'String'
     args: {}
@@ -3605,15 +3613,7 @@ export interface UserPreviousValuesFieldDetails {
     nullable: false
     resolve: undefined
   }
-  name: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: undefined
-  }
-  role: {
+  auth_level: {
     type: 'AuthLevel'
     args: {}
     description: string
@@ -4453,20 +4453,6 @@ export interface UserWhereInput {
   updatedAt_lte?: string | null
   updatedAt_gt?: string | null
   updatedAt_gte?: string | null
-  email?: string | null
-  email_not?: string | null
-  email_in?: string[]
-  email_not_in?: string[]
-  email_lt?: string | null
-  email_lte?: string | null
-  email_gt?: string | null
-  email_gte?: string | null
-  email_contains?: string | null
-  email_not_contains?: string | null
-  email_starts_with?: string | null
-  email_not_starts_with?: string | null
-  email_ends_with?: string | null
-  email_not_ends_with?: string | null
   name?: string | null
   name_not?: string | null
   name_in?: string[]
@@ -4481,11 +4467,25 @@ export interface UserWhereInput {
   name_not_starts_with?: string | null
   name_ends_with?: string | null
   name_not_ends_with?: string | null
-  role?: prisma.AuthLevel | null
-  role_not?: prisma.AuthLevel | null
-  role_in?: prisma.AuthLevel[]
-  role_not_in?: prisma.AuthLevel[]
+  email?: string | null
+  email_not?: string | null
+  email_in?: string[]
+  email_not_in?: string[]
+  email_lt?: string | null
+  email_lte?: string | null
+  email_gt?: string | null
+  email_gte?: string | null
+  email_contains?: string | null
+  email_not_contains?: string | null
+  email_starts_with?: string | null
+  email_not_starts_with?: string | null
+  email_ends_with?: string | null
+  email_not_ends_with?: string | null
   id_proof?: IdentityProofWhereInput | null
+  auth_level?: prisma.AuthLevel | null
+  auth_level_not?: prisma.AuthLevel | null
+  auth_level_in?: prisma.AuthLevel[]
+  auth_level_not_in?: prisma.AuthLevel[]
   AND?: UserWhereInput[]
   OR?: UserWhereInput[]
   NOT?: UserWhereInput[]
@@ -4522,20 +4522,6 @@ export type UserWhereInputInputObject =
   | { name: 'updatedAt_lte', alias?: string  } 
   | { name: 'updatedAt_gt', alias?: string  } 
   | { name: 'updatedAt_gte', alias?: string  } 
-  | { name: 'email', alias?: string  } 
-  | { name: 'email_not', alias?: string  } 
-  | { name: 'email_in', alias?: string  } 
-  | { name: 'email_not_in', alias?: string  } 
-  | { name: 'email_lt', alias?: string  } 
-  | { name: 'email_lte', alias?: string  } 
-  | { name: 'email_gt', alias?: string  } 
-  | { name: 'email_gte', alias?: string  } 
-  | { name: 'email_contains', alias?: string  } 
-  | { name: 'email_not_contains', alias?: string  } 
-  | { name: 'email_starts_with', alias?: string  } 
-  | { name: 'email_not_starts_with', alias?: string  } 
-  | { name: 'email_ends_with', alias?: string  } 
-  | { name: 'email_not_ends_with', alias?: string  } 
   | { name: 'name', alias?: string  } 
   | { name: 'name_not', alias?: string  } 
   | { name: 'name_in', alias?: string  } 
@@ -4550,11 +4536,25 @@ export type UserWhereInputInputObject =
   | { name: 'name_not_starts_with', alias?: string  } 
   | { name: 'name_ends_with', alias?: string  } 
   | { name: 'name_not_ends_with', alias?: string  } 
-  | { name: 'role', alias?: string  } 
-  | { name: 'role_not', alias?: string  } 
-  | { name: 'role_in', alias?: string  } 
-  | { name: 'role_not_in', alias?: string  } 
+  | { name: 'email', alias?: string  } 
+  | { name: 'email_not', alias?: string  } 
+  | { name: 'email_in', alias?: string  } 
+  | { name: 'email_not_in', alias?: string  } 
+  | { name: 'email_lt', alias?: string  } 
+  | { name: 'email_lte', alias?: string  } 
+  | { name: 'email_gt', alias?: string  } 
+  | { name: 'email_gte', alias?: string  } 
+  | { name: 'email_contains', alias?: string  } 
+  | { name: 'email_not_contains', alias?: string  } 
+  | { name: 'email_starts_with', alias?: string  } 
+  | { name: 'email_not_starts_with', alias?: string  } 
+  | { name: 'email_ends_with', alias?: string  } 
+  | { name: 'email_not_ends_with', alias?: string  } 
   | { name: 'id_proof', alias?: string  } 
+  | { name: 'auth_level', alias?: string  } 
+  | { name: 'auth_level_not', alias?: string  } 
+  | { name: 'auth_level_in', alias?: string  } 
+  | { name: 'auth_level_not_in', alias?: string  } 
   | { name: 'AND', alias?: string  } 
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
@@ -4941,18 +4941,18 @@ export type PhoneNumberAttributeWhereInputInputObject =
   
 export interface UserCreateInput {
   id?: string | null
+  name?: string
   email?: string
-  name?: string | null
-  role?: prisma.AuthLevel | null
   id_proof?: IdentityProofCreateOneInput | null
+  auth_level?: prisma.AuthLevel | null
 }
 export type UserCreateInputInputObject =
   | Extract<keyof UserCreateInput, string>
   | { name: 'id', alias?: string  } 
-  | { name: 'email', alias?: string  } 
   | { name: 'name', alias?: string  } 
-  | { name: 'role', alias?: string  } 
+  | { name: 'email', alias?: string  } 
   | { name: 'id_proof', alias?: string  } 
+  | { name: 'auth_level', alias?: string  } 
   
 export interface IdentityProofCreateOneInput {
   create?: IdentityProofCreateInput | null
@@ -5124,17 +5124,17 @@ export type EmailCreateWithoutAttributeInputInputObject =
   | { name: 'owner', alias?: string  } 
   
 export interface UserUpdateInput {
-  email?: string | null
   name?: string | null
-  role?: prisma.AuthLevel | null
+  email?: string | null
   id_proof?: IdentityProofUpdateOneInput | null
+  auth_level?: prisma.AuthLevel | null
 }
 export type UserUpdateInputInputObject =
   | Extract<keyof UserUpdateInput, string>
-  | { name: 'email', alias?: string  } 
   | { name: 'name', alias?: string  } 
-  | { name: 'role', alias?: string  } 
+  | { name: 'email', alias?: string  } 
   | { name: 'id_proof', alias?: string  } 
+  | { name: 'auth_level', alias?: string  } 
   
 export interface IdentityProofUpdateOneInput {
   create?: IdentityProofCreateInput | null
@@ -5215,17 +5215,17 @@ export type UserUpdateOneRequiredInputInputObject =
   | { name: 'connect', alias?: string  } 
   
 export interface UserUpdateDataInput {
-  email?: string | null
   name?: string | null
-  role?: prisma.AuthLevel | null
+  email?: string | null
   id_proof?: IdentityProofUpdateOneInput | null
+  auth_level?: prisma.AuthLevel | null
 }
 export type UserUpdateDataInputInputObject =
   | Extract<keyof UserUpdateDataInput, string>
-  | { name: 'email', alias?: string  } 
   | { name: 'name', alias?: string  } 
-  | { name: 'role', alias?: string  } 
+  | { name: 'email', alias?: string  } 
   | { name: 'id_proof', alias?: string  } 
+  | { name: 'auth_level', alias?: string  } 
   
 export interface UserUpsertNestedInput {
   update?: UserUpdateDataInput
@@ -5857,15 +5857,15 @@ export type IdentityProofUpsertNestedInputInputObject =
   | { name: 'create', alias?: string  } 
   
 export interface UserUpdateManyMutationInput {
-  email?: string | null
   name?: string | null
-  role?: prisma.AuthLevel | null
+  email?: string | null
+  auth_level?: prisma.AuthLevel | null
 }
 export type UserUpdateManyMutationInputInputObject =
   | Extract<keyof UserUpdateManyMutationInput, string>
-  | { name: 'email', alias?: string  } 
   | { name: 'name', alias?: string  } 
-  | { name: 'role', alias?: string  } 
+  | { name: 'email', alias?: string  } 
+  | { name: 'auth_level', alias?: string  } 
   
 export interface IdentityProofUpdateInput {
   tax_id?: TaxIdUpdateManyInput | null
@@ -6238,12 +6238,12 @@ export type UserOrderByInputValues =
   | 'createdAt_DESC'
   | 'updatedAt_ASC'
   | 'updatedAt_DESC'
-  | 'email_ASC'
-  | 'email_DESC'
   | 'name_ASC'
   | 'name_DESC'
-  | 'role_ASC'
-  | 'role_DESC'
+  | 'email_ASC'
+  | 'email_DESC'
+  | 'auth_level_ASC'
+  | 'auth_level_DESC'
   
 export type IdentityProofOrderByInputValues =
   | 'id_ASC'

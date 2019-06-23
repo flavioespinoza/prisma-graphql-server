@@ -1074,10 +1074,10 @@ type User {
   id: ID!
   createdAt: DateTime!
   updatedAt: DateTime!
+  name: String!
   email: String!
-  name: String
-  role: AuthLevel
   id_proof: IdentityProof
+  auth_level: AuthLevel
 }
 
 type UserConnection {
@@ -1088,10 +1088,10 @@ type UserConnection {
 
 input UserCreateInput {
   id: ID
+  name: String!
   email: String!
-  name: String
-  role: AuthLevel
   id_proof: IdentityProofCreateOneInput
+  auth_level: AuthLevel
 }
 
 input UserCreateOneInput {
@@ -1111,21 +1111,21 @@ enum UserOrderByInput {
   createdAt_DESC
   updatedAt_ASC
   updatedAt_DESC
-  email_ASC
-  email_DESC
   name_ASC
   name_DESC
-  role_ASC
-  role_DESC
+  email_ASC
+  email_DESC
+  auth_level_ASC
+  auth_level_DESC
 }
 
 type UserPreviousValues {
   id: ID!
   createdAt: DateTime!
   updatedAt: DateTime!
+  name: String!
   email: String!
-  name: String
-  role: AuthLevel
+  auth_level: AuthLevel
 }
 
 type UserSubscriptionPayload {
@@ -1147,23 +1147,23 @@ input UserSubscriptionWhereInput {
 }
 
 input UserUpdateDataInput {
-  email: String
   name: String
-  role: AuthLevel
+  email: String
   id_proof: IdentityProofUpdateOneInput
+  auth_level: AuthLevel
 }
 
 input UserUpdateInput {
-  email: String
   name: String
-  role: AuthLevel
+  email: String
   id_proof: IdentityProofUpdateOneInput
+  auth_level: AuthLevel
 }
 
 input UserUpdateManyMutationInput {
-  email: String
   name: String
-  role: AuthLevel
+  email: String
+  auth_level: AuthLevel
 }
 
 input UserUpdateOneRequiredInput {
@@ -1209,20 +1209,6 @@ input UserWhereInput {
   updatedAt_lte: DateTime
   updatedAt_gt: DateTime
   updatedAt_gte: DateTime
-  email: String
-  email_not: String
-  email_in: [String!]
-  email_not_in: [String!]
-  email_lt: String
-  email_lte: String
-  email_gt: String
-  email_gte: String
-  email_contains: String
-  email_not_contains: String
-  email_starts_with: String
-  email_not_starts_with: String
-  email_ends_with: String
-  email_not_ends_with: String
   name: String
   name_not: String
   name_in: [String!]
@@ -1237,11 +1223,25 @@ input UserWhereInput {
   name_not_starts_with: String
   name_ends_with: String
   name_not_ends_with: String
-  role: AuthLevel
-  role_not: AuthLevel
-  role_in: [AuthLevel!]
-  role_not_in: [AuthLevel!]
+  email: String
+  email_not: String
+  email_in: [String!]
+  email_not_in: [String!]
+  email_lt: String
+  email_lte: String
+  email_gt: String
+  email_gte: String
+  email_contains: String
+  email_not_contains: String
+  email_starts_with: String
+  email_not_starts_with: String
+  email_ends_with: String
+  email_not_ends_with: String
   id_proof: IdentityProofWhereInput
+  auth_level: AuthLevel
+  auth_level_not: AuthLevel
+  auth_level_in: [AuthLevel!]
+  auth_level_not_in: [AuthLevel!]
   AND: [UserWhereInput!]
   OR: [UserWhereInput!]
   NOT: [UserWhereInput!]
