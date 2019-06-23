@@ -29,10 +29,7 @@ const _createUser = async () => {
 
 		const new_user = await prisma.createUser({
 			email: chance.email(),
-			phoneNumber: chance.phone(),
-			name: chance.first(),
-			address: address(),
-			birthDate: _birthDate
+			name: chance.first()
 		})
 
 		console.log(new_user)

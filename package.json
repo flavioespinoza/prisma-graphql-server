@@ -14,7 +14,7 @@
 		"gen": "graphqlgen",
 		"nexus": "npx nexus-prisma-generate --client ./generated/prisma-client --output ./generated/nexus-prisma",
 		"build": "tsc",
-        "vals": "ts-node ./doc/_people.data.ts"
+		"vals": "ts-node ./doc/_people.data.ts"
 	},
 	"repository": {
 		"type": "git",
@@ -48,6 +48,7 @@
 		"nexus": "^0.12.0-beta.6",
 		"nexus-prisma": "^0.3.7",
 		"nodemon": "^1.19.1",
+		"prisma": "^1.34.0",
 		"prisma-client-lib": "^1.34.0",
 		"react": "^16.8.6"
 	},
