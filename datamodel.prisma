@@ -16,32 +16,12 @@ type Identifiers {
   phone_number: [PhoneNumber!]!
 }
 
-enum Gender {
-  M: Male
-	F: Female
-}
-
-type Female @db(name: "female") {
-	id: ID! @id
-  createdAt: DateTime! @createdAt
-  updatedAt: DateTime! @updatedAt
-  owner: User!
-	attribute: [Attribute!]! @relation(link: TABLE, name: "FemaleAttribute")
-}
-
-type Male @db(name: "male") {
-	id: ID! @id
-  createdAt: DateTime! @createdAt
-  updatedAt: DateTime! @updatedAt
-  owner: User!
-	attribute: [Attribute!]! @relation(link: TABLE, name: "MaleAttribute")
-}
-
 type TaxId @db(name: "tax_id") {
   id: ID! @id
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
   owner: User!
+	attribute: [Attribute!]! @relation(link: TABLE, name: "TaxIdAttribute")
 }
 
 type Email @db(name: "email") {
@@ -85,10 +65,32 @@ type PhoneNumberAttribute @db(name: "phone_number_attribute") @relationTable {
   attribute: Attribute
 }
 
+
+enum Gender {
+  M: Male
+	F: Female
+}
+
+type Female @db(name: "female") {
+	id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  owner: User!
+	attribute: [Attribute!]! @relation(link: TABLE, name: "FemaleAttribute")
+}
+
+type Male @db(name: "male") {
+	id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  owner: User!
+	attribute: [Attribute!]! @relation(link: TABLE, name: "MaleAttribute")
+}
+
+
 enum AuthLevel {
   ADMIN
   USER
   PROSPECT
   BLACKLISTED
 }
-
