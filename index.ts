@@ -16,6 +16,7 @@ const chance = new Chance()
 const _createUser = async () => {
 	return new Promise(async (resolve) => {
 		try {
+			
 			const address = () => {
 				let _address = chance.address()
 				let _city = chance.city()
@@ -28,11 +29,8 @@ const _createUser = async () => {
 			let _birthDate = _d.date(_birthday, '-')
 
 			const new_user = await prisma.createUser({
-				email: chance.email(),
-				phoneNumber: chance.phone(),
 				name: chance.first(),
-				address: address(),
-				birthDate: _birthDate
+				email: chance.email()
 			})
 
 			console.log(new_user)

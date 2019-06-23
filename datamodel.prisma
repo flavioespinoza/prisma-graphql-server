@@ -2,10 +2,10 @@ type User @db(name: "person") {
   id: ID! @id
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
+	name: String!
   email: String! @unique
-  name: String
-  role: AuthLevel @default(value: USER)
   id_proof: IdentityProof
+	auth_level: AuthLevel @default(value: USER)
 }
 
 type IdentityProof {
