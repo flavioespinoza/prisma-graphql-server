@@ -224,6 +224,10 @@ export interface Prisma {
     data: TaxIdUpdateInput;
     where: TaxIdWhereUniqueInput;
   }) => TaxIdPromise;
+  updateManyTaxIds: (args: {
+    data: TaxIdUpdateManyMutationInput;
+    where?: TaxIdWhereInput;
+  }) => BatchPayloadPromise;
   upsertTaxId: (args: {
     where: TaxIdWhereUniqueInput;
     create: TaxIdCreateInput;
@@ -289,6 +293,8 @@ export type AuthLevel = "ADMIN" | "USER" | "PROSPECT" | "BLACKLISTED";
 export type TaxIdOrderByInput =
   | "id_ASC"
   | "id_DESC"
+  | "db_ASC"
+  | "db_DESC"
   | "createdAt_ASC"
   | "createdAt_DESC"
   | "updatedAt_ASC"
@@ -353,6 +359,20 @@ export interface TaxIdWhereInput {
   id_not_starts_with?: Maybe<ID_Input>;
   id_ends_with?: Maybe<ID_Input>;
   id_not_ends_with?: Maybe<ID_Input>;
+  db?: Maybe<String>;
+  db_not?: Maybe<String>;
+  db_in?: Maybe<String[] | String>;
+  db_not_in?: Maybe<String[] | String>;
+  db_lt?: Maybe<String>;
+  db_lte?: Maybe<String>;
+  db_gt?: Maybe<String>;
+  db_gte?: Maybe<String>;
+  db_contains?: Maybe<String>;
+  db_not_contains?: Maybe<String>;
+  db_starts_with?: Maybe<String>;
+  db_not_starts_with?: Maybe<String>;
+  db_ends_with?: Maybe<String>;
+  db_not_ends_with?: Maybe<String>;
   createdAt?: Maybe<DateTimeInput>;
   createdAt_not?: Maybe<DateTimeInput>;
   createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
@@ -632,6 +652,7 @@ export interface TaxIdCreateManyInput {
 
 export interface TaxIdCreateInput {
   id?: Maybe<ID_Input>;
+  db: String;
   owner: UserCreateOneInput;
 }
 
@@ -758,6 +779,9 @@ export interface TaxIdUpdateManyInput {
   set?: Maybe<TaxIdWhereUniqueInput[] | TaxIdWhereUniqueInput>;
   disconnect?: Maybe<TaxIdWhereUniqueInput[] | TaxIdWhereUniqueInput>;
   deleteMany?: Maybe<TaxIdScalarWhereInput[] | TaxIdScalarWhereInput>;
+  updateMany?: Maybe<
+    TaxIdUpdateManyWithWhereNestedInput[] | TaxIdUpdateManyWithWhereNestedInput
+  >;
 }
 
 export interface TaxIdUpdateWithWhereUniqueNestedInput {
@@ -766,6 +790,7 @@ export interface TaxIdUpdateWithWhereUniqueNestedInput {
 }
 
 export interface TaxIdUpdateDataInput {
+  db?: Maybe<String>;
   owner?: Maybe<UserUpdateOneRequiredInput>;
 }
 
@@ -1168,6 +1193,20 @@ export interface TaxIdScalarWhereInput {
   id_not_starts_with?: Maybe<ID_Input>;
   id_ends_with?: Maybe<ID_Input>;
   id_not_ends_with?: Maybe<ID_Input>;
+  db?: Maybe<String>;
+  db_not?: Maybe<String>;
+  db_in?: Maybe<String[] | String>;
+  db_not_in?: Maybe<String[] | String>;
+  db_lt?: Maybe<String>;
+  db_lte?: Maybe<String>;
+  db_gt?: Maybe<String>;
+  db_gte?: Maybe<String>;
+  db_contains?: Maybe<String>;
+  db_not_contains?: Maybe<String>;
+  db_starts_with?: Maybe<String>;
+  db_not_starts_with?: Maybe<String>;
+  db_ends_with?: Maybe<String>;
+  db_not_ends_with?: Maybe<String>;
   createdAt?: Maybe<DateTimeInput>;
   createdAt_not?: Maybe<DateTimeInput>;
   createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
@@ -1187,6 +1226,15 @@ export interface TaxIdScalarWhereInput {
   AND?: Maybe<TaxIdScalarWhereInput[] | TaxIdScalarWhereInput>;
   OR?: Maybe<TaxIdScalarWhereInput[] | TaxIdScalarWhereInput>;
   NOT?: Maybe<TaxIdScalarWhereInput[] | TaxIdScalarWhereInput>;
+}
+
+export interface TaxIdUpdateManyWithWhereNestedInput {
+  where: TaxIdScalarWhereInput;
+  data: TaxIdUpdateManyDataInput;
+}
+
+export interface TaxIdUpdateManyDataInput {
+  db?: Maybe<String>;
 }
 
 export interface AttributeUpdateManyMutationInput {
@@ -1210,7 +1258,12 @@ export interface PhoneNumberUpdateInput {
 }
 
 export interface TaxIdUpdateInput {
+  db?: Maybe<String>;
   owner?: Maybe<UserUpdateOneRequiredInput>;
+}
+
+export interface TaxIdUpdateManyMutationInput {
+  db?: Maybe<String>;
 }
 
 export interface UserUpdateInput {
@@ -1415,12 +1468,14 @@ export interface AttributeNullablePromise
 
 export interface TaxId {
   id: ID_Output;
+  db: String;
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
 }
 
 export interface TaxIdPromise extends Promise<TaxId>, Fragmentable {
   id: () => Promise<ID_Output>;
+  db: () => Promise<String>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
   owner: <T = UserPromise>() => T;
@@ -1430,6 +1485,7 @@ export interface TaxIdSubscription
   extends Promise<AsyncIterator<TaxId>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
+  db: () => Promise<AsyncIterator<String>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   owner: <T = UserSubscription>() => T;
@@ -1439,6 +1495,7 @@ export interface TaxIdNullablePromise
   extends Promise<TaxId | null>,
     Fragmentable {
   id: () => Promise<ID_Output>;
+  db: () => Promise<String>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
   owner: <T = UserPromise>() => T;
@@ -2277,6 +2334,7 @@ export interface TaxIdSubscriptionPayloadSubscription
 
 export interface TaxIdPreviousValues {
   id: ID_Output;
+  db: String;
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
 }
@@ -2285,6 +2343,7 @@ export interface TaxIdPreviousValuesPromise
   extends Promise<TaxIdPreviousValues>,
     Fragmentable {
   id: () => Promise<ID_Output>;
+  db: () => Promise<String>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
 }
@@ -2293,6 +2352,7 @@ export interface TaxIdPreviousValuesSubscription
   extends Promise<AsyncIterator<TaxIdPreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
+  db: () => Promise<AsyncIterator<String>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }

@@ -632,6 +632,7 @@ type Mutation {
   deleteManyPhoneNumbers(where: PhoneNumberWhereInput): BatchPayload!
   createTaxId(data: TaxIdCreateInput!): TaxId!
   updateTaxId(data: TaxIdUpdateInput!, where: TaxIdWhereUniqueInput!): TaxId
+  updateManyTaxIds(data: TaxIdUpdateManyMutationInput!, where: TaxIdWhereInput): BatchPayload!
   upsertTaxId(where: TaxIdWhereUniqueInput!, create: TaxIdCreateInput!, update: TaxIdUpdateInput!): TaxId!
   deleteTaxId(where: TaxIdWhereUniqueInput!): TaxId
   deleteManyTaxIds(where: TaxIdWhereInput): BatchPayload!
@@ -904,6 +905,7 @@ type Subscription {
 
 type TaxId {
   id: ID!
+  db: String!
   createdAt: DateTime!
   updatedAt: DateTime!
   owner: User!
@@ -917,6 +919,7 @@ type TaxIdConnection {
 
 input TaxIdCreateInput {
   id: ID
+  db: String!
   owner: UserCreateOneInput!
 }
 
@@ -933,6 +936,8 @@ type TaxIdEdge {
 enum TaxIdOrderByInput {
   id_ASC
   id_DESC
+  db_ASC
+  db_DESC
   createdAt_ASC
   createdAt_DESC
   updatedAt_ASC
@@ -941,6 +946,7 @@ enum TaxIdOrderByInput {
 
 type TaxIdPreviousValues {
   id: ID!
+  db: String!
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -960,6 +966,20 @@ input TaxIdScalarWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
+  db: String
+  db_not: String
+  db_in: [String!]
+  db_not_in: [String!]
+  db_lt: String
+  db_lte: String
+  db_gt: String
+  db_gte: String
+  db_contains: String
+  db_not_contains: String
+  db_starts_with: String
+  db_not_starts_with: String
+  db_ends_with: String
+  db_not_ends_with: String
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]
@@ -1000,11 +1020,17 @@ input TaxIdSubscriptionWhereInput {
 }
 
 input TaxIdUpdateDataInput {
+  db: String
   owner: UserUpdateOneRequiredInput
 }
 
 input TaxIdUpdateInput {
+  db: String
   owner: UserUpdateOneRequiredInput
+}
+
+input TaxIdUpdateManyDataInput {
+  db: String
 }
 
 input TaxIdUpdateManyInput {
@@ -1016,6 +1042,16 @@ input TaxIdUpdateManyInput {
   set: [TaxIdWhereUniqueInput!]
   disconnect: [TaxIdWhereUniqueInput!]
   deleteMany: [TaxIdScalarWhereInput!]
+  updateMany: [TaxIdUpdateManyWithWhereNestedInput!]
+}
+
+input TaxIdUpdateManyMutationInput {
+  db: String
+}
+
+input TaxIdUpdateManyWithWhereNestedInput {
+  where: TaxIdScalarWhereInput!
+  data: TaxIdUpdateManyDataInput!
 }
 
 input TaxIdUpdateWithWhereUniqueNestedInput {
@@ -1044,6 +1080,20 @@ input TaxIdWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
+  db: String
+  db_not: String
+  db_in: [String!]
+  db_not_in: [String!]
+  db_lt: String
+  db_lte: String
+  db_gt: String
+  db_gte: String
+  db_contains: String
+  db_not_contains: String
+  db_starts_with: String
+  db_not_starts_with: String
+  db_ends_with: String
+  db_not_ends_with: String
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]
