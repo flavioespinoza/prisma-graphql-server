@@ -101,3 +101,12 @@ Below are select few ready-to-run examples demonstrating various use cases
 | [`docker-mysql`](https://github.com/prisma/prisma-examples/tree/master/node/docker-mysql) | Set up Prisma locally with MySQL |
 | [`docker-postgres`](https://github.com/prisma/prisma-examples/tree/master/node/docker-postgres) | Set up Prisma locally with PostgreSQL |
 
+
+
+
+
+```bash
+ws://localhost:4466/
+```
+
+

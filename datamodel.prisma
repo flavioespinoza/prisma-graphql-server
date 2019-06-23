@@ -5,10 +5,10 @@ type User @db(name: "person") {
   email: String! @unique
   name: String
   role: AuthLevel @default(value: USER)
-  id_proof: IdProof
+  id_proof: IdentityProof
 }
 
-type IdProof {
+type IdentityProof {
   id: ID! @id
   tax_id: [TaxId!]!
   email: [Email!]!

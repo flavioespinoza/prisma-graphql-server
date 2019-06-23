@@ -4,7 +4,7 @@
 language: typescript
 
 # The file path pointing to your GraphQL schema
-schema: ./generated/schema.graphql
+schema: ./schema.graphql
 
 output: ./generated/prisma-client/resolvers.ts
 

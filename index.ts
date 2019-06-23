@@ -14,33 +14,35 @@ const Chance = require('chance')
 const chance = new Chance()
 
 const _createUser = async () => {
-	try {
-		const address = () => {
-			let _address = chance.address()
-			let _city = chance.city()
-			let _state = chance.state()
-			let _zipcode = chance.postcode()
-			return `${_address} ${_city} ${_state} ${_zipcode}`
+	return new Promise(async (resolve) => {
+		try {
+			const address = () => {
+				let _address = chance.address()
+				let _city = chance.city()
+				let _state = chance.state()
+				let _zipcode = chance.postcode()
+				return `${_address} ${_city} ${_state} ${_zipcode}`
+			}
+
+			let _birthday = chance.birthday({ string: true })
+			let _birthDate = _d.date(_birthday, '-')
+
+			const new_user = await prisma.createUser({
+				email: chance.email(),
+				phoneNumber: chance.phone(),
+				name: chance.first(),
+				address: address(),
+				birthDate: _birthDate
+			})
+
+			console.log(new_user)
+
+			resolve(new_user)
+
+		} catch (err) {
+			console.error('User', err)
 		}
-
-		let _birthday = chance.birthday({ string: true })
-		let _birthDate = _d.date(_birthday, '-')
-
-		const new_user = await prisma.createUser({
-			email: chance.email(),
-			phoneNumber: chance.phone(),
-			name: chance.first(),
-			address: address(),
-			birthDate: _birthDate
-		})
-
-		console.log(new_user)
-
-		return new_user
-
-	} catch (err) {
-		console.error('User', err)
-	}
+	})
 }
 
 // A `main` function so that we can use async/await
