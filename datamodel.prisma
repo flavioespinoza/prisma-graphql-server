@@ -1,124 +1,75 @@
-
-type id_attrs_input {
-  email: String,
-  phoneNumber: String,
-  name: String,
-  address: String,
-  birthDate: String
-}
-
-type QueryPerson () {
-  person(id_attrs_input)
-}
-
-
-
-type PNMetadata {
-  someMetadata: String
-}
-
-type User {
-  _pnMetadata: PNMetadata
+type User @db(name: "person") {
   id: ID! @id
-	email: String @unique
-	phoneNumber: String
-	name: String
-	address: String
-	birthDate: String
-  postalAddresses: [PostalAddress]
-  names: [Name]
-  identifiers: Identifier
-  gender: Gender
-  recordID: String
-  sourceID: String
-  type: String!
+  createdAt: DateTime! @createdAt
+  email: String! @unique
+  name: String
+  role: AuthRole @default(value: USER)
+  profile: Profile @relation(link: INLINE)
+  id_proof: IdProof
 }
 
-type Name {
-  _pnMetadata: PNMetadata
-  additionlName: String
-  endDate: String
-  familyName: String
-  fullName: String
-  givenName: String
-  honorificPrefix: String
-  honorificSuffix: String
-  startDate: String
-  type: String!
-  use: [NameUse]
+type IdProof {
+  id: ID! @id
+  ssn: [SSN!]!
+  email: [Email!]!
+  phone_number: [PhoneNumber!]!
 }
 
-enum NameUse {
-  ALIAS
-  PRIMARY
+type Profile @db(name: "profile") {
+  id: ID! @id
+  user: User!
+  bio: String!
 }
 
-# String: 'spongebob@gmail.com'
-type Email {
-  _pnMetadata: PNMetadata
-  endDate: String
-  startDate: String
-  type: String!
-  value: String!
+type SSN @db(name: "ssn") {
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  owner: User!
 }
 
-type Identifier {
-  SSNs: [SSN]
-  emails: [Email]
-  phoneNumbers: [PhoneNumber]
-  type: String!
+type Email @db(name: "email") {
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  owner: User!
+  attribute: [Attribute!]! @relation(link: TABLE, name: "EmailAttribute")
 }
 
-# String:  <--- should be a number
-# +10633731605
-type PhoneNumber {
-  _pnMetadata: PNMetadata
-  endDate: String
-  startDate: String
-  type: String!
-  use: [PhoneNumberUse]
-  value: String!
+type PhoneNumber @db(name: "phone_number") {
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  owner: User!
+  attribute: [Attribute!]! @relation(link: TABLE, name: "PhoneNumberAttribute")
 }
 
-# String: '357 E 300 N Price UT 84501' <--- This should be an object
-type PostalAddress {
-  _pnMetadata: PNMetadata
-  addressCountry: String
-  addressFull: String
-  addressLocality: String
-  addressRegion: String
-  endDate: String
-  postOfficeBoxNumber: String
-  postalCode: String
-  startDate: String
-  streetAddress: String
-  type: String!
-  use: [PostalAddressUse]
+type Attribute @db(name: "attribute") {
+  id: ID! @id
+  attr_type: String!
+  ssn: [SSN!]! @relation(name: "SSNAttribute")
+  email: [Email!]! @relation(name: "EmailAttribute")
+  phone_number: [PhoneNumber!]! @relation(name: "PhoneNumberAttribute")
 }
 
-
-# String: 'HOME'
-enum PostalAddressUse {
-  HOME
-  WORK
-  MAIL
-  BILLING
+type SSNAttribute @db(name: "ssn_attribute") @relationTable {
+  ssn: SSN
+  attribute: Attribute
 }
 
-#
-# Number: 333666111
-type SSN {
-  _pnMetadata: PNMetadata
-  endDate: String
-  startDate: String
-  type: String!
-  use: PhoneNumberUse
-  value: String!
+type EmailAttribute @db(name: "email_attribute") @relationTable {
+  email: Email
+  attribute: Attribute
 }
 
-# String: 'M'
-enum Gender {
-  M
-  F
+type PhoneNumberAttribute @db(name: "phone_number_attribute") @relationTable {
+  phone_number: PhoneNumber
+  attribute: Attribute
 }
 
+enum AuthRole {
+  BLACKLISTED
+  PROSPECT
+  USER
+  ADMIN
+}
