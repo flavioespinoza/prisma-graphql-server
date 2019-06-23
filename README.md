@@ -3,7 +3,7 @@
 GraphQL layer tools incl. ORM, Migrations and Admin UI (Postgres, MySQL & MongoDB)
 
 ## Getting Started
-
+yarn add @flavioespinoza/log_log
 
 
 ### Local Dev Environment
@@ -100,4 +100,13 @@ Below are select few ready-to-run examples demonstrating various use cases
 | [`docker-mongodb`](https://github.com/prisma/prisma-examples/tree/master/node/docker-mongodb) | Set up Prisma locally with MongoDB |
 | [`docker-mysql`](https://github.com/prisma/prisma-examples/tree/master/node/docker-mysql) | Set up Prisma locally with MySQL |
 | [`docker-postgres`](https://github.com/prisma/prisma-examples/tree/master/node/docker-postgres) | Set up Prisma locally with PostgreSQL |
+
+
+
+
+
+```bash
+ws://localhost:4466/
+```
+
 

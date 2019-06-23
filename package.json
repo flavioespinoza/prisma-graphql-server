@@ -1,60 +1,58 @@
 {
-	"name": "prisma-graphql-server",
-	"version": "1.0.4",
-	"description": "GraphQL layer tools incl. ORM, Migrations and Admin UI (Postgres, MySQL & MongoDB)",
-	"main": "index.js",
-	"directories": {
-		"doc": "doc"
-	},
-	"scripts": {
-		"test": "test",
-		"start": "node ./dist/index.js",
-		"dev": "ts-node ./index.ts",
-		"types": "graphql-codegen",
-		"gen": "graphqlgen",
-		"prebuild": "prisma generate && npx nexus-prisma-generate --client ./generated/prisma-client --output ./generated/nexus-prisma",
-		"nexus": "npx nexus-prisma-generate --client ./generated/prisma-client --output ./generated/nexus-prisma",
-		"build": "tsc"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/flavioespinoza/prisma-graphql-server.git"
-	},
-	"keywords": [
-		"prisma",
-		"prisma nexus",
-		"prisma-nexus",
-		"nexus",
-		"graphql",
-		"graphql server",
-		"graphql-server"
-	],
-	"author": "Flavio Espinoza <flavio.espinoza@gmail.com> (@FlavioEspinoza)",
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/flavioespinoza/prisma-graphql-server/issues"
-	},
-	"homepage": "https://github.com/flavioespinoza/prisma-graphql-server#readme",
-	"dependencies": {
-		"axios": "^0.19.0",
-		"chance": "^1.0.18",
-		"datedash": "^1.0.53",
-		"dotenv": "^8.0.0",
-		"graphql": "^14.3.1",
-		"graphql-yoga": "^1.18.0",
-		"jest": "^24.8.0",
-		"lodash": "^4.17.11",
-		"nexus": "^0.12.0-beta.6",
-		"nexus-prisma": "^0.3.7",
-		"nodemon": "^1.19.1",
-		"ololog": "^1.1.129",
-		"prisma-client-lib": "^1.34.0",
-		"react": "^16.8.6"
-	},
-	"devDependencies": {
-		"graphqlgen": "^0.6.0-rc9",
-		"ts-node": "^8.3.0",
-		"ts-node-dev": "^1.0.0-pre.40",
-		"typescript": "3.3.3"
-	}
+  "name": "prisma-graphql-server",
+  "version": "1.0.5",
+  "description": "GraphQL layer tools incl. ORM, Migrations and Admin UI (Postgres, MySQL & MongoDB)",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "start": "node ./dist/index.js",
+    "dev": "ts-node ./index.ts",
+    "build": "tsc",
+    "pd": "prisma deploy --force",
+    "pgen": "prisma generate",
+    "nexus": "npx nexus-prisma-generate --client ./generated/prisma-client --output ./generated/nexus-prisma",
+    "gen": "graphqlgen"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flavioespinoza/prisma-graphql-server.git"
+  },
+  "keywords": [
+    "prisma",
+    "prisma nexus",
+    "prisma-nexus",
+    "nexus",
+    "graphql",
+    "graphql server",
+    "graphql-server"
+  ],
+  "author": "Flavio Espinoza <flavio.espinoza@gmail.com> (@FlavioEspinoza)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/flavioespinoza/prisma-graphql-server/issues"
+  },
+  "homepage": "https://github.com/flavioespinoza/prisma-graphql-server#readme",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "chance": "^1.0.18",
+    "datedash": "^1.0.53",
+    "dotenv": "^8.0.0",
+    "graphql": "^14.3.1",
+    "graphql-schema-from-json": "^0.0.3",
+    "graphql-yoga": "^1.18.0",
+    "lodash": "^4.17.11",
+    "nexus": "^0.12.0-beta.6",
+    "nexus-prisma": "^0.3.7",
+    "prisma-client-lib": "^1.34.0",
+    "react": "^16.8.6"
+  },
+  "devDependencies": {
+    "graphqlgen": "^0.6.0-rc9",
+    "jest": "^24.8.0",
+    "ts-node": "^8.3.0",
+    "ts-node-dev": "^1.0.0-pre.40",
+    "typescript": "3.3.3"
+  }
 }
