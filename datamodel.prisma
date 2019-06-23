@@ -1,27 +1,21 @@
 type User @db(name: "person") {
   id: ID! @id
   createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
   email: String! @unique
   name: String
-  role: AuthRole @default(value: USER)
-  profile: Profile @relation(link: INLINE)
+  role: AuthLevel @default(value: USER)
   id_proof: IdProof
 }
 
 type IdProof {
   id: ID! @id
-  ssn: [SSN!]!
+  tax_id: [TaxId!]!
   email: [Email!]!
   phone_number: [PhoneNumber!]!
 }
 
-type Profile @db(name: "profile") {
-  id: ID! @id
-  user: User!
-  bio: String!
-}
-
-type SSN @db(name: "ssn") {
+type TaxId @db(name: "tax_id") {
   id: ID! @id
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
@@ -47,13 +41,13 @@ type PhoneNumber @db(name: "phone_number") {
 type Attribute @db(name: "attribute") {
   id: ID! @id
   attr_type: String!
-  ssn: [SSN!]! @relation(name: "SSNAttribute")
+  tax_id: [TaxId!]! @relation(name: "TaxIdAttribute")
   email: [Email!]! @relation(name: "EmailAttribute")
   phone_number: [PhoneNumber!]! @relation(name: "PhoneNumberAttribute")
 }
 
-type SSNAttribute @db(name: "ssn_attribute") @relationTable {
-  ssn: SSN
+type TaxIdAttribute @db(name: "tax_id_attribute") @relationTable {
+  tax_id: TaxId
   attribute: Attribute
 }
 
@@ -67,9 +61,9 @@ type PhoneNumberAttribute @db(name: "phone_number_attribute") @relationTable {
   attribute: Attribute
 }
 
-enum AuthRole {
-  BLACKLISTED
-  PROSPECT
-  USER
+enum AuthLevel {
   ADMIN
+  USER
+  PROSPECT
+  BLACKLISTED
 }
