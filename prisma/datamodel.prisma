@@ -1,0 +1,69 @@
+type User @db(name: "person") {
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+	name: String!
+  email: String! @unique
+  id_proof: IdentityProof
+	auth_level: AuthLevel @default(value: USER)
+}
+
+type IdentityProof {
+  id: ID! @id
+  tax_id: [TaxId!]!
+  email: [Email!]!
+  phone_number: [PhoneNumber!]!
+}
+
+type TaxId @db(name: "tax_id") {
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  owner: User!
+}
+
+type Email @db(name: "email") {
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  owner: User!
+  attribute: [Attribute!]! @relation(link: TABLE, name: "EmailAttribute")
+}
+
+type PhoneNumber @db(name: "phone_number") {
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  owner: User!
+  attribute: [Attribute!]! @relation(link: TABLE, name: "PhoneNumberAttribute")
+}
+
+type Attribute @db(name: "attribute") {
+  id: ID! @id
+  attr_type: String!
+  tax_id: [TaxId!]! @relation(name: "TaxIdAttribute")
+  email: [Email!]! @relation(name: "EmailAttribute")
+  phone_number: [PhoneNumber!]! @relation(name: "PhoneNumberAttribute")
+}
+
+type TaxIdAttribute @db(name: "tax_id_attribute") @relationTable {
+  tax_id: TaxId
+  attribute: Attribute
+}
+
+type EmailAttribute @db(name: "email_attribute") @relationTable {
+  email: Email
+  attribute: Attribute
+}
+
+type PhoneNumberAttribute @db(name: "phone_number_attribute") @relationTable {
+  phone_number: PhoneNumber
+  attribute: Attribute
+}
+
+enum AuthLevel {
+  ADMIN
+  USER
+  PROSPECT
+  BLACKLISTED
+}
