@@ -18,7 +18,7 @@ export type Maybe<T> = T | undefined | null;
 export interface Exists {
   attribute: (where?: AttributeWhereInput) => Promise<boolean>;
   email: (where?: EmailWhereInput) => Promise<boolean>;
-  idProof: (where?: IdProofWhereInput) => Promise<boolean>;
+  identifiers: (where?: IdentifiersWhereInput) => Promise<boolean>;
   phoneNumber: (where?: PhoneNumberWhereInput) => Promise<boolean>;
   taxId: (where?: TaxIdWhereInput) => Promise<boolean>;
   user: (where?: UserWhereInput) => Promise<boolean>;
@@ -81,25 +81,27 @@ export interface Prisma {
     first?: Int;
     last?: Int;
   }) => EmailConnectionPromise;
-  idProof: (where: IdProofWhereUniqueInput) => IdProofNullablePromise;
-  idProofs: (args?: {
-    where?: IdProofWhereInput;
-    orderBy?: IdProofOrderByInput;
+  identifiers: (
+    where: IdentifiersWhereUniqueInput
+  ) => IdentifiersNullablePromise;
+  identifierses: (args?: {
+    where?: IdentifiersWhereInput;
+    orderBy?: IdentifiersOrderByInput;
     skip?: Int;
     after?: String;
     before?: String;
     first?: Int;
     last?: Int;
-  }) => FragmentableArray<IdProof>;
-  idProofsConnection: (args?: {
-    where?: IdProofWhereInput;
-    orderBy?: IdProofOrderByInput;
+  }) => FragmentableArray<Identifiers>;
+  identifiersesConnection: (args?: {
+    where?: IdentifiersWhereInput;
+    orderBy?: IdentifiersOrderByInput;
     skip?: Int;
     after?: String;
     before?: String;
     first?: Int;
     last?: Int;
-  }) => IdProofConnectionPromise;
+  }) => IdentifiersConnectionPromise;
   phoneNumber: (
     where: PhoneNumberWhereUniqueInput
   ) => PhoneNumberNullablePromise;
@@ -193,18 +195,20 @@ export interface Prisma {
   }) => EmailPromise;
   deleteEmail: (where: EmailWhereUniqueInput) => EmailPromise;
   deleteManyEmails: (where?: EmailWhereInput) => BatchPayloadPromise;
-  createIdProof: (data: IdProofCreateInput) => IdProofPromise;
-  updateIdProof: (args: {
-    data: IdProofUpdateInput;
-    where: IdProofWhereUniqueInput;
-  }) => IdProofPromise;
-  upsertIdProof: (args: {
-    where: IdProofWhereUniqueInput;
-    create: IdProofCreateInput;
-    update: IdProofUpdateInput;
-  }) => IdProofPromise;
-  deleteIdProof: (where: IdProofWhereUniqueInput) => IdProofPromise;
-  deleteManyIdProofs: (where?: IdProofWhereInput) => BatchPayloadPromise;
+  createIdentifiers: (data: IdentifiersCreateInput) => IdentifiersPromise;
+  updateIdentifiers: (args: {
+    data: IdentifiersUpdateInput;
+    where: IdentifiersWhereUniqueInput;
+  }) => IdentifiersPromise;
+  upsertIdentifiers: (args: {
+    where: IdentifiersWhereUniqueInput;
+    create: IdentifiersCreateInput;
+    update: IdentifiersUpdateInput;
+  }) => IdentifiersPromise;
+  deleteIdentifiers: (where: IdentifiersWhereUniqueInput) => IdentifiersPromise;
+  deleteManyIdentifierses: (
+    where?: IdentifiersWhereInput
+  ) => BatchPayloadPromise;
   createPhoneNumber: (data: PhoneNumberCreateInput) => PhoneNumberPromise;
   updatePhoneNumber: (args: {
     data: PhoneNumberUpdateInput;
@@ -224,10 +228,6 @@ export interface Prisma {
     data: TaxIdUpdateInput;
     where: TaxIdWhereUniqueInput;
   }) => TaxIdPromise;
-  updateManyTaxIds: (args: {
-    data: TaxIdUpdateManyMutationInput;
-    where?: TaxIdWhereInput;
-  }) => BatchPayloadPromise;
   upsertTaxId: (args: {
     where: TaxIdWhereUniqueInput;
     create: TaxIdCreateInput;
@@ -266,9 +266,9 @@ export interface Subscription {
   email: (
     where?: EmailSubscriptionWhereInput
   ) => EmailSubscriptionPayloadSubscription;
-  idProof: (
-    where?: IdProofSubscriptionWhereInput
-  ) => IdProofSubscriptionPayloadSubscription;
+  identifiers: (
+    where?: IdentifiersSubscriptionWhereInput
+  ) => IdentifiersSubscriptionPayloadSubscription;
   phoneNumber: (
     where?: PhoneNumberSubscriptionWhereInput
   ) => PhoneNumberSubscriptionPayloadSubscription;
@@ -293,8 +293,6 @@ export type AuthLevel = "ADMIN" | "USER" | "PROSPECT" | "BLACKLISTED";
 export type TaxIdOrderByInput =
   | "id_ASC"
   | "id_DESC"
-  | "db_ASC"
-  | "db_DESC"
   | "createdAt_ASC"
   | "createdAt_DESC"
   | "updatedAt_ASC"
@@ -322,7 +320,7 @@ export type PhoneNumberOrderByInput =
   | "updatedAt_ASC"
   | "updatedAt_DESC";
 
-export type IdProofOrderByInput = "id_ASC" | "id_DESC";
+export type IdentifiersOrderByInput = "id_ASC" | "id_DESC";
 
 export type UserOrderByInput =
   | "id_ASC"
@@ -359,20 +357,6 @@ export interface TaxIdWhereInput {
   id_not_starts_with?: Maybe<ID_Input>;
   id_ends_with?: Maybe<ID_Input>;
   id_not_ends_with?: Maybe<ID_Input>;
-  db?: Maybe<String>;
-  db_not?: Maybe<String>;
-  db_in?: Maybe<String[] | String>;
-  db_not_in?: Maybe<String[] | String>;
-  db_lt?: Maybe<String>;
-  db_lte?: Maybe<String>;
-  db_gt?: Maybe<String>;
-  db_gte?: Maybe<String>;
-  db_contains?: Maybe<String>;
-  db_not_contains?: Maybe<String>;
-  db_starts_with?: Maybe<String>;
-  db_not_starts_with?: Maybe<String>;
-  db_ends_with?: Maybe<String>;
-  db_not_ends_with?: Maybe<String>;
   createdAt?: Maybe<DateTimeInput>;
   createdAt_not?: Maybe<DateTimeInput>;
   createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
@@ -458,13 +442,13 @@ export interface UserWhereInput {
   role_not?: Maybe<AuthLevel>;
   role_in?: Maybe<AuthLevel[] | AuthLevel>;
   role_not_in?: Maybe<AuthLevel[] | AuthLevel>;
-  id_proof?: Maybe<IdProofWhereInput>;
+  identifiers?: Maybe<IdentifiersWhereInput>;
   AND?: Maybe<UserWhereInput[] | UserWhereInput>;
   OR?: Maybe<UserWhereInput[] | UserWhereInput>;
   NOT?: Maybe<UserWhereInput[] | UserWhereInput>;
 }
 
-export interface IdProofWhereInput {
+export interface IdentifiersWhereInput {
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
@@ -488,9 +472,9 @@ export interface IdProofWhereInput {
   phone_number_every?: Maybe<PhoneNumberWhereInput>;
   phone_number_some?: Maybe<PhoneNumberWhereInput>;
   phone_number_none?: Maybe<PhoneNumberWhereInput>;
-  AND?: Maybe<IdProofWhereInput[] | IdProofWhereInput>;
-  OR?: Maybe<IdProofWhereInput[] | IdProofWhereInput>;
-  NOT?: Maybe<IdProofWhereInput[] | IdProofWhereInput>;
+  AND?: Maybe<IdentifiersWhereInput[] | IdentifiersWhereInput>;
+  OR?: Maybe<IdentifiersWhereInput[] | IdentifiersWhereInput>;
+  NOT?: Maybe<IdentifiersWhereInput[] | IdentifiersWhereInput>;
 }
 
 export interface EmailWhereInput {
@@ -620,7 +604,7 @@ export type EmailWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
 }>;
 
-export type IdProofWhereUniqueInput = AtLeastOne<{
+export type IdentifiersWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
 }>;
 
@@ -652,7 +636,6 @@ export interface TaxIdCreateManyInput {
 
 export interface TaxIdCreateInput {
   id?: Maybe<ID_Input>;
-  db: String;
   owner: UserCreateOneInput;
 }
 
@@ -666,15 +649,15 @@ export interface UserCreateInput {
   email: String;
   name?: Maybe<String>;
   role?: Maybe<AuthLevel>;
-  id_proof?: Maybe<IdProofCreateOneInput>;
+  identifiers?: Maybe<IdentifiersCreateOneInput>;
 }
 
-export interface IdProofCreateOneInput {
-  create?: Maybe<IdProofCreateInput>;
-  connect?: Maybe<IdProofWhereUniqueInput>;
+export interface IdentifiersCreateOneInput {
+  create?: Maybe<IdentifiersCreateInput>;
+  connect?: Maybe<IdentifiersWhereUniqueInput>;
 }
 
-export interface IdProofCreateInput {
+export interface IdentifiersCreateInput {
   id?: Maybe<ID_Input>;
   tax_id?: Maybe<TaxIdCreateManyInput>;
   email?: Maybe<EmailCreateManyInput>;
@@ -779,9 +762,6 @@ export interface TaxIdUpdateManyInput {
   set?: Maybe<TaxIdWhereUniqueInput[] | TaxIdWhereUniqueInput>;
   disconnect?: Maybe<TaxIdWhereUniqueInput[] | TaxIdWhereUniqueInput>;
   deleteMany?: Maybe<TaxIdScalarWhereInput[] | TaxIdScalarWhereInput>;
-  updateMany?: Maybe<
-    TaxIdUpdateManyWithWhereNestedInput[] | TaxIdUpdateManyWithWhereNestedInput
-  >;
 }
 
 export interface TaxIdUpdateWithWhereUniqueNestedInput {
@@ -790,7 +770,6 @@ export interface TaxIdUpdateWithWhereUniqueNestedInput {
 }
 
 export interface TaxIdUpdateDataInput {
-  db?: Maybe<String>;
   owner?: Maybe<UserUpdateOneRequiredInput>;
 }
 
@@ -805,19 +784,19 @@ export interface UserUpdateDataInput {
   email?: Maybe<String>;
   name?: Maybe<String>;
   role?: Maybe<AuthLevel>;
-  id_proof?: Maybe<IdProofUpdateOneInput>;
+  identifiers?: Maybe<IdentifiersUpdateOneInput>;
 }
 
-export interface IdProofUpdateOneInput {
-  create?: Maybe<IdProofCreateInput>;
-  update?: Maybe<IdProofUpdateDataInput>;
-  upsert?: Maybe<IdProofUpsertNestedInput>;
+export interface IdentifiersUpdateOneInput {
+  create?: Maybe<IdentifiersCreateInput>;
+  update?: Maybe<IdentifiersUpdateDataInput>;
+  upsert?: Maybe<IdentifiersUpsertNestedInput>;
   delete?: Maybe<Boolean>;
   disconnect?: Maybe<Boolean>;
-  connect?: Maybe<IdProofWhereUniqueInput>;
+  connect?: Maybe<IdentifiersWhereUniqueInput>;
 }
 
-export interface IdProofUpdateDataInput {
+export interface IdentifiersUpdateDataInput {
   tax_id?: Maybe<TaxIdUpdateManyInput>;
   email?: Maybe<EmailUpdateManyInput>;
   phone_number?: Maybe<PhoneNumberUpdateManyInput>;
@@ -1162,9 +1141,9 @@ export interface PhoneNumberUpsertWithWhereUniqueNestedInput {
   create: PhoneNumberCreateInput;
 }
 
-export interface IdProofUpsertNestedInput {
-  update: IdProofUpdateDataInput;
-  create: IdProofCreateInput;
+export interface IdentifiersUpsertNestedInput {
+  update: IdentifiersUpdateDataInput;
+  create: IdentifiersCreateInput;
 }
 
 export interface UserUpsertNestedInput {
@@ -1193,20 +1172,6 @@ export interface TaxIdScalarWhereInput {
   id_not_starts_with?: Maybe<ID_Input>;
   id_ends_with?: Maybe<ID_Input>;
   id_not_ends_with?: Maybe<ID_Input>;
-  db?: Maybe<String>;
-  db_not?: Maybe<String>;
-  db_in?: Maybe<String[] | String>;
-  db_not_in?: Maybe<String[] | String>;
-  db_lt?: Maybe<String>;
-  db_lte?: Maybe<String>;
-  db_gt?: Maybe<String>;
-  db_gte?: Maybe<String>;
-  db_contains?: Maybe<String>;
-  db_not_contains?: Maybe<String>;
-  db_starts_with?: Maybe<String>;
-  db_not_starts_with?: Maybe<String>;
-  db_ends_with?: Maybe<String>;
-  db_not_ends_with?: Maybe<String>;
   createdAt?: Maybe<DateTimeInput>;
   createdAt_not?: Maybe<DateTimeInput>;
   createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
@@ -1228,15 +1193,6 @@ export interface TaxIdScalarWhereInput {
   NOT?: Maybe<TaxIdScalarWhereInput[] | TaxIdScalarWhereInput>;
 }
 
-export interface TaxIdUpdateManyWithWhereNestedInput {
-  where: TaxIdScalarWhereInput;
-  data: TaxIdUpdateManyDataInput;
-}
-
-export interface TaxIdUpdateManyDataInput {
-  db?: Maybe<String>;
-}
-
 export interface AttributeUpdateManyMutationInput {
   attr_type?: Maybe<String>;
 }
@@ -1246,7 +1202,7 @@ export interface EmailUpdateInput {
   attribute?: Maybe<AttributeUpdateManyWithoutEmailInput>;
 }
 
-export interface IdProofUpdateInput {
+export interface IdentifiersUpdateInput {
   tax_id?: Maybe<TaxIdUpdateManyInput>;
   email?: Maybe<EmailUpdateManyInput>;
   phone_number?: Maybe<PhoneNumberUpdateManyInput>;
@@ -1258,19 +1214,14 @@ export interface PhoneNumberUpdateInput {
 }
 
 export interface TaxIdUpdateInput {
-  db?: Maybe<String>;
   owner?: Maybe<UserUpdateOneRequiredInput>;
-}
-
-export interface TaxIdUpdateManyMutationInput {
-  db?: Maybe<String>;
 }
 
 export interface UserUpdateInput {
   email?: Maybe<String>;
   name?: Maybe<String>;
   role?: Maybe<AuthLevel>;
-  id_proof?: Maybe<IdProofUpdateOneInput>;
+  identifiers?: Maybe<IdentifiersUpdateOneInput>;
 }
 
 export interface UserUpdateManyMutationInput {
@@ -1307,15 +1258,21 @@ export interface EmailSubscriptionWhereInput {
   NOT?: Maybe<EmailSubscriptionWhereInput[] | EmailSubscriptionWhereInput>;
 }
 
-export interface IdProofSubscriptionWhereInput {
+export interface IdentifiersSubscriptionWhereInput {
   mutation_in?: Maybe<MutationType[] | MutationType>;
   updatedFields_contains?: Maybe<String>;
   updatedFields_contains_every?: Maybe<String[] | String>;
   updatedFields_contains_some?: Maybe<String[] | String>;
-  node?: Maybe<IdProofWhereInput>;
-  AND?: Maybe<IdProofSubscriptionWhereInput[] | IdProofSubscriptionWhereInput>;
-  OR?: Maybe<IdProofSubscriptionWhereInput[] | IdProofSubscriptionWhereInput>;
-  NOT?: Maybe<IdProofSubscriptionWhereInput[] | IdProofSubscriptionWhereInput>;
+  node?: Maybe<IdentifiersWhereInput>;
+  AND?: Maybe<
+    IdentifiersSubscriptionWhereInput[] | IdentifiersSubscriptionWhereInput
+  >;
+  OR?: Maybe<
+    IdentifiersSubscriptionWhereInput[] | IdentifiersSubscriptionWhereInput
+  >;
+  NOT?: Maybe<
+    IdentifiersSubscriptionWhereInput[] | IdentifiersSubscriptionWhereInput
+  >;
 }
 
 export interface PhoneNumberSubscriptionWhereInput {
@@ -1468,14 +1425,12 @@ export interface AttributeNullablePromise
 
 export interface TaxId {
   id: ID_Output;
-  db: String;
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
 }
 
 export interface TaxIdPromise extends Promise<TaxId>, Fragmentable {
   id: () => Promise<ID_Output>;
-  db: () => Promise<String>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
   owner: <T = UserPromise>() => T;
@@ -1485,7 +1440,6 @@ export interface TaxIdSubscription
   extends Promise<AsyncIterator<TaxId>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  db: () => Promise<AsyncIterator<String>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   owner: <T = UserSubscription>() => T;
@@ -1495,7 +1449,6 @@ export interface TaxIdNullablePromise
   extends Promise<TaxId | null>,
     Fragmentable {
   id: () => Promise<ID_Output>;
-  db: () => Promise<String>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
   owner: <T = UserPromise>() => T;
@@ -1517,7 +1470,7 @@ export interface UserPromise extends Promise<User>, Fragmentable {
   email: () => Promise<String>;
   name: () => Promise<String>;
   role: () => Promise<AuthLevel>;
-  id_proof: <T = IdProofPromise>() => T;
+  identifiers: <T = IdentifiersPromise>() => T;
 }
 
 export interface UserSubscription
@@ -1529,7 +1482,7 @@ export interface UserSubscription
   email: () => Promise<AsyncIterator<String>>;
   name: () => Promise<AsyncIterator<String>>;
   role: () => Promise<AsyncIterator<AuthLevel>>;
-  id_proof: <T = IdProofSubscription>() => T;
+  identifiers: <T = IdentifiersSubscription>() => T;
 }
 
 export interface UserNullablePromise
@@ -1541,14 +1494,14 @@ export interface UserNullablePromise
   email: () => Promise<String>;
   name: () => Promise<String>;
   role: () => Promise<AuthLevel>;
-  id_proof: <T = IdProofPromise>() => T;
+  identifiers: <T = IdentifiersPromise>() => T;
 }
 
-export interface IdProof {
+export interface Identifiers {
   id: ID_Output;
 }
 
-export interface IdProofPromise extends Promise<IdProof>, Fragmentable {
+export interface IdentifiersPromise extends Promise<Identifiers>, Fragmentable {
   id: () => Promise<ID_Output>;
   tax_id: <T = FragmentableArray<TaxId>>(args?: {
     where?: TaxIdWhereInput;
@@ -1579,8 +1532,8 @@ export interface IdProofPromise extends Promise<IdProof>, Fragmentable {
   }) => T;
 }
 
-export interface IdProofSubscription
-  extends Promise<AsyncIterator<IdProof>>,
+export interface IdentifiersSubscription
+  extends Promise<AsyncIterator<Identifiers>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
   tax_id: <T = Promise<AsyncIterator<TaxIdSubscription>>>(args?: {
@@ -1612,8 +1565,8 @@ export interface IdProofSubscription
   }) => T;
 }
 
-export interface IdProofNullablePromise
-  extends Promise<IdProof | null>,
+export interface IdentifiersNullablePromise
+  extends Promise<Identifiers | null>,
     Fragmentable {
   id: () => Promise<ID_Output>;
   tax_id: <T = FragmentableArray<TaxId>>(args?: {
@@ -1894,56 +1847,58 @@ export interface AggregateEmailSubscription
   count: () => Promise<AsyncIterator<Int>>;
 }
 
-export interface IdProofConnection {
+export interface IdentifiersConnection {
   pageInfo: PageInfo;
-  edges: IdProofEdge[];
+  edges: IdentifiersEdge[];
 }
 
-export interface IdProofConnectionPromise
-  extends Promise<IdProofConnection>,
+export interface IdentifiersConnectionPromise
+  extends Promise<IdentifiersConnection>,
     Fragmentable {
   pageInfo: <T = PageInfoPromise>() => T;
-  edges: <T = FragmentableArray<IdProofEdge>>() => T;
-  aggregate: <T = AggregateIdProofPromise>() => T;
+  edges: <T = FragmentableArray<IdentifiersEdge>>() => T;
+  aggregate: <T = AggregateIdentifiersPromise>() => T;
 }
 
-export interface IdProofConnectionSubscription
-  extends Promise<AsyncIterator<IdProofConnection>>,
+export interface IdentifiersConnectionSubscription
+  extends Promise<AsyncIterator<IdentifiersConnection>>,
     Fragmentable {
   pageInfo: <T = PageInfoSubscription>() => T;
-  edges: <T = Promise<AsyncIterator<IdProofEdgeSubscription>>>() => T;
-  aggregate: <T = AggregateIdProofSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<IdentifiersEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateIdentifiersSubscription>() => T;
 }
 
-export interface IdProofEdge {
-  node: IdProof;
+export interface IdentifiersEdge {
+  node: Identifiers;
   cursor: String;
 }
 
-export interface IdProofEdgePromise extends Promise<IdProofEdge>, Fragmentable {
-  node: <T = IdProofPromise>() => T;
+export interface IdentifiersEdgePromise
+  extends Promise<IdentifiersEdge>,
+    Fragmentable {
+  node: <T = IdentifiersPromise>() => T;
   cursor: () => Promise<String>;
 }
 
-export interface IdProofEdgeSubscription
-  extends Promise<AsyncIterator<IdProofEdge>>,
+export interface IdentifiersEdgeSubscription
+  extends Promise<AsyncIterator<IdentifiersEdge>>,
     Fragmentable {
-  node: <T = IdProofSubscription>() => T;
+  node: <T = IdentifiersSubscription>() => T;
   cursor: () => Promise<AsyncIterator<String>>;
 }
 
-export interface AggregateIdProof {
+export interface AggregateIdentifiers {
   count: Int;
 }
 
-export interface AggregateIdProofPromise
-  extends Promise<AggregateIdProof>,
+export interface AggregateIdentifiersPromise
+  extends Promise<AggregateIdentifiers>,
     Fragmentable {
   count: () => Promise<Int>;
 }
 
-export interface AggregateIdProofSubscription
-  extends Promise<AsyncIterator<AggregateIdProof>>,
+export interface AggregateIdentifiersSubscription
+  extends Promise<AsyncIterator<AggregateIdentifiers>>,
     Fragmentable {
   count: () => Promise<AsyncIterator<Int>>;
 }
@@ -2219,43 +2174,43 @@ export interface EmailPreviousValuesSubscription
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
 
-export interface IdProofSubscriptionPayload {
+export interface IdentifiersSubscriptionPayload {
   mutation: MutationType;
-  node: IdProof;
+  node: Identifiers;
   updatedFields: String[];
-  previousValues: IdProofPreviousValues;
+  previousValues: IdentifiersPreviousValues;
 }
 
-export interface IdProofSubscriptionPayloadPromise
-  extends Promise<IdProofSubscriptionPayload>,
+export interface IdentifiersSubscriptionPayloadPromise
+  extends Promise<IdentifiersSubscriptionPayload>,
     Fragmentable {
   mutation: () => Promise<MutationType>;
-  node: <T = IdProofPromise>() => T;
+  node: <T = IdentifiersPromise>() => T;
   updatedFields: () => Promise<String[]>;
-  previousValues: <T = IdProofPreviousValuesPromise>() => T;
+  previousValues: <T = IdentifiersPreviousValuesPromise>() => T;
 }
 
-export interface IdProofSubscriptionPayloadSubscription
-  extends Promise<AsyncIterator<IdProofSubscriptionPayload>>,
+export interface IdentifiersSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<IdentifiersSubscriptionPayload>>,
     Fragmentable {
   mutation: () => Promise<AsyncIterator<MutationType>>;
-  node: <T = IdProofSubscription>() => T;
+  node: <T = IdentifiersSubscription>() => T;
   updatedFields: () => Promise<AsyncIterator<String[]>>;
-  previousValues: <T = IdProofPreviousValuesSubscription>() => T;
+  previousValues: <T = IdentifiersPreviousValuesSubscription>() => T;
 }
 
-export interface IdProofPreviousValues {
+export interface IdentifiersPreviousValues {
   id: ID_Output;
 }
 
-export interface IdProofPreviousValuesPromise
-  extends Promise<IdProofPreviousValues>,
+export interface IdentifiersPreviousValuesPromise
+  extends Promise<IdentifiersPreviousValues>,
     Fragmentable {
   id: () => Promise<ID_Output>;
 }
 
-export interface IdProofPreviousValuesSubscription
-  extends Promise<AsyncIterator<IdProofPreviousValues>>,
+export interface IdentifiersPreviousValuesSubscription
+  extends Promise<AsyncIterator<IdentifiersPreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
 }
@@ -2334,7 +2289,6 @@ export interface TaxIdSubscriptionPayloadSubscription
 
 export interface TaxIdPreviousValues {
   id: ID_Output;
-  db: String;
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
 }
@@ -2343,7 +2297,6 @@ export interface TaxIdPreviousValuesPromise
   extends Promise<TaxIdPreviousValues>,
     Fragmentable {
   id: () => Promise<ID_Output>;
-  db: () => Promise<String>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
 }
@@ -2352,7 +2305,6 @@ export interface TaxIdPreviousValuesSubscription
   extends Promise<AsyncIterator<TaxIdPreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  db: () => Promise<AsyncIterator<String>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
@@ -2456,7 +2408,7 @@ export const models: Model[] = [
     embedded: false
   },
   {
-    name: "IdProof",
+    name: "Identifiers",
     embedded: false
   },
   {

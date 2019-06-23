@@ -5,14 +5,36 @@ type User @db(name: "person") {
   email: String! @unique
   name: String
   role: AuthLevel @default(value: USER)
-  id_proof: IdProof
+  gender: Gender 
+  identifiers: Identifiers
 }
 
-type IdProof {
+type Identifiers {
   id: ID! @id
   tax_id: [TaxId!]!
   email: [Email!]!
   phone_number: [PhoneNumber!]!
+}
+
+enum Gender {
+  M: Male
+	F: Female
+}
+
+type Female @db(name: "female") {
+	id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  owner: User!
+	attribute: [Attribute!]! @relation(link: TABLE, name: "FemaleAttribute")
+}
+
+type Male @db(name: "male") {
+	id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  owner: User!
+	attribute: [Attribute!]! @relation(link: TABLE, name: "MaleAttribute")
 }
 
 type TaxId @db(name: "tax_id") {
@@ -24,6 +46,7 @@ type TaxId @db(name: "tax_id") {
 
 type Email @db(name: "email") {
   id: ID! @id
+	value: String!
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
   owner: User!
@@ -32,6 +55,7 @@ type Email @db(name: "email") {
 
 type PhoneNumber @db(name: "phone_number") {
   id: ID! @id
+	value: Int 
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
   owner: User!
@@ -67,3 +91,4 @@ enum AuthLevel {
   PROSPECT
   BLACKLISTED
 }
+

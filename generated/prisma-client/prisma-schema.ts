@@ -10,7 +10,7 @@ type AggregateEmail {
   count: Int!
 }
 
-type AggregateIdProof {
+type AggregateIdentifiers {
   count: Int!
 }
 
@@ -490,90 +490,90 @@ input EmailWhereUniqueInput {
   id: ID
 }
 
-type IdProof {
+type Identifiers {
   id: ID!
   tax_id(where: TaxIdWhereInput, orderBy: TaxIdOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [TaxId!]
   email(where: EmailWhereInput, orderBy: EmailOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Email!]
   phone_number(where: PhoneNumberWhereInput, orderBy: PhoneNumberOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [PhoneNumber!]
 }
 
-type IdProofConnection {
+type IdentifiersConnection {
   pageInfo: PageInfo!
-  edges: [IdProofEdge]!
-  aggregate: AggregateIdProof!
+  edges: [IdentifiersEdge]!
+  aggregate: AggregateIdentifiers!
 }
 
-input IdProofCreateInput {
+input IdentifiersCreateInput {
   id: ID
   tax_id: TaxIdCreateManyInput
   email: EmailCreateManyInput
   phone_number: PhoneNumberCreateManyInput
 }
 
-input IdProofCreateOneInput {
-  create: IdProofCreateInput
-  connect: IdProofWhereUniqueInput
+input IdentifiersCreateOneInput {
+  create: IdentifiersCreateInput
+  connect: IdentifiersWhereUniqueInput
 }
 
-type IdProofEdge {
-  node: IdProof!
+type IdentifiersEdge {
+  node: Identifiers!
   cursor: String!
 }
 
-enum IdProofOrderByInput {
+enum IdentifiersOrderByInput {
   id_ASC
   id_DESC
 }
 
-type IdProofPreviousValues {
+type IdentifiersPreviousValues {
   id: ID!
 }
 
-type IdProofSubscriptionPayload {
+type IdentifiersSubscriptionPayload {
   mutation: MutationType!
-  node: IdProof
+  node: Identifiers
   updatedFields: [String!]
-  previousValues: IdProofPreviousValues
+  previousValues: IdentifiersPreviousValues
 }
 
-input IdProofSubscriptionWhereInput {
+input IdentifiersSubscriptionWhereInput {
   mutation_in: [MutationType!]
   updatedFields_contains: String
   updatedFields_contains_every: [String!]
   updatedFields_contains_some: [String!]
-  node: IdProofWhereInput
-  AND: [IdProofSubscriptionWhereInput!]
-  OR: [IdProofSubscriptionWhereInput!]
-  NOT: [IdProofSubscriptionWhereInput!]
+  node: IdentifiersWhereInput
+  AND: [IdentifiersSubscriptionWhereInput!]
+  OR: [IdentifiersSubscriptionWhereInput!]
+  NOT: [IdentifiersSubscriptionWhereInput!]
 }
 
-input IdProofUpdateDataInput {
+input IdentifiersUpdateDataInput {
   tax_id: TaxIdUpdateManyInput
   email: EmailUpdateManyInput
   phone_number: PhoneNumberUpdateManyInput
 }
 
-input IdProofUpdateInput {
+input IdentifiersUpdateInput {
   tax_id: TaxIdUpdateManyInput
   email: EmailUpdateManyInput
   phone_number: PhoneNumberUpdateManyInput
 }
 
-input IdProofUpdateOneInput {
-  create: IdProofCreateInput
-  update: IdProofUpdateDataInput
-  upsert: IdProofUpsertNestedInput
+input IdentifiersUpdateOneInput {
+  create: IdentifiersCreateInput
+  update: IdentifiersUpdateDataInput
+  upsert: IdentifiersUpsertNestedInput
   delete: Boolean
   disconnect: Boolean
-  connect: IdProofWhereUniqueInput
+  connect: IdentifiersWhereUniqueInput
 }
 
-input IdProofUpsertNestedInput {
-  update: IdProofUpdateDataInput!
-  create: IdProofCreateInput!
+input IdentifiersUpsertNestedInput {
+  update: IdentifiersUpdateDataInput!
+  create: IdentifiersCreateInput!
 }
 
-input IdProofWhereInput {
+input IdentifiersWhereInput {
   id: ID
   id_not: ID
   id_in: [ID!]
@@ -597,12 +597,12 @@ input IdProofWhereInput {
   phone_number_every: PhoneNumberWhereInput
   phone_number_some: PhoneNumberWhereInput
   phone_number_none: PhoneNumberWhereInput
-  AND: [IdProofWhereInput!]
-  OR: [IdProofWhereInput!]
-  NOT: [IdProofWhereInput!]
+  AND: [IdentifiersWhereInput!]
+  OR: [IdentifiersWhereInput!]
+  NOT: [IdentifiersWhereInput!]
 }
 
-input IdProofWhereUniqueInput {
+input IdentifiersWhereUniqueInput {
   id: ID
 }
 
@@ -620,11 +620,11 @@ type Mutation {
   upsertEmail(where: EmailWhereUniqueInput!, create: EmailCreateInput!, update: EmailUpdateInput!): Email!
   deleteEmail(where: EmailWhereUniqueInput!): Email
   deleteManyEmails(where: EmailWhereInput): BatchPayload!
-  createIdProof(data: IdProofCreateInput!): IdProof!
-  updateIdProof(data: IdProofUpdateInput!, where: IdProofWhereUniqueInput!): IdProof
-  upsertIdProof(where: IdProofWhereUniqueInput!, create: IdProofCreateInput!, update: IdProofUpdateInput!): IdProof!
-  deleteIdProof(where: IdProofWhereUniqueInput!): IdProof
-  deleteManyIdProofs(where: IdProofWhereInput): BatchPayload!
+  createIdentifiers(data: IdentifiersCreateInput!): Identifiers!
+  updateIdentifiers(data: IdentifiersUpdateInput!, where: IdentifiersWhereUniqueInput!): Identifiers
+  upsertIdentifiers(where: IdentifiersWhereUniqueInput!, create: IdentifiersCreateInput!, update: IdentifiersUpdateInput!): Identifiers!
+  deleteIdentifiers(where: IdentifiersWhereUniqueInput!): Identifiers
+  deleteManyIdentifierses(where: IdentifiersWhereInput): BatchPayload!
   createPhoneNumber(data: PhoneNumberCreateInput!): PhoneNumber!
   updatePhoneNumber(data: PhoneNumberUpdateInput!, where: PhoneNumberWhereUniqueInput!): PhoneNumber
   upsertPhoneNumber(where: PhoneNumberWhereUniqueInput!, create: PhoneNumberCreateInput!, update: PhoneNumberUpdateInput!): PhoneNumber!
@@ -632,7 +632,6 @@ type Mutation {
   deleteManyPhoneNumbers(where: PhoneNumberWhereInput): BatchPayload!
   createTaxId(data: TaxIdCreateInput!): TaxId!
   updateTaxId(data: TaxIdUpdateInput!, where: TaxIdWhereUniqueInput!): TaxId
-  updateManyTaxIds(data: TaxIdUpdateManyMutationInput!, where: TaxIdWhereInput): BatchPayload!
   upsertTaxId(where: TaxIdWhereUniqueInput!, create: TaxIdCreateInput!, update: TaxIdUpdateInput!): TaxId!
   deleteTaxId(where: TaxIdWhereUniqueInput!): TaxId
   deleteManyTaxIds(where: TaxIdWhereInput): BatchPayload!
@@ -879,9 +878,9 @@ type Query {
   email(where: EmailWhereUniqueInput!): Email
   emails(where: EmailWhereInput, orderBy: EmailOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Email]!
   emailsConnection(where: EmailWhereInput, orderBy: EmailOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): EmailConnection!
-  idProof(where: IdProofWhereUniqueInput!): IdProof
-  idProofs(where: IdProofWhereInput, orderBy: IdProofOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [IdProof]!
-  idProofsConnection(where: IdProofWhereInput, orderBy: IdProofOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): IdProofConnection!
+  identifiers(where: IdentifiersWhereUniqueInput!): Identifiers
+  identifierses(where: IdentifiersWhereInput, orderBy: IdentifiersOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Identifiers]!
+  identifiersesConnection(where: IdentifiersWhereInput, orderBy: IdentifiersOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): IdentifiersConnection!
   phoneNumber(where: PhoneNumberWhereUniqueInput!): PhoneNumber
   phoneNumbers(where: PhoneNumberWhereInput, orderBy: PhoneNumberOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [PhoneNumber]!
   phoneNumbersConnection(where: PhoneNumberWhereInput, orderBy: PhoneNumberOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PhoneNumberConnection!
@@ -897,7 +896,7 @@ type Query {
 type Subscription {
   attribute(where: AttributeSubscriptionWhereInput): AttributeSubscriptionPayload
   email(where: EmailSubscriptionWhereInput): EmailSubscriptionPayload
-  idProof(where: IdProofSubscriptionWhereInput): IdProofSubscriptionPayload
+  identifiers(where: IdentifiersSubscriptionWhereInput): IdentifiersSubscriptionPayload
   phoneNumber(where: PhoneNumberSubscriptionWhereInput): PhoneNumberSubscriptionPayload
   taxId(where: TaxIdSubscriptionWhereInput): TaxIdSubscriptionPayload
   user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
@@ -905,7 +904,6 @@ type Subscription {
 
 type TaxId {
   id: ID!
-  db: String!
   createdAt: DateTime!
   updatedAt: DateTime!
   owner: User!
@@ -919,7 +917,6 @@ type TaxIdConnection {
 
 input TaxIdCreateInput {
   id: ID
-  db: String!
   owner: UserCreateOneInput!
 }
 
@@ -936,8 +933,6 @@ type TaxIdEdge {
 enum TaxIdOrderByInput {
   id_ASC
   id_DESC
-  db_ASC
-  db_DESC
   createdAt_ASC
   createdAt_DESC
   updatedAt_ASC
@@ -946,7 +941,6 @@ enum TaxIdOrderByInput {
 
 type TaxIdPreviousValues {
   id: ID!
-  db: String!
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -966,20 +960,6 @@ input TaxIdScalarWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  db: String
-  db_not: String
-  db_in: [String!]
-  db_not_in: [String!]
-  db_lt: String
-  db_lte: String
-  db_gt: String
-  db_gte: String
-  db_contains: String
-  db_not_contains: String
-  db_starts_with: String
-  db_not_starts_with: String
-  db_ends_with: String
-  db_not_ends_with: String
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]
@@ -1020,17 +1000,11 @@ input TaxIdSubscriptionWhereInput {
 }
 
 input TaxIdUpdateDataInput {
-  db: String
   owner: UserUpdateOneRequiredInput
 }
 
 input TaxIdUpdateInput {
-  db: String
   owner: UserUpdateOneRequiredInput
-}
-
-input TaxIdUpdateManyDataInput {
-  db: String
 }
 
 input TaxIdUpdateManyInput {
@@ -1042,16 +1016,6 @@ input TaxIdUpdateManyInput {
   set: [TaxIdWhereUniqueInput!]
   disconnect: [TaxIdWhereUniqueInput!]
   deleteMany: [TaxIdScalarWhereInput!]
-  updateMany: [TaxIdUpdateManyWithWhereNestedInput!]
-}
-
-input TaxIdUpdateManyMutationInput {
-  db: String
-}
-
-input TaxIdUpdateManyWithWhereNestedInput {
-  where: TaxIdScalarWhereInput!
-  data: TaxIdUpdateManyDataInput!
 }
 
 input TaxIdUpdateWithWhereUniqueNestedInput {
@@ -1080,20 +1044,6 @@ input TaxIdWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  db: String
-  db_not: String
-  db_in: [String!]
-  db_not_in: [String!]
-  db_lt: String
-  db_lte: String
-  db_gt: String
-  db_gte: String
-  db_contains: String
-  db_not_contains: String
-  db_starts_with: String
-  db_not_starts_with: String
-  db_ends_with: String
-  db_not_ends_with: String
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]
@@ -1127,7 +1077,7 @@ type User {
   email: String!
   name: String
   role: AuthLevel
-  id_proof: IdProof
+  identifiers: Identifiers
 }
 
 type UserConnection {
@@ -1141,7 +1091,7 @@ input UserCreateInput {
   email: String!
   name: String
   role: AuthLevel
-  id_proof: IdProofCreateOneInput
+  identifiers: IdentifiersCreateOneInput
 }
 
 input UserCreateOneInput {
@@ -1200,14 +1150,14 @@ input UserUpdateDataInput {
   email: String
   name: String
   role: AuthLevel
-  id_proof: IdProofUpdateOneInput
+  identifiers: IdentifiersUpdateOneInput
 }
 
 input UserUpdateInput {
   email: String
   name: String
   role: AuthLevel
-  id_proof: IdProofUpdateOneInput
+  identifiers: IdentifiersUpdateOneInput
 }
 
 input UserUpdateManyMutationInput {
@@ -1291,7 +1241,7 @@ input UserWhereInput {
   role_not: AuthLevel
   role_in: [AuthLevel!]
   role_not_in: [AuthLevel!]
-  id_proof: IdProofWhereInput
+  identifiers: IdentifiersWhereInput
   AND: [UserWhereInput!]
   OR: [UserWhereInput!]
   NOT: [UserWhereInput!]

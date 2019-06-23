@@ -1,4 +1,4 @@
-const _PersonQuery = {
+const _PersonQueryResponse = {
 	'data': {
 		'person': {
 			'id': '1001',
