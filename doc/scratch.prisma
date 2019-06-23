@@ -1,7 +1,0 @@
-type SSN @db(name: "email") {
-  id: ID! @id
-  createdAt: DateTime! @createdAt
-  updatedAt: DateTime! @updatedAt
-  owner: User!
-  attributes: [Attribute!]! @relation(link: TABLE, name: "SSNAttribute")
-}

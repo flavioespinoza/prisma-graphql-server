@@ -54,3 +54,4 @@ const _PersonQueryResponse = {
 			'gender': 'M'
 		}
 	}
+}

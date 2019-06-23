@@ -1,48 +1,76 @@
-# docs
+# Authnet Data Ontology
 
-## Prisma
-Simplified and TypeScript GraphQL client & server layer.
-- [overview video](https://www.youtube.com/watch?v=nKmjKKyK5vc)
-- [github](https://github.com/prisma/prisma)
+## Data Model
+GraphQL `data-models` are organized in terms of `types` and `fields`, not endpoints. 
 
-#### prisma-client
-The Prisma client is an TypeScript auto-generated library that provides type-safe access to your database. It is used as a replacement for traditional ORMs in your API servers or microservice architecure.
-- [docs](https://www.prisma.io/client/client-typescript/)
-- [getting started](https://www.prisma.io/docs/1.34/get-started/01-setting-up-prisma-new-database-TYPESCRIPT-t002/)
+The `type` based `data-model` auto-generates `schema` and `docs` with all possible CRUD operations.  
 
-#### nexus-prisma
-GraphQL ORM + CRUD schema generator for GraphQL enpoints
-- [getting started](https://nexus.js.org/docs/database-access-with-prisma#getting-started)
-- [overview video](https://www.youtube.com/watch?v=1qB8vQwWwIc)
-- [github](https://github.com/prisma/nexus-prisma)
+_And, if that wern't cool enouth!_ :)
 
-#### prisma-examples
-[all prisma examples](https://github.com/prisma/prisma-examples)
+`prisma` uses the `schema` to auto-generate all `query` & `mutation` typescript methods.
 
-Below are select few ready-to-run examples demonstrating various use cases
+## Server
+[prisma-graphql-server](https://github.com/flavioespinoza/prisma-graphql-server)
+Postgres, MySQL & MongoDB deployed in minutes with docker-compose
 
-##### Docker TypeScript
+data-access-layer 
+prisma-graphql deployed on node-koa server
 
-| Demo | Description |
-|:------|:----------|
-| [`docker-mongodb`](https://github.com/prisma/prisma-examples/tree/master/typescript/docker-mongodb) | Set up Prisma locally with MongoDB |
-| [`docker-mysql`](https://github.com/prisma/prisma-examples/tree/master/typescript/docker-mysql) | Set up Prisma locally with MySQL |
-| [`docker-postgres`](https://github.com/prisma/prisma-examples/tree/master/typescript/docker-postgres) | Set up Prisma locally with PostgreSQL |
 
-##### Golang
 
-| Demo | Description |
-|:------|:----------|
-| [`cli-app`](https://github.com/prisma/prisma-examples/tree/master/go/cli-app) | Simple CLI TODO list app |
-| [`graphql`](https://github.com/prisma/prisma-examples/tree/master/go/graphql) | Simple GraphQL server |
-| [`http-mux`](https://github.com/prisma/prisma-examples/tree/master/go/http-mux) | Simple REST API with [gorilla/mux](https://github.com/gorilla/mux) |
-| [`rest-gin`](https://github.com/prisma/prisma-examples/tree/master/go/rest-gin) | Simple REST API with [Gin](https://github.com/gin-gonic/gin) |
-| [`script`](https://github.com/prisma/prisma-examples/tree/master/go/script) | Simple usage of Prisma client in script |
 
-##### Docker Node.js
 
-| Demo | Description |
-|:------|:----------|
-| [`docker-mongodb`](https://github.com/prisma/prisma-examples/tree/master/node/docker-mongodb) | Set up Prisma locally with MongoDB |
-| [`docker-mysql`](https://github.com/prisma/prisma-examples/tree/master/node/docker-mysql) | Set up Prisma locally with MySQL |
-| [`docker-postgres`](https://github.com/prisma/prisma-examples/tree/master/node/docker-postgres) | Set up Prisma locally with PostgreSQL |
+
+`react-appolo-client`.
+
+
+`react-next-client`'
+
+
+
+
+
+
+### Required Relations
+
+For a `type` with a required _to-one_ relation field can only be created using a `declarative` with the `!` operator to ensure the field will never be `null`.
+
+_Consider the following relation_:
+```ts
+type Person {
+  id: ID! @id
+  birth_date: BirthDate!
+}
+
+type BirthDate {
+  id: ID! @id
+  owner: User!
+  date: Date!
+}
+```
+
+`BirthDate` can never be created without a `Person` because of the inherent required constraint. 
+
+Therefore, you need to bind `BirthDate` to `Person` using a `declarative-nested-write` with the `!` operator.
+
+### Optional Relations
+For _to-one_ relation fields that do not have a required constraint you can configure whether it is _required_ or _optional_.
+
+
+
+```ts
+type Person {
+	id: ID! @id
+	birth_date: BirthDate! 
+	work_phone: WorkPhone
+}
+
+type WorkPhone {
+	id: ID! @id
+	owner: User
+	value: Int!
+}
+```
+
+
+A field for the type `WorkPhone` could be of type `WorkPhone` or `WorkPhone!` because a `Person` may or may not have a `WorkPhone`.
