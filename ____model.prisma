@@ -1,36 +1,20 @@
-
-type id_attrs_input {
-  email: String,
-  phoneNumber: String,
-  name: String,
-  address: String,
-  birthDate: String
-}
-
-type QueryPerson () {
-  person(id_attrs_input)
-}
-
-
-
-type PNMetadata {
-  someMetadata: String
-}
-
-type User {
+type Email {
   _pnMetadata: PNMetadata
-  id: ID! @id
-	email: String @unique
-	phoneNumber: String
-	name: String
-	address: String
-	birthDate: String
-  postalAddresses: [PostalAddress]
-  names: [Name]
-  identifiers: Identifier
-  gender: Gender
-  recordID: String
-  sourceID: String
+  endDate: String
+  startDate: String
+  type: String!
+  value: String!
+}
+
+enum Gender {
+  M
+  F
+}
+
+type Identifier {
+  SSNs: [SSN]
+  emails: [Email]
+  phoneNumbers: [PhoneNumber]
   type: String!
 }
 
@@ -53,24 +37,19 @@ enum NameUse {
   PRIMARY
 }
 
-# String: 'spongebob@gmail.com'
-type Email {
+type Person {
   _pnMetadata: PNMetadata
-  endDate: String
-  startDate: String
-  type: String!
-  value: String!
-}
-
-type Identifier {
-  SSNs: [SSN]
-  emails: [Email]
-  phoneNumbers: [PhoneNumber]
+  birthDate: String
+  gender: Gender
+  id: ID!
+  identifiers: Identifier
+  names: [Name]
+  postalAddresses: [PostalAddress]
+  recordID: String
+  sourceID: String
   type: String!
 }
 
-# String:  <--- should be a number
-# +10633731605
 type PhoneNumber {
   _pnMetadata: PNMetadata
   endDate: String
@@ -80,7 +59,16 @@ type PhoneNumber {
   value: String!
 }
 
-# String: '357 E 300 N Price UT 84501' <--- This should be an object
+enum PhoneNumberUse {
+  HOME
+  WORK
+  CELL
+}
+
+type PNMetadata {
+  someMetadata: String
+}
+
 type PostalAddress {
   _pnMetadata: PNMetadata
   addressCountry: String
@@ -96,8 +84,6 @@ type PostalAddress {
   use: [PostalAddressUse]
 }
 
-
-# String: 'HOME'
 enum PostalAddressUse {
   HOME
   WORK
@@ -105,8 +91,11 @@ enum PostalAddressUse {
   BILLING
 }
 
-#
-# Number: 333666111
+type Query {
+  person(email: String, phoneNumber: String, name: String, address: String, birthDate: String): Person
+  persons(phoneNumber: String, name: String, address: String, birthDate: String, email: String): [Person]
+}
+
 type SSN {
   _pnMetadata: PNMetadata
   endDate: String
@@ -114,11 +103,5 @@ type SSN {
   type: String!
   use: PhoneNumberUse
   value: String!
-}
-
-# String: 'M'
-enum Gender {
-  M
-  F
 }
 
