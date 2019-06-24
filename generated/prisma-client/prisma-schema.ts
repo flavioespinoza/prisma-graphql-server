@@ -10,7 +10,15 @@ type AggregateEmail {
   count: Int!
 }
 
+type AggregateFemale {
+  count: Int!
+}
+
 type AggregateIdentifiers {
+  count: Int!
+}
+
+type AggregateMale {
   count: Int!
 }
 
@@ -43,9 +51,14 @@ type AttributeConnection {
 input AttributeCreateInput {
   id: ID
   attr_type: String!
-  tax_id: TaxIdCreateManyInput
+  tax_id: TaxIdCreateManyWithoutAttributeInput
   email: EmailCreateManyWithoutAttributeInput
   phone_number: PhoneNumberCreateManyWithoutAttributeInput
+}
+
+input AttributeCreateManyInput {
+  create: [AttributeCreateInput!]
+  connect: [AttributeWhereUniqueInput!]
 }
 
 input AttributeCreateManyWithoutEmailInput {
@@ -58,18 +71,30 @@ input AttributeCreateManyWithoutPhone_numberInput {
   connect: [AttributeWhereUniqueInput!]
 }
 
+input AttributeCreateManyWithoutTax_idInput {
+  create: [AttributeCreateWithoutTax_idInput!]
+  connect: [AttributeWhereUniqueInput!]
+}
+
 input AttributeCreateWithoutEmailInput {
   id: ID
   attr_type: String!
-  tax_id: TaxIdCreateManyInput
+  tax_id: TaxIdCreateManyWithoutAttributeInput
   phone_number: PhoneNumberCreateManyWithoutAttributeInput
 }
 
 input AttributeCreateWithoutPhone_numberInput {
   id: ID
   attr_type: String!
-  tax_id: TaxIdCreateManyInput
+  tax_id: TaxIdCreateManyWithoutAttributeInput
   email: EmailCreateManyWithoutAttributeInput
+}
+
+input AttributeCreateWithoutTax_idInput {
+  id: ID
+  attr_type: String!
+  email: EmailCreateManyWithoutAttributeInput
+  phone_number: PhoneNumberCreateManyWithoutAttributeInput
 }
 
 type AttributeEdge {
@@ -141,15 +166,34 @@ input AttributeSubscriptionWhereInput {
   NOT: [AttributeSubscriptionWhereInput!]
 }
 
+input AttributeUpdateDataInput {
+  attr_type: String
+  tax_id: TaxIdUpdateManyWithoutAttributeInput
+  email: EmailUpdateManyWithoutAttributeInput
+  phone_number: PhoneNumberUpdateManyWithoutAttributeInput
+}
+
 input AttributeUpdateInput {
   attr_type: String
-  tax_id: TaxIdUpdateManyInput
+  tax_id: TaxIdUpdateManyWithoutAttributeInput
   email: EmailUpdateManyWithoutAttributeInput
   phone_number: PhoneNumberUpdateManyWithoutAttributeInput
 }
 
 input AttributeUpdateManyDataInput {
   attr_type: String
+}
+
+input AttributeUpdateManyInput {
+  create: [AttributeCreateInput!]
+  update: [AttributeUpdateWithWhereUniqueNestedInput!]
+  upsert: [AttributeUpsertWithWhereUniqueNestedInput!]
+  delete: [AttributeWhereUniqueInput!]
+  connect: [AttributeWhereUniqueInput!]
+  set: [AttributeWhereUniqueInput!]
+  disconnect: [AttributeWhereUniqueInput!]
+  deleteMany: [AttributeScalarWhereInput!]
+  updateMany: [AttributeUpdateManyWithWhereNestedInput!]
 }
 
 input AttributeUpdateManyMutationInput {
@@ -180,6 +224,18 @@ input AttributeUpdateManyWithoutPhone_numberInput {
   updateMany: [AttributeUpdateManyWithWhereNestedInput!]
 }
 
+input AttributeUpdateManyWithoutTax_idInput {
+  create: [AttributeCreateWithoutTax_idInput!]
+  delete: [AttributeWhereUniqueInput!]
+  connect: [AttributeWhereUniqueInput!]
+  set: [AttributeWhereUniqueInput!]
+  disconnect: [AttributeWhereUniqueInput!]
+  update: [AttributeUpdateWithWhereUniqueWithoutTax_idInput!]
+  upsert: [AttributeUpsertWithWhereUniqueWithoutTax_idInput!]
+  deleteMany: [AttributeScalarWhereInput!]
+  updateMany: [AttributeUpdateManyWithWhereNestedInput!]
+}
+
 input AttributeUpdateManyWithWhereNestedInput {
   where: AttributeScalarWhereInput!
   data: AttributeUpdateManyDataInput!
@@ -187,14 +243,25 @@ input AttributeUpdateManyWithWhereNestedInput {
 
 input AttributeUpdateWithoutEmailDataInput {
   attr_type: String
-  tax_id: TaxIdUpdateManyInput
+  tax_id: TaxIdUpdateManyWithoutAttributeInput
   phone_number: PhoneNumberUpdateManyWithoutAttributeInput
 }
 
 input AttributeUpdateWithoutPhone_numberDataInput {
   attr_type: String
-  tax_id: TaxIdUpdateManyInput
+  tax_id: TaxIdUpdateManyWithoutAttributeInput
   email: EmailUpdateManyWithoutAttributeInput
+}
+
+input AttributeUpdateWithoutTax_idDataInput {
+  attr_type: String
+  email: EmailUpdateManyWithoutAttributeInput
+  phone_number: PhoneNumberUpdateManyWithoutAttributeInput
+}
+
+input AttributeUpdateWithWhereUniqueNestedInput {
+  where: AttributeWhereUniqueInput!
+  data: AttributeUpdateDataInput!
 }
 
 input AttributeUpdateWithWhereUniqueWithoutEmailInput {
@@ -207,6 +274,17 @@ input AttributeUpdateWithWhereUniqueWithoutPhone_numberInput {
   data: AttributeUpdateWithoutPhone_numberDataInput!
 }
 
+input AttributeUpdateWithWhereUniqueWithoutTax_idInput {
+  where: AttributeWhereUniqueInput!
+  data: AttributeUpdateWithoutTax_idDataInput!
+}
+
+input AttributeUpsertWithWhereUniqueNestedInput {
+  where: AttributeWhereUniqueInput!
+  update: AttributeUpdateDataInput!
+  create: AttributeCreateInput!
+}
+
 input AttributeUpsertWithWhereUniqueWithoutEmailInput {
   where: AttributeWhereUniqueInput!
   update: AttributeUpdateWithoutEmailDataInput!
@@ -217,6 +295,12 @@ input AttributeUpsertWithWhereUniqueWithoutPhone_numberInput {
   where: AttributeWhereUniqueInput!
   update: AttributeUpdateWithoutPhone_numberDataInput!
   create: AttributeCreateWithoutPhone_numberInput!
+}
+
+input AttributeUpsertWithWhereUniqueWithoutTax_idInput {
+  where: AttributeWhereUniqueInput!
+  update: AttributeUpdateWithoutTax_idDataInput!
+  create: AttributeCreateWithoutTax_idInput!
 }
 
 input AttributeWhereInput {
@@ -281,6 +365,7 @@ scalar DateTime
 
 type Email {
   id: ID!
+  value: String!
   createdAt: DateTime!
   updatedAt: DateTime!
   owner: User!
@@ -295,6 +380,7 @@ type EmailConnection {
 
 input EmailCreateInput {
   id: ID
+  value: String!
   owner: UserCreateOneInput!
   attribute: AttributeCreateManyWithoutEmailInput
 }
@@ -311,6 +397,7 @@ input EmailCreateManyWithoutAttributeInput {
 
 input EmailCreateWithoutAttributeInput {
   id: ID
+  value: String!
   owner: UserCreateOneInput!
 }
 
@@ -322,6 +409,8 @@ type EmailEdge {
 enum EmailOrderByInput {
   id_ASC
   id_DESC
+  value_ASC
+  value_DESC
   createdAt_ASC
   createdAt_DESC
   updatedAt_ASC
@@ -330,6 +419,7 @@ enum EmailOrderByInput {
 
 type EmailPreviousValues {
   id: ID!
+  value: String!
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -349,6 +439,20 @@ input EmailScalarWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
+  value: String
+  value_not: String
+  value_in: [String!]
+  value_not_in: [String!]
+  value_lt: String
+  value_lte: String
+  value_gt: String
+  value_gte: String
+  value_contains: String
+  value_not_contains: String
+  value_starts_with: String
+  value_not_starts_with: String
+  value_ends_with: String
+  value_not_ends_with: String
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]
@@ -389,13 +493,19 @@ input EmailSubscriptionWhereInput {
 }
 
 input EmailUpdateDataInput {
+  value: String
   owner: UserUpdateOneRequiredInput
   attribute: AttributeUpdateManyWithoutEmailInput
 }
 
 input EmailUpdateInput {
+  value: String
   owner: UserUpdateOneRequiredInput
   attribute: AttributeUpdateManyWithoutEmailInput
+}
+
+input EmailUpdateManyDataInput {
+  value: String
 }
 
 input EmailUpdateManyInput {
@@ -407,6 +517,11 @@ input EmailUpdateManyInput {
   set: [EmailWhereUniqueInput!]
   disconnect: [EmailWhereUniqueInput!]
   deleteMany: [EmailScalarWhereInput!]
+  updateMany: [EmailUpdateManyWithWhereNestedInput!]
+}
+
+input EmailUpdateManyMutationInput {
+  value: String
 }
 
 input EmailUpdateManyWithoutAttributeInput {
@@ -418,9 +533,16 @@ input EmailUpdateManyWithoutAttributeInput {
   update: [EmailUpdateWithWhereUniqueWithoutAttributeInput!]
   upsert: [EmailUpsertWithWhereUniqueWithoutAttributeInput!]
   deleteMany: [EmailScalarWhereInput!]
+  updateMany: [EmailUpdateManyWithWhereNestedInput!]
+}
+
+input EmailUpdateManyWithWhereNestedInput {
+  where: EmailScalarWhereInput!
+  data: EmailUpdateManyDataInput!
 }
 
 input EmailUpdateWithoutAttributeDataInput {
+  value: String
   owner: UserUpdateOneRequiredInput
 }
 
@@ -461,6 +583,20 @@ input EmailWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
+  value: String
+  value_not: String
+  value_in: [String!]
+  value_not_in: [String!]
+  value_lt: String
+  value_lte: String
+  value_gt: String
+  value_gte: String
+  value_contains: String
+  value_not_contains: String
+  value_starts_with: String
+  value_not_starts_with: String
+  value_ends_with: String
+  value_not_ends_with: String
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]
@@ -488,6 +624,118 @@ input EmailWhereInput {
 
 input EmailWhereUniqueInput {
   id: ID
+}
+
+type Female {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  owner: User!
+  attribute(where: AttributeWhereInput, orderBy: AttributeOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Attribute!]
+}
+
+type FemaleConnection {
+  pageInfo: PageInfo!
+  edges: [FemaleEdge]!
+  aggregate: AggregateFemale!
+}
+
+input FemaleCreateInput {
+  id: ID
+  owner: UserCreateOneInput!
+  attribute: AttributeCreateManyInput
+}
+
+type FemaleEdge {
+  node: Female!
+  cursor: String!
+}
+
+enum FemaleOrderByInput {
+  id_ASC
+  id_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type FemalePreviousValues {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type FemaleSubscriptionPayload {
+  mutation: MutationType!
+  node: Female
+  updatedFields: [String!]
+  previousValues: FemalePreviousValues
+}
+
+input FemaleSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: FemaleWhereInput
+  AND: [FemaleSubscriptionWhereInput!]
+  OR: [FemaleSubscriptionWhereInput!]
+  NOT: [FemaleSubscriptionWhereInput!]
+}
+
+input FemaleUpdateInput {
+  owner: UserUpdateOneRequiredInput
+  attribute: AttributeUpdateManyInput
+}
+
+input FemaleWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  owner: UserWhereInput
+  attribute_every: AttributeWhereInput
+  attribute_some: AttributeWhereInput
+  attribute_none: AttributeWhereInput
+  AND: [FemaleWhereInput!]
+  OR: [FemaleWhereInput!]
+  NOT: [FemaleWhereInput!]
+}
+
+input FemaleWhereUniqueInput {
+  id: ID
+}
+
+enum Gender {
+  M
+  F
 }
 
 type Identifiers {
@@ -559,12 +807,10 @@ input IdentifiersUpdateInput {
   phone_number: PhoneNumberUpdateManyInput
 }
 
-input IdentifiersUpdateOneInput {
+input IdentifiersUpdateOneRequiredInput {
   create: IdentifiersCreateInput
   update: IdentifiersUpdateDataInput
   upsert: IdentifiersUpsertNestedInput
-  delete: Boolean
-  disconnect: Boolean
   connect: IdentifiersWhereUniqueInput
 }
 
@@ -608,6 +854,113 @@ input IdentifiersWhereUniqueInput {
 
 scalar Long
 
+type Male {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  owner: User!
+  attribute(where: AttributeWhereInput, orderBy: AttributeOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Attribute!]
+}
+
+type MaleConnection {
+  pageInfo: PageInfo!
+  edges: [MaleEdge]!
+  aggregate: AggregateMale!
+}
+
+input MaleCreateInput {
+  id: ID
+  owner: UserCreateOneInput!
+  attribute: AttributeCreateManyInput
+}
+
+type MaleEdge {
+  node: Male!
+  cursor: String!
+}
+
+enum MaleOrderByInput {
+  id_ASC
+  id_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+}
+
+type MalePreviousValues {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type MaleSubscriptionPayload {
+  mutation: MutationType!
+  node: Male
+  updatedFields: [String!]
+  previousValues: MalePreviousValues
+}
+
+input MaleSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: MaleWhereInput
+  AND: [MaleSubscriptionWhereInput!]
+  OR: [MaleSubscriptionWhereInput!]
+  NOT: [MaleSubscriptionWhereInput!]
+}
+
+input MaleUpdateInput {
+  owner: UserUpdateOneRequiredInput
+  attribute: AttributeUpdateManyInput
+}
+
+input MaleWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  owner: UserWhereInput
+  attribute_every: AttributeWhereInput
+  attribute_some: AttributeWhereInput
+  attribute_none: AttributeWhereInput
+  AND: [MaleWhereInput!]
+  OR: [MaleWhereInput!]
+  NOT: [MaleWhereInput!]
+}
+
+input MaleWhereUniqueInput {
+  id: ID
+}
+
 type Mutation {
   createAttribute(data: AttributeCreateInput!): Attribute!
   updateAttribute(data: AttributeUpdateInput!, where: AttributeWhereUniqueInput!): Attribute
@@ -617,16 +970,28 @@ type Mutation {
   deleteManyAttributes(where: AttributeWhereInput): BatchPayload!
   createEmail(data: EmailCreateInput!): Email!
   updateEmail(data: EmailUpdateInput!, where: EmailWhereUniqueInput!): Email
+  updateManyEmails(data: EmailUpdateManyMutationInput!, where: EmailWhereInput): BatchPayload!
   upsertEmail(where: EmailWhereUniqueInput!, create: EmailCreateInput!, update: EmailUpdateInput!): Email!
   deleteEmail(where: EmailWhereUniqueInput!): Email
   deleteManyEmails(where: EmailWhereInput): BatchPayload!
+  createFemale(data: FemaleCreateInput!): Female!
+  updateFemale(data: FemaleUpdateInput!, where: FemaleWhereUniqueInput!): Female
+  upsertFemale(where: FemaleWhereUniqueInput!, create: FemaleCreateInput!, update: FemaleUpdateInput!): Female!
+  deleteFemale(where: FemaleWhereUniqueInput!): Female
+  deleteManyFemales(where: FemaleWhereInput): BatchPayload!
   createIdentifiers(data: IdentifiersCreateInput!): Identifiers!
   updateIdentifiers(data: IdentifiersUpdateInput!, where: IdentifiersWhereUniqueInput!): Identifiers
   upsertIdentifiers(where: IdentifiersWhereUniqueInput!, create: IdentifiersCreateInput!, update: IdentifiersUpdateInput!): Identifiers!
   deleteIdentifiers(where: IdentifiersWhereUniqueInput!): Identifiers
   deleteManyIdentifierses(where: IdentifiersWhereInput): BatchPayload!
+  createMale(data: MaleCreateInput!): Male!
+  updateMale(data: MaleUpdateInput!, where: MaleWhereUniqueInput!): Male
+  upsertMale(where: MaleWhereUniqueInput!, create: MaleCreateInput!, update: MaleUpdateInput!): Male!
+  deleteMale(where: MaleWhereUniqueInput!): Male
+  deleteManyMales(where: MaleWhereInput): BatchPayload!
   createPhoneNumber(data: PhoneNumberCreateInput!): PhoneNumber!
   updatePhoneNumber(data: PhoneNumberUpdateInput!, where: PhoneNumberWhereUniqueInput!): PhoneNumber
+  updateManyPhoneNumbers(data: PhoneNumberUpdateManyMutationInput!, where: PhoneNumberWhereInput): BatchPayload!
   upsertPhoneNumber(where: PhoneNumberWhereUniqueInput!, create: PhoneNumberCreateInput!, update: PhoneNumberUpdateInput!): PhoneNumber!
   deletePhoneNumber(where: PhoneNumberWhereUniqueInput!): PhoneNumber
   deleteManyPhoneNumbers(where: PhoneNumberWhereInput): BatchPayload!
@@ -662,6 +1027,7 @@ type PageInfo {
 
 type PhoneNumber {
   id: ID!
+  value: Int
   createdAt: DateTime!
   updatedAt: DateTime!
   owner: User!
@@ -676,7 +1042,8 @@ type PhoneNumberConnection {
 
 input PhoneNumberCreateInput {
   id: ID
-  owner: UserCreateOneInput!
+  value: Int
+  owner: UserCreateOneWithoutPhone_numberInput!
   attribute: AttributeCreateManyWithoutPhone_numberInput
 }
 
@@ -690,9 +1057,21 @@ input PhoneNumberCreateManyWithoutAttributeInput {
   connect: [PhoneNumberWhereUniqueInput!]
 }
 
+input PhoneNumberCreateManyWithoutOwnerInput {
+  create: [PhoneNumberCreateWithoutOwnerInput!]
+  connect: [PhoneNumberWhereUniqueInput!]
+}
+
 input PhoneNumberCreateWithoutAttributeInput {
   id: ID
-  owner: UserCreateOneInput!
+  value: Int
+  owner: UserCreateOneWithoutPhone_numberInput!
+}
+
+input PhoneNumberCreateWithoutOwnerInput {
+  id: ID
+  value: Int
+  attribute: AttributeCreateManyWithoutPhone_numberInput
 }
 
 type PhoneNumberEdge {
@@ -703,6 +1082,8 @@ type PhoneNumberEdge {
 enum PhoneNumberOrderByInput {
   id_ASC
   id_DESC
+  value_ASC
+  value_DESC
   createdAt_ASC
   createdAt_DESC
   updatedAt_ASC
@@ -711,6 +1092,7 @@ enum PhoneNumberOrderByInput {
 
 type PhoneNumberPreviousValues {
   id: ID!
+  value: Int
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -730,6 +1112,14 @@ input PhoneNumberScalarWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
+  value: Int
+  value_not: Int
+  value_in: [Int!]
+  value_not_in: [Int!]
+  value_lt: Int
+  value_lte: Int
+  value_gt: Int
+  value_gte: Int
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]
@@ -770,13 +1160,19 @@ input PhoneNumberSubscriptionWhereInput {
 }
 
 input PhoneNumberUpdateDataInput {
-  owner: UserUpdateOneRequiredInput
+  value: Int
+  owner: UserUpdateOneRequiredWithoutPhone_numberInput
   attribute: AttributeUpdateManyWithoutPhone_numberInput
 }
 
 input PhoneNumberUpdateInput {
-  owner: UserUpdateOneRequiredInput
+  value: Int
+  owner: UserUpdateOneRequiredWithoutPhone_numberInput
   attribute: AttributeUpdateManyWithoutPhone_numberInput
+}
+
+input PhoneNumberUpdateManyDataInput {
+  value: Int
 }
 
 input PhoneNumberUpdateManyInput {
@@ -788,6 +1184,11 @@ input PhoneNumberUpdateManyInput {
   set: [PhoneNumberWhereUniqueInput!]
   disconnect: [PhoneNumberWhereUniqueInput!]
   deleteMany: [PhoneNumberScalarWhereInput!]
+  updateMany: [PhoneNumberUpdateManyWithWhereNestedInput!]
+}
+
+input PhoneNumberUpdateManyMutationInput {
+  value: Int
 }
 
 input PhoneNumberUpdateManyWithoutAttributeInput {
@@ -799,10 +1200,34 @@ input PhoneNumberUpdateManyWithoutAttributeInput {
   update: [PhoneNumberUpdateWithWhereUniqueWithoutAttributeInput!]
   upsert: [PhoneNumberUpsertWithWhereUniqueWithoutAttributeInput!]
   deleteMany: [PhoneNumberScalarWhereInput!]
+  updateMany: [PhoneNumberUpdateManyWithWhereNestedInput!]
+}
+
+input PhoneNumberUpdateManyWithoutOwnerInput {
+  create: [PhoneNumberCreateWithoutOwnerInput!]
+  delete: [PhoneNumberWhereUniqueInput!]
+  connect: [PhoneNumberWhereUniqueInput!]
+  set: [PhoneNumberWhereUniqueInput!]
+  disconnect: [PhoneNumberWhereUniqueInput!]
+  update: [PhoneNumberUpdateWithWhereUniqueWithoutOwnerInput!]
+  upsert: [PhoneNumberUpsertWithWhereUniqueWithoutOwnerInput!]
+  deleteMany: [PhoneNumberScalarWhereInput!]
+  updateMany: [PhoneNumberUpdateManyWithWhereNestedInput!]
+}
+
+input PhoneNumberUpdateManyWithWhereNestedInput {
+  where: PhoneNumberScalarWhereInput!
+  data: PhoneNumberUpdateManyDataInput!
 }
 
 input PhoneNumberUpdateWithoutAttributeDataInput {
-  owner: UserUpdateOneRequiredInput
+  value: Int
+  owner: UserUpdateOneRequiredWithoutPhone_numberInput
+}
+
+input PhoneNumberUpdateWithoutOwnerDataInput {
+  value: Int
+  attribute: AttributeUpdateManyWithoutPhone_numberInput
 }
 
 input PhoneNumberUpdateWithWhereUniqueNestedInput {
@@ -815,6 +1240,11 @@ input PhoneNumberUpdateWithWhereUniqueWithoutAttributeInput {
   data: PhoneNumberUpdateWithoutAttributeDataInput!
 }
 
+input PhoneNumberUpdateWithWhereUniqueWithoutOwnerInput {
+  where: PhoneNumberWhereUniqueInput!
+  data: PhoneNumberUpdateWithoutOwnerDataInput!
+}
+
 input PhoneNumberUpsertWithWhereUniqueNestedInput {
   where: PhoneNumberWhereUniqueInput!
   update: PhoneNumberUpdateDataInput!
@@ -825,6 +1255,12 @@ input PhoneNumberUpsertWithWhereUniqueWithoutAttributeInput {
   where: PhoneNumberWhereUniqueInput!
   update: PhoneNumberUpdateWithoutAttributeDataInput!
   create: PhoneNumberCreateWithoutAttributeInput!
+}
+
+input PhoneNumberUpsertWithWhereUniqueWithoutOwnerInput {
+  where: PhoneNumberWhereUniqueInput!
+  update: PhoneNumberUpdateWithoutOwnerDataInput!
+  create: PhoneNumberCreateWithoutOwnerInput!
 }
 
 input PhoneNumberWhereInput {
@@ -842,6 +1278,14 @@ input PhoneNumberWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
+  value: Int
+  value_not: Int
+  value_in: [Int!]
+  value_not_in: [Int!]
+  value_lt: Int
+  value_lte: Int
+  value_gt: Int
+  value_gte: Int
   createdAt: DateTime
   createdAt_not: DateTime
   createdAt_in: [DateTime!]
@@ -878,9 +1322,15 @@ type Query {
   email(where: EmailWhereUniqueInput!): Email
   emails(where: EmailWhereInput, orderBy: EmailOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Email]!
   emailsConnection(where: EmailWhereInput, orderBy: EmailOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): EmailConnection!
+  female(where: FemaleWhereUniqueInput!): Female
+  females(where: FemaleWhereInput, orderBy: FemaleOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Female]!
+  femalesConnection(where: FemaleWhereInput, orderBy: FemaleOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): FemaleConnection!
   identifiers(where: IdentifiersWhereUniqueInput!): Identifiers
   identifierses(where: IdentifiersWhereInput, orderBy: IdentifiersOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Identifiers]!
   identifiersesConnection(where: IdentifiersWhereInput, orderBy: IdentifiersOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): IdentifiersConnection!
+  male(where: MaleWhereUniqueInput!): Male
+  males(where: MaleWhereInput, orderBy: MaleOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Male]!
+  malesConnection(where: MaleWhereInput, orderBy: MaleOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): MaleConnection!
   phoneNumber(where: PhoneNumberWhereUniqueInput!): PhoneNumber
   phoneNumbers(where: PhoneNumberWhereInput, orderBy: PhoneNumberOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [PhoneNumber]!
   phoneNumbersConnection(where: PhoneNumberWhereInput, orderBy: PhoneNumberOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PhoneNumberConnection!
@@ -896,7 +1346,9 @@ type Query {
 type Subscription {
   attribute(where: AttributeSubscriptionWhereInput): AttributeSubscriptionPayload
   email(where: EmailSubscriptionWhereInput): EmailSubscriptionPayload
+  female(where: FemaleSubscriptionWhereInput): FemaleSubscriptionPayload
   identifiers(where: IdentifiersSubscriptionWhereInput): IdentifiersSubscriptionPayload
+  male(where: MaleSubscriptionWhereInput): MaleSubscriptionPayload
   phoneNumber(where: PhoneNumberSubscriptionWhereInput): PhoneNumberSubscriptionPayload
   taxId(where: TaxIdSubscriptionWhereInput): TaxIdSubscriptionPayload
   user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
@@ -907,6 +1359,7 @@ type TaxId {
   createdAt: DateTime!
   updatedAt: DateTime!
   owner: User!
+  attribute(where: AttributeWhereInput, orderBy: AttributeOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Attribute!]
 }
 
 type TaxIdConnection {
@@ -918,11 +1371,22 @@ type TaxIdConnection {
 input TaxIdCreateInput {
   id: ID
   owner: UserCreateOneInput!
+  attribute: AttributeCreateManyWithoutTax_idInput
 }
 
 input TaxIdCreateManyInput {
   create: [TaxIdCreateInput!]
   connect: [TaxIdWhereUniqueInput!]
+}
+
+input TaxIdCreateManyWithoutAttributeInput {
+  create: [TaxIdCreateWithoutAttributeInput!]
+  connect: [TaxIdWhereUniqueInput!]
+}
+
+input TaxIdCreateWithoutAttributeInput {
+  id: ID
+  owner: UserCreateOneInput!
 }
 
 type TaxIdEdge {
@@ -1001,10 +1465,12 @@ input TaxIdSubscriptionWhereInput {
 
 input TaxIdUpdateDataInput {
   owner: UserUpdateOneRequiredInput
+  attribute: AttributeUpdateManyWithoutTax_idInput
 }
 
 input TaxIdUpdateInput {
   owner: UserUpdateOneRequiredInput
+  attribute: AttributeUpdateManyWithoutTax_idInput
 }
 
 input TaxIdUpdateManyInput {
@@ -1018,15 +1484,41 @@ input TaxIdUpdateManyInput {
   deleteMany: [TaxIdScalarWhereInput!]
 }
 
+input TaxIdUpdateManyWithoutAttributeInput {
+  create: [TaxIdCreateWithoutAttributeInput!]
+  delete: [TaxIdWhereUniqueInput!]
+  connect: [TaxIdWhereUniqueInput!]
+  set: [TaxIdWhereUniqueInput!]
+  disconnect: [TaxIdWhereUniqueInput!]
+  update: [TaxIdUpdateWithWhereUniqueWithoutAttributeInput!]
+  upsert: [TaxIdUpsertWithWhereUniqueWithoutAttributeInput!]
+  deleteMany: [TaxIdScalarWhereInput!]
+}
+
+input TaxIdUpdateWithoutAttributeDataInput {
+  owner: UserUpdateOneRequiredInput
+}
+
 input TaxIdUpdateWithWhereUniqueNestedInput {
   where: TaxIdWhereUniqueInput!
   data: TaxIdUpdateDataInput!
+}
+
+input TaxIdUpdateWithWhereUniqueWithoutAttributeInput {
+  where: TaxIdWhereUniqueInput!
+  data: TaxIdUpdateWithoutAttributeDataInput!
 }
 
 input TaxIdUpsertWithWhereUniqueNestedInput {
   where: TaxIdWhereUniqueInput!
   update: TaxIdUpdateDataInput!
   create: TaxIdCreateInput!
+}
+
+input TaxIdUpsertWithWhereUniqueWithoutAttributeInput {
+  where: TaxIdWhereUniqueInput!
+  update: TaxIdUpdateWithoutAttributeDataInput!
+  create: TaxIdCreateWithoutAttributeInput!
 }
 
 input TaxIdWhereInput {
@@ -1061,6 +1553,9 @@ input TaxIdWhereInput {
   updatedAt_gt: DateTime
   updatedAt_gte: DateTime
   owner: UserWhereInput
+  attribute_every: AttributeWhereInput
+  attribute_some: AttributeWhereInput
+  attribute_none: AttributeWhereInput
   AND: [TaxIdWhereInput!]
   OR: [TaxIdWhereInput!]
   NOT: [TaxIdWhereInput!]
@@ -1075,9 +1570,10 @@ type User {
   createdAt: DateTime!
   updatedAt: DateTime!
   email: String!
-  name: String
+  phone_number(where: PhoneNumberWhereInput, orderBy: PhoneNumberOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [PhoneNumber!]
   role: AuthLevel
-  identifiers: Identifiers
+  gender: Gender!
+  identifiers: Identifiers!
 }
 
 type UserConnection {
@@ -1089,14 +1585,28 @@ type UserConnection {
 input UserCreateInput {
   id: ID
   email: String!
-  name: String
+  phone_number: PhoneNumberCreateManyWithoutOwnerInput
   role: AuthLevel
-  identifiers: IdentifiersCreateOneInput
+  gender: Gender!
+  identifiers: IdentifiersCreateOneInput!
 }
 
 input UserCreateOneInput {
   create: UserCreateInput
   connect: UserWhereUniqueInput
+}
+
+input UserCreateOneWithoutPhone_numberInput {
+  create: UserCreateWithoutPhone_numberInput
+  connect: UserWhereUniqueInput
+}
+
+input UserCreateWithoutPhone_numberInput {
+  id: ID
+  email: String!
+  role: AuthLevel
+  gender: Gender!
+  identifiers: IdentifiersCreateOneInput!
 }
 
 type UserEdge {
@@ -1113,10 +1623,10 @@ enum UserOrderByInput {
   updatedAt_DESC
   email_ASC
   email_DESC
-  name_ASC
-  name_DESC
   role_ASC
   role_DESC
+  gender_ASC
+  gender_DESC
 }
 
 type UserPreviousValues {
@@ -1124,8 +1634,8 @@ type UserPreviousValues {
   createdAt: DateTime!
   updatedAt: DateTime!
   email: String!
-  name: String
   role: AuthLevel
+  gender: Gender!
 }
 
 type UserSubscriptionPayload {
@@ -1148,22 +1658,24 @@ input UserSubscriptionWhereInput {
 
 input UserUpdateDataInput {
   email: String
-  name: String
+  phone_number: PhoneNumberUpdateManyWithoutOwnerInput
   role: AuthLevel
-  identifiers: IdentifiersUpdateOneInput
+  gender: Gender
+  identifiers: IdentifiersUpdateOneRequiredInput
 }
 
 input UserUpdateInput {
   email: String
-  name: String
+  phone_number: PhoneNumberUpdateManyWithoutOwnerInput
   role: AuthLevel
-  identifiers: IdentifiersUpdateOneInput
+  gender: Gender
+  identifiers: IdentifiersUpdateOneRequiredInput
 }
 
 input UserUpdateManyMutationInput {
   email: String
-  name: String
   role: AuthLevel
+  gender: Gender
 }
 
 input UserUpdateOneRequiredInput {
@@ -1173,9 +1685,28 @@ input UserUpdateOneRequiredInput {
   connect: UserWhereUniqueInput
 }
 
+input UserUpdateOneRequiredWithoutPhone_numberInput {
+  create: UserCreateWithoutPhone_numberInput
+  update: UserUpdateWithoutPhone_numberDataInput
+  upsert: UserUpsertWithoutPhone_numberInput
+  connect: UserWhereUniqueInput
+}
+
+input UserUpdateWithoutPhone_numberDataInput {
+  email: String
+  role: AuthLevel
+  gender: Gender
+  identifiers: IdentifiersUpdateOneRequiredInput
+}
+
 input UserUpsertNestedInput {
   update: UserUpdateDataInput!
   create: UserCreateInput!
+}
+
+input UserUpsertWithoutPhone_numberInput {
+  update: UserUpdateWithoutPhone_numberDataInput!
+  create: UserCreateWithoutPhone_numberInput!
 }
 
 input UserWhereInput {
@@ -1223,24 +1754,17 @@ input UserWhereInput {
   email_not_starts_with: String
   email_ends_with: String
   email_not_ends_with: String
-  name: String
-  name_not: String
-  name_in: [String!]
-  name_not_in: [String!]
-  name_lt: String
-  name_lte: String
-  name_gt: String
-  name_gte: String
-  name_contains: String
-  name_not_contains: String
-  name_starts_with: String
-  name_not_starts_with: String
-  name_ends_with: String
-  name_not_ends_with: String
+  phone_number_every: PhoneNumberWhereInput
+  phone_number_some: PhoneNumberWhereInput
+  phone_number_none: PhoneNumberWhereInput
   role: AuthLevel
   role_not: AuthLevel
   role_in: [AuthLevel!]
   role_not_in: [AuthLevel!]
+  gender: Gender
+  gender_not: Gender
+  gender_in: [Gender!]
+  gender_not_in: [Gender!]
   identifiers: IdentifiersWhereInput
   AND: [UserWhereInput!]
   OR: [UserWhereInput!]

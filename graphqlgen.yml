@@ -10,7 +10,7 @@ output: ./generated/prisma-client/resolvers.ts
 
 models:
   files:
-    - ./generated/prisma-client/index.ts
+    - ./generated/nexus-prisma/datamodel-info.ts
 
 resolver-scaffolding:
   output: ./generated/prisma-client/lib/

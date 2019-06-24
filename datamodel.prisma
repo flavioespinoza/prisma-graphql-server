@@ -3,10 +3,10 @@ type User @db(name: "person") {
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
   email: String! @unique
-  name: String
+  phone_number: [PhoneNumber!]!
   role: AuthLevel @default(value: USER)
-  gender: Gender 
-  identifiers: Identifiers
+  gender: Gender!
+  identifiers: Identifiers!
 }
 
 type Identifiers {
@@ -65,10 +65,9 @@ type PhoneNumberAttribute @db(name: "phone_number_attribute") @relationTable {
   attribute: Attribute
 }
 
-
 enum Gender {
-  M: Male
-	F: Female
+  M
+	F
 }
 
 type Female @db(name: "female") {

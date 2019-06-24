@@ -1,0 +1,105 @@
+type Person {
+	id: ID! @id
+	email: String! @unique
+  identifiers: Identifier
+  _pnMetadata: PNMetadata
+  birthDate: String
+  gender: Gender
+  names: [Name!]! @scalarList(strategy: RELATION)  
+  sourceID: String
+  type: String!
+}
+
+type Email {
+  id: ID! @id
+	value: String!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  owner: Person!
+}
+
+type PhoneNumber {
+  id: ID! @id
+	value: Int 
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  owner: Person!
+}
+
+enum Gender {
+  M
+  F
+}
+
+type Identifier {
+  id: ID! @id
+  SSNs: [SSN!]! @scalarList(strategy: RELATION)
+  emails: [Email!]! @scalarList(strategy: RELATION)
+  phoneNumbers: [PhoneNumber!]! @scalarList(strategy: RELATION)
+  type: String!
+}
+
+type Name {
+  id: ID! @id
+  _pnMetadata: PNMetadata
+  additionlName: String
+  endDate: String
+  familyName: String
+  fullName: String
+  givenName: String
+  honorificPrefix: String
+  honorificSuffix: String
+  startDate: String
+  type: String!
+  use: [NameUse!]! @scalarList(strategy: RELATION)
+}
+
+enum NameUse {
+  ALIAS
+  PRIMARY
+}
+
+
+enum PhoneNumberUse {
+  HOME
+  WORK
+  CELL
+}
+
+type PNMetadata {
+  id: ID! @id
+  someMetadata: String
+}
+
+type PostalAddress {
+  id: ID! @id
+  _pnMetadata: PNMetadata
+  addressCountry: String
+  addressFull: String
+  addressLocality: String
+  addressRegion: String
+  endDate: String
+  postOfficeBoxNumber: String
+  postalCode: String
+  startDate: String
+  streetAddress: String
+  type: String!
+  use: [PostalAddressUse!]! @scalarList(strategy: RELATION)
+}
+
+enum PostalAddressUse {
+  HOME
+  WORK
+  MAIL
+  BILLING
+}
+
+type SSN {
+  id: ID! @id
+  _pnMetadata: PNMetadata
+  endDate: String
+  startDate: String
+  type: String!
+  use: PhoneNumberUse
+  value: String!
+}

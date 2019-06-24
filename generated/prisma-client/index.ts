@@ -18,7 +18,9 @@ export type Maybe<T> = T | undefined | null;
 export interface Exists {
   attribute: (where?: AttributeWhereInput) => Promise<boolean>;
   email: (where?: EmailWhereInput) => Promise<boolean>;
+  female: (where?: FemaleWhereInput) => Promise<boolean>;
   identifiers: (where?: IdentifiersWhereInput) => Promise<boolean>;
+  male: (where?: MaleWhereInput) => Promise<boolean>;
   phoneNumber: (where?: PhoneNumberWhereInput) => Promise<boolean>;
   taxId: (where?: TaxIdWhereInput) => Promise<boolean>;
   user: (where?: UserWhereInput) => Promise<boolean>;
@@ -81,6 +83,25 @@ export interface Prisma {
     first?: Int;
     last?: Int;
   }) => EmailConnectionPromise;
+  female: (where: FemaleWhereUniqueInput) => FemaleNullablePromise;
+  females: (args?: {
+    where?: FemaleWhereInput;
+    orderBy?: FemaleOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<Female>;
+  femalesConnection: (args?: {
+    where?: FemaleWhereInput;
+    orderBy?: FemaleOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FemaleConnectionPromise;
   identifiers: (
     where: IdentifiersWhereUniqueInput
   ) => IdentifiersNullablePromise;
@@ -102,6 +123,25 @@ export interface Prisma {
     first?: Int;
     last?: Int;
   }) => IdentifiersConnectionPromise;
+  male: (where: MaleWhereUniqueInput) => MaleNullablePromise;
+  males: (args?: {
+    where?: MaleWhereInput;
+    orderBy?: MaleOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => FragmentableArray<Male>;
+  malesConnection: (args?: {
+    where?: MaleWhereInput;
+    orderBy?: MaleOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => MaleConnectionPromise;
   phoneNumber: (
     where: PhoneNumberWhereUniqueInput
   ) => PhoneNumberNullablePromise;
@@ -188,6 +228,10 @@ export interface Prisma {
     data: EmailUpdateInput;
     where: EmailWhereUniqueInput;
   }) => EmailPromise;
+  updateManyEmails: (args: {
+    data: EmailUpdateManyMutationInput;
+    where?: EmailWhereInput;
+  }) => BatchPayloadPromise;
   upsertEmail: (args: {
     where: EmailWhereUniqueInput;
     create: EmailCreateInput;
@@ -195,6 +239,18 @@ export interface Prisma {
   }) => EmailPromise;
   deleteEmail: (where: EmailWhereUniqueInput) => EmailPromise;
   deleteManyEmails: (where?: EmailWhereInput) => BatchPayloadPromise;
+  createFemale: (data: FemaleCreateInput) => FemalePromise;
+  updateFemale: (args: {
+    data: FemaleUpdateInput;
+    where: FemaleWhereUniqueInput;
+  }) => FemalePromise;
+  upsertFemale: (args: {
+    where: FemaleWhereUniqueInput;
+    create: FemaleCreateInput;
+    update: FemaleUpdateInput;
+  }) => FemalePromise;
+  deleteFemale: (where: FemaleWhereUniqueInput) => FemalePromise;
+  deleteManyFemales: (where?: FemaleWhereInput) => BatchPayloadPromise;
   createIdentifiers: (data: IdentifiersCreateInput) => IdentifiersPromise;
   updateIdentifiers: (args: {
     data: IdentifiersUpdateInput;
@@ -209,11 +265,27 @@ export interface Prisma {
   deleteManyIdentifierses: (
     where?: IdentifiersWhereInput
   ) => BatchPayloadPromise;
+  createMale: (data: MaleCreateInput) => MalePromise;
+  updateMale: (args: {
+    data: MaleUpdateInput;
+    where: MaleWhereUniqueInput;
+  }) => MalePromise;
+  upsertMale: (args: {
+    where: MaleWhereUniqueInput;
+    create: MaleCreateInput;
+    update: MaleUpdateInput;
+  }) => MalePromise;
+  deleteMale: (where: MaleWhereUniqueInput) => MalePromise;
+  deleteManyMales: (where?: MaleWhereInput) => BatchPayloadPromise;
   createPhoneNumber: (data: PhoneNumberCreateInput) => PhoneNumberPromise;
   updatePhoneNumber: (args: {
     data: PhoneNumberUpdateInput;
     where: PhoneNumberWhereUniqueInput;
   }) => PhoneNumberPromise;
+  updateManyPhoneNumbers: (args: {
+    data: PhoneNumberUpdateManyMutationInput;
+    where?: PhoneNumberWhereInput;
+  }) => BatchPayloadPromise;
   upsertPhoneNumber: (args: {
     where: PhoneNumberWhereUniqueInput;
     create: PhoneNumberCreateInput;
@@ -266,9 +338,15 @@ export interface Subscription {
   email: (
     where?: EmailSubscriptionWhereInput
   ) => EmailSubscriptionPayloadSubscription;
+  female: (
+    where?: FemaleSubscriptionWhereInput
+  ) => FemaleSubscriptionPayloadSubscription;
   identifiers: (
     where?: IdentifiersSubscriptionWhereInput
   ) => IdentifiersSubscriptionPayloadSubscription;
+  male: (
+    where?: MaleSubscriptionWhereInput
+  ) => MaleSubscriptionPayloadSubscription;
   phoneNumber: (
     where?: PhoneNumberSubscriptionWhereInput
   ) => PhoneNumberSubscriptionPayloadSubscription;
@@ -290,6 +368,8 @@ export interface ClientConstructor<T> {
 
 export type AuthLevel = "ADMIN" | "USER" | "PROSPECT" | "BLACKLISTED";
 
+export type Gender = "M" | "F";
+
 export type TaxIdOrderByInput =
   | "id_ASC"
   | "id_DESC"
@@ -298,9 +378,11 @@ export type TaxIdOrderByInput =
   | "updatedAt_ASC"
   | "updatedAt_DESC";
 
-export type EmailOrderByInput =
+export type PhoneNumberOrderByInput =
   | "id_ASC"
   | "id_DESC"
+  | "value_ASC"
+  | "value_DESC"
   | "createdAt_ASC"
   | "createdAt_DESC"
   | "updatedAt_ASC"
@@ -312,7 +394,17 @@ export type AttributeOrderByInput =
   | "attr_type_ASC"
   | "attr_type_DESC";
 
-export type PhoneNumberOrderByInput =
+export type EmailOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "value_ASC"
+  | "value_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
+
+export type FemaleOrderByInput =
   | "id_ASC"
   | "id_DESC"
   | "createdAt_ASC"
@@ -321,6 +413,14 @@ export type PhoneNumberOrderByInput =
   | "updatedAt_DESC";
 
 export type IdentifiersOrderByInput = "id_ASC" | "id_DESC";
+
+export type MaleOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "createdAt_ASC"
+  | "createdAt_DESC"
+  | "updatedAt_ASC"
+  | "updatedAt_DESC";
 
 export type UserOrderByInput =
   | "id_ASC"
@@ -331,10 +431,10 @@ export type UserOrderByInput =
   | "updatedAt_DESC"
   | "email_ASC"
   | "email_DESC"
-  | "name_ASC"
-  | "name_DESC"
   | "role_ASC"
-  | "role_DESC";
+  | "role_DESC"
+  | "gender_ASC"
+  | "gender_DESC";
 
 export type MutationType = "CREATED" | "UPDATED" | "DELETED";
 
@@ -374,6 +474,9 @@ export interface TaxIdWhereInput {
   updatedAt_gt?: Maybe<DateTimeInput>;
   updatedAt_gte?: Maybe<DateTimeInput>;
   owner?: Maybe<UserWhereInput>;
+  attribute_every?: Maybe<AttributeWhereInput>;
+  attribute_some?: Maybe<AttributeWhereInput>;
+  attribute_none?: Maybe<AttributeWhereInput>;
   AND?: Maybe<TaxIdWhereInput[] | TaxIdWhereInput>;
   OR?: Maybe<TaxIdWhereInput[] | TaxIdWhereInput>;
   NOT?: Maybe<TaxIdWhereInput[] | TaxIdWhereInput>;
@@ -424,31 +527,24 @@ export interface UserWhereInput {
   email_not_starts_with?: Maybe<String>;
   email_ends_with?: Maybe<String>;
   email_not_ends_with?: Maybe<String>;
-  name?: Maybe<String>;
-  name_not?: Maybe<String>;
-  name_in?: Maybe<String[] | String>;
-  name_not_in?: Maybe<String[] | String>;
-  name_lt?: Maybe<String>;
-  name_lte?: Maybe<String>;
-  name_gt?: Maybe<String>;
-  name_gte?: Maybe<String>;
-  name_contains?: Maybe<String>;
-  name_not_contains?: Maybe<String>;
-  name_starts_with?: Maybe<String>;
-  name_not_starts_with?: Maybe<String>;
-  name_ends_with?: Maybe<String>;
-  name_not_ends_with?: Maybe<String>;
+  phone_number_every?: Maybe<PhoneNumberWhereInput>;
+  phone_number_some?: Maybe<PhoneNumberWhereInput>;
+  phone_number_none?: Maybe<PhoneNumberWhereInput>;
   role?: Maybe<AuthLevel>;
   role_not?: Maybe<AuthLevel>;
   role_in?: Maybe<AuthLevel[] | AuthLevel>;
   role_not_in?: Maybe<AuthLevel[] | AuthLevel>;
+  gender?: Maybe<Gender>;
+  gender_not?: Maybe<Gender>;
+  gender_in?: Maybe<Gender[] | Gender>;
+  gender_not_in?: Maybe<Gender[] | Gender>;
   identifiers?: Maybe<IdentifiersWhereInput>;
   AND?: Maybe<UserWhereInput[] | UserWhereInput>;
   OR?: Maybe<UserWhereInput[] | UserWhereInput>;
   NOT?: Maybe<UserWhereInput[] | UserWhereInput>;
 }
 
-export interface IdentifiersWhereInput {
+export interface PhoneNumberWhereInput {
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
@@ -463,35 +559,14 @@ export interface IdentifiersWhereInput {
   id_not_starts_with?: Maybe<ID_Input>;
   id_ends_with?: Maybe<ID_Input>;
   id_not_ends_with?: Maybe<ID_Input>;
-  tax_id_every?: Maybe<TaxIdWhereInput>;
-  tax_id_some?: Maybe<TaxIdWhereInput>;
-  tax_id_none?: Maybe<TaxIdWhereInput>;
-  email_every?: Maybe<EmailWhereInput>;
-  email_some?: Maybe<EmailWhereInput>;
-  email_none?: Maybe<EmailWhereInput>;
-  phone_number_every?: Maybe<PhoneNumberWhereInput>;
-  phone_number_some?: Maybe<PhoneNumberWhereInput>;
-  phone_number_none?: Maybe<PhoneNumberWhereInput>;
-  AND?: Maybe<IdentifiersWhereInput[] | IdentifiersWhereInput>;
-  OR?: Maybe<IdentifiersWhereInput[] | IdentifiersWhereInput>;
-  NOT?: Maybe<IdentifiersWhereInput[] | IdentifiersWhereInput>;
-}
-
-export interface EmailWhereInput {
-  id?: Maybe<ID_Input>;
-  id_not?: Maybe<ID_Input>;
-  id_in?: Maybe<ID_Input[] | ID_Input>;
-  id_not_in?: Maybe<ID_Input[] | ID_Input>;
-  id_lt?: Maybe<ID_Input>;
-  id_lte?: Maybe<ID_Input>;
-  id_gt?: Maybe<ID_Input>;
-  id_gte?: Maybe<ID_Input>;
-  id_contains?: Maybe<ID_Input>;
-  id_not_contains?: Maybe<ID_Input>;
-  id_starts_with?: Maybe<ID_Input>;
-  id_not_starts_with?: Maybe<ID_Input>;
-  id_ends_with?: Maybe<ID_Input>;
-  id_not_ends_with?: Maybe<ID_Input>;
+  value?: Maybe<Int>;
+  value_not?: Maybe<Int>;
+  value_in?: Maybe<Int[] | Int>;
+  value_not_in?: Maybe<Int[] | Int>;
+  value_lt?: Maybe<Int>;
+  value_lte?: Maybe<Int>;
+  value_gt?: Maybe<Int>;
+  value_gte?: Maybe<Int>;
   createdAt?: Maybe<DateTimeInput>;
   createdAt_not?: Maybe<DateTimeInput>;
   createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
@@ -512,9 +587,9 @@ export interface EmailWhereInput {
   attribute_every?: Maybe<AttributeWhereInput>;
   attribute_some?: Maybe<AttributeWhereInput>;
   attribute_none?: Maybe<AttributeWhereInput>;
-  AND?: Maybe<EmailWhereInput[] | EmailWhereInput>;
-  OR?: Maybe<EmailWhereInput[] | EmailWhereInput>;
-  NOT?: Maybe<EmailWhereInput[] | EmailWhereInput>;
+  AND?: Maybe<PhoneNumberWhereInput[] | PhoneNumberWhereInput>;
+  OR?: Maybe<PhoneNumberWhereInput[] | PhoneNumberWhereInput>;
+  NOT?: Maybe<PhoneNumberWhereInput[] | PhoneNumberWhereInput>;
 }
 
 export interface AttributeWhereInput {
@@ -560,7 +635,98 @@ export interface AttributeWhereInput {
   NOT?: Maybe<AttributeWhereInput[] | AttributeWhereInput>;
 }
 
-export interface PhoneNumberWhereInput {
+export interface EmailWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  value?: Maybe<String>;
+  value_not?: Maybe<String>;
+  value_in?: Maybe<String[] | String>;
+  value_not_in?: Maybe<String[] | String>;
+  value_lt?: Maybe<String>;
+  value_lte?: Maybe<String>;
+  value_gt?: Maybe<String>;
+  value_gte?: Maybe<String>;
+  value_contains?: Maybe<String>;
+  value_not_contains?: Maybe<String>;
+  value_starts_with?: Maybe<String>;
+  value_not_starts_with?: Maybe<String>;
+  value_ends_with?: Maybe<String>;
+  value_not_ends_with?: Maybe<String>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  owner?: Maybe<UserWhereInput>;
+  attribute_every?: Maybe<AttributeWhereInput>;
+  attribute_some?: Maybe<AttributeWhereInput>;
+  attribute_none?: Maybe<AttributeWhereInput>;
+  AND?: Maybe<EmailWhereInput[] | EmailWhereInput>;
+  OR?: Maybe<EmailWhereInput[] | EmailWhereInput>;
+  NOT?: Maybe<EmailWhereInput[] | EmailWhereInput>;
+}
+
+export interface IdentifiersWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  tax_id_every?: Maybe<TaxIdWhereInput>;
+  tax_id_some?: Maybe<TaxIdWhereInput>;
+  tax_id_none?: Maybe<TaxIdWhereInput>;
+  email_every?: Maybe<EmailWhereInput>;
+  email_some?: Maybe<EmailWhereInput>;
+  email_none?: Maybe<EmailWhereInput>;
+  phone_number_every?: Maybe<PhoneNumberWhereInput>;
+  phone_number_some?: Maybe<PhoneNumberWhereInput>;
+  phone_number_none?: Maybe<PhoneNumberWhereInput>;
+  AND?: Maybe<IdentifiersWhereInput[] | IdentifiersWhereInput>;
+  OR?: Maybe<IdentifiersWhereInput[] | IdentifiersWhereInput>;
+  NOT?: Maybe<IdentifiersWhereInput[] | IdentifiersWhereInput>;
+}
+
+export type EmailWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export type FemaleWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export interface FemaleWhereInput {
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
@@ -595,314 +761,20 @@ export interface PhoneNumberWhereInput {
   attribute_every?: Maybe<AttributeWhereInput>;
   attribute_some?: Maybe<AttributeWhereInput>;
   attribute_none?: Maybe<AttributeWhereInput>;
-  AND?: Maybe<PhoneNumberWhereInput[] | PhoneNumberWhereInput>;
-  OR?: Maybe<PhoneNumberWhereInput[] | PhoneNumberWhereInput>;
-  NOT?: Maybe<PhoneNumberWhereInput[] | PhoneNumberWhereInput>;
+  AND?: Maybe<FemaleWhereInput[] | FemaleWhereInput>;
+  OR?: Maybe<FemaleWhereInput[] | FemaleWhereInput>;
+  NOT?: Maybe<FemaleWhereInput[] | FemaleWhereInput>;
 }
-
-export type EmailWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
 
 export type IdentifiersWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
 }>;
 
-export type PhoneNumberWhereUniqueInput = AtLeastOne<{
+export type MaleWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
 }>;
 
-export type TaxIdWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-}>;
-
-export type UserWhereUniqueInput = AtLeastOne<{
-  id: Maybe<ID_Input>;
-  email?: Maybe<String>;
-}>;
-
-export interface AttributeCreateInput {
-  id?: Maybe<ID_Input>;
-  attr_type: String;
-  tax_id?: Maybe<TaxIdCreateManyInput>;
-  email?: Maybe<EmailCreateManyWithoutAttributeInput>;
-  phone_number?: Maybe<PhoneNumberCreateManyWithoutAttributeInput>;
-}
-
-export interface TaxIdCreateManyInput {
-  create?: Maybe<TaxIdCreateInput[] | TaxIdCreateInput>;
-  connect?: Maybe<TaxIdWhereUniqueInput[] | TaxIdWhereUniqueInput>;
-}
-
-export interface TaxIdCreateInput {
-  id?: Maybe<ID_Input>;
-  owner: UserCreateOneInput;
-}
-
-export interface UserCreateOneInput {
-  create?: Maybe<UserCreateInput>;
-  connect?: Maybe<UserWhereUniqueInput>;
-}
-
-export interface UserCreateInput {
-  id?: Maybe<ID_Input>;
-  email: String;
-  name?: Maybe<String>;
-  role?: Maybe<AuthLevel>;
-  identifiers?: Maybe<IdentifiersCreateOneInput>;
-}
-
-export interface IdentifiersCreateOneInput {
-  create?: Maybe<IdentifiersCreateInput>;
-  connect?: Maybe<IdentifiersWhereUniqueInput>;
-}
-
-export interface IdentifiersCreateInput {
-  id?: Maybe<ID_Input>;
-  tax_id?: Maybe<TaxIdCreateManyInput>;
-  email?: Maybe<EmailCreateManyInput>;
-  phone_number?: Maybe<PhoneNumberCreateManyInput>;
-}
-
-export interface EmailCreateManyInput {
-  create?: Maybe<EmailCreateInput[] | EmailCreateInput>;
-  connect?: Maybe<EmailWhereUniqueInput[] | EmailWhereUniqueInput>;
-}
-
-export interface EmailCreateInput {
-  id?: Maybe<ID_Input>;
-  owner: UserCreateOneInput;
-  attribute?: Maybe<AttributeCreateManyWithoutEmailInput>;
-}
-
-export interface AttributeCreateManyWithoutEmailInput {
-  create?: Maybe<
-    AttributeCreateWithoutEmailInput[] | AttributeCreateWithoutEmailInput
-  >;
-  connect?: Maybe<AttributeWhereUniqueInput[] | AttributeWhereUniqueInput>;
-}
-
-export interface AttributeCreateWithoutEmailInput {
-  id?: Maybe<ID_Input>;
-  attr_type: String;
-  tax_id?: Maybe<TaxIdCreateManyInput>;
-  phone_number?: Maybe<PhoneNumberCreateManyWithoutAttributeInput>;
-}
-
-export interface PhoneNumberCreateManyWithoutAttributeInput {
-  create?: Maybe<
-    | PhoneNumberCreateWithoutAttributeInput[]
-    | PhoneNumberCreateWithoutAttributeInput
-  >;
-  connect?: Maybe<PhoneNumberWhereUniqueInput[] | PhoneNumberWhereUniqueInput>;
-}
-
-export interface PhoneNumberCreateWithoutAttributeInput {
-  id?: Maybe<ID_Input>;
-  owner: UserCreateOneInput;
-}
-
-export interface PhoneNumberCreateManyInput {
-  create?: Maybe<PhoneNumberCreateInput[] | PhoneNumberCreateInput>;
-  connect?: Maybe<PhoneNumberWhereUniqueInput[] | PhoneNumberWhereUniqueInput>;
-}
-
-export interface PhoneNumberCreateInput {
-  id?: Maybe<ID_Input>;
-  owner: UserCreateOneInput;
-  attribute?: Maybe<AttributeCreateManyWithoutPhone_numberInput>;
-}
-
-export interface AttributeCreateManyWithoutPhone_numberInput {
-  create?: Maybe<
-    | AttributeCreateWithoutPhone_numberInput[]
-    | AttributeCreateWithoutPhone_numberInput
-  >;
-  connect?: Maybe<AttributeWhereUniqueInput[] | AttributeWhereUniqueInput>;
-}
-
-export interface AttributeCreateWithoutPhone_numberInput {
-  id?: Maybe<ID_Input>;
-  attr_type: String;
-  tax_id?: Maybe<TaxIdCreateManyInput>;
-  email?: Maybe<EmailCreateManyWithoutAttributeInput>;
-}
-
-export interface EmailCreateManyWithoutAttributeInput {
-  create?: Maybe<
-    EmailCreateWithoutAttributeInput[] | EmailCreateWithoutAttributeInput
-  >;
-  connect?: Maybe<EmailWhereUniqueInput[] | EmailWhereUniqueInput>;
-}
-
-export interface EmailCreateWithoutAttributeInput {
-  id?: Maybe<ID_Input>;
-  owner: UserCreateOneInput;
-}
-
-export interface AttributeUpdateInput {
-  attr_type?: Maybe<String>;
-  tax_id?: Maybe<TaxIdUpdateManyInput>;
-  email?: Maybe<EmailUpdateManyWithoutAttributeInput>;
-  phone_number?: Maybe<PhoneNumberUpdateManyWithoutAttributeInput>;
-}
-
-export interface TaxIdUpdateManyInput {
-  create?: Maybe<TaxIdCreateInput[] | TaxIdCreateInput>;
-  update?: Maybe<
-    | TaxIdUpdateWithWhereUniqueNestedInput[]
-    | TaxIdUpdateWithWhereUniqueNestedInput
-  >;
-  upsert?: Maybe<
-    | TaxIdUpsertWithWhereUniqueNestedInput[]
-    | TaxIdUpsertWithWhereUniqueNestedInput
-  >;
-  delete?: Maybe<TaxIdWhereUniqueInput[] | TaxIdWhereUniqueInput>;
-  connect?: Maybe<TaxIdWhereUniqueInput[] | TaxIdWhereUniqueInput>;
-  set?: Maybe<TaxIdWhereUniqueInput[] | TaxIdWhereUniqueInput>;
-  disconnect?: Maybe<TaxIdWhereUniqueInput[] | TaxIdWhereUniqueInput>;
-  deleteMany?: Maybe<TaxIdScalarWhereInput[] | TaxIdScalarWhereInput>;
-}
-
-export interface TaxIdUpdateWithWhereUniqueNestedInput {
-  where: TaxIdWhereUniqueInput;
-  data: TaxIdUpdateDataInput;
-}
-
-export interface TaxIdUpdateDataInput {
-  owner?: Maybe<UserUpdateOneRequiredInput>;
-}
-
-export interface UserUpdateOneRequiredInput {
-  create?: Maybe<UserCreateInput>;
-  update?: Maybe<UserUpdateDataInput>;
-  upsert?: Maybe<UserUpsertNestedInput>;
-  connect?: Maybe<UserWhereUniqueInput>;
-}
-
-export interface UserUpdateDataInput {
-  email?: Maybe<String>;
-  name?: Maybe<String>;
-  role?: Maybe<AuthLevel>;
-  identifiers?: Maybe<IdentifiersUpdateOneInput>;
-}
-
-export interface IdentifiersUpdateOneInput {
-  create?: Maybe<IdentifiersCreateInput>;
-  update?: Maybe<IdentifiersUpdateDataInput>;
-  upsert?: Maybe<IdentifiersUpsertNestedInput>;
-  delete?: Maybe<Boolean>;
-  disconnect?: Maybe<Boolean>;
-  connect?: Maybe<IdentifiersWhereUniqueInput>;
-}
-
-export interface IdentifiersUpdateDataInput {
-  tax_id?: Maybe<TaxIdUpdateManyInput>;
-  email?: Maybe<EmailUpdateManyInput>;
-  phone_number?: Maybe<PhoneNumberUpdateManyInput>;
-}
-
-export interface EmailUpdateManyInput {
-  create?: Maybe<EmailCreateInput[] | EmailCreateInput>;
-  update?: Maybe<
-    | EmailUpdateWithWhereUniqueNestedInput[]
-    | EmailUpdateWithWhereUniqueNestedInput
-  >;
-  upsert?: Maybe<
-    | EmailUpsertWithWhereUniqueNestedInput[]
-    | EmailUpsertWithWhereUniqueNestedInput
-  >;
-  delete?: Maybe<EmailWhereUniqueInput[] | EmailWhereUniqueInput>;
-  connect?: Maybe<EmailWhereUniqueInput[] | EmailWhereUniqueInput>;
-  set?: Maybe<EmailWhereUniqueInput[] | EmailWhereUniqueInput>;
-  disconnect?: Maybe<EmailWhereUniqueInput[] | EmailWhereUniqueInput>;
-  deleteMany?: Maybe<EmailScalarWhereInput[] | EmailScalarWhereInput>;
-}
-
-export interface EmailUpdateWithWhereUniqueNestedInput {
-  where: EmailWhereUniqueInput;
-  data: EmailUpdateDataInput;
-}
-
-export interface EmailUpdateDataInput {
-  owner?: Maybe<UserUpdateOneRequiredInput>;
-  attribute?: Maybe<AttributeUpdateManyWithoutEmailInput>;
-}
-
-export interface AttributeUpdateManyWithoutEmailInput {
-  create?: Maybe<
-    AttributeCreateWithoutEmailInput[] | AttributeCreateWithoutEmailInput
-  >;
-  delete?: Maybe<AttributeWhereUniqueInput[] | AttributeWhereUniqueInput>;
-  connect?: Maybe<AttributeWhereUniqueInput[] | AttributeWhereUniqueInput>;
-  set?: Maybe<AttributeWhereUniqueInput[] | AttributeWhereUniqueInput>;
-  disconnect?: Maybe<AttributeWhereUniqueInput[] | AttributeWhereUniqueInput>;
-  update?: Maybe<
-    | AttributeUpdateWithWhereUniqueWithoutEmailInput[]
-    | AttributeUpdateWithWhereUniqueWithoutEmailInput
-  >;
-  upsert?: Maybe<
-    | AttributeUpsertWithWhereUniqueWithoutEmailInput[]
-    | AttributeUpsertWithWhereUniqueWithoutEmailInput
-  >;
-  deleteMany?: Maybe<AttributeScalarWhereInput[] | AttributeScalarWhereInput>;
-  updateMany?: Maybe<
-    | AttributeUpdateManyWithWhereNestedInput[]
-    | AttributeUpdateManyWithWhereNestedInput
-  >;
-}
-
-export interface AttributeUpdateWithWhereUniqueWithoutEmailInput {
-  where: AttributeWhereUniqueInput;
-  data: AttributeUpdateWithoutEmailDataInput;
-}
-
-export interface AttributeUpdateWithoutEmailDataInput {
-  attr_type?: Maybe<String>;
-  tax_id?: Maybe<TaxIdUpdateManyInput>;
-  phone_number?: Maybe<PhoneNumberUpdateManyWithoutAttributeInput>;
-}
-
-export interface PhoneNumberUpdateManyWithoutAttributeInput {
-  create?: Maybe<
-    | PhoneNumberCreateWithoutAttributeInput[]
-    | PhoneNumberCreateWithoutAttributeInput
-  >;
-  delete?: Maybe<PhoneNumberWhereUniqueInput[] | PhoneNumberWhereUniqueInput>;
-  connect?: Maybe<PhoneNumberWhereUniqueInput[] | PhoneNumberWhereUniqueInput>;
-  set?: Maybe<PhoneNumberWhereUniqueInput[] | PhoneNumberWhereUniqueInput>;
-  disconnect?: Maybe<
-    PhoneNumberWhereUniqueInput[] | PhoneNumberWhereUniqueInput
-  >;
-  update?: Maybe<
-    | PhoneNumberUpdateWithWhereUniqueWithoutAttributeInput[]
-    | PhoneNumberUpdateWithWhereUniqueWithoutAttributeInput
-  >;
-  upsert?: Maybe<
-    | PhoneNumberUpsertWithWhereUniqueWithoutAttributeInput[]
-    | PhoneNumberUpsertWithWhereUniqueWithoutAttributeInput
-  >;
-  deleteMany?: Maybe<
-    PhoneNumberScalarWhereInput[] | PhoneNumberScalarWhereInput
-  >;
-}
-
-export interface PhoneNumberUpdateWithWhereUniqueWithoutAttributeInput {
-  where: PhoneNumberWhereUniqueInput;
-  data: PhoneNumberUpdateWithoutAttributeDataInput;
-}
-
-export interface PhoneNumberUpdateWithoutAttributeDataInput {
-  owner?: Maybe<UserUpdateOneRequiredInput>;
-}
-
-export interface PhoneNumberUpsertWithWhereUniqueWithoutAttributeInput {
-  where: PhoneNumberWhereUniqueInput;
-  update: PhoneNumberUpdateWithoutAttributeDataInput;
-  create: PhoneNumberCreateWithoutAttributeInput;
-}
-
-export interface PhoneNumberScalarWhereInput {
+export interface MaleWhereInput {
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
@@ -933,15 +805,428 @@ export interface PhoneNumberScalarWhereInput {
   updatedAt_lte?: Maybe<DateTimeInput>;
   updatedAt_gt?: Maybe<DateTimeInput>;
   updatedAt_gte?: Maybe<DateTimeInput>;
-  AND?: Maybe<PhoneNumberScalarWhereInput[] | PhoneNumberScalarWhereInput>;
-  OR?: Maybe<PhoneNumberScalarWhereInput[] | PhoneNumberScalarWhereInput>;
-  NOT?: Maybe<PhoneNumberScalarWhereInput[] | PhoneNumberScalarWhereInput>;
+  owner?: Maybe<UserWhereInput>;
+  attribute_every?: Maybe<AttributeWhereInput>;
+  attribute_some?: Maybe<AttributeWhereInput>;
+  attribute_none?: Maybe<AttributeWhereInput>;
+  AND?: Maybe<MaleWhereInput[] | MaleWhereInput>;
+  OR?: Maybe<MaleWhereInput[] | MaleWhereInput>;
+  NOT?: Maybe<MaleWhereInput[] | MaleWhereInput>;
 }
 
-export interface AttributeUpsertWithWhereUniqueWithoutEmailInput {
+export type PhoneNumberWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export type TaxIdWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+}>;
+
+export type UserWhereUniqueInput = AtLeastOne<{
+  id: Maybe<ID_Input>;
+  email?: Maybe<String>;
+}>;
+
+export interface AttributeCreateInput {
+  id?: Maybe<ID_Input>;
+  attr_type: String;
+  tax_id?: Maybe<TaxIdCreateManyWithoutAttributeInput>;
+  email?: Maybe<EmailCreateManyWithoutAttributeInput>;
+  phone_number?: Maybe<PhoneNumberCreateManyWithoutAttributeInput>;
+}
+
+export interface TaxIdCreateManyWithoutAttributeInput {
+  create?: Maybe<
+    TaxIdCreateWithoutAttributeInput[] | TaxIdCreateWithoutAttributeInput
+  >;
+  connect?: Maybe<TaxIdWhereUniqueInput[] | TaxIdWhereUniqueInput>;
+}
+
+export interface TaxIdCreateWithoutAttributeInput {
+  id?: Maybe<ID_Input>;
+  owner: UserCreateOneInput;
+}
+
+export interface UserCreateOneInput {
+  create?: Maybe<UserCreateInput>;
+  connect?: Maybe<UserWhereUniqueInput>;
+}
+
+export interface UserCreateInput {
+  id?: Maybe<ID_Input>;
+  email: String;
+  phone_number?: Maybe<PhoneNumberCreateManyWithoutOwnerInput>;
+  role?: Maybe<AuthLevel>;
+  gender: Gender;
+  identifiers: IdentifiersCreateOneInput;
+}
+
+export interface PhoneNumberCreateManyWithoutOwnerInput {
+  create?: Maybe<
+    PhoneNumberCreateWithoutOwnerInput[] | PhoneNumberCreateWithoutOwnerInput
+  >;
+  connect?: Maybe<PhoneNumberWhereUniqueInput[] | PhoneNumberWhereUniqueInput>;
+}
+
+export interface PhoneNumberCreateWithoutOwnerInput {
+  id?: Maybe<ID_Input>;
+  value?: Maybe<Int>;
+  attribute?: Maybe<AttributeCreateManyWithoutPhone_numberInput>;
+}
+
+export interface AttributeCreateManyWithoutPhone_numberInput {
+  create?: Maybe<
+    | AttributeCreateWithoutPhone_numberInput[]
+    | AttributeCreateWithoutPhone_numberInput
+  >;
+  connect?: Maybe<AttributeWhereUniqueInput[] | AttributeWhereUniqueInput>;
+}
+
+export interface AttributeCreateWithoutPhone_numberInput {
+  id?: Maybe<ID_Input>;
+  attr_type: String;
+  tax_id?: Maybe<TaxIdCreateManyWithoutAttributeInput>;
+  email?: Maybe<EmailCreateManyWithoutAttributeInput>;
+}
+
+export interface EmailCreateManyWithoutAttributeInput {
+  create?: Maybe<
+    EmailCreateWithoutAttributeInput[] | EmailCreateWithoutAttributeInput
+  >;
+  connect?: Maybe<EmailWhereUniqueInput[] | EmailWhereUniqueInput>;
+}
+
+export interface EmailCreateWithoutAttributeInput {
+  id?: Maybe<ID_Input>;
+  value: String;
+  owner: UserCreateOneInput;
+}
+
+export interface IdentifiersCreateOneInput {
+  create?: Maybe<IdentifiersCreateInput>;
+  connect?: Maybe<IdentifiersWhereUniqueInput>;
+}
+
+export interface IdentifiersCreateInput {
+  id?: Maybe<ID_Input>;
+  tax_id?: Maybe<TaxIdCreateManyInput>;
+  email?: Maybe<EmailCreateManyInput>;
+  phone_number?: Maybe<PhoneNumberCreateManyInput>;
+}
+
+export interface TaxIdCreateManyInput {
+  create?: Maybe<TaxIdCreateInput[] | TaxIdCreateInput>;
+  connect?: Maybe<TaxIdWhereUniqueInput[] | TaxIdWhereUniqueInput>;
+}
+
+export interface TaxIdCreateInput {
+  id?: Maybe<ID_Input>;
+  owner: UserCreateOneInput;
+  attribute?: Maybe<AttributeCreateManyWithoutTax_idInput>;
+}
+
+export interface AttributeCreateManyWithoutTax_idInput {
+  create?: Maybe<
+    AttributeCreateWithoutTax_idInput[] | AttributeCreateWithoutTax_idInput
+  >;
+  connect?: Maybe<AttributeWhereUniqueInput[] | AttributeWhereUniqueInput>;
+}
+
+export interface AttributeCreateWithoutTax_idInput {
+  id?: Maybe<ID_Input>;
+  attr_type: String;
+  email?: Maybe<EmailCreateManyWithoutAttributeInput>;
+  phone_number?: Maybe<PhoneNumberCreateManyWithoutAttributeInput>;
+}
+
+export interface PhoneNumberCreateManyWithoutAttributeInput {
+  create?: Maybe<
+    | PhoneNumberCreateWithoutAttributeInput[]
+    | PhoneNumberCreateWithoutAttributeInput
+  >;
+  connect?: Maybe<PhoneNumberWhereUniqueInput[] | PhoneNumberWhereUniqueInput>;
+}
+
+export interface PhoneNumberCreateWithoutAttributeInput {
+  id?: Maybe<ID_Input>;
+  value?: Maybe<Int>;
+  owner: UserCreateOneWithoutPhone_numberInput;
+}
+
+export interface UserCreateOneWithoutPhone_numberInput {
+  create?: Maybe<UserCreateWithoutPhone_numberInput>;
+  connect?: Maybe<UserWhereUniqueInput>;
+}
+
+export interface UserCreateWithoutPhone_numberInput {
+  id?: Maybe<ID_Input>;
+  email: String;
+  role?: Maybe<AuthLevel>;
+  gender: Gender;
+  identifiers: IdentifiersCreateOneInput;
+}
+
+export interface EmailCreateManyInput {
+  create?: Maybe<EmailCreateInput[] | EmailCreateInput>;
+  connect?: Maybe<EmailWhereUniqueInput[] | EmailWhereUniqueInput>;
+}
+
+export interface EmailCreateInput {
+  id?: Maybe<ID_Input>;
+  value: String;
+  owner: UserCreateOneInput;
+  attribute?: Maybe<AttributeCreateManyWithoutEmailInput>;
+}
+
+export interface AttributeCreateManyWithoutEmailInput {
+  create?: Maybe<
+    AttributeCreateWithoutEmailInput[] | AttributeCreateWithoutEmailInput
+  >;
+  connect?: Maybe<AttributeWhereUniqueInput[] | AttributeWhereUniqueInput>;
+}
+
+export interface AttributeCreateWithoutEmailInput {
+  id?: Maybe<ID_Input>;
+  attr_type: String;
+  tax_id?: Maybe<TaxIdCreateManyWithoutAttributeInput>;
+  phone_number?: Maybe<PhoneNumberCreateManyWithoutAttributeInput>;
+}
+
+export interface PhoneNumberCreateManyInput {
+  create?: Maybe<PhoneNumberCreateInput[] | PhoneNumberCreateInput>;
+  connect?: Maybe<PhoneNumberWhereUniqueInput[] | PhoneNumberWhereUniqueInput>;
+}
+
+export interface PhoneNumberCreateInput {
+  id?: Maybe<ID_Input>;
+  value?: Maybe<Int>;
+  owner: UserCreateOneWithoutPhone_numberInput;
+  attribute?: Maybe<AttributeCreateManyWithoutPhone_numberInput>;
+}
+
+export interface AttributeUpdateInput {
+  attr_type?: Maybe<String>;
+  tax_id?: Maybe<TaxIdUpdateManyWithoutAttributeInput>;
+  email?: Maybe<EmailUpdateManyWithoutAttributeInput>;
+  phone_number?: Maybe<PhoneNumberUpdateManyWithoutAttributeInput>;
+}
+
+export interface TaxIdUpdateManyWithoutAttributeInput {
+  create?: Maybe<
+    TaxIdCreateWithoutAttributeInput[] | TaxIdCreateWithoutAttributeInput
+  >;
+  delete?: Maybe<TaxIdWhereUniqueInput[] | TaxIdWhereUniqueInput>;
+  connect?: Maybe<TaxIdWhereUniqueInput[] | TaxIdWhereUniqueInput>;
+  set?: Maybe<TaxIdWhereUniqueInput[] | TaxIdWhereUniqueInput>;
+  disconnect?: Maybe<TaxIdWhereUniqueInput[] | TaxIdWhereUniqueInput>;
+  update?: Maybe<
+    | TaxIdUpdateWithWhereUniqueWithoutAttributeInput[]
+    | TaxIdUpdateWithWhereUniqueWithoutAttributeInput
+  >;
+  upsert?: Maybe<
+    | TaxIdUpsertWithWhereUniqueWithoutAttributeInput[]
+    | TaxIdUpsertWithWhereUniqueWithoutAttributeInput
+  >;
+  deleteMany?: Maybe<TaxIdScalarWhereInput[] | TaxIdScalarWhereInput>;
+}
+
+export interface TaxIdUpdateWithWhereUniqueWithoutAttributeInput {
+  where: TaxIdWhereUniqueInput;
+  data: TaxIdUpdateWithoutAttributeDataInput;
+}
+
+export interface TaxIdUpdateWithoutAttributeDataInput {
+  owner?: Maybe<UserUpdateOneRequiredInput>;
+}
+
+export interface UserUpdateOneRequiredInput {
+  create?: Maybe<UserCreateInput>;
+  update?: Maybe<UserUpdateDataInput>;
+  upsert?: Maybe<UserUpsertNestedInput>;
+  connect?: Maybe<UserWhereUniqueInput>;
+}
+
+export interface UserUpdateDataInput {
+  email?: Maybe<String>;
+  phone_number?: Maybe<PhoneNumberUpdateManyWithoutOwnerInput>;
+  role?: Maybe<AuthLevel>;
+  gender?: Maybe<Gender>;
+  identifiers?: Maybe<IdentifiersUpdateOneRequiredInput>;
+}
+
+export interface PhoneNumberUpdateManyWithoutOwnerInput {
+  create?: Maybe<
+    PhoneNumberCreateWithoutOwnerInput[] | PhoneNumberCreateWithoutOwnerInput
+  >;
+  delete?: Maybe<PhoneNumberWhereUniqueInput[] | PhoneNumberWhereUniqueInput>;
+  connect?: Maybe<PhoneNumberWhereUniqueInput[] | PhoneNumberWhereUniqueInput>;
+  set?: Maybe<PhoneNumberWhereUniqueInput[] | PhoneNumberWhereUniqueInput>;
+  disconnect?: Maybe<
+    PhoneNumberWhereUniqueInput[] | PhoneNumberWhereUniqueInput
+  >;
+  update?: Maybe<
+    | PhoneNumberUpdateWithWhereUniqueWithoutOwnerInput[]
+    | PhoneNumberUpdateWithWhereUniqueWithoutOwnerInput
+  >;
+  upsert?: Maybe<
+    | PhoneNumberUpsertWithWhereUniqueWithoutOwnerInput[]
+    | PhoneNumberUpsertWithWhereUniqueWithoutOwnerInput
+  >;
+  deleteMany?: Maybe<
+    PhoneNumberScalarWhereInput[] | PhoneNumberScalarWhereInput
+  >;
+  updateMany?: Maybe<
+    | PhoneNumberUpdateManyWithWhereNestedInput[]
+    | PhoneNumberUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface PhoneNumberUpdateWithWhereUniqueWithoutOwnerInput {
+  where: PhoneNumberWhereUniqueInput;
+  data: PhoneNumberUpdateWithoutOwnerDataInput;
+}
+
+export interface PhoneNumberUpdateWithoutOwnerDataInput {
+  value?: Maybe<Int>;
+  attribute?: Maybe<AttributeUpdateManyWithoutPhone_numberInput>;
+}
+
+export interface AttributeUpdateManyWithoutPhone_numberInput {
+  create?: Maybe<
+    | AttributeCreateWithoutPhone_numberInput[]
+    | AttributeCreateWithoutPhone_numberInput
+  >;
+  delete?: Maybe<AttributeWhereUniqueInput[] | AttributeWhereUniqueInput>;
+  connect?: Maybe<AttributeWhereUniqueInput[] | AttributeWhereUniqueInput>;
+  set?: Maybe<AttributeWhereUniqueInput[] | AttributeWhereUniqueInput>;
+  disconnect?: Maybe<AttributeWhereUniqueInput[] | AttributeWhereUniqueInput>;
+  update?: Maybe<
+    | AttributeUpdateWithWhereUniqueWithoutPhone_numberInput[]
+    | AttributeUpdateWithWhereUniqueWithoutPhone_numberInput
+  >;
+  upsert?: Maybe<
+    | AttributeUpsertWithWhereUniqueWithoutPhone_numberInput[]
+    | AttributeUpsertWithWhereUniqueWithoutPhone_numberInput
+  >;
+  deleteMany?: Maybe<AttributeScalarWhereInput[] | AttributeScalarWhereInput>;
+  updateMany?: Maybe<
+    | AttributeUpdateManyWithWhereNestedInput[]
+    | AttributeUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface AttributeUpdateWithWhereUniqueWithoutPhone_numberInput {
   where: AttributeWhereUniqueInput;
-  update: AttributeUpdateWithoutEmailDataInput;
-  create: AttributeCreateWithoutEmailInput;
+  data: AttributeUpdateWithoutPhone_numberDataInput;
+}
+
+export interface AttributeUpdateWithoutPhone_numberDataInput {
+  attr_type?: Maybe<String>;
+  tax_id?: Maybe<TaxIdUpdateManyWithoutAttributeInput>;
+  email?: Maybe<EmailUpdateManyWithoutAttributeInput>;
+}
+
+export interface EmailUpdateManyWithoutAttributeInput {
+  create?: Maybe<
+    EmailCreateWithoutAttributeInput[] | EmailCreateWithoutAttributeInput
+  >;
+  delete?: Maybe<EmailWhereUniqueInput[] | EmailWhereUniqueInput>;
+  connect?: Maybe<EmailWhereUniqueInput[] | EmailWhereUniqueInput>;
+  set?: Maybe<EmailWhereUniqueInput[] | EmailWhereUniqueInput>;
+  disconnect?: Maybe<EmailWhereUniqueInput[] | EmailWhereUniqueInput>;
+  update?: Maybe<
+    | EmailUpdateWithWhereUniqueWithoutAttributeInput[]
+    | EmailUpdateWithWhereUniqueWithoutAttributeInput
+  >;
+  upsert?: Maybe<
+    | EmailUpsertWithWhereUniqueWithoutAttributeInput[]
+    | EmailUpsertWithWhereUniqueWithoutAttributeInput
+  >;
+  deleteMany?: Maybe<EmailScalarWhereInput[] | EmailScalarWhereInput>;
+  updateMany?: Maybe<
+    EmailUpdateManyWithWhereNestedInput[] | EmailUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface EmailUpdateWithWhereUniqueWithoutAttributeInput {
+  where: EmailWhereUniqueInput;
+  data: EmailUpdateWithoutAttributeDataInput;
+}
+
+export interface EmailUpdateWithoutAttributeDataInput {
+  value?: Maybe<String>;
+  owner?: Maybe<UserUpdateOneRequiredInput>;
+}
+
+export interface EmailUpsertWithWhereUniqueWithoutAttributeInput {
+  where: EmailWhereUniqueInput;
+  update: EmailUpdateWithoutAttributeDataInput;
+  create: EmailCreateWithoutAttributeInput;
+}
+
+export interface EmailScalarWhereInput {
+  id?: Maybe<ID_Input>;
+  id_not?: Maybe<ID_Input>;
+  id_in?: Maybe<ID_Input[] | ID_Input>;
+  id_not_in?: Maybe<ID_Input[] | ID_Input>;
+  id_lt?: Maybe<ID_Input>;
+  id_lte?: Maybe<ID_Input>;
+  id_gt?: Maybe<ID_Input>;
+  id_gte?: Maybe<ID_Input>;
+  id_contains?: Maybe<ID_Input>;
+  id_not_contains?: Maybe<ID_Input>;
+  id_starts_with?: Maybe<ID_Input>;
+  id_not_starts_with?: Maybe<ID_Input>;
+  id_ends_with?: Maybe<ID_Input>;
+  id_not_ends_with?: Maybe<ID_Input>;
+  value?: Maybe<String>;
+  value_not?: Maybe<String>;
+  value_in?: Maybe<String[] | String>;
+  value_not_in?: Maybe<String[] | String>;
+  value_lt?: Maybe<String>;
+  value_lte?: Maybe<String>;
+  value_gt?: Maybe<String>;
+  value_gte?: Maybe<String>;
+  value_contains?: Maybe<String>;
+  value_not_contains?: Maybe<String>;
+  value_starts_with?: Maybe<String>;
+  value_not_starts_with?: Maybe<String>;
+  value_ends_with?: Maybe<String>;
+  value_not_ends_with?: Maybe<String>;
+  createdAt?: Maybe<DateTimeInput>;
+  createdAt_not?: Maybe<DateTimeInput>;
+  createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  createdAt_lt?: Maybe<DateTimeInput>;
+  createdAt_lte?: Maybe<DateTimeInput>;
+  createdAt_gt?: Maybe<DateTimeInput>;
+  createdAt_gte?: Maybe<DateTimeInput>;
+  updatedAt?: Maybe<DateTimeInput>;
+  updatedAt_not?: Maybe<DateTimeInput>;
+  updatedAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_not_in?: Maybe<DateTimeInput[] | DateTimeInput>;
+  updatedAt_lt?: Maybe<DateTimeInput>;
+  updatedAt_lte?: Maybe<DateTimeInput>;
+  updatedAt_gt?: Maybe<DateTimeInput>;
+  updatedAt_gte?: Maybe<DateTimeInput>;
+  AND?: Maybe<EmailScalarWhereInput[] | EmailScalarWhereInput>;
+  OR?: Maybe<EmailScalarWhereInput[] | EmailScalarWhereInput>;
+  NOT?: Maybe<EmailScalarWhereInput[] | EmailScalarWhereInput>;
+}
+
+export interface EmailUpdateManyWithWhereNestedInput {
+  where: EmailScalarWhereInput;
+  data: EmailUpdateManyDataInput;
+}
+
+export interface EmailUpdateManyDataInput {
+  value?: Maybe<String>;
+}
+
+export interface AttributeUpsertWithWhereUniqueWithoutPhone_numberInput {
+  where: AttributeWhereUniqueInput;
+  update: AttributeUpdateWithoutPhone_numberDataInput;
+  create: AttributeCreateWithoutPhone_numberInput;
 }
 
 export interface AttributeScalarWhereInput {
@@ -987,13 +1272,13 @@ export interface AttributeUpdateManyDataInput {
   attr_type?: Maybe<String>;
 }
 
-export interface EmailUpsertWithWhereUniqueNestedInput {
-  where: EmailWhereUniqueInput;
-  update: EmailUpdateDataInput;
-  create: EmailCreateInput;
+export interface PhoneNumberUpsertWithWhereUniqueWithoutOwnerInput {
+  where: PhoneNumberWhereUniqueInput;
+  update: PhoneNumberUpdateWithoutOwnerDataInput;
+  create: PhoneNumberCreateWithoutOwnerInput;
 }
 
-export interface EmailScalarWhereInput {
+export interface PhoneNumberScalarWhereInput {
   id?: Maybe<ID_Input>;
   id_not?: Maybe<ID_Input>;
   id_in?: Maybe<ID_Input[] | ID_Input>;
@@ -1008,6 +1293,14 @@ export interface EmailScalarWhereInput {
   id_not_starts_with?: Maybe<ID_Input>;
   id_ends_with?: Maybe<ID_Input>;
   id_not_ends_with?: Maybe<ID_Input>;
+  value?: Maybe<Int>;
+  value_not?: Maybe<Int>;
+  value_in?: Maybe<Int[] | Int>;
+  value_not_in?: Maybe<Int[] | Int>;
+  value_lt?: Maybe<Int>;
+  value_lte?: Maybe<Int>;
+  value_gt?: Maybe<Int>;
+  value_gte?: Maybe<Int>;
   createdAt?: Maybe<DateTimeInput>;
   createdAt_not?: Maybe<DateTimeInput>;
   createdAt_in?: Maybe<DateTimeInput[] | DateTimeInput>;
@@ -1024,58 +1317,75 @@ export interface EmailScalarWhereInput {
   updatedAt_lte?: Maybe<DateTimeInput>;
   updatedAt_gt?: Maybe<DateTimeInput>;
   updatedAt_gte?: Maybe<DateTimeInput>;
-  AND?: Maybe<EmailScalarWhereInput[] | EmailScalarWhereInput>;
-  OR?: Maybe<EmailScalarWhereInput[] | EmailScalarWhereInput>;
-  NOT?: Maybe<EmailScalarWhereInput[] | EmailScalarWhereInput>;
+  AND?: Maybe<PhoneNumberScalarWhereInput[] | PhoneNumberScalarWhereInput>;
+  OR?: Maybe<PhoneNumberScalarWhereInput[] | PhoneNumberScalarWhereInput>;
+  NOT?: Maybe<PhoneNumberScalarWhereInput[] | PhoneNumberScalarWhereInput>;
 }
 
-export interface PhoneNumberUpdateManyInput {
-  create?: Maybe<PhoneNumberCreateInput[] | PhoneNumberCreateInput>;
+export interface PhoneNumberUpdateManyWithWhereNestedInput {
+  where: PhoneNumberScalarWhereInput;
+  data: PhoneNumberUpdateManyDataInput;
+}
+
+export interface PhoneNumberUpdateManyDataInput {
+  value?: Maybe<Int>;
+}
+
+export interface IdentifiersUpdateOneRequiredInput {
+  create?: Maybe<IdentifiersCreateInput>;
+  update?: Maybe<IdentifiersUpdateDataInput>;
+  upsert?: Maybe<IdentifiersUpsertNestedInput>;
+  connect?: Maybe<IdentifiersWhereUniqueInput>;
+}
+
+export interface IdentifiersUpdateDataInput {
+  tax_id?: Maybe<TaxIdUpdateManyInput>;
+  email?: Maybe<EmailUpdateManyInput>;
+  phone_number?: Maybe<PhoneNumberUpdateManyInput>;
+}
+
+export interface TaxIdUpdateManyInput {
+  create?: Maybe<TaxIdCreateInput[] | TaxIdCreateInput>;
   update?: Maybe<
-    | PhoneNumberUpdateWithWhereUniqueNestedInput[]
-    | PhoneNumberUpdateWithWhereUniqueNestedInput
+    | TaxIdUpdateWithWhereUniqueNestedInput[]
+    | TaxIdUpdateWithWhereUniqueNestedInput
   >;
   upsert?: Maybe<
-    | PhoneNumberUpsertWithWhereUniqueNestedInput[]
-    | PhoneNumberUpsertWithWhereUniqueNestedInput
+    | TaxIdUpsertWithWhereUniqueNestedInput[]
+    | TaxIdUpsertWithWhereUniqueNestedInput
   >;
-  delete?: Maybe<PhoneNumberWhereUniqueInput[] | PhoneNumberWhereUniqueInput>;
-  connect?: Maybe<PhoneNumberWhereUniqueInput[] | PhoneNumberWhereUniqueInput>;
-  set?: Maybe<PhoneNumberWhereUniqueInput[] | PhoneNumberWhereUniqueInput>;
-  disconnect?: Maybe<
-    PhoneNumberWhereUniqueInput[] | PhoneNumberWhereUniqueInput
-  >;
-  deleteMany?: Maybe<
-    PhoneNumberScalarWhereInput[] | PhoneNumberScalarWhereInput
-  >;
+  delete?: Maybe<TaxIdWhereUniqueInput[] | TaxIdWhereUniqueInput>;
+  connect?: Maybe<TaxIdWhereUniqueInput[] | TaxIdWhereUniqueInput>;
+  set?: Maybe<TaxIdWhereUniqueInput[] | TaxIdWhereUniqueInput>;
+  disconnect?: Maybe<TaxIdWhereUniqueInput[] | TaxIdWhereUniqueInput>;
+  deleteMany?: Maybe<TaxIdScalarWhereInput[] | TaxIdScalarWhereInput>;
 }
 
-export interface PhoneNumberUpdateWithWhereUniqueNestedInput {
-  where: PhoneNumberWhereUniqueInput;
-  data: PhoneNumberUpdateDataInput;
+export interface TaxIdUpdateWithWhereUniqueNestedInput {
+  where: TaxIdWhereUniqueInput;
+  data: TaxIdUpdateDataInput;
 }
 
-export interface PhoneNumberUpdateDataInput {
+export interface TaxIdUpdateDataInput {
   owner?: Maybe<UserUpdateOneRequiredInput>;
-  attribute?: Maybe<AttributeUpdateManyWithoutPhone_numberInput>;
+  attribute?: Maybe<AttributeUpdateManyWithoutTax_idInput>;
 }
 
-export interface AttributeUpdateManyWithoutPhone_numberInput {
+export interface AttributeUpdateManyWithoutTax_idInput {
   create?: Maybe<
-    | AttributeCreateWithoutPhone_numberInput[]
-    | AttributeCreateWithoutPhone_numberInput
+    AttributeCreateWithoutTax_idInput[] | AttributeCreateWithoutTax_idInput
   >;
   delete?: Maybe<AttributeWhereUniqueInput[] | AttributeWhereUniqueInput>;
   connect?: Maybe<AttributeWhereUniqueInput[] | AttributeWhereUniqueInput>;
   set?: Maybe<AttributeWhereUniqueInput[] | AttributeWhereUniqueInput>;
   disconnect?: Maybe<AttributeWhereUniqueInput[] | AttributeWhereUniqueInput>;
   update?: Maybe<
-    | AttributeUpdateWithWhereUniqueWithoutPhone_numberInput[]
-    | AttributeUpdateWithWhereUniqueWithoutPhone_numberInput
+    | AttributeUpdateWithWhereUniqueWithoutTax_idInput[]
+    | AttributeUpdateWithWhereUniqueWithoutTax_idInput
   >;
   upsert?: Maybe<
-    | AttributeUpsertWithWhereUniqueWithoutPhone_numberInput[]
-    | AttributeUpsertWithWhereUniqueWithoutPhone_numberInput
+    | AttributeUpsertWithWhereUniqueWithoutTax_idInput[]
+    | AttributeUpsertWithWhereUniqueWithoutTax_idInput
   >;
   deleteMany?: Maybe<AttributeScalarWhereInput[] | AttributeScalarWhereInput>;
   updateMany?: Maybe<
@@ -1084,71 +1394,84 @@ export interface AttributeUpdateManyWithoutPhone_numberInput {
   >;
 }
 
-export interface AttributeUpdateWithWhereUniqueWithoutPhone_numberInput {
+export interface AttributeUpdateWithWhereUniqueWithoutTax_idInput {
   where: AttributeWhereUniqueInput;
-  data: AttributeUpdateWithoutPhone_numberDataInput;
+  data: AttributeUpdateWithoutTax_idDataInput;
 }
 
-export interface AttributeUpdateWithoutPhone_numberDataInput {
+export interface AttributeUpdateWithoutTax_idDataInput {
   attr_type?: Maybe<String>;
-  tax_id?: Maybe<TaxIdUpdateManyInput>;
   email?: Maybe<EmailUpdateManyWithoutAttributeInput>;
+  phone_number?: Maybe<PhoneNumberUpdateManyWithoutAttributeInput>;
 }
 
-export interface EmailUpdateManyWithoutAttributeInput {
+export interface PhoneNumberUpdateManyWithoutAttributeInput {
   create?: Maybe<
-    EmailCreateWithoutAttributeInput[] | EmailCreateWithoutAttributeInput
+    | PhoneNumberCreateWithoutAttributeInput[]
+    | PhoneNumberCreateWithoutAttributeInput
   >;
-  delete?: Maybe<EmailWhereUniqueInput[] | EmailWhereUniqueInput>;
-  connect?: Maybe<EmailWhereUniqueInput[] | EmailWhereUniqueInput>;
-  set?: Maybe<EmailWhereUniqueInput[] | EmailWhereUniqueInput>;
-  disconnect?: Maybe<EmailWhereUniqueInput[] | EmailWhereUniqueInput>;
+  delete?: Maybe<PhoneNumberWhereUniqueInput[] | PhoneNumberWhereUniqueInput>;
+  connect?: Maybe<PhoneNumberWhereUniqueInput[] | PhoneNumberWhereUniqueInput>;
+  set?: Maybe<PhoneNumberWhereUniqueInput[] | PhoneNumberWhereUniqueInput>;
+  disconnect?: Maybe<
+    PhoneNumberWhereUniqueInput[] | PhoneNumberWhereUniqueInput
+  >;
   update?: Maybe<
-    | EmailUpdateWithWhereUniqueWithoutAttributeInput[]
-    | EmailUpdateWithWhereUniqueWithoutAttributeInput
+    | PhoneNumberUpdateWithWhereUniqueWithoutAttributeInput[]
+    | PhoneNumberUpdateWithWhereUniqueWithoutAttributeInput
   >;
   upsert?: Maybe<
-    | EmailUpsertWithWhereUniqueWithoutAttributeInput[]
-    | EmailUpsertWithWhereUniqueWithoutAttributeInput
+    | PhoneNumberUpsertWithWhereUniqueWithoutAttributeInput[]
+    | PhoneNumberUpsertWithWhereUniqueWithoutAttributeInput
   >;
-  deleteMany?: Maybe<EmailScalarWhereInput[] | EmailScalarWhereInput>;
+  deleteMany?: Maybe<
+    PhoneNumberScalarWhereInput[] | PhoneNumberScalarWhereInput
+  >;
+  updateMany?: Maybe<
+    | PhoneNumberUpdateManyWithWhereNestedInput[]
+    | PhoneNumberUpdateManyWithWhereNestedInput
+  >;
 }
 
-export interface EmailUpdateWithWhereUniqueWithoutAttributeInput {
-  where: EmailWhereUniqueInput;
-  data: EmailUpdateWithoutAttributeDataInput;
-}
-
-export interface EmailUpdateWithoutAttributeDataInput {
-  owner?: Maybe<UserUpdateOneRequiredInput>;
-}
-
-export interface EmailUpsertWithWhereUniqueWithoutAttributeInput {
-  where: EmailWhereUniqueInput;
-  update: EmailUpdateWithoutAttributeDataInput;
-  create: EmailCreateWithoutAttributeInput;
-}
-
-export interface AttributeUpsertWithWhereUniqueWithoutPhone_numberInput {
-  where: AttributeWhereUniqueInput;
-  update: AttributeUpdateWithoutPhone_numberDataInput;
-  create: AttributeCreateWithoutPhone_numberInput;
-}
-
-export interface PhoneNumberUpsertWithWhereUniqueNestedInput {
+export interface PhoneNumberUpdateWithWhereUniqueWithoutAttributeInput {
   where: PhoneNumberWhereUniqueInput;
-  update: PhoneNumberUpdateDataInput;
-  create: PhoneNumberCreateInput;
+  data: PhoneNumberUpdateWithoutAttributeDataInput;
 }
 
-export interface IdentifiersUpsertNestedInput {
-  update: IdentifiersUpdateDataInput;
-  create: IdentifiersCreateInput;
+export interface PhoneNumberUpdateWithoutAttributeDataInput {
+  value?: Maybe<Int>;
+  owner?: Maybe<UserUpdateOneRequiredWithoutPhone_numberInput>;
 }
 
-export interface UserUpsertNestedInput {
-  update: UserUpdateDataInput;
-  create: UserCreateInput;
+export interface UserUpdateOneRequiredWithoutPhone_numberInput {
+  create?: Maybe<UserCreateWithoutPhone_numberInput>;
+  update?: Maybe<UserUpdateWithoutPhone_numberDataInput>;
+  upsert?: Maybe<UserUpsertWithoutPhone_numberInput>;
+  connect?: Maybe<UserWhereUniqueInput>;
+}
+
+export interface UserUpdateWithoutPhone_numberDataInput {
+  email?: Maybe<String>;
+  role?: Maybe<AuthLevel>;
+  gender?: Maybe<Gender>;
+  identifiers?: Maybe<IdentifiersUpdateOneRequiredInput>;
+}
+
+export interface UserUpsertWithoutPhone_numberInput {
+  update: UserUpdateWithoutPhone_numberDataInput;
+  create: UserCreateWithoutPhone_numberInput;
+}
+
+export interface PhoneNumberUpsertWithWhereUniqueWithoutAttributeInput {
+  where: PhoneNumberWhereUniqueInput;
+  update: PhoneNumberUpdateWithoutAttributeDataInput;
+  create: PhoneNumberCreateWithoutAttributeInput;
+}
+
+export interface AttributeUpsertWithWhereUniqueWithoutTax_idInput {
+  where: AttributeWhereUniqueInput;
+  update: AttributeUpdateWithoutTax_idDataInput;
+  create: AttributeCreateWithoutTax_idInput;
 }
 
 export interface TaxIdUpsertWithWhereUniqueNestedInput {
@@ -1193,13 +1516,208 @@ export interface TaxIdScalarWhereInput {
   NOT?: Maybe<TaxIdScalarWhereInput[] | TaxIdScalarWhereInput>;
 }
 
+export interface EmailUpdateManyInput {
+  create?: Maybe<EmailCreateInput[] | EmailCreateInput>;
+  update?: Maybe<
+    | EmailUpdateWithWhereUniqueNestedInput[]
+    | EmailUpdateWithWhereUniqueNestedInput
+  >;
+  upsert?: Maybe<
+    | EmailUpsertWithWhereUniqueNestedInput[]
+    | EmailUpsertWithWhereUniqueNestedInput
+  >;
+  delete?: Maybe<EmailWhereUniqueInput[] | EmailWhereUniqueInput>;
+  connect?: Maybe<EmailWhereUniqueInput[] | EmailWhereUniqueInput>;
+  set?: Maybe<EmailWhereUniqueInput[] | EmailWhereUniqueInput>;
+  disconnect?: Maybe<EmailWhereUniqueInput[] | EmailWhereUniqueInput>;
+  deleteMany?: Maybe<EmailScalarWhereInput[] | EmailScalarWhereInput>;
+  updateMany?: Maybe<
+    EmailUpdateManyWithWhereNestedInput[] | EmailUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface EmailUpdateWithWhereUniqueNestedInput {
+  where: EmailWhereUniqueInput;
+  data: EmailUpdateDataInput;
+}
+
+export interface EmailUpdateDataInput {
+  value?: Maybe<String>;
+  owner?: Maybe<UserUpdateOneRequiredInput>;
+  attribute?: Maybe<AttributeUpdateManyWithoutEmailInput>;
+}
+
+export interface AttributeUpdateManyWithoutEmailInput {
+  create?: Maybe<
+    AttributeCreateWithoutEmailInput[] | AttributeCreateWithoutEmailInput
+  >;
+  delete?: Maybe<AttributeWhereUniqueInput[] | AttributeWhereUniqueInput>;
+  connect?: Maybe<AttributeWhereUniqueInput[] | AttributeWhereUniqueInput>;
+  set?: Maybe<AttributeWhereUniqueInput[] | AttributeWhereUniqueInput>;
+  disconnect?: Maybe<AttributeWhereUniqueInput[] | AttributeWhereUniqueInput>;
+  update?: Maybe<
+    | AttributeUpdateWithWhereUniqueWithoutEmailInput[]
+    | AttributeUpdateWithWhereUniqueWithoutEmailInput
+  >;
+  upsert?: Maybe<
+    | AttributeUpsertWithWhereUniqueWithoutEmailInput[]
+    | AttributeUpsertWithWhereUniqueWithoutEmailInput
+  >;
+  deleteMany?: Maybe<AttributeScalarWhereInput[] | AttributeScalarWhereInput>;
+  updateMany?: Maybe<
+    | AttributeUpdateManyWithWhereNestedInput[]
+    | AttributeUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface AttributeUpdateWithWhereUniqueWithoutEmailInput {
+  where: AttributeWhereUniqueInput;
+  data: AttributeUpdateWithoutEmailDataInput;
+}
+
+export interface AttributeUpdateWithoutEmailDataInput {
+  attr_type?: Maybe<String>;
+  tax_id?: Maybe<TaxIdUpdateManyWithoutAttributeInput>;
+  phone_number?: Maybe<PhoneNumberUpdateManyWithoutAttributeInput>;
+}
+
+export interface AttributeUpsertWithWhereUniqueWithoutEmailInput {
+  where: AttributeWhereUniqueInput;
+  update: AttributeUpdateWithoutEmailDataInput;
+  create: AttributeCreateWithoutEmailInput;
+}
+
+export interface EmailUpsertWithWhereUniqueNestedInput {
+  where: EmailWhereUniqueInput;
+  update: EmailUpdateDataInput;
+  create: EmailCreateInput;
+}
+
+export interface PhoneNumberUpdateManyInput {
+  create?: Maybe<PhoneNumberCreateInput[] | PhoneNumberCreateInput>;
+  update?: Maybe<
+    | PhoneNumberUpdateWithWhereUniqueNestedInput[]
+    | PhoneNumberUpdateWithWhereUniqueNestedInput
+  >;
+  upsert?: Maybe<
+    | PhoneNumberUpsertWithWhereUniqueNestedInput[]
+    | PhoneNumberUpsertWithWhereUniqueNestedInput
+  >;
+  delete?: Maybe<PhoneNumberWhereUniqueInput[] | PhoneNumberWhereUniqueInput>;
+  connect?: Maybe<PhoneNumberWhereUniqueInput[] | PhoneNumberWhereUniqueInput>;
+  set?: Maybe<PhoneNumberWhereUniqueInput[] | PhoneNumberWhereUniqueInput>;
+  disconnect?: Maybe<
+    PhoneNumberWhereUniqueInput[] | PhoneNumberWhereUniqueInput
+  >;
+  deleteMany?: Maybe<
+    PhoneNumberScalarWhereInput[] | PhoneNumberScalarWhereInput
+  >;
+  updateMany?: Maybe<
+    | PhoneNumberUpdateManyWithWhereNestedInput[]
+    | PhoneNumberUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface PhoneNumberUpdateWithWhereUniqueNestedInput {
+  where: PhoneNumberWhereUniqueInput;
+  data: PhoneNumberUpdateDataInput;
+}
+
+export interface PhoneNumberUpdateDataInput {
+  value?: Maybe<Int>;
+  owner?: Maybe<UserUpdateOneRequiredWithoutPhone_numberInput>;
+  attribute?: Maybe<AttributeUpdateManyWithoutPhone_numberInput>;
+}
+
+export interface PhoneNumberUpsertWithWhereUniqueNestedInput {
+  where: PhoneNumberWhereUniqueInput;
+  update: PhoneNumberUpdateDataInput;
+  create: PhoneNumberCreateInput;
+}
+
+export interface IdentifiersUpsertNestedInput {
+  update: IdentifiersUpdateDataInput;
+  create: IdentifiersCreateInput;
+}
+
+export interface UserUpsertNestedInput {
+  update: UserUpdateDataInput;
+  create: UserCreateInput;
+}
+
+export interface TaxIdUpsertWithWhereUniqueWithoutAttributeInput {
+  where: TaxIdWhereUniqueInput;
+  update: TaxIdUpdateWithoutAttributeDataInput;
+  create: TaxIdCreateWithoutAttributeInput;
+}
+
 export interface AttributeUpdateManyMutationInput {
   attr_type?: Maybe<String>;
 }
 
 export interface EmailUpdateInput {
+  value?: Maybe<String>;
   owner?: Maybe<UserUpdateOneRequiredInput>;
   attribute?: Maybe<AttributeUpdateManyWithoutEmailInput>;
+}
+
+export interface EmailUpdateManyMutationInput {
+  value?: Maybe<String>;
+}
+
+export interface FemaleCreateInput {
+  id?: Maybe<ID_Input>;
+  owner: UserCreateOneInput;
+  attribute?: Maybe<AttributeCreateManyInput>;
+}
+
+export interface AttributeCreateManyInput {
+  create?: Maybe<AttributeCreateInput[] | AttributeCreateInput>;
+  connect?: Maybe<AttributeWhereUniqueInput[] | AttributeWhereUniqueInput>;
+}
+
+export interface FemaleUpdateInput {
+  owner?: Maybe<UserUpdateOneRequiredInput>;
+  attribute?: Maybe<AttributeUpdateManyInput>;
+}
+
+export interface AttributeUpdateManyInput {
+  create?: Maybe<AttributeCreateInput[] | AttributeCreateInput>;
+  update?: Maybe<
+    | AttributeUpdateWithWhereUniqueNestedInput[]
+    | AttributeUpdateWithWhereUniqueNestedInput
+  >;
+  upsert?: Maybe<
+    | AttributeUpsertWithWhereUniqueNestedInput[]
+    | AttributeUpsertWithWhereUniqueNestedInput
+  >;
+  delete?: Maybe<AttributeWhereUniqueInput[] | AttributeWhereUniqueInput>;
+  connect?: Maybe<AttributeWhereUniqueInput[] | AttributeWhereUniqueInput>;
+  set?: Maybe<AttributeWhereUniqueInput[] | AttributeWhereUniqueInput>;
+  disconnect?: Maybe<AttributeWhereUniqueInput[] | AttributeWhereUniqueInput>;
+  deleteMany?: Maybe<AttributeScalarWhereInput[] | AttributeScalarWhereInput>;
+  updateMany?: Maybe<
+    | AttributeUpdateManyWithWhereNestedInput[]
+    | AttributeUpdateManyWithWhereNestedInput
+  >;
+}
+
+export interface AttributeUpdateWithWhereUniqueNestedInput {
+  where: AttributeWhereUniqueInput;
+  data: AttributeUpdateDataInput;
+}
+
+export interface AttributeUpdateDataInput {
+  attr_type?: Maybe<String>;
+  tax_id?: Maybe<TaxIdUpdateManyWithoutAttributeInput>;
+  email?: Maybe<EmailUpdateManyWithoutAttributeInput>;
+  phone_number?: Maybe<PhoneNumberUpdateManyWithoutAttributeInput>;
+}
+
+export interface AttributeUpsertWithWhereUniqueNestedInput {
+  where: AttributeWhereUniqueInput;
+  update: AttributeUpdateDataInput;
+  create: AttributeCreateInput;
 }
 
 export interface IdentifiersUpdateInput {
@@ -1208,26 +1726,44 @@ export interface IdentifiersUpdateInput {
   phone_number?: Maybe<PhoneNumberUpdateManyInput>;
 }
 
-export interface PhoneNumberUpdateInput {
+export interface MaleCreateInput {
+  id?: Maybe<ID_Input>;
+  owner: UserCreateOneInput;
+  attribute?: Maybe<AttributeCreateManyInput>;
+}
+
+export interface MaleUpdateInput {
   owner?: Maybe<UserUpdateOneRequiredInput>;
+  attribute?: Maybe<AttributeUpdateManyInput>;
+}
+
+export interface PhoneNumberUpdateInput {
+  value?: Maybe<Int>;
+  owner?: Maybe<UserUpdateOneRequiredWithoutPhone_numberInput>;
   attribute?: Maybe<AttributeUpdateManyWithoutPhone_numberInput>;
+}
+
+export interface PhoneNumberUpdateManyMutationInput {
+  value?: Maybe<Int>;
 }
 
 export interface TaxIdUpdateInput {
   owner?: Maybe<UserUpdateOneRequiredInput>;
+  attribute?: Maybe<AttributeUpdateManyWithoutTax_idInput>;
 }
 
 export interface UserUpdateInput {
   email?: Maybe<String>;
-  name?: Maybe<String>;
+  phone_number?: Maybe<PhoneNumberUpdateManyWithoutOwnerInput>;
   role?: Maybe<AuthLevel>;
-  identifiers?: Maybe<IdentifiersUpdateOneInput>;
+  gender?: Maybe<Gender>;
+  identifiers?: Maybe<IdentifiersUpdateOneRequiredInput>;
 }
 
 export interface UserUpdateManyMutationInput {
   email?: Maybe<String>;
-  name?: Maybe<String>;
   role?: Maybe<AuthLevel>;
+  gender?: Maybe<Gender>;
 }
 
 export interface AttributeSubscriptionWhereInput {
@@ -1258,6 +1794,17 @@ export interface EmailSubscriptionWhereInput {
   NOT?: Maybe<EmailSubscriptionWhereInput[] | EmailSubscriptionWhereInput>;
 }
 
+export interface FemaleSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<FemaleWhereInput>;
+  AND?: Maybe<FemaleSubscriptionWhereInput[] | FemaleSubscriptionWhereInput>;
+  OR?: Maybe<FemaleSubscriptionWhereInput[] | FemaleSubscriptionWhereInput>;
+  NOT?: Maybe<FemaleSubscriptionWhereInput[] | FemaleSubscriptionWhereInput>;
+}
+
 export interface IdentifiersSubscriptionWhereInput {
   mutation_in?: Maybe<MutationType[] | MutationType>;
   updatedFields_contains?: Maybe<String>;
@@ -1273,6 +1820,17 @@ export interface IdentifiersSubscriptionWhereInput {
   NOT?: Maybe<
     IdentifiersSubscriptionWhereInput[] | IdentifiersSubscriptionWhereInput
   >;
+}
+
+export interface MaleSubscriptionWhereInput {
+  mutation_in?: Maybe<MutationType[] | MutationType>;
+  updatedFields_contains?: Maybe<String>;
+  updatedFields_contains_every?: Maybe<String[] | String>;
+  updatedFields_contains_some?: Maybe<String[] | String>;
+  node?: Maybe<MaleWhereInput>;
+  AND?: Maybe<MaleSubscriptionWhereInput[] | MaleSubscriptionWhereInput>;
+  OR?: Maybe<MaleSubscriptionWhereInput[] | MaleSubscriptionWhereInput>;
+  NOT?: Maybe<MaleSubscriptionWhereInput[] | MaleSubscriptionWhereInput>;
 }
 
 export interface PhoneNumberSubscriptionWhereInput {
@@ -1434,6 +1992,15 @@ export interface TaxIdPromise extends Promise<TaxId>, Fragmentable {
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
   owner: <T = UserPromise>() => T;
+  attribute: <T = FragmentableArray<Attribute>>(args?: {
+    where?: AttributeWhereInput;
+    orderBy?: AttributeOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
 }
 
 export interface TaxIdSubscription
@@ -1443,6 +2010,15 @@ export interface TaxIdSubscription
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   owner: <T = UserSubscription>() => T;
+  attribute: <T = Promise<AsyncIterator<AttributeSubscription>>>(args?: {
+    where?: AttributeWhereInput;
+    orderBy?: AttributeOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
 }
 
 export interface TaxIdNullablePromise
@@ -1452,6 +2028,15 @@ export interface TaxIdNullablePromise
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
   owner: <T = UserPromise>() => T;
+  attribute: <T = FragmentableArray<Attribute>>(args?: {
+    where?: AttributeWhereInput;
+    orderBy?: AttributeOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
 }
 
 export interface User {
@@ -1459,8 +2044,8 @@ export interface User {
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
   email: String;
-  name?: String;
   role?: AuthLevel;
+  gender: Gender;
 }
 
 export interface UserPromise extends Promise<User>, Fragmentable {
@@ -1468,8 +2053,17 @@ export interface UserPromise extends Promise<User>, Fragmentable {
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
   email: () => Promise<String>;
-  name: () => Promise<String>;
+  phone_number: <T = FragmentableArray<PhoneNumber>>(args?: {
+    where?: PhoneNumberWhereInput;
+    orderBy?: PhoneNumberOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
   role: () => Promise<AuthLevel>;
+  gender: () => Promise<Gender>;
   identifiers: <T = IdentifiersPromise>() => T;
 }
 
@@ -1480,8 +2074,17 @@ export interface UserSubscription
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   email: () => Promise<AsyncIterator<String>>;
-  name: () => Promise<AsyncIterator<String>>;
+  phone_number: <T = Promise<AsyncIterator<PhoneNumberSubscription>>>(args?: {
+    where?: PhoneNumberWhereInput;
+    orderBy?: PhoneNumberOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
   role: () => Promise<AsyncIterator<AuthLevel>>;
+  gender: () => Promise<AsyncIterator<Gender>>;
   identifiers: <T = IdentifiersSubscription>() => T;
 }
 
@@ -1492,9 +2095,80 @@ export interface UserNullablePromise
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
   email: () => Promise<String>;
-  name: () => Promise<String>;
+  phone_number: <T = FragmentableArray<PhoneNumber>>(args?: {
+    where?: PhoneNumberWhereInput;
+    orderBy?: PhoneNumberOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
   role: () => Promise<AuthLevel>;
+  gender: () => Promise<Gender>;
   identifiers: <T = IdentifiersPromise>() => T;
+}
+
+export interface PhoneNumber {
+  id: ID_Output;
+  value?: Int;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface PhoneNumberPromise extends Promise<PhoneNumber>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  value: () => Promise<Int>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  owner: <T = UserPromise>() => T;
+  attribute: <T = FragmentableArray<Attribute>>(args?: {
+    where?: AttributeWhereInput;
+    orderBy?: AttributeOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface PhoneNumberSubscription
+  extends Promise<AsyncIterator<PhoneNumber>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  value: () => Promise<AsyncIterator<Int>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  owner: <T = UserSubscription>() => T;
+  attribute: <T = Promise<AsyncIterator<AttributeSubscription>>>(args?: {
+    where?: AttributeWhereInput;
+    orderBy?: AttributeOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface PhoneNumberNullablePromise
+  extends Promise<PhoneNumber | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  value: () => Promise<Int>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  owner: <T = UserPromise>() => T;
+  attribute: <T = FragmentableArray<Attribute>>(args?: {
+    where?: AttributeWhereInput;
+    orderBy?: AttributeOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
 }
 
 export interface Identifiers {
@@ -1600,12 +2274,14 @@ export interface IdentifiersNullablePromise
 
 export interface Email {
   id: ID_Output;
+  value: String;
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
 }
 
 export interface EmailPromise extends Promise<Email>, Fragmentable {
   id: () => Promise<ID_Output>;
+  value: () => Promise<String>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
   owner: <T = UserPromise>() => T;
@@ -1624,6 +2300,7 @@ export interface EmailSubscription
   extends Promise<AsyncIterator<Email>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
+  value: () => Promise<AsyncIterator<String>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   owner: <T = UserSubscription>() => T;
@@ -1642,64 +2319,7 @@ export interface EmailNullablePromise
   extends Promise<Email | null>,
     Fragmentable {
   id: () => Promise<ID_Output>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  owner: <T = UserPromise>() => T;
-  attribute: <T = FragmentableArray<Attribute>>(args?: {
-    where?: AttributeWhereInput;
-    orderBy?: AttributeOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-}
-
-export interface PhoneNumber {
-  id: ID_Output;
-  createdAt: DateTimeOutput;
-  updatedAt: DateTimeOutput;
-}
-
-export interface PhoneNumberPromise extends Promise<PhoneNumber>, Fragmentable {
-  id: () => Promise<ID_Output>;
-  createdAt: () => Promise<DateTimeOutput>;
-  updatedAt: () => Promise<DateTimeOutput>;
-  owner: <T = UserPromise>() => T;
-  attribute: <T = FragmentableArray<Attribute>>(args?: {
-    where?: AttributeWhereInput;
-    orderBy?: AttributeOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-}
-
-export interface PhoneNumberSubscription
-  extends Promise<AsyncIterator<PhoneNumber>>,
-    Fragmentable {
-  id: () => Promise<AsyncIterator<ID_Output>>;
-  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
-  owner: <T = UserSubscription>() => T;
-  attribute: <T = Promise<AsyncIterator<AttributeSubscription>>>(args?: {
-    where?: AttributeWhereInput;
-    orderBy?: AttributeOrderByInput;
-    skip?: Int;
-    after?: String;
-    before?: String;
-    first?: Int;
-    last?: Int;
-  }) => T;
-}
-
-export interface PhoneNumberNullablePromise
-  extends Promise<PhoneNumber | null>,
-    Fragmentable {
-  id: () => Promise<ID_Output>;
+  value: () => Promise<String>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
   owner: <T = UserPromise>() => T;
@@ -1847,6 +2467,118 @@ export interface AggregateEmailSubscription
   count: () => Promise<AsyncIterator<Int>>;
 }
 
+export interface Female {
+  id: ID_Output;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface FemalePromise extends Promise<Female>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  owner: <T = UserPromise>() => T;
+  attribute: <T = FragmentableArray<Attribute>>(args?: {
+    where?: AttributeWhereInput;
+    orderBy?: AttributeOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface FemaleSubscription
+  extends Promise<AsyncIterator<Female>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  owner: <T = UserSubscription>() => T;
+  attribute: <T = Promise<AsyncIterator<AttributeSubscription>>>(args?: {
+    where?: AttributeWhereInput;
+    orderBy?: AttributeOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface FemaleNullablePromise
+  extends Promise<Female | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  owner: <T = UserPromise>() => T;
+  attribute: <T = FragmentableArray<Attribute>>(args?: {
+    where?: AttributeWhereInput;
+    orderBy?: AttributeOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface FemaleConnection {
+  pageInfo: PageInfo;
+  edges: FemaleEdge[];
+}
+
+export interface FemaleConnectionPromise
+  extends Promise<FemaleConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<FemaleEdge>>() => T;
+  aggregate: <T = AggregateFemalePromise>() => T;
+}
+
+export interface FemaleConnectionSubscription
+  extends Promise<AsyncIterator<FemaleConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<FemaleEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateFemaleSubscription>() => T;
+}
+
+export interface FemaleEdge {
+  node: Female;
+  cursor: String;
+}
+
+export interface FemaleEdgePromise extends Promise<FemaleEdge>, Fragmentable {
+  node: <T = FemalePromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface FemaleEdgeSubscription
+  extends Promise<AsyncIterator<FemaleEdge>>,
+    Fragmentable {
+  node: <T = FemaleSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateFemale {
+  count: Int;
+}
+
+export interface AggregateFemalePromise
+  extends Promise<AggregateFemale>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateFemaleSubscription
+  extends Promise<AsyncIterator<AggregateFemale>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
 export interface IdentifiersConnection {
   pageInfo: PageInfo;
   edges: IdentifiersEdge[];
@@ -1899,6 +2631,118 @@ export interface AggregateIdentifiersPromise
 
 export interface AggregateIdentifiersSubscription
   extends Promise<AsyncIterator<AggregateIdentifiers>>,
+    Fragmentable {
+  count: () => Promise<AsyncIterator<Int>>;
+}
+
+export interface Male {
+  id: ID_Output;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface MalePromise extends Promise<Male>, Fragmentable {
+  id: () => Promise<ID_Output>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  owner: <T = UserPromise>() => T;
+  attribute: <T = FragmentableArray<Attribute>>(args?: {
+    where?: AttributeWhereInput;
+    orderBy?: AttributeOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface MaleSubscription
+  extends Promise<AsyncIterator<Male>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  owner: <T = UserSubscription>() => T;
+  attribute: <T = Promise<AsyncIterator<AttributeSubscription>>>(args?: {
+    where?: AttributeWhereInput;
+    orderBy?: AttributeOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface MaleNullablePromise
+  extends Promise<Male | null>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+  owner: <T = UserPromise>() => T;
+  attribute: <T = FragmentableArray<Attribute>>(args?: {
+    where?: AttributeWhereInput;
+    orderBy?: AttributeOrderByInput;
+    skip?: Int;
+    after?: String;
+    before?: String;
+    first?: Int;
+    last?: Int;
+  }) => T;
+}
+
+export interface MaleConnection {
+  pageInfo: PageInfo;
+  edges: MaleEdge[];
+}
+
+export interface MaleConnectionPromise
+  extends Promise<MaleConnection>,
+    Fragmentable {
+  pageInfo: <T = PageInfoPromise>() => T;
+  edges: <T = FragmentableArray<MaleEdge>>() => T;
+  aggregate: <T = AggregateMalePromise>() => T;
+}
+
+export interface MaleConnectionSubscription
+  extends Promise<AsyncIterator<MaleConnection>>,
+    Fragmentable {
+  pageInfo: <T = PageInfoSubscription>() => T;
+  edges: <T = Promise<AsyncIterator<MaleEdgeSubscription>>>() => T;
+  aggregate: <T = AggregateMaleSubscription>() => T;
+}
+
+export interface MaleEdge {
+  node: Male;
+  cursor: String;
+}
+
+export interface MaleEdgePromise extends Promise<MaleEdge>, Fragmentable {
+  node: <T = MalePromise>() => T;
+  cursor: () => Promise<String>;
+}
+
+export interface MaleEdgeSubscription
+  extends Promise<AsyncIterator<MaleEdge>>,
+    Fragmentable {
+  node: <T = MaleSubscription>() => T;
+  cursor: () => Promise<AsyncIterator<String>>;
+}
+
+export interface AggregateMale {
+  count: Int;
+}
+
+export interface AggregateMalePromise
+  extends Promise<AggregateMale>,
+    Fragmentable {
+  count: () => Promise<Int>;
+}
+
+export interface AggregateMaleSubscription
+  extends Promise<AsyncIterator<AggregateMale>>,
     Fragmentable {
   count: () => Promise<AsyncIterator<Int>>;
 }
@@ -2154,6 +2998,7 @@ export interface EmailSubscriptionPayloadSubscription
 
 export interface EmailPreviousValues {
   id: ID_Output;
+  value: String;
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
 }
@@ -2162,12 +3007,61 @@ export interface EmailPreviousValuesPromise
   extends Promise<EmailPreviousValues>,
     Fragmentable {
   id: () => Promise<ID_Output>;
+  value: () => Promise<String>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
 }
 
 export interface EmailPreviousValuesSubscription
   extends Promise<AsyncIterator<EmailPreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  value: () => Promise<AsyncIterator<String>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
+export interface FemaleSubscriptionPayload {
+  mutation: MutationType;
+  node: Female;
+  updatedFields: String[];
+  previousValues: FemalePreviousValues;
+}
+
+export interface FemaleSubscriptionPayloadPromise
+  extends Promise<FemaleSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = FemalePromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = FemalePreviousValuesPromise>() => T;
+}
+
+export interface FemaleSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<FemaleSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = FemaleSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = FemalePreviousValuesSubscription>() => T;
+}
+
+export interface FemalePreviousValues {
+  id: ID_Output;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface FemalePreviousValuesPromise
+  extends Promise<FemalePreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface FemalePreviousValuesSubscription
+  extends Promise<AsyncIterator<FemalePreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
@@ -2215,6 +3109,53 @@ export interface IdentifiersPreviousValuesSubscription
   id: () => Promise<AsyncIterator<ID_Output>>;
 }
 
+export interface MaleSubscriptionPayload {
+  mutation: MutationType;
+  node: Male;
+  updatedFields: String[];
+  previousValues: MalePreviousValues;
+}
+
+export interface MaleSubscriptionPayloadPromise
+  extends Promise<MaleSubscriptionPayload>,
+    Fragmentable {
+  mutation: () => Promise<MutationType>;
+  node: <T = MalePromise>() => T;
+  updatedFields: () => Promise<String[]>;
+  previousValues: <T = MalePreviousValuesPromise>() => T;
+}
+
+export interface MaleSubscriptionPayloadSubscription
+  extends Promise<AsyncIterator<MaleSubscriptionPayload>>,
+    Fragmentable {
+  mutation: () => Promise<AsyncIterator<MutationType>>;
+  node: <T = MaleSubscription>() => T;
+  updatedFields: () => Promise<AsyncIterator<String[]>>;
+  previousValues: <T = MalePreviousValuesSubscription>() => T;
+}
+
+export interface MalePreviousValues {
+  id: ID_Output;
+  createdAt: DateTimeOutput;
+  updatedAt: DateTimeOutput;
+}
+
+export interface MalePreviousValuesPromise
+  extends Promise<MalePreviousValues>,
+    Fragmentable {
+  id: () => Promise<ID_Output>;
+  createdAt: () => Promise<DateTimeOutput>;
+  updatedAt: () => Promise<DateTimeOutput>;
+}
+
+export interface MalePreviousValuesSubscription
+  extends Promise<AsyncIterator<MalePreviousValues>>,
+    Fragmentable {
+  id: () => Promise<AsyncIterator<ID_Output>>;
+  createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+  updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
+}
+
 export interface PhoneNumberSubscriptionPayload {
   mutation: MutationType;
   node: PhoneNumber;
@@ -2242,6 +3183,7 @@ export interface PhoneNumberSubscriptionPayloadSubscription
 
 export interface PhoneNumberPreviousValues {
   id: ID_Output;
+  value?: Int;
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
 }
@@ -2250,6 +3192,7 @@ export interface PhoneNumberPreviousValuesPromise
   extends Promise<PhoneNumberPreviousValues>,
     Fragmentable {
   id: () => Promise<ID_Output>;
+  value: () => Promise<Int>;
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
 }
@@ -2258,6 +3201,7 @@ export interface PhoneNumberPreviousValuesSubscription
   extends Promise<AsyncIterator<PhoneNumberPreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
+  value: () => Promise<AsyncIterator<Int>>;
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
 }
@@ -2339,8 +3283,8 @@ export interface UserPreviousValues {
   createdAt: DateTimeOutput;
   updatedAt: DateTimeOutput;
   email: String;
-  name?: String;
   role?: AuthLevel;
+  gender: Gender;
 }
 
 export interface UserPreviousValuesPromise
@@ -2350,8 +3294,8 @@ export interface UserPreviousValuesPromise
   createdAt: () => Promise<DateTimeOutput>;
   updatedAt: () => Promise<DateTimeOutput>;
   email: () => Promise<String>;
-  name: () => Promise<String>;
   role: () => Promise<AuthLevel>;
+  gender: () => Promise<Gender>;
 }
 
 export interface UserPreviousValuesSubscription
@@ -2361,8 +3305,8 @@ export interface UserPreviousValuesSubscription
   createdAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   updatedAt: () => Promise<AsyncIterator<DateTimeOutput>>;
   email: () => Promise<AsyncIterator<String>>;
-  name: () => Promise<AsyncIterator<String>>;
   role: () => Promise<AsyncIterator<AuthLevel>>;
+  gender: () => Promise<AsyncIterator<Gender>>;
 }
 
 /*
@@ -2437,6 +3381,18 @@ export const models: Model[] = [
   },
   {
     name: "PhoneNumberAttribute",
+    embedded: false
+  },
+  {
+    name: "Gender",
+    embedded: false
+  },
+  {
+    name: "Female",
+    embedded: false
+  },
+  {
+    name: "Male",
     embedded: false
   },
   {

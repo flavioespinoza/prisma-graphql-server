@@ -1,0 +1,2478 @@
+type AggregateEmail {
+  count: Int!
+}
+
+type AggregateIdentifier {
+  count: Int!
+}
+
+type AggregateName {
+  count: Int!
+}
+
+type AggregatePerson {
+  count: Int!
+}
+
+type AggregatePhoneNumber {
+  count: Int!
+}
+
+type AggregatePNMetadata {
+  count: Int!
+}
+
+type AggregatePostalAddress {
+  count: Int!
+}
+
+type AggregateSSN {
+  count: Int!
+}
+
+type BatchPayload {
+  count: Long!
+}
+
+type Email implements Node {
+  id: ID!
+  _pnMetadata: PNMetadata
+  endDate: String
+  startDate: String
+  type: String!
+  value: String!
+}
+
+type EmailConnection {
+  pageInfo: PageInfo!
+  edges: [EmailEdge]!
+  aggregate: AggregateEmail!
+}
+
+input EmailCreateInput {
+  id: ID
+  endDate: String
+  startDate: String
+  type: String!
+  value: String!
+  _pnMetadata: PNMetadataCreateOneInput
+}
+
+input EmailCreateManyInput {
+  create: [EmailCreateInput!]
+  connect: [EmailWhereUniqueInput!]
+}
+
+type EmailEdge {
+  node: Email!
+  cursor: String!
+}
+
+enum EmailOrderByInput {
+  id_ASC
+  id_DESC
+  endDate_ASC
+  endDate_DESC
+  startDate_ASC
+  startDate_DESC
+  type_ASC
+  type_DESC
+  value_ASC
+  value_DESC
+}
+
+type EmailPreviousValues {
+  id: ID!
+  endDate: String
+  startDate: String
+  type: String!
+  value: String!
+}
+
+input EmailScalarWhereInput {
+  AND: [EmailScalarWhereInput!]
+  OR: [EmailScalarWhereInput!]
+  NOT: [EmailScalarWhereInput!]
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  endDate: String
+  endDate_not: String
+  endDate_in: [String!]
+  endDate_not_in: [String!]
+  endDate_lt: String
+  endDate_lte: String
+  endDate_gt: String
+  endDate_gte: String
+  endDate_contains: String
+  endDate_not_contains: String
+  endDate_starts_with: String
+  endDate_not_starts_with: String
+  endDate_ends_with: String
+  endDate_not_ends_with: String
+  startDate: String
+  startDate_not: String
+  startDate_in: [String!]
+  startDate_not_in: [String!]
+  startDate_lt: String
+  startDate_lte: String
+  startDate_gt: String
+  startDate_gte: String
+  startDate_contains: String
+  startDate_not_contains: String
+  startDate_starts_with: String
+  startDate_not_starts_with: String
+  startDate_ends_with: String
+  startDate_not_ends_with: String
+  type: String
+  type_not: String
+  type_in: [String!]
+  type_not_in: [String!]
+  type_lt: String
+  type_lte: String
+  type_gt: String
+  type_gte: String
+  type_contains: String
+  type_not_contains: String
+  type_starts_with: String
+  type_not_starts_with: String
+  type_ends_with: String
+  type_not_ends_with: String
+  value: String
+  value_not: String
+  value_in: [String!]
+  value_not_in: [String!]
+  value_lt: String
+  value_lte: String
+  value_gt: String
+  value_gte: String
+  value_contains: String
+  value_not_contains: String
+  value_starts_with: String
+  value_not_starts_with: String
+  value_ends_with: String
+  value_not_ends_with: String
+}
+
+type EmailSubscriptionPayload {
+  mutation: MutationType!
+  node: Email
+  updatedFields: [String!]
+  previousValues: EmailPreviousValues
+}
+
+input EmailSubscriptionWhereInput {
+  AND: [EmailSubscriptionWhereInput!]
+  OR: [EmailSubscriptionWhereInput!]
+  NOT: [EmailSubscriptionWhereInput!]
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: EmailWhereInput
+}
+
+input EmailUpdateDataInput {
+  endDate: String
+  startDate: String
+  type: String
+  value: String
+  _pnMetadata: PNMetadataUpdateOneInput
+}
+
+input EmailUpdateInput {
+  endDate: String
+  startDate: String
+  type: String
+  value: String
+  _pnMetadata: PNMetadataUpdateOneInput
+}
+
+input EmailUpdateManyDataInput {
+  endDate: String
+  startDate: String
+  type: String
+  value: String
+}
+
+input EmailUpdateManyInput {
+  create: [EmailCreateInput!]
+  connect: [EmailWhereUniqueInput!]
+  set: [EmailWhereUniqueInput!]
+  disconnect: [EmailWhereUniqueInput!]
+  delete: [EmailWhereUniqueInput!]
+  update: [EmailUpdateWithWhereUniqueNestedInput!]
+  updateMany: [EmailUpdateManyWithWhereNestedInput!]
+  deleteMany: [EmailScalarWhereInput!]
+  upsert: [EmailUpsertWithWhereUniqueNestedInput!]
+}
+
+input EmailUpdateManyMutationInput {
+  endDate: String
+  startDate: String
+  type: String
+  value: String
+}
+
+input EmailUpdateManyWithWhereNestedInput {
+  where: EmailScalarWhereInput!
+  data: EmailUpdateManyDataInput!
+}
+
+input EmailUpdateWithWhereUniqueNestedInput {
+  where: EmailWhereUniqueInput!
+  data: EmailUpdateDataInput!
+}
+
+input EmailUpsertWithWhereUniqueNestedInput {
+  where: EmailWhereUniqueInput!
+  update: EmailUpdateDataInput!
+  create: EmailCreateInput!
+}
+
+input EmailWhereInput {
+  AND: [EmailWhereInput!]
+  OR: [EmailWhereInput!]
+  NOT: [EmailWhereInput!]
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  endDate: String
+  endDate_not: String
+  endDate_in: [String!]
+  endDate_not_in: [String!]
+  endDate_lt: String
+  endDate_lte: String
+  endDate_gt: String
+  endDate_gte: String
+  endDate_contains: String
+  endDate_not_contains: String
+  endDate_starts_with: String
+  endDate_not_starts_with: String
+  endDate_ends_with: String
+  endDate_not_ends_with: String
+  startDate: String
+  startDate_not: String
+  startDate_in: [String!]
+  startDate_not_in: [String!]
+  startDate_lt: String
+  startDate_lte: String
+  startDate_gt: String
+  startDate_gte: String
+  startDate_contains: String
+  startDate_not_contains: String
+  startDate_starts_with: String
+  startDate_not_starts_with: String
+  startDate_ends_with: String
+  startDate_not_ends_with: String
+  type: String
+  type_not: String
+  type_in: [String!]
+  type_not_in: [String!]
+  type_lt: String
+  type_lte: String
+  type_gt: String
+  type_gte: String
+  type_contains: String
+  type_not_contains: String
+  type_starts_with: String
+  type_not_starts_with: String
+  type_ends_with: String
+  type_not_ends_with: String
+  value: String
+  value_not: String
+  value_in: [String!]
+  value_not_in: [String!]
+  value_lt: String
+  value_lte: String
+  value_gt: String
+  value_gte: String
+  value_contains: String
+  value_not_contains: String
+  value_starts_with: String
+  value_not_starts_with: String
+  value_ends_with: String
+  value_not_ends_with: String
+  _pnMetadata: PNMetadataWhereInput
+}
+
+input EmailWhereUniqueInput {
+  id: ID
+}
+
+enum Gender {
+  M
+  F
+}
+
+type Identifier implements Node {
+  id: ID!
+  SSNs(
+    where: SSNWhereInput
+    orderBy: SSNOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [SSN!]
+  emails(
+    where: EmailWhereInput
+    orderBy: EmailOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [Email!]
+  phoneNumbers(
+    where: PhoneNumberWhereInput
+    orderBy: PhoneNumberOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [PhoneNumber!]
+  type: String!
+}
+
+type IdentifierConnection {
+  pageInfo: PageInfo!
+  edges: [IdentifierEdge]!
+  aggregate: AggregateIdentifier!
+}
+
+input IdentifierCreateInput {
+  id: ID
+  type: String!
+  SSNs: SSNCreateManyInput
+  emails: EmailCreateManyInput
+  phoneNumbers: PhoneNumberCreateManyInput
+}
+
+input IdentifierCreateOneInput {
+  create: IdentifierCreateInput
+  connect: IdentifierWhereUniqueInput
+}
+
+type IdentifierEdge {
+  node: Identifier!
+  cursor: String!
+}
+
+enum IdentifierOrderByInput {
+  id_ASC
+  id_DESC
+  type_ASC
+  type_DESC
+}
+
+type IdentifierPreviousValues {
+  id: ID!
+  type: String!
+}
+
+type IdentifierSubscriptionPayload {
+  mutation: MutationType!
+  node: Identifier
+  updatedFields: [String!]
+  previousValues: IdentifierPreviousValues
+}
+
+input IdentifierSubscriptionWhereInput {
+  AND: [IdentifierSubscriptionWhereInput!]
+  OR: [IdentifierSubscriptionWhereInput!]
+  NOT: [IdentifierSubscriptionWhereInput!]
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: IdentifierWhereInput
+}
+
+input IdentifierUpdateDataInput {
+  type: String
+  SSNs: SSNUpdateManyInput
+  emails: EmailUpdateManyInput
+  phoneNumbers: PhoneNumberUpdateManyInput
+}
+
+input IdentifierUpdateInput {
+  type: String
+  SSNs: SSNUpdateManyInput
+  emails: EmailUpdateManyInput
+  phoneNumbers: PhoneNumberUpdateManyInput
+}
+
+input IdentifierUpdateManyMutationInput {
+  type: String
+}
+
+input IdentifierUpdateOneInput {
+  create: IdentifierCreateInput
+  connect: IdentifierWhereUniqueInput
+  disconnect: Boolean
+  delete: Boolean
+  update: IdentifierUpdateDataInput
+  upsert: IdentifierUpsertNestedInput
+}
+
+input IdentifierUpsertNestedInput {
+  update: IdentifierUpdateDataInput!
+  create: IdentifierCreateInput!
+}
+
+input IdentifierWhereInput {
+  AND: [IdentifierWhereInput!]
+  OR: [IdentifierWhereInput!]
+  NOT: [IdentifierWhereInput!]
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  type: String
+  type_not: String
+  type_in: [String!]
+  type_not_in: [String!]
+  type_lt: String
+  type_lte: String
+  type_gt: String
+  type_gte: String
+  type_contains: String
+  type_not_contains: String
+  type_starts_with: String
+  type_not_starts_with: String
+  type_ends_with: String
+  type_not_ends_with: String
+  SSNs_every: SSNWhereInput
+  SSNs_some: SSNWhereInput
+  SSNs_none: SSNWhereInput
+  emails_every: EmailWhereInput
+  emails_some: EmailWhereInput
+  emails_none: EmailWhereInput
+  phoneNumbers_every: PhoneNumberWhereInput
+  phoneNumbers_some: PhoneNumberWhereInput
+  phoneNumbers_none: PhoneNumberWhereInput
+}
+
+input IdentifierWhereUniqueInput {
+  id: ID
+}
+
+scalar Long
+
+type Mutation {
+  createPerson(data: PersonCreateInput!): Person!
+  createPostalAddress(data: PostalAddressCreateInput!): PostalAddress!
+  createName(data: NameCreateInput!): Name!
+  createPNMetadata(data: PNMetadataCreateInput!): PNMetadata!
+  createPhoneNumber(data: PhoneNumberCreateInput!): PhoneNumber!
+  createIdentifier(data: IdentifierCreateInput!): Identifier!
+  createSSN(data: SSNCreateInput!): SSN!
+  createEmail(data: EmailCreateInput!): Email!
+  updatePerson(data: PersonUpdateInput!, where: PersonWhereUniqueInput!): Person
+  updatePostalAddress(
+    data: PostalAddressUpdateInput!
+    where: PostalAddressWhereUniqueInput!
+  ): PostalAddress
+  updateName(data: NameUpdateInput!, where: NameWhereUniqueInput!): Name
+  updatePNMetadata(
+    data: PNMetadataUpdateInput!
+    where: PNMetadataWhereUniqueInput!
+  ): PNMetadata
+  updatePhoneNumber(
+    data: PhoneNumberUpdateInput!
+    where: PhoneNumberWhereUniqueInput!
+  ): PhoneNumber
+  updateIdentifier(
+    data: IdentifierUpdateInput!
+    where: IdentifierWhereUniqueInput!
+  ): Identifier
+  updateSSN(data: SSNUpdateInput!, where: SSNWhereUniqueInput!): SSN
+  updateEmail(data: EmailUpdateInput!, where: EmailWhereUniqueInput!): Email
+  deletePerson(where: PersonWhereUniqueInput!): Person
+  deletePostalAddress(where: PostalAddressWhereUniqueInput!): PostalAddress
+  deleteName(where: NameWhereUniqueInput!): Name
+  deletePNMetadata(where: PNMetadataWhereUniqueInput!): PNMetadata
+  deletePhoneNumber(where: PhoneNumberWhereUniqueInput!): PhoneNumber
+  deleteIdentifier(where: IdentifierWhereUniqueInput!): Identifier
+  deleteSSN(where: SSNWhereUniqueInput!): SSN
+  deleteEmail(where: EmailWhereUniqueInput!): Email
+  upsertPerson(
+    where: PersonWhereUniqueInput!
+    create: PersonCreateInput!
+    update: PersonUpdateInput!
+  ): Person!
+  upsertPostalAddress(
+    where: PostalAddressWhereUniqueInput!
+    create: PostalAddressCreateInput!
+    update: PostalAddressUpdateInput!
+  ): PostalAddress!
+  upsertName(
+    where: NameWhereUniqueInput!
+    create: NameCreateInput!
+    update: NameUpdateInput!
+  ): Name!
+  upsertPNMetadata(
+    where: PNMetadataWhereUniqueInput!
+    create: PNMetadataCreateInput!
+    update: PNMetadataUpdateInput!
+  ): PNMetadata!
+  upsertPhoneNumber(
+    where: PhoneNumberWhereUniqueInput!
+    create: PhoneNumberCreateInput!
+    update: PhoneNumberUpdateInput!
+  ): PhoneNumber!
+  upsertIdentifier(
+    where: IdentifierWhereUniqueInput!
+    create: IdentifierCreateInput!
+    update: IdentifierUpdateInput!
+  ): Identifier!
+  upsertSSN(
+    where: SSNWhereUniqueInput!
+    create: SSNCreateInput!
+    update: SSNUpdateInput!
+  ): SSN!
+  upsertEmail(
+    where: EmailWhereUniqueInput!
+    create: EmailCreateInput!
+    update: EmailUpdateInput!
+  ): Email!
+  updateManyPersons(
+    data: PersonUpdateManyMutationInput!
+    where: PersonWhereInput
+  ): BatchPayload!
+  updateManyPostalAddresses(
+    data: PostalAddressUpdateManyMutationInput!
+    where: PostalAddressWhereInput
+  ): BatchPayload!
+  updateManyNames(
+    data: NameUpdateManyMutationInput!
+    where: NameWhereInput
+  ): BatchPayload!
+  updateManyPNMetadatas(
+    data: PNMetadataUpdateManyMutationInput!
+    where: PNMetadataWhereInput
+  ): BatchPayload!
+  updateManyPhoneNumbers(
+    data: PhoneNumberUpdateManyMutationInput!
+    where: PhoneNumberWhereInput
+  ): BatchPayload!
+  updateManyIdentifiers(
+    data: IdentifierUpdateManyMutationInput!
+    where: IdentifierWhereInput
+  ): BatchPayload!
+  updateManySSNs(
+    data: SSNUpdateManyMutationInput!
+    where: SSNWhereInput
+  ): BatchPayload!
+  updateManyEmails(
+    data: EmailUpdateManyMutationInput!
+    where: EmailWhereInput
+  ): BatchPayload!
+  deleteManyPersons(where: PersonWhereInput): BatchPayload!
+  deleteManyPostalAddresses(where: PostalAddressWhereInput): BatchPayload!
+  deleteManyNames(where: NameWhereInput): BatchPayload!
+  deleteManyPNMetadatas(where: PNMetadataWhereInput): BatchPayload!
+  deleteManyPhoneNumbers(where: PhoneNumberWhereInput): BatchPayload!
+  deleteManyIdentifiers(where: IdentifierWhereInput): BatchPayload!
+  deleteManySSNs(where: SSNWhereInput): BatchPayload!
+  deleteManyEmails(where: EmailWhereInput): BatchPayload!
+}
+
+enum MutationType {
+  CREATED
+  UPDATED
+  DELETED
+}
+
+type Name implements Node {
+  id: ID!
+  _pnMetadata: PNMetadata
+  additionlName: String
+  endDate: String
+  familyName: String
+  fullName: String
+  givenName: String
+  honorificPrefix: String
+  honorificSuffix: String
+  startDate: String
+  type: String!
+  use: [NameUse!]!
+}
+
+type NameConnection {
+  pageInfo: PageInfo!
+  edges: [NameEdge]!
+  aggregate: AggregateName!
+}
+
+input NameCreateInput {
+  id: ID
+  additionlName: String
+  endDate: String
+  familyName: String
+  fullName: String
+  givenName: String
+  honorificPrefix: String
+  honorificSuffix: String
+  startDate: String
+  type: String!
+  use: NameCreateuseInput
+  _pnMetadata: PNMetadataCreateOneInput
+}
+
+input NameCreateManyInput {
+  create: [NameCreateInput!]
+  connect: [NameWhereUniqueInput!]
+}
+
+input NameCreateuseInput {
+  set: [NameUse!]
+}
+
+type NameEdge {
+  node: Name!
+  cursor: String!
+}
+
+enum NameOrderByInput {
+  id_ASC
+  id_DESC
+  additionlName_ASC
+  additionlName_DESC
+  endDate_ASC
+  endDate_DESC
+  familyName_ASC
+  familyName_DESC
+  fullName_ASC
+  fullName_DESC
+  givenName_ASC
+  givenName_DESC
+  honorificPrefix_ASC
+  honorificPrefix_DESC
+  honorificSuffix_ASC
+  honorificSuffix_DESC
+  startDate_ASC
+  startDate_DESC
+  type_ASC
+  type_DESC
+}
+
+type NamePreviousValues {
+  id: ID!
+  additionlName: String
+  endDate: String
+  familyName: String
+  fullName: String
+  givenName: String
+  honorificPrefix: String
+  honorificSuffix: String
+  startDate: String
+  type: String!
+  use: [NameUse!]!
+}
+
+input NameScalarWhereInput {
+  AND: [NameScalarWhereInput!]
+  OR: [NameScalarWhereInput!]
+  NOT: [NameScalarWhereInput!]
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  additionlName: String
+  additionlName_not: String
+  additionlName_in: [String!]
+  additionlName_not_in: [String!]
+  additionlName_lt: String
+  additionlName_lte: String
+  additionlName_gt: String
+  additionlName_gte: String
+  additionlName_contains: String
+  additionlName_not_contains: String
+  additionlName_starts_with: String
+  additionlName_not_starts_with: String
+  additionlName_ends_with: String
+  additionlName_not_ends_with: String
+  endDate: String
+  endDate_not: String
+  endDate_in: [String!]
+  endDate_not_in: [String!]
+  endDate_lt: String
+  endDate_lte: String
+  endDate_gt: String
+  endDate_gte: String
+  endDate_contains: String
+  endDate_not_contains: String
+  endDate_starts_with: String
+  endDate_not_starts_with: String
+  endDate_ends_with: String
+  endDate_not_ends_with: String
+  familyName: String
+  familyName_not: String
+  familyName_in: [String!]
+  familyName_not_in: [String!]
+  familyName_lt: String
+  familyName_lte: String
+  familyName_gt: String
+  familyName_gte: String
+  familyName_contains: String
+  familyName_not_contains: String
+  familyName_starts_with: String
+  familyName_not_starts_with: String
+  familyName_ends_with: String
+  familyName_not_ends_with: String
+  fullName: String
+  fullName_not: String
+  fullName_in: [String!]
+  fullName_not_in: [String!]
+  fullName_lt: String
+  fullName_lte: String
+  fullName_gt: String
+  fullName_gte: String
+  fullName_contains: String
+  fullName_not_contains: String
+  fullName_starts_with: String
+  fullName_not_starts_with: String
+  fullName_ends_with: String
+  fullName_not_ends_with: String
+  givenName: String
+  givenName_not: String
+  givenName_in: [String!]
+  givenName_not_in: [String!]
+  givenName_lt: String
+  givenName_lte: String
+  givenName_gt: String
+  givenName_gte: String
+  givenName_contains: String
+  givenName_not_contains: String
+  givenName_starts_with: String
+  givenName_not_starts_with: String
+  givenName_ends_with: String
+  givenName_not_ends_with: String
+  honorificPrefix: String
+  honorificPrefix_not: String
+  honorificPrefix_in: [String!]
+  honorificPrefix_not_in: [String!]
+  honorificPrefix_lt: String
+  honorificPrefix_lte: String
+  honorificPrefix_gt: String
+  honorificPrefix_gte: String
+  honorificPrefix_contains: String
+  honorificPrefix_not_contains: String
+  honorificPrefix_starts_with: String
+  honorificPrefix_not_starts_with: String
+  honorificPrefix_ends_with: String
+  honorificPrefix_not_ends_with: String
+  honorificSuffix: String
+  honorificSuffix_not: String
+  honorificSuffix_in: [String!]
+  honorificSuffix_not_in: [String!]
+  honorificSuffix_lt: String
+  honorificSuffix_lte: String
+  honorificSuffix_gt: String
+  honorificSuffix_gte: String
+  honorificSuffix_contains: String
+  honorificSuffix_not_contains: String
+  honorificSuffix_starts_with: String
+  honorificSuffix_not_starts_with: String
+  honorificSuffix_ends_with: String
+  honorificSuffix_not_ends_with: String
+  startDate: String
+  startDate_not: String
+  startDate_in: [String!]
+  startDate_not_in: [String!]
+  startDate_lt: String
+  startDate_lte: String
+  startDate_gt: String
+  startDate_gte: String
+  startDate_contains: String
+  startDate_not_contains: String
+  startDate_starts_with: String
+  startDate_not_starts_with: String
+  startDate_ends_with: String
+  startDate_not_ends_with: String
+  type: String
+  type_not: String
+  type_in: [String!]
+  type_not_in: [String!]
+  type_lt: String
+  type_lte: String
+  type_gt: String
+  type_gte: String
+  type_contains: String
+  type_not_contains: String
+  type_starts_with: String
+  type_not_starts_with: String
+  type_ends_with: String
+  type_not_ends_with: String
+}
+
+type NameSubscriptionPayload {
+  mutation: MutationType!
+  node: Name
+  updatedFields: [String!]
+  previousValues: NamePreviousValues
+}
+
+input NameSubscriptionWhereInput {
+  AND: [NameSubscriptionWhereInput!]
+  OR: [NameSubscriptionWhereInput!]
+  NOT: [NameSubscriptionWhereInput!]
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: NameWhereInput
+}
+
+input NameUpdateDataInput {
+  additionlName: String
+  endDate: String
+  familyName: String
+  fullName: String
+  givenName: String
+  honorificPrefix: String
+  honorificSuffix: String
+  startDate: String
+  type: String
+  use: NameUpdateuseInput
+  _pnMetadata: PNMetadataUpdateOneInput
+}
+
+input NameUpdateInput {
+  additionlName: String
+  endDate: String
+  familyName: String
+  fullName: String
+  givenName: String
+  honorificPrefix: String
+  honorificSuffix: String
+  startDate: String
+  type: String
+  use: NameUpdateuseInput
+  _pnMetadata: PNMetadataUpdateOneInput
+}
+
+input NameUpdateManyDataInput {
+  additionlName: String
+  endDate: String
+  familyName: String
+  fullName: String
+  givenName: String
+  honorificPrefix: String
+  honorificSuffix: String
+  startDate: String
+  type: String
+  use: NameUpdateuseInput
+}
+
+input NameUpdateManyInput {
+  create: [NameCreateInput!]
+  connect: [NameWhereUniqueInput!]
+  set: [NameWhereUniqueInput!]
+  disconnect: [NameWhereUniqueInput!]
+  delete: [NameWhereUniqueInput!]
+  update: [NameUpdateWithWhereUniqueNestedInput!]
+  updateMany: [NameUpdateManyWithWhereNestedInput!]
+  deleteMany: [NameScalarWhereInput!]
+  upsert: [NameUpsertWithWhereUniqueNestedInput!]
+}
+
+input NameUpdateManyMutationInput {
+  additionlName: String
+  endDate: String
+  familyName: String
+  fullName: String
+  givenName: String
+  honorificPrefix: String
+  honorificSuffix: String
+  startDate: String
+  type: String
+  use: NameUpdateuseInput
+}
+
+input NameUpdateManyWithWhereNestedInput {
+  where: NameScalarWhereInput!
+  data: NameUpdateManyDataInput!
+}
+
+input NameUpdateuseInput {
+  set: [NameUse!]
+}
+
+input NameUpdateWithWhereUniqueNestedInput {
+  where: NameWhereUniqueInput!
+  data: NameUpdateDataInput!
+}
+
+input NameUpsertWithWhereUniqueNestedInput {
+  where: NameWhereUniqueInput!
+  update: NameUpdateDataInput!
+  create: NameCreateInput!
+}
+
+enum NameUse {
+  ALIAS
+  PRIMARY
+}
+
+input NameWhereInput {
+  AND: [NameWhereInput!]
+  OR: [NameWhereInput!]
+  NOT: [NameWhereInput!]
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  additionlName: String
+  additionlName_not: String
+  additionlName_in: [String!]
+  additionlName_not_in: [String!]
+  additionlName_lt: String
+  additionlName_lte: String
+  additionlName_gt: String
+  additionlName_gte: String
+  additionlName_contains: String
+  additionlName_not_contains: String
+  additionlName_starts_with: String
+  additionlName_not_starts_with: String
+  additionlName_ends_with: String
+  additionlName_not_ends_with: String
+  endDate: String
+  endDate_not: String
+  endDate_in: [String!]
+  endDate_not_in: [String!]
+  endDate_lt: String
+  endDate_lte: String
+  endDate_gt: String
+  endDate_gte: String
+  endDate_contains: String
+  endDate_not_contains: String
+  endDate_starts_with: String
+  endDate_not_starts_with: String
+  endDate_ends_with: String
+  endDate_not_ends_with: String
+  familyName: String
+  familyName_not: String
+  familyName_in: [String!]
+  familyName_not_in: [String!]
+  familyName_lt: String
+  familyName_lte: String
+  familyName_gt: String
+  familyName_gte: String
+  familyName_contains: String
+  familyName_not_contains: String
+  familyName_starts_with: String
+  familyName_not_starts_with: String
+  familyName_ends_with: String
+  familyName_not_ends_with: String
+  fullName: String
+  fullName_not: String
+  fullName_in: [String!]
+  fullName_not_in: [String!]
+  fullName_lt: String
+  fullName_lte: String
+  fullName_gt: String
+  fullName_gte: String
+  fullName_contains: String
+  fullName_not_contains: String
+  fullName_starts_with: String
+  fullName_not_starts_with: String
+  fullName_ends_with: String
+  fullName_not_ends_with: String
+  givenName: String
+  givenName_not: String
+  givenName_in: [String!]
+  givenName_not_in: [String!]
+  givenName_lt: String
+  givenName_lte: String
+  givenName_gt: String
+  givenName_gte: String
+  givenName_contains: String
+  givenName_not_contains: String
+  givenName_starts_with: String
+  givenName_not_starts_with: String
+  givenName_ends_with: String
+  givenName_not_ends_with: String
+  honorificPrefix: String
+  honorificPrefix_not: String
+  honorificPrefix_in: [String!]
+  honorificPrefix_not_in: [String!]
+  honorificPrefix_lt: String
+  honorificPrefix_lte: String
+  honorificPrefix_gt: String
+  honorificPrefix_gte: String
+  honorificPrefix_contains: String
+  honorificPrefix_not_contains: String
+  honorificPrefix_starts_with: String
+  honorificPrefix_not_starts_with: String
+  honorificPrefix_ends_with: String
+  honorificPrefix_not_ends_with: String
+  honorificSuffix: String
+  honorificSuffix_not: String
+  honorificSuffix_in: [String!]
+  honorificSuffix_not_in: [String!]
+  honorificSuffix_lt: String
+  honorificSuffix_lte: String
+  honorificSuffix_gt: String
+  honorificSuffix_gte: String
+  honorificSuffix_contains: String
+  honorificSuffix_not_contains: String
+  honorificSuffix_starts_with: String
+  honorificSuffix_not_starts_with: String
+  honorificSuffix_ends_with: String
+  honorificSuffix_not_ends_with: String
+  startDate: String
+  startDate_not: String
+  startDate_in: [String!]
+  startDate_not_in: [String!]
+  startDate_lt: String
+  startDate_lte: String
+  startDate_gt: String
+  startDate_gte: String
+  startDate_contains: String
+  startDate_not_contains: String
+  startDate_starts_with: String
+  startDate_not_starts_with: String
+  startDate_ends_with: String
+  startDate_not_ends_with: String
+  type: String
+  type_not: String
+  type_in: [String!]
+  type_not_in: [String!]
+  type_lt: String
+  type_lte: String
+  type_gt: String
+  type_gte: String
+  type_contains: String
+  type_not_contains: String
+  type_starts_with: String
+  type_not_starts_with: String
+  type_ends_with: String
+  type_not_ends_with: String
+  _pnMetadata: PNMetadataWhereInput
+}
+
+input NameWhereUniqueInput {
+  id: ID
+}
+
+interface Node {
+  id: ID!
+}
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+  endCursor: String
+}
+
+type Person implements Node {
+  _pnMetadata: PNMetadata
+  birthDate: String
+  gender: Gender
+  id: ID!
+  identifiers: Identifier
+  names(
+    where: NameWhereInput
+    orderBy: NameOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [Name!]
+  sourceID: String
+  type: String!
+}
+
+type PersonConnection {
+  pageInfo: PageInfo!
+  edges: [PersonEdge]!
+  aggregate: AggregatePerson!
+}
+
+input PersonCreateInput {
+  birthDate: String
+  gender: Gender
+  id: ID
+  sourceID: String
+  type: String!
+  _pnMetadata: PNMetadataCreateOneInput
+  identifiers: IdentifierCreateOneInput
+  names: NameCreateManyInput
+}
+
+type PersonEdge {
+  node: Person!
+  cursor: String!
+}
+
+enum PersonOrderByInput {
+  birthDate_ASC
+  birthDate_DESC
+  gender_ASC
+  gender_DESC
+  id_ASC
+  id_DESC
+  sourceID_ASC
+  sourceID_DESC
+  type_ASC
+  type_DESC
+}
+
+type PersonPreviousValues {
+  birthDate: String
+  gender: Gender
+  id: ID!
+  sourceID: String
+  type: String!
+}
+
+type PersonSubscriptionPayload {
+  mutation: MutationType!
+  node: Person
+  updatedFields: [String!]
+  previousValues: PersonPreviousValues
+}
+
+input PersonSubscriptionWhereInput {
+  AND: [PersonSubscriptionWhereInput!]
+  OR: [PersonSubscriptionWhereInput!]
+  NOT: [PersonSubscriptionWhereInput!]
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: PersonWhereInput
+}
+
+input PersonUpdateInput {
+  birthDate: String
+  gender: Gender
+  sourceID: String
+  type: String
+  _pnMetadata: PNMetadataUpdateOneInput
+  identifiers: IdentifierUpdateOneInput
+  names: NameUpdateManyInput
+}
+
+input PersonUpdateManyMutationInput {
+  birthDate: String
+  gender: Gender
+  sourceID: String
+  type: String
+}
+
+input PersonWhereInput {
+  AND: [PersonWhereInput!]
+  OR: [PersonWhereInput!]
+  NOT: [PersonWhereInput!]
+  birthDate: String
+  birthDate_not: String
+  birthDate_in: [String!]
+  birthDate_not_in: [String!]
+  birthDate_lt: String
+  birthDate_lte: String
+  birthDate_gt: String
+  birthDate_gte: String
+  birthDate_contains: String
+  birthDate_not_contains: String
+  birthDate_starts_with: String
+  birthDate_not_starts_with: String
+  birthDate_ends_with: String
+  birthDate_not_ends_with: String
+  gender: Gender
+  gender_not: Gender
+  gender_in: [Gender!]
+  gender_not_in: [Gender!]
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  sourceID: String
+  sourceID_not: String
+  sourceID_in: [String!]
+  sourceID_not_in: [String!]
+  sourceID_lt: String
+  sourceID_lte: String
+  sourceID_gt: String
+  sourceID_gte: String
+  sourceID_contains: String
+  sourceID_not_contains: String
+  sourceID_starts_with: String
+  sourceID_not_starts_with: String
+  sourceID_ends_with: String
+  sourceID_not_ends_with: String
+  type: String
+  type_not: String
+  type_in: [String!]
+  type_not_in: [String!]
+  type_lt: String
+  type_lte: String
+  type_gt: String
+  type_gte: String
+  type_contains: String
+  type_not_contains: String
+  type_starts_with: String
+  type_not_starts_with: String
+  type_ends_with: String
+  type_not_ends_with: String
+  _pnMetadata: PNMetadataWhereInput
+  identifiers: IdentifierWhereInput
+  names_every: NameWhereInput
+  names_some: NameWhereInput
+  names_none: NameWhereInput
+}
+
+input PersonWhereUniqueInput {
+  id: ID
+}
+
+type PhoneNumber implements Node {
+  id: ID!
+  _pnMetadata: PNMetadata
+  endDate: String
+  startDate: String
+  type: String!
+  use: [PhoneNumberUse!]!
+}
+
+type PhoneNumberConnection {
+  pageInfo: PageInfo!
+  edges: [PhoneNumberEdge]!
+  aggregate: AggregatePhoneNumber!
+}
+
+input PhoneNumberCreateInput {
+  id: ID
+  endDate: String
+  startDate: String
+  type: String!
+  use: PhoneNumberCreateuseInput
+  _pnMetadata: PNMetadataCreateOneInput
+}
+
+input PhoneNumberCreateManyInput {
+  create: [PhoneNumberCreateInput!]
+  connect: [PhoneNumberWhereUniqueInput!]
+}
+
+input PhoneNumberCreateuseInput {
+  set: [PhoneNumberUse!]
+}
+
+type PhoneNumberEdge {
+  node: PhoneNumber!
+  cursor: String!
+}
+
+enum PhoneNumberOrderByInput {
+  id_ASC
+  id_DESC
+  endDate_ASC
+  endDate_DESC
+  startDate_ASC
+  startDate_DESC
+  type_ASC
+  type_DESC
+}
+
+type PhoneNumberPreviousValues {
+  id: ID!
+  endDate: String
+  startDate: String
+  type: String!
+  use: [PhoneNumberUse!]!
+}
+
+input PhoneNumberScalarWhereInput {
+  AND: [PhoneNumberScalarWhereInput!]
+  OR: [PhoneNumberScalarWhereInput!]
+  NOT: [PhoneNumberScalarWhereInput!]
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  endDate: String
+  endDate_not: String
+  endDate_in: [String!]
+  endDate_not_in: [String!]
+  endDate_lt: String
+  endDate_lte: String
+  endDate_gt: String
+  endDate_gte: String
+  endDate_contains: String
+  endDate_not_contains: String
+  endDate_starts_with: String
+  endDate_not_starts_with: String
+  endDate_ends_with: String
+  endDate_not_ends_with: String
+  startDate: String
+  startDate_not: String
+  startDate_in: [String!]
+  startDate_not_in: [String!]
+  startDate_lt: String
+  startDate_lte: String
+  startDate_gt: String
+  startDate_gte: String
+  startDate_contains: String
+  startDate_not_contains: String
+  startDate_starts_with: String
+  startDate_not_starts_with: String
+  startDate_ends_with: String
+  startDate_not_ends_with: String
+  type: String
+  type_not: String
+  type_in: [String!]
+  type_not_in: [String!]
+  type_lt: String
+  type_lte: String
+  type_gt: String
+  type_gte: String
+  type_contains: String
+  type_not_contains: String
+  type_starts_with: String
+  type_not_starts_with: String
+  type_ends_with: String
+  type_not_ends_with: String
+}
+
+type PhoneNumberSubscriptionPayload {
+  mutation: MutationType!
+  node: PhoneNumber
+  updatedFields: [String!]
+  previousValues: PhoneNumberPreviousValues
+}
+
+input PhoneNumberSubscriptionWhereInput {
+  AND: [PhoneNumberSubscriptionWhereInput!]
+  OR: [PhoneNumberSubscriptionWhereInput!]
+  NOT: [PhoneNumberSubscriptionWhereInput!]
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: PhoneNumberWhereInput
+}
+
+input PhoneNumberUpdateDataInput {
+  endDate: String
+  startDate: String
+  type: String
+  use: PhoneNumberUpdateuseInput
+  _pnMetadata: PNMetadataUpdateOneInput
+}
+
+input PhoneNumberUpdateInput {
+  endDate: String
+  startDate: String
+  type: String
+  use: PhoneNumberUpdateuseInput
+  _pnMetadata: PNMetadataUpdateOneInput
+}
+
+input PhoneNumberUpdateManyDataInput {
+  endDate: String
+  startDate: String
+  type: String
+  use: PhoneNumberUpdateuseInput
+}
+
+input PhoneNumberUpdateManyInput {
+  create: [PhoneNumberCreateInput!]
+  connect: [PhoneNumberWhereUniqueInput!]
+  set: [PhoneNumberWhereUniqueInput!]
+  disconnect: [PhoneNumberWhereUniqueInput!]
+  delete: [PhoneNumberWhereUniqueInput!]
+  update: [PhoneNumberUpdateWithWhereUniqueNestedInput!]
+  updateMany: [PhoneNumberUpdateManyWithWhereNestedInput!]
+  deleteMany: [PhoneNumberScalarWhereInput!]
+  upsert: [PhoneNumberUpsertWithWhereUniqueNestedInput!]
+}
+
+input PhoneNumberUpdateManyMutationInput {
+  endDate: String
+  startDate: String
+  type: String
+  use: PhoneNumberUpdateuseInput
+}
+
+input PhoneNumberUpdateManyWithWhereNestedInput {
+  where: PhoneNumberScalarWhereInput!
+  data: PhoneNumberUpdateManyDataInput!
+}
+
+input PhoneNumberUpdateuseInput {
+  set: [PhoneNumberUse!]
+}
+
+input PhoneNumberUpdateWithWhereUniqueNestedInput {
+  where: PhoneNumberWhereUniqueInput!
+  data: PhoneNumberUpdateDataInput!
+}
+
+input PhoneNumberUpsertWithWhereUniqueNestedInput {
+  where: PhoneNumberWhereUniqueInput!
+  update: PhoneNumberUpdateDataInput!
+  create: PhoneNumberCreateInput!
+}
+
+enum PhoneNumberUse {
+  HOME
+  WORK
+  CELL
+}
+
+input PhoneNumberWhereInput {
+  AND: [PhoneNumberWhereInput!]
+  OR: [PhoneNumberWhereInput!]
+  NOT: [PhoneNumberWhereInput!]
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  endDate: String
+  endDate_not: String
+  endDate_in: [String!]
+  endDate_not_in: [String!]
+  endDate_lt: String
+  endDate_lte: String
+  endDate_gt: String
+  endDate_gte: String
+  endDate_contains: String
+  endDate_not_contains: String
+  endDate_starts_with: String
+  endDate_not_starts_with: String
+  endDate_ends_with: String
+  endDate_not_ends_with: String
+  startDate: String
+  startDate_not: String
+  startDate_in: [String!]
+  startDate_not_in: [String!]
+  startDate_lt: String
+  startDate_lte: String
+  startDate_gt: String
+  startDate_gte: String
+  startDate_contains: String
+  startDate_not_contains: String
+  startDate_starts_with: String
+  startDate_not_starts_with: String
+  startDate_ends_with: String
+  startDate_not_ends_with: String
+  type: String
+  type_not: String
+  type_in: [String!]
+  type_not_in: [String!]
+  type_lt: String
+  type_lte: String
+  type_gt: String
+  type_gte: String
+  type_contains: String
+  type_not_contains: String
+  type_starts_with: String
+  type_not_starts_with: String
+  type_ends_with: String
+  type_not_ends_with: String
+  _pnMetadata: PNMetadataWhereInput
+}
+
+input PhoneNumberWhereUniqueInput {
+  id: ID
+}
+
+type PNMetadata implements Node {
+  id: ID!
+  someMetadata: String
+}
+
+type PNMetadataConnection {
+  pageInfo: PageInfo!
+  edges: [PNMetadataEdge]!
+  aggregate: AggregatePNMetadata!
+}
+
+input PNMetadataCreateInput {
+  id: ID
+  someMetadata: String
+}
+
+input PNMetadataCreateOneInput {
+  create: PNMetadataCreateInput
+  connect: PNMetadataWhereUniqueInput
+}
+
+type PNMetadataEdge {
+  node: PNMetadata!
+  cursor: String!
+}
+
+enum PNMetadataOrderByInput {
+  id_ASC
+  id_DESC
+  someMetadata_ASC
+  someMetadata_DESC
+}
+
+type PNMetadataPreviousValues {
+  id: ID!
+  someMetadata: String
+}
+
+type PNMetadataSubscriptionPayload {
+  mutation: MutationType!
+  node: PNMetadata
+  updatedFields: [String!]
+  previousValues: PNMetadataPreviousValues
+}
+
+input PNMetadataSubscriptionWhereInput {
+  AND: [PNMetadataSubscriptionWhereInput!]
+  OR: [PNMetadataSubscriptionWhereInput!]
+  NOT: [PNMetadataSubscriptionWhereInput!]
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: PNMetadataWhereInput
+}
+
+input PNMetadataUpdateDataInput {
+  someMetadata: String
+}
+
+input PNMetadataUpdateInput {
+  someMetadata: String
+}
+
+input PNMetadataUpdateManyMutationInput {
+  someMetadata: String
+}
+
+input PNMetadataUpdateOneInput {
+  create: PNMetadataCreateInput
+  connect: PNMetadataWhereUniqueInput
+  disconnect: Boolean
+  delete: Boolean
+  update: PNMetadataUpdateDataInput
+  upsert: PNMetadataUpsertNestedInput
+}
+
+input PNMetadataUpsertNestedInput {
+  update: PNMetadataUpdateDataInput!
+  create: PNMetadataCreateInput!
+}
+
+input PNMetadataWhereInput {
+  AND: [PNMetadataWhereInput!]
+  OR: [PNMetadataWhereInput!]
+  NOT: [PNMetadataWhereInput!]
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  someMetadata: String
+  someMetadata_not: String
+  someMetadata_in: [String!]
+  someMetadata_not_in: [String!]
+  someMetadata_lt: String
+  someMetadata_lte: String
+  someMetadata_gt: String
+  someMetadata_gte: String
+  someMetadata_contains: String
+  someMetadata_not_contains: String
+  someMetadata_starts_with: String
+  someMetadata_not_starts_with: String
+  someMetadata_ends_with: String
+  someMetadata_not_ends_with: String
+}
+
+input PNMetadataWhereUniqueInput {
+  id: ID
+}
+
+type PostalAddress implements Node {
+  id: ID!
+  _pnMetadata: PNMetadata
+  addressCountry: String
+  addressFull: String
+  addressLocality: String
+  addressRegion: String
+  endDate: String
+  postOfficeBoxNumber: String
+  postalCode: String
+  startDate: String
+  streetAddress: String
+  type: String!
+  use: [PostalAddressUse!]!
+}
+
+type PostalAddressConnection {
+  pageInfo: PageInfo!
+  edges: [PostalAddressEdge]!
+  aggregate: AggregatePostalAddress!
+}
+
+input PostalAddressCreateInput {
+  id: ID
+  addressCountry: String
+  addressFull: String
+  addressLocality: String
+  addressRegion: String
+  endDate: String
+  postOfficeBoxNumber: String
+  postalCode: String
+  startDate: String
+  streetAddress: String
+  type: String!
+  use: PostalAddressCreateuseInput
+  _pnMetadata: PNMetadataCreateOneInput
+}
+
+input PostalAddressCreateuseInput {
+  set: [PostalAddressUse!]
+}
+
+type PostalAddressEdge {
+  node: PostalAddress!
+  cursor: String!
+}
+
+enum PostalAddressOrderByInput {
+  id_ASC
+  id_DESC
+  addressCountry_ASC
+  addressCountry_DESC
+  addressFull_ASC
+  addressFull_DESC
+  addressLocality_ASC
+  addressLocality_DESC
+  addressRegion_ASC
+  addressRegion_DESC
+  endDate_ASC
+  endDate_DESC
+  postOfficeBoxNumber_ASC
+  postOfficeBoxNumber_DESC
+  postalCode_ASC
+  postalCode_DESC
+  startDate_ASC
+  startDate_DESC
+  streetAddress_ASC
+  streetAddress_DESC
+  type_ASC
+  type_DESC
+}
+
+type PostalAddressPreviousValues {
+  id: ID!
+  addressCountry: String
+  addressFull: String
+  addressLocality: String
+  addressRegion: String
+  endDate: String
+  postOfficeBoxNumber: String
+  postalCode: String
+  startDate: String
+  streetAddress: String
+  type: String!
+  use: [PostalAddressUse!]!
+}
+
+type PostalAddressSubscriptionPayload {
+  mutation: MutationType!
+  node: PostalAddress
+  updatedFields: [String!]
+  previousValues: PostalAddressPreviousValues
+}
+
+input PostalAddressSubscriptionWhereInput {
+  AND: [PostalAddressSubscriptionWhereInput!]
+  OR: [PostalAddressSubscriptionWhereInput!]
+  NOT: [PostalAddressSubscriptionWhereInput!]
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: PostalAddressWhereInput
+}
+
+input PostalAddressUpdateInput {
+  addressCountry: String
+  addressFull: String
+  addressLocality: String
+  addressRegion: String
+  endDate: String
+  postOfficeBoxNumber: String
+  postalCode: String
+  startDate: String
+  streetAddress: String
+  type: String
+  use: PostalAddressUpdateuseInput
+  _pnMetadata: PNMetadataUpdateOneInput
+}
+
+input PostalAddressUpdateManyMutationInput {
+  addressCountry: String
+  addressFull: String
+  addressLocality: String
+  addressRegion: String
+  endDate: String
+  postOfficeBoxNumber: String
+  postalCode: String
+  startDate: String
+  streetAddress: String
+  type: String
+  use: PostalAddressUpdateuseInput
+}
+
+input PostalAddressUpdateuseInput {
+  set: [PostalAddressUse!]
+}
+
+enum PostalAddressUse {
+  HOME
+  WORK
+  MAIL
+  BILLING
+}
+
+input PostalAddressWhereInput {
+  AND: [PostalAddressWhereInput!]
+  OR: [PostalAddressWhereInput!]
+  NOT: [PostalAddressWhereInput!]
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  addressCountry: String
+  addressCountry_not: String
+  addressCountry_in: [String!]
+  addressCountry_not_in: [String!]
+  addressCountry_lt: String
+  addressCountry_lte: String
+  addressCountry_gt: String
+  addressCountry_gte: String
+  addressCountry_contains: String
+  addressCountry_not_contains: String
+  addressCountry_starts_with: String
+  addressCountry_not_starts_with: String
+  addressCountry_ends_with: String
+  addressCountry_not_ends_with: String
+  addressFull: String
+  addressFull_not: String
+  addressFull_in: [String!]
+  addressFull_not_in: [String!]
+  addressFull_lt: String
+  addressFull_lte: String
+  addressFull_gt: String
+  addressFull_gte: String
+  addressFull_contains: String
+  addressFull_not_contains: String
+  addressFull_starts_with: String
+  addressFull_not_starts_with: String
+  addressFull_ends_with: String
+  addressFull_not_ends_with: String
+  addressLocality: String
+  addressLocality_not: String
+  addressLocality_in: [String!]
+  addressLocality_not_in: [String!]
+  addressLocality_lt: String
+  addressLocality_lte: String
+  addressLocality_gt: String
+  addressLocality_gte: String
+  addressLocality_contains: String
+  addressLocality_not_contains: String
+  addressLocality_starts_with: String
+  addressLocality_not_starts_with: String
+  addressLocality_ends_with: String
+  addressLocality_not_ends_with: String
+  addressRegion: String
+  addressRegion_not: String
+  addressRegion_in: [String!]
+  addressRegion_not_in: [String!]
+  addressRegion_lt: String
+  addressRegion_lte: String
+  addressRegion_gt: String
+  addressRegion_gte: String
+  addressRegion_contains: String
+  addressRegion_not_contains: String
+  addressRegion_starts_with: String
+  addressRegion_not_starts_with: String
+  addressRegion_ends_with: String
+  addressRegion_not_ends_with: String
+  endDate: String
+  endDate_not: String
+  endDate_in: [String!]
+  endDate_not_in: [String!]
+  endDate_lt: String
+  endDate_lte: String
+  endDate_gt: String
+  endDate_gte: String
+  endDate_contains: String
+  endDate_not_contains: String
+  endDate_starts_with: String
+  endDate_not_starts_with: String
+  endDate_ends_with: String
+  endDate_not_ends_with: String
+  postOfficeBoxNumber: String
+  postOfficeBoxNumber_not: String
+  postOfficeBoxNumber_in: [String!]
+  postOfficeBoxNumber_not_in: [String!]
+  postOfficeBoxNumber_lt: String
+  postOfficeBoxNumber_lte: String
+  postOfficeBoxNumber_gt: String
+  postOfficeBoxNumber_gte: String
+  postOfficeBoxNumber_contains: String
+  postOfficeBoxNumber_not_contains: String
+  postOfficeBoxNumber_starts_with: String
+  postOfficeBoxNumber_not_starts_with: String
+  postOfficeBoxNumber_ends_with: String
+  postOfficeBoxNumber_not_ends_with: String
+  postalCode: String
+  postalCode_not: String
+  postalCode_in: [String!]
+  postalCode_not_in: [String!]
+  postalCode_lt: String
+  postalCode_lte: String
+  postalCode_gt: String
+  postalCode_gte: String
+  postalCode_contains: String
+  postalCode_not_contains: String
+  postalCode_starts_with: String
+  postalCode_not_starts_with: String
+  postalCode_ends_with: String
+  postalCode_not_ends_with: String
+  startDate: String
+  startDate_not: String
+  startDate_in: [String!]
+  startDate_not_in: [String!]
+  startDate_lt: String
+  startDate_lte: String
+  startDate_gt: String
+  startDate_gte: String
+  startDate_contains: String
+  startDate_not_contains: String
+  startDate_starts_with: String
+  startDate_not_starts_with: String
+  startDate_ends_with: String
+  startDate_not_ends_with: String
+  streetAddress: String
+  streetAddress_not: String
+  streetAddress_in: [String!]
+  streetAddress_not_in: [String!]
+  streetAddress_lt: String
+  streetAddress_lte: String
+  streetAddress_gt: String
+  streetAddress_gte: String
+  streetAddress_contains: String
+  streetAddress_not_contains: String
+  streetAddress_starts_with: String
+  streetAddress_not_starts_with: String
+  streetAddress_ends_with: String
+  streetAddress_not_ends_with: String
+  type: String
+  type_not: String
+  type_in: [String!]
+  type_not_in: [String!]
+  type_lt: String
+  type_lte: String
+  type_gt: String
+  type_gte: String
+  type_contains: String
+  type_not_contains: String
+  type_starts_with: String
+  type_not_starts_with: String
+  type_ends_with: String
+  type_not_ends_with: String
+  _pnMetadata: PNMetadataWhereInput
+}
+
+input PostalAddressWhereUniqueInput {
+  id: ID
+}
+
+type Query {
+  persons(
+    where: PersonWhereInput
+    orderBy: PersonOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [Person]!
+  postalAddresses(
+    where: PostalAddressWhereInput
+    orderBy: PostalAddressOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [PostalAddress]!
+  names(
+    where: NameWhereInput
+    orderBy: NameOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [Name]!
+  pNMetadatas(
+    where: PNMetadataWhereInput
+    orderBy: PNMetadataOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [PNMetadata]!
+  phoneNumbers(
+    where: PhoneNumberWhereInput
+    orderBy: PhoneNumberOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [PhoneNumber]!
+  identifiers(
+    where: IdentifierWhereInput
+    orderBy: IdentifierOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [Identifier]!
+  sSNs(
+    where: SSNWhereInput
+    orderBy: SSNOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [SSN]!
+  emails(
+    where: EmailWhereInput
+    orderBy: EmailOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [Email]!
+  person(where: PersonWhereUniqueInput!): Person
+  postalAddress(where: PostalAddressWhereUniqueInput!): PostalAddress
+  name(where: NameWhereUniqueInput!): Name
+  pNMetadata(where: PNMetadataWhereUniqueInput!): PNMetadata
+  phoneNumber(where: PhoneNumberWhereUniqueInput!): PhoneNumber
+  identifier(where: IdentifierWhereUniqueInput!): Identifier
+  sSN(where: SSNWhereUniqueInput!): SSN
+  email(where: EmailWhereUniqueInput!): Email
+  personsConnection(
+    where: PersonWhereInput
+    orderBy: PersonOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): PersonConnection!
+  postalAddressesConnection(
+    where: PostalAddressWhereInput
+    orderBy: PostalAddressOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): PostalAddressConnection!
+  namesConnection(
+    where: NameWhereInput
+    orderBy: NameOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): NameConnection!
+  pNMetadatasConnection(
+    where: PNMetadataWhereInput
+    orderBy: PNMetadataOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): PNMetadataConnection!
+  phoneNumbersConnection(
+    where: PhoneNumberWhereInput
+    orderBy: PhoneNumberOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): PhoneNumberConnection!
+  identifiersConnection(
+    where: IdentifierWhereInput
+    orderBy: IdentifierOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): IdentifierConnection!
+  sSNsConnection(
+    where: SSNWhereInput
+    orderBy: SSNOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): SSNConnection!
+  emailsConnection(
+    where: EmailWhereInput
+    orderBy: EmailOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): EmailConnection!
+  node(id: ID!): Node
+}
+
+type SSN implements Node {
+  id: ID!
+  _pnMetadata: PNMetadata
+  endDate: String
+  startDate: String
+  type: String!
+  use: PhoneNumberUse
+  value: String!
+}
+
+type SSNConnection {
+  pageInfo: PageInfo!
+  edges: [SSNEdge]!
+  aggregate: AggregateSSN!
+}
+
+input SSNCreateInput {
+  id: ID
+  endDate: String
+  startDate: String
+  type: String!
+  use: PhoneNumberUse
+  value: String!
+  _pnMetadata: PNMetadataCreateOneInput
+}
+
+input SSNCreateManyInput {
+  create: [SSNCreateInput!]
+  connect: [SSNWhereUniqueInput!]
+}
+
+type SSNEdge {
+  node: SSN!
+  cursor: String!
+}
+
+enum SSNOrderByInput {
+  id_ASC
+  id_DESC
+  endDate_ASC
+  endDate_DESC
+  startDate_ASC
+  startDate_DESC
+  type_ASC
+  type_DESC
+  use_ASC
+  use_DESC
+  value_ASC
+  value_DESC
+}
+
+type SSNPreviousValues {
+  id: ID!
+  endDate: String
+  startDate: String
+  type: String!
+  use: PhoneNumberUse
+  value: String!
+}
+
+input SSNScalarWhereInput {
+  AND: [SSNScalarWhereInput!]
+  OR: [SSNScalarWhereInput!]
+  NOT: [SSNScalarWhereInput!]
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  endDate: String
+  endDate_not: String
+  endDate_in: [String!]
+  endDate_not_in: [String!]
+  endDate_lt: String
+  endDate_lte: String
+  endDate_gt: String
+  endDate_gte: String
+  endDate_contains: String
+  endDate_not_contains: String
+  endDate_starts_with: String
+  endDate_not_starts_with: String
+  endDate_ends_with: String
+  endDate_not_ends_with: String
+  startDate: String
+  startDate_not: String
+  startDate_in: [String!]
+  startDate_not_in: [String!]
+  startDate_lt: String
+  startDate_lte: String
+  startDate_gt: String
+  startDate_gte: String
+  startDate_contains: String
+  startDate_not_contains: String
+  startDate_starts_with: String
+  startDate_not_starts_with: String
+  startDate_ends_with: String
+  startDate_not_ends_with: String
+  type: String
+  type_not: String
+  type_in: [String!]
+  type_not_in: [String!]
+  type_lt: String
+  type_lte: String
+  type_gt: String
+  type_gte: String
+  type_contains: String
+  type_not_contains: String
+  type_starts_with: String
+  type_not_starts_with: String
+  type_ends_with: String
+  type_not_ends_with: String
+  use: PhoneNumberUse
+  use_not: PhoneNumberUse
+  use_in: [PhoneNumberUse!]
+  use_not_in: [PhoneNumberUse!]
+  value: String
+  value_not: String
+  value_in: [String!]
+  value_not_in: [String!]
+  value_lt: String
+  value_lte: String
+  value_gt: String
+  value_gte: String
+  value_contains: String
+  value_not_contains: String
+  value_starts_with: String
+  value_not_starts_with: String
+  value_ends_with: String
+  value_not_ends_with: String
+}
+
+type SSNSubscriptionPayload {
+  mutation: MutationType!
+  node: SSN
+  updatedFields: [String!]
+  previousValues: SSNPreviousValues
+}
+
+input SSNSubscriptionWhereInput {
+  AND: [SSNSubscriptionWhereInput!]
+  OR: [SSNSubscriptionWhereInput!]
+  NOT: [SSNSubscriptionWhereInput!]
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: SSNWhereInput
+}
+
+input SSNUpdateDataInput {
+  endDate: String
+  startDate: String
+  type: String
+  use: PhoneNumberUse
+  value: String
+  _pnMetadata: PNMetadataUpdateOneInput
+}
+
+input SSNUpdateInput {
+  endDate: String
+  startDate: String
+  type: String
+  use: PhoneNumberUse
+  value: String
+  _pnMetadata: PNMetadataUpdateOneInput
+}
+
+input SSNUpdateManyDataInput {
+  endDate: String
+  startDate: String
+  type: String
+  use: PhoneNumberUse
+  value: String
+}
+
+input SSNUpdateManyInput {
+  create: [SSNCreateInput!]
+  connect: [SSNWhereUniqueInput!]
+  set: [SSNWhereUniqueInput!]
+  disconnect: [SSNWhereUniqueInput!]
+  delete: [SSNWhereUniqueInput!]
+  update: [SSNUpdateWithWhereUniqueNestedInput!]
+  updateMany: [SSNUpdateManyWithWhereNestedInput!]
+  deleteMany: [SSNScalarWhereInput!]
+  upsert: [SSNUpsertWithWhereUniqueNestedInput!]
+}
+
+input SSNUpdateManyMutationInput {
+  endDate: String
+  startDate: String
+  type: String
+  use: PhoneNumberUse
+  value: String
+}
+
+input SSNUpdateManyWithWhereNestedInput {
+  where: SSNScalarWhereInput!
+  data: SSNUpdateManyDataInput!
+}
+
+input SSNUpdateWithWhereUniqueNestedInput {
+  where: SSNWhereUniqueInput!
+  data: SSNUpdateDataInput!
+}
+
+input SSNUpsertWithWhereUniqueNestedInput {
+  where: SSNWhereUniqueInput!
+  update: SSNUpdateDataInput!
+  create: SSNCreateInput!
+}
+
+input SSNWhereInput {
+  AND: [SSNWhereInput!]
+  OR: [SSNWhereInput!]
+  NOT: [SSNWhereInput!]
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  endDate: String
+  endDate_not: String
+  endDate_in: [String!]
+  endDate_not_in: [String!]
+  endDate_lt: String
+  endDate_lte: String
+  endDate_gt: String
+  endDate_gte: String
+  endDate_contains: String
+  endDate_not_contains: String
+  endDate_starts_with: String
+  endDate_not_starts_with: String
+  endDate_ends_with: String
+  endDate_not_ends_with: String
+  startDate: String
+  startDate_not: String
+  startDate_in: [String!]
+  startDate_not_in: [String!]
+  startDate_lt: String
+  startDate_lte: String
+  startDate_gt: String
+  startDate_gte: String
+  startDate_contains: String
+  startDate_not_contains: String
+  startDate_starts_with: String
+  startDate_not_starts_with: String
+  startDate_ends_with: String
+  startDate_not_ends_with: String
+  type: String
+  type_not: String
+  type_in: [String!]
+  type_not_in: [String!]
+  type_lt: String
+  type_lte: String
+  type_gt: String
+  type_gte: String
+  type_contains: String
+  type_not_contains: String
+  type_starts_with: String
+  type_not_starts_with: String
+  type_ends_with: String
+  type_not_ends_with: String
+  use: PhoneNumberUse
+  use_not: PhoneNumberUse
+  use_in: [PhoneNumberUse!]
+  use_not_in: [PhoneNumberUse!]
+  value: String
+  value_not: String
+  value_in: [String!]
+  value_not_in: [String!]
+  value_lt: String
+  value_lte: String
+  value_gt: String
+  value_gte: String
+  value_contains: String
+  value_not_contains: String
+  value_starts_with: String
+  value_not_starts_with: String
+  value_ends_with: String
+  value_not_ends_with: String
+  _pnMetadata: PNMetadataWhereInput
+}
+
+input SSNWhereUniqueInput {
+  id: ID
+}
+
+type Subscription {
+  person(where: PersonSubscriptionWhereInput): PersonSubscriptionPayload
+  postalAddress(
+    where: PostalAddressSubscriptionWhereInput
+  ): PostalAddressSubscriptionPayload
+  name(where: NameSubscriptionWhereInput): NameSubscriptionPayload
+  pNMetadata(
+    where: PNMetadataSubscriptionWhereInput
+  ): PNMetadataSubscriptionPayload
+  phoneNumber(
+    where: PhoneNumberSubscriptionWhereInput
+  ): PhoneNumberSubscriptionPayload
+  identifier(
+    where: IdentifierSubscriptionWhereInput
+  ): IdentifierSubscriptionPayload
+  sSN(where: SSNSubscriptionWhereInput): SSNSubscriptionPayload
+  email(where: EmailSubscriptionWhereInput): EmailSubscriptionPayload
+}
