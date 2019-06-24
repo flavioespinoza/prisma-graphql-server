@@ -1,16 +1,8 @@
-# Specifies the HTTP endpoint of your Prisma API.
-#endpoint: ''
 endpoint: http://localhost:4466
+datamodel: ./_datamodel/datamodel.prisma
+# datamodel: ./_datamodel/datamodel.example.prisma
+# datamodel: ./_datamodel/_datamodel.disco.prisma
 
-# Defines your models, each model is mapped to the database as a table.
-datamodel: datamodel.prisma
-
-# Specifies the language and directory for the generated Prisma client.
 generate:
   - generator: typescript-client
     output: ./generated/prisma-client/
-
-# Ensures Prisma client is re-generated after a datamodel change.
-hooks:
-  post-deploy:
-    - prisma generate

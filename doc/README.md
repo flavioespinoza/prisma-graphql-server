@@ -9,26 +9,27 @@ _And, if that wern't cool enouth!_ :)
 
 `prisma` uses the `schema` to auto-generate all `query` & `mutation` typescript methods.
 
-## Server
-[prisma-graphql-server](https://github.com/flavioespinoza/prisma-graphql-server)
-Postgres, MySQL & MongoDB deployed in minutes with docker-compose
 
-data-access-layer 
-prisma-graphql deployed on node-koa server
-
-
-
-
-
-
-`react-appolo-client`.
+type User @db(name: "person") {
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  email: String! @unique
+  phone_number: [PhoneNumber!]!
+  role: AuthLevel @default(value: USER)
+  gender: Gender!
+  identifiers: Identifiers!
+}
 
 
-`react-next-client`'
+For each model type in your datamodel, six methods for writing data are generated. For example, for the User model the following operations are available:
 
-
-
-
+createUser: Creates a new User record in the database.
+updateUser: Updates an existing User record in the database.
+deleteUser: Deletes an existing User record from the database.
+upsertUser: Updates an existing or create a new User record in the database.
+updateManyUsers: Updates many existing User records in the database at once.
+deleteManyUsers: Deletes many existing User records from the database at once.
 
 
 ### Required Relations
