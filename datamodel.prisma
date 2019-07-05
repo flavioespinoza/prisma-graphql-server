@@ -1,0 +1,35 @@
+type User {
+  id: ID! @id
+	name: String
+  firstName: String!
+	lastName: String!
+	middleName: String
+  emails: [Email!]!
+  phoneNumbers: [PhoneNumber!]! @scalarList(stratagy: RELATION)
+}
+
+type Email {
+  id: ID! @id
+  value: String!
+  owner: User @relation(link: INLINE)
+}
+
+type PhoneNumber {
+  id: ID! @id
+	type: String!
+	use: [PhoneNumberUse!]! @scalarList(strategy:RELATION)
+	value: String!
+  owner: User @relation(link: INLINE)
+}
+
+enum PhoneNumberType {
+	MOBILE
+	LAND
+	MOBILE_APP
+	WEB_APP
+}
+
+enum PhoneNumberUse {
+  PERSONAL
+  WORK
+}

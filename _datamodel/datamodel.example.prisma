@@ -1,4 +1,4 @@
-type User @db(name: "user") {
+type Person @db(name: "user") {
   id: ID! @id
   createdAt: DateTime! @createdAt
   email: String! @unique

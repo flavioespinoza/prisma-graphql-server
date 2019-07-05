@@ -1,0 +1,855 @@
+type AggregateEmail {
+  count: Int!
+}
+
+type AggregateMobilePhone {
+  count: Int!
+}
+
+type AggregateUser {
+  count: Int!
+}
+
+type BatchPayload {
+  count: Long!
+}
+
+scalar DateTime
+
+type Email implements Node {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  value: String!
+  owner: User!
+}
+
+type EmailConnection {
+  pageInfo: PageInfo!
+  edges: [EmailEdge]!
+  aggregate: AggregateEmail!
+}
+
+input EmailCreateInput {
+  id: ID
+  value: String!
+  owner: UserCreateOneWithoutEmailsInput!
+}
+
+input EmailCreateManyWithoutOwnerInput {
+  create: [EmailCreateWithoutOwnerInput!]
+  connect: [EmailWhereUniqueInput!]
+}
+
+input EmailCreateWithoutOwnerInput {
+  id: ID
+  value: String!
+}
+
+type EmailEdge {
+  node: Email!
+  cursor: String!
+}
+
+enum EmailOrderByInput {
+  id_ASC
+  id_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  value_ASC
+  value_DESC
+}
+
+type EmailPreviousValues {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  value: String!
+}
+
+input EmailScalarWhereInput {
+  AND: [EmailScalarWhereInput!]
+  OR: [EmailScalarWhereInput!]
+  NOT: [EmailScalarWhereInput!]
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  value: String
+  value_not: String
+  value_in: [String!]
+  value_not_in: [String!]
+  value_lt: String
+  value_lte: String
+  value_gt: String
+  value_gte: String
+  value_contains: String
+  value_not_contains: String
+  value_starts_with: String
+  value_not_starts_with: String
+  value_ends_with: String
+  value_not_ends_with: String
+}
+
+type EmailSubscriptionPayload {
+  mutation: MutationType!
+  node: Email
+  updatedFields: [String!]
+  previousValues: EmailPreviousValues
+}
+
+input EmailSubscriptionWhereInput {
+  AND: [EmailSubscriptionWhereInput!]
+  OR: [EmailSubscriptionWhereInput!]
+  NOT: [EmailSubscriptionWhereInput!]
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: EmailWhereInput
+}
+
+input EmailUpdateInput {
+  value: String
+  owner: UserUpdateOneRequiredWithoutEmailsInput
+}
+
+input EmailUpdateManyDataInput {
+  value: String
+}
+
+input EmailUpdateManyMutationInput {
+  value: String
+}
+
+input EmailUpdateManyWithoutOwnerInput {
+  create: [EmailCreateWithoutOwnerInput!]
+  connect: [EmailWhereUniqueInput!]
+  set: [EmailWhereUniqueInput!]
+  disconnect: [EmailWhereUniqueInput!]
+  delete: [EmailWhereUniqueInput!]
+  update: [EmailUpdateWithWhereUniqueWithoutOwnerInput!]
+  updateMany: [EmailUpdateManyWithWhereNestedInput!]
+  deleteMany: [EmailScalarWhereInput!]
+  upsert: [EmailUpsertWithWhereUniqueWithoutOwnerInput!]
+}
+
+input EmailUpdateManyWithWhereNestedInput {
+  where: EmailScalarWhereInput!
+  data: EmailUpdateManyDataInput!
+}
+
+input EmailUpdateWithoutOwnerDataInput {
+  value: String
+}
+
+input EmailUpdateWithWhereUniqueWithoutOwnerInput {
+  where: EmailWhereUniqueInput!
+  data: EmailUpdateWithoutOwnerDataInput!
+}
+
+input EmailUpsertWithWhereUniqueWithoutOwnerInput {
+  where: EmailWhereUniqueInput!
+  update: EmailUpdateWithoutOwnerDataInput!
+  create: EmailCreateWithoutOwnerInput!
+}
+
+input EmailWhereInput {
+  AND: [EmailWhereInput!]
+  OR: [EmailWhereInput!]
+  NOT: [EmailWhereInput!]
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  value: String
+  value_not: String
+  value_in: [String!]
+  value_not_in: [String!]
+  value_lt: String
+  value_lte: String
+  value_gt: String
+  value_gte: String
+  value_contains: String
+  value_not_contains: String
+  value_starts_with: String
+  value_not_starts_with: String
+  value_ends_with: String
+  value_not_ends_with: String
+  owner: UserWhereInput
+}
+
+input EmailWhereUniqueInput {
+  id: ID
+}
+
+scalar Json
+
+scalar Long
+
+type MobilePhone implements Node {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  value: String!
+  owner: User!
+}
+
+type MobilePhoneConnection {
+  pageInfo: PageInfo!
+  edges: [MobilePhoneEdge]!
+  aggregate: AggregateMobilePhone!
+}
+
+input MobilePhoneCreateInput {
+  id: ID
+  value: String!
+  owner: UserCreateOneWithoutMobilePhonesInput!
+}
+
+input MobilePhoneCreateManyWithoutOwnerInput {
+  create: [MobilePhoneCreateWithoutOwnerInput!]
+  connect: [MobilePhoneWhereUniqueInput!]
+}
+
+input MobilePhoneCreateWithoutOwnerInput {
+  id: ID
+  value: String!
+}
+
+type MobilePhoneEdge {
+  node: MobilePhone!
+  cursor: String!
+}
+
+enum MobilePhoneOrderByInput {
+  id_ASC
+  id_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  value_ASC
+  value_DESC
+}
+
+type MobilePhonePreviousValues {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  value: String!
+}
+
+input MobilePhoneScalarWhereInput {
+  AND: [MobilePhoneScalarWhereInput!]
+  OR: [MobilePhoneScalarWhereInput!]
+  NOT: [MobilePhoneScalarWhereInput!]
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  value: String
+  value_not: String
+  value_in: [String!]
+  value_not_in: [String!]
+  value_lt: String
+  value_lte: String
+  value_gt: String
+  value_gte: String
+  value_contains: String
+  value_not_contains: String
+  value_starts_with: String
+  value_not_starts_with: String
+  value_ends_with: String
+  value_not_ends_with: String
+}
+
+type MobilePhoneSubscriptionPayload {
+  mutation: MutationType!
+  node: MobilePhone
+  updatedFields: [String!]
+  previousValues: MobilePhonePreviousValues
+}
+
+input MobilePhoneSubscriptionWhereInput {
+  AND: [MobilePhoneSubscriptionWhereInput!]
+  OR: [MobilePhoneSubscriptionWhereInput!]
+  NOT: [MobilePhoneSubscriptionWhereInput!]
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: MobilePhoneWhereInput
+}
+
+input MobilePhoneUpdateInput {
+  value: String
+  owner: UserUpdateOneRequiredWithoutMobilePhonesInput
+}
+
+input MobilePhoneUpdateManyDataInput {
+  value: String
+}
+
+input MobilePhoneUpdateManyMutationInput {
+  value: String
+}
+
+input MobilePhoneUpdateManyWithoutOwnerInput {
+  create: [MobilePhoneCreateWithoutOwnerInput!]
+  connect: [MobilePhoneWhereUniqueInput!]
+  set: [MobilePhoneWhereUniqueInput!]
+  disconnect: [MobilePhoneWhereUniqueInput!]
+  delete: [MobilePhoneWhereUniqueInput!]
+  update: [MobilePhoneUpdateWithWhereUniqueWithoutOwnerInput!]
+  updateMany: [MobilePhoneUpdateManyWithWhereNestedInput!]
+  deleteMany: [MobilePhoneScalarWhereInput!]
+  upsert: [MobilePhoneUpsertWithWhereUniqueWithoutOwnerInput!]
+}
+
+input MobilePhoneUpdateManyWithWhereNestedInput {
+  where: MobilePhoneScalarWhereInput!
+  data: MobilePhoneUpdateManyDataInput!
+}
+
+input MobilePhoneUpdateWithoutOwnerDataInput {
+  value: String
+}
+
+input MobilePhoneUpdateWithWhereUniqueWithoutOwnerInput {
+  where: MobilePhoneWhereUniqueInput!
+  data: MobilePhoneUpdateWithoutOwnerDataInput!
+}
+
+input MobilePhoneUpsertWithWhereUniqueWithoutOwnerInput {
+  where: MobilePhoneWhereUniqueInput!
+  update: MobilePhoneUpdateWithoutOwnerDataInput!
+  create: MobilePhoneCreateWithoutOwnerInput!
+}
+
+input MobilePhoneWhereInput {
+  AND: [MobilePhoneWhereInput!]
+  OR: [MobilePhoneWhereInput!]
+  NOT: [MobilePhoneWhereInput!]
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  value: String
+  value_not: String
+  value_in: [String!]
+  value_not_in: [String!]
+  value_lt: String
+  value_lte: String
+  value_gt: String
+  value_gte: String
+  value_contains: String
+  value_not_contains: String
+  value_starts_with: String
+  value_not_starts_with: String
+  value_ends_with: String
+  value_not_ends_with: String
+  owner: UserWhereInput
+}
+
+input MobilePhoneWhereUniqueInput {
+  id: ID
+}
+
+type Mutation {
+  createEmail(data: EmailCreateInput!): Email!
+  createMobilePhone(data: MobilePhoneCreateInput!): MobilePhone!
+  createUser(data: UserCreateInput!): User!
+  updateEmail(data: EmailUpdateInput!, where: EmailWhereUniqueInput!): Email
+  updateMobilePhone(
+    data: MobilePhoneUpdateInput!
+    where: MobilePhoneWhereUniqueInput!
+  ): MobilePhone
+  updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
+  deleteEmail(where: EmailWhereUniqueInput!): Email
+  deleteMobilePhone(where: MobilePhoneWhereUniqueInput!): MobilePhone
+  deleteUser(where: UserWhereUniqueInput!): User
+  upsertEmail(
+    where: EmailWhereUniqueInput!
+    create: EmailCreateInput!
+    update: EmailUpdateInput!
+  ): Email!
+  upsertMobilePhone(
+    where: MobilePhoneWhereUniqueInput!
+    create: MobilePhoneCreateInput!
+    update: MobilePhoneUpdateInput!
+  ): MobilePhone!
+  upsertUser(
+    where: UserWhereUniqueInput!
+    create: UserCreateInput!
+    update: UserUpdateInput!
+  ): User!
+  updateManyEmails(
+    data: EmailUpdateManyMutationInput!
+    where: EmailWhereInput
+  ): BatchPayload!
+  updateManyMobilePhones(
+    data: MobilePhoneUpdateManyMutationInput!
+    where: MobilePhoneWhereInput
+  ): BatchPayload!
+  updateManyUsers(
+    data: UserUpdateManyMutationInput!
+    where: UserWhereInput
+  ): BatchPayload!
+  deleteManyEmails(where: EmailWhereInput): BatchPayload!
+  deleteManyMobilePhones(where: MobilePhoneWhereInput): BatchPayload!
+  deleteManyUsers(where: UserWhereInput): BatchPayload!
+  executeRaw(database: PrismaDatabase, query: String!): Json!
+}
+
+enum MutationType {
+  CREATED
+  UPDATED
+  DELETED
+}
+
+interface Node {
+  id: ID!
+}
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+  endCursor: String
+}
+
+enum PrismaDatabase {
+  default
+}
+
+type Query {
+  emails(
+    where: EmailWhereInput
+    orderBy: EmailOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [Email]!
+  mobilePhones(
+    where: MobilePhoneWhereInput
+    orderBy: MobilePhoneOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [MobilePhone]!
+  users(
+    where: UserWhereInput
+    orderBy: UserOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [User]!
+  email(where: EmailWhereUniqueInput!): Email
+  mobilePhone(where: MobilePhoneWhereUniqueInput!): MobilePhone
+  user(where: UserWhereUniqueInput!): User
+  emailsConnection(
+    where: EmailWhereInput
+    orderBy: EmailOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): EmailConnection!
+  mobilePhonesConnection(
+    where: MobilePhoneWhereInput
+    orderBy: MobilePhoneOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): MobilePhoneConnection!
+  usersConnection(
+    where: UserWhereInput
+    orderBy: UserOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): UserConnection!
+  node(id: ID!): Node
+}
+
+type Subscription {
+  email(where: EmailSubscriptionWhereInput): EmailSubscriptionPayload
+  mobilePhone(
+    where: MobilePhoneSubscriptionWhereInput
+  ): MobilePhoneSubscriptionPayload
+  user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
+}
+
+type User implements Node {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  firstName: String
+  lastName: String
+  middleName: String
+  emails(
+    where: EmailWhereInput
+    orderBy: EmailOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [Email!]
+  mobilePhones(
+    where: MobilePhoneWhereInput
+    orderBy: MobilePhoneOrderByInput
+    skip: Int
+    after: String
+    before: String
+    first: Int
+    last: Int
+  ): [MobilePhone!]
+}
+
+type UserConnection {
+  pageInfo: PageInfo!
+  edges: [UserEdge]!
+  aggregate: AggregateUser!
+}
+
+input UserCreateInput {
+  id: ID
+  firstName: String
+  lastName: String
+  middleName: String
+  emails: EmailCreateManyWithoutOwnerInput
+  mobilePhones: MobilePhoneCreateManyWithoutOwnerInput
+}
+
+input UserCreateOneWithoutEmailsInput {
+  create: UserCreateWithoutEmailsInput
+  connect: UserWhereUniqueInput
+}
+
+input UserCreateOneWithoutMobilePhonesInput {
+  create: UserCreateWithoutMobilePhonesInput
+  connect: UserWhereUniqueInput
+}
+
+input UserCreateWithoutEmailsInput {
+  id: ID
+  firstName: String
+  lastName: String
+  middleName: String
+  mobilePhones: MobilePhoneCreateManyWithoutOwnerInput
+}
+
+input UserCreateWithoutMobilePhonesInput {
+  id: ID
+  firstName: String
+  lastName: String
+  middleName: String
+  emails: EmailCreateManyWithoutOwnerInput
+}
+
+type UserEdge {
+  node: User!
+  cursor: String!
+}
+
+enum UserOrderByInput {
+  id_ASC
+  id_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  firstName_ASC
+  firstName_DESC
+  lastName_ASC
+  lastName_DESC
+  middleName_ASC
+  middleName_DESC
+}
+
+type UserPreviousValues {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  firstName: String
+  lastName: String
+  middleName: String
+}
+
+type UserSubscriptionPayload {
+  mutation: MutationType!
+  node: User
+  updatedFields: [String!]
+  previousValues: UserPreviousValues
+}
+
+input UserSubscriptionWhereInput {
+  AND: [UserSubscriptionWhereInput!]
+  OR: [UserSubscriptionWhereInput!]
+  NOT: [UserSubscriptionWhereInput!]
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: UserWhereInput
+}
+
+input UserUpdateInput {
+  firstName: String
+  lastName: String
+  middleName: String
+  emails: EmailUpdateManyWithoutOwnerInput
+  mobilePhones: MobilePhoneUpdateManyWithoutOwnerInput
+}
+
+input UserUpdateManyMutationInput {
+  firstName: String
+  lastName: String
+  middleName: String
+}
+
+input UserUpdateOneRequiredWithoutEmailsInput {
+  create: UserCreateWithoutEmailsInput
+  connect: UserWhereUniqueInput
+  update: UserUpdateWithoutEmailsDataInput
+  upsert: UserUpsertWithoutEmailsInput
+}
+
+input UserUpdateOneRequiredWithoutMobilePhonesInput {
+  create: UserCreateWithoutMobilePhonesInput
+  connect: UserWhereUniqueInput
+  update: UserUpdateWithoutMobilePhonesDataInput
+  upsert: UserUpsertWithoutMobilePhonesInput
+}
+
+input UserUpdateWithoutEmailsDataInput {
+  firstName: String
+  lastName: String
+  middleName: String
+  mobilePhones: MobilePhoneUpdateManyWithoutOwnerInput
+}
+
+input UserUpdateWithoutMobilePhonesDataInput {
+  firstName: String
+  lastName: String
+  middleName: String
+  emails: EmailUpdateManyWithoutOwnerInput
+}
+
+input UserUpsertWithoutEmailsInput {
+  update: UserUpdateWithoutEmailsDataInput!
+  create: UserCreateWithoutEmailsInput!
+}
+
+input UserUpsertWithoutMobilePhonesInput {
+  update: UserUpdateWithoutMobilePhonesDataInput!
+  create: UserCreateWithoutMobilePhonesInput!
+}
+
+input UserWhereInput {
+  AND: [UserWhereInput!]
+  OR: [UserWhereInput!]
+  NOT: [UserWhereInput!]
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  firstName: String
+  firstName_not: String
+  firstName_in: [String!]
+  firstName_not_in: [String!]
+  firstName_lt: String
+  firstName_lte: String
+  firstName_gt: String
+  firstName_gte: String
+  firstName_contains: String
+  firstName_not_contains: String
+  firstName_starts_with: String
+  firstName_not_starts_with: String
+  firstName_ends_with: String
+  firstName_not_ends_with: String
+  lastName: String
+  lastName_not: String
+  lastName_in: [String!]
+  lastName_not_in: [String!]
+  lastName_lt: String
+  lastName_lte: String
+  lastName_gt: String
+  lastName_gte: String
+  lastName_contains: String
+  lastName_not_contains: String
+  lastName_starts_with: String
+  lastName_not_starts_with: String
+  lastName_ends_with: String
+  lastName_not_ends_with: String
+  middleName: String
+  middleName_not: String
+  middleName_in: [String!]
+  middleName_not_in: [String!]
+  middleName_lt: String
+  middleName_lte: String
+  middleName_gt: String
+  middleName_gte: String
+  middleName_contains: String
+  middleName_not_contains: String
+  middleName_starts_with: String
+  middleName_not_starts_with: String
+  middleName_ends_with: String
+  middleName_not_ends_with: String
+  emails_every: EmailWhereInput
+  emails_some: EmailWhereInput
+  emails_none: EmailWhereInput
+  mobilePhones_every: MobilePhoneWhereInput
+  mobilePhones_some: MobilePhoneWhereInput
+  mobilePhones_none: MobilePhoneWhereInput
+}
+
+input UserWhereUniqueInput {
+  id: ID
+}
+

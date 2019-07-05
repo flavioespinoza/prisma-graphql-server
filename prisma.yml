@@ -1,8 +1,5 @@
 endpoint: http://localhost:4466
-datamodel: ./_datamodel/datamodel.prisma
-# datamodel: ./_datamodel/datamodel.example.prisma
-# datamodel: ./_datamodel/_datamodel.disco.prisma
-
+datamodel: datamodel.prisma
 generate:
   - generator: typescript-client
-    output: ./generated/prisma-client/
+    output: generated/prisma-client/

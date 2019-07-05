@@ -1,0 +1,18 @@
+
+{
+		mutation createUser(id: "022b0f1f-3f6c-4597-aaed-a6404d8fec7b" 
+					firstName: "Zachary" 
+					lastName: "Knight" 
+					middleName: "Flavio" 
+					emails: "[object Object]" 
+					mobilePhones: "[object Object]" )  
+	{ 
+			id 
+			firstName 
+			lastName 
+			middleName 
+			emails 
+			mobilePhones 
+	} 
+}
+

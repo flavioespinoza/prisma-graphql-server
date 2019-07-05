@@ -16,304 +16,111 @@ export interface NexusPrismaTypes {
     fields: {
       Query: QueryObject
       User: UserObject
-      PhoneNumber: PhoneNumberObject
-      Attribute: AttributeObject
-      TaxId: TaxIdObject
       Email: EmailObject
-      Identifiers: IdentifiersObject
+      PhoneNumber: PhoneNumberObject
       UserConnection: UserConnectionObject
       PageInfo: PageInfoObject
       UserEdge: UserEdgeObject
       AggregateUser: AggregateUserObject
-      IdentifiersConnection: IdentifiersConnectionObject
-      IdentifiersEdge: IdentifiersEdgeObject
-      AggregateIdentifiers: AggregateIdentifiersObject
-      TaxIdConnection: TaxIdConnectionObject
-      TaxIdEdge: TaxIdEdgeObject
-      AggregateTaxId: AggregateTaxIdObject
       EmailConnection: EmailConnectionObject
       EmailEdge: EmailEdgeObject
       AggregateEmail: AggregateEmailObject
       PhoneNumberConnection: PhoneNumberConnectionObject
       PhoneNumberEdge: PhoneNumberEdgeObject
       AggregatePhoneNumber: AggregatePhoneNumberObject
-      AttributeConnection: AttributeConnectionObject
-      AttributeEdge: AttributeEdgeObject
-      AggregateAttribute: AggregateAttributeObject
-      TaxIdAttribute: TaxIdAttributeObject
-      TaxIdAttributeConnection: TaxIdAttributeConnectionObject
-      TaxIdAttributeEdge: TaxIdAttributeEdgeObject
-      AggregateTaxIdAttribute: AggregateTaxIdAttributeObject
-      EmailAttribute: EmailAttributeObject
-      EmailAttributeConnection: EmailAttributeConnectionObject
-      EmailAttributeEdge: EmailAttributeEdgeObject
-      AggregateEmailAttribute: AggregateEmailAttributeObject
-      PhoneNumberAttribute: PhoneNumberAttributeObject
-      PhoneNumberAttributeConnection: PhoneNumberAttributeConnectionObject
-      PhoneNumberAttributeEdge: PhoneNumberAttributeEdgeObject
-      AggregatePhoneNumberAttribute: AggregatePhoneNumberAttributeObject
-      Female: FemaleObject
-      FemaleConnection: FemaleConnectionObject
-      FemaleEdge: FemaleEdgeObject
-      AggregateFemale: AggregateFemaleObject
-      Male: MaleObject
-      MaleConnection: MaleConnectionObject
-      MaleEdge: MaleEdgeObject
-      AggregateMale: AggregateMaleObject
       Mutation: MutationObject
       BatchPayload: BatchPayloadObject
       Subscription: SubscriptionObject
       UserSubscriptionPayload: UserSubscriptionPayloadObject
       UserPreviousValues: UserPreviousValuesObject
-      IdentifiersSubscriptionPayload: IdentifiersSubscriptionPayloadObject
-      IdentifiersPreviousValues: IdentifiersPreviousValuesObject
-      TaxIdSubscriptionPayload: TaxIdSubscriptionPayloadObject
-      TaxIdPreviousValues: TaxIdPreviousValuesObject
       EmailSubscriptionPayload: EmailSubscriptionPayloadObject
       EmailPreviousValues: EmailPreviousValuesObject
       PhoneNumberSubscriptionPayload: PhoneNumberSubscriptionPayloadObject
       PhoneNumberPreviousValues: PhoneNumberPreviousValuesObject
-      AttributeSubscriptionPayload: AttributeSubscriptionPayloadObject
-      AttributePreviousValues: AttributePreviousValuesObject
-      TaxIdAttributeSubscriptionPayload: TaxIdAttributeSubscriptionPayloadObject
-      EmailAttributeSubscriptionPayload: EmailAttributeSubscriptionPayloadObject
-      PhoneNumberAttributeSubscriptionPayload: PhoneNumberAttributeSubscriptionPayloadObject
-      FemaleSubscriptionPayload: FemaleSubscriptionPayloadObject
-      FemalePreviousValues: FemalePreviousValuesObject
-      MaleSubscriptionPayload: MaleSubscriptionPayloadObject
-      MalePreviousValues: MalePreviousValuesObject
     }
     fieldsDetails: {
       Query: QueryFieldDetails
       User: UserFieldDetails
-      PhoneNumber: PhoneNumberFieldDetails
-      Attribute: AttributeFieldDetails
-      TaxId: TaxIdFieldDetails
       Email: EmailFieldDetails
-      Identifiers: IdentifiersFieldDetails
+      PhoneNumber: PhoneNumberFieldDetails
       UserConnection: UserConnectionFieldDetails
       PageInfo: PageInfoFieldDetails
       UserEdge: UserEdgeFieldDetails
       AggregateUser: AggregateUserFieldDetails
-      IdentifiersConnection: IdentifiersConnectionFieldDetails
-      IdentifiersEdge: IdentifiersEdgeFieldDetails
-      AggregateIdentifiers: AggregateIdentifiersFieldDetails
-      TaxIdConnection: TaxIdConnectionFieldDetails
-      TaxIdEdge: TaxIdEdgeFieldDetails
-      AggregateTaxId: AggregateTaxIdFieldDetails
       EmailConnection: EmailConnectionFieldDetails
       EmailEdge: EmailEdgeFieldDetails
       AggregateEmail: AggregateEmailFieldDetails
       PhoneNumberConnection: PhoneNumberConnectionFieldDetails
       PhoneNumberEdge: PhoneNumberEdgeFieldDetails
       AggregatePhoneNumber: AggregatePhoneNumberFieldDetails
-      AttributeConnection: AttributeConnectionFieldDetails
-      AttributeEdge: AttributeEdgeFieldDetails
-      AggregateAttribute: AggregateAttributeFieldDetails
-      TaxIdAttribute: TaxIdAttributeFieldDetails
-      TaxIdAttributeConnection: TaxIdAttributeConnectionFieldDetails
-      TaxIdAttributeEdge: TaxIdAttributeEdgeFieldDetails
-      AggregateTaxIdAttribute: AggregateTaxIdAttributeFieldDetails
-      EmailAttribute: EmailAttributeFieldDetails
-      EmailAttributeConnection: EmailAttributeConnectionFieldDetails
-      EmailAttributeEdge: EmailAttributeEdgeFieldDetails
-      AggregateEmailAttribute: AggregateEmailAttributeFieldDetails
-      PhoneNumberAttribute: PhoneNumberAttributeFieldDetails
-      PhoneNumberAttributeConnection: PhoneNumberAttributeConnectionFieldDetails
-      PhoneNumberAttributeEdge: PhoneNumberAttributeEdgeFieldDetails
-      AggregatePhoneNumberAttribute: AggregatePhoneNumberAttributeFieldDetails
-      Female: FemaleFieldDetails
-      FemaleConnection: FemaleConnectionFieldDetails
-      FemaleEdge: FemaleEdgeFieldDetails
-      AggregateFemale: AggregateFemaleFieldDetails
-      Male: MaleFieldDetails
-      MaleConnection: MaleConnectionFieldDetails
-      MaleEdge: MaleEdgeFieldDetails
-      AggregateMale: AggregateMaleFieldDetails
       Mutation: MutationFieldDetails
       BatchPayload: BatchPayloadFieldDetails
       Subscription: SubscriptionFieldDetails
       UserSubscriptionPayload: UserSubscriptionPayloadFieldDetails
       UserPreviousValues: UserPreviousValuesFieldDetails
-      IdentifiersSubscriptionPayload: IdentifiersSubscriptionPayloadFieldDetails
-      IdentifiersPreviousValues: IdentifiersPreviousValuesFieldDetails
-      TaxIdSubscriptionPayload: TaxIdSubscriptionPayloadFieldDetails
-      TaxIdPreviousValues: TaxIdPreviousValuesFieldDetails
       EmailSubscriptionPayload: EmailSubscriptionPayloadFieldDetails
       EmailPreviousValues: EmailPreviousValuesFieldDetails
       PhoneNumberSubscriptionPayload: PhoneNumberSubscriptionPayloadFieldDetails
       PhoneNumberPreviousValues: PhoneNumberPreviousValuesFieldDetails
-      AttributeSubscriptionPayload: AttributeSubscriptionPayloadFieldDetails
-      AttributePreviousValues: AttributePreviousValuesFieldDetails
-      TaxIdAttributeSubscriptionPayload: TaxIdAttributeSubscriptionPayloadFieldDetails
-      EmailAttributeSubscriptionPayload: EmailAttributeSubscriptionPayloadFieldDetails
-      PhoneNumberAttributeSubscriptionPayload: PhoneNumberAttributeSubscriptionPayloadFieldDetails
-      FemaleSubscriptionPayload: FemaleSubscriptionPayloadFieldDetails
-      FemalePreviousValues: FemalePreviousValuesFieldDetails
-      MaleSubscriptionPayload: MaleSubscriptionPayloadFieldDetails
-      MalePreviousValues: MalePreviousValuesFieldDetails
     }
   }
   inputTypes: {
     fields: {
       UserWhereUniqueInput: UserWhereUniqueInputInputObject
-      PhoneNumberWhereInput: PhoneNumberWhereInputInputObject
-      UserWhereInput: UserWhereInputInputObject
-      IdentifiersWhereInput: IdentifiersWhereInputInputObject
-      TaxIdWhereInput: TaxIdWhereInputInputObject
-      AttributeWhereInput: AttributeWhereInputInputObject
       EmailWhereInput: EmailWhereInputInputObject
-      IdentifiersWhereUniqueInput: IdentifiersWhereUniqueInputInputObject
-      TaxIdWhereUniqueInput: TaxIdWhereUniqueInputInputObject
+      UserWhereInput: UserWhereInputInputObject
+      PhoneNumberWhereInput: PhoneNumberWhereInputInputObject
       EmailWhereUniqueInput: EmailWhereUniqueInputInputObject
       PhoneNumberWhereUniqueInput: PhoneNumberWhereUniqueInputInputObject
-      AttributeWhereUniqueInput: AttributeWhereUniqueInputInputObject
-      TaxIdAttributeWhereInput: TaxIdAttributeWhereInputInputObject
-      EmailAttributeWhereInput: EmailAttributeWhereInputInputObject
-      PhoneNumberAttributeWhereInput: PhoneNumberAttributeWhereInputInputObject
-      FemaleWhereUniqueInput: FemaleWhereUniqueInputInputObject
-      FemaleWhereInput: FemaleWhereInputInputObject
-      MaleWhereUniqueInput: MaleWhereUniqueInputInputObject
-      MaleWhereInput: MaleWhereInputInputObject
       UserCreateInput: UserCreateInputInputObject
+      EmailCreateManyWithoutOwnerInput: EmailCreateManyWithoutOwnerInputInputObject
+      EmailCreateWithoutOwnerInput: EmailCreateWithoutOwnerInputInputObject
       PhoneNumberCreateManyWithoutOwnerInput: PhoneNumberCreateManyWithoutOwnerInputInputObject
       PhoneNumberCreateWithoutOwnerInput: PhoneNumberCreateWithoutOwnerInputInputObject
-      AttributeCreateManyWithoutPhone_numberInput: AttributeCreateManyWithoutPhone_numberInputInputObject
-      AttributeCreateWithoutPhone_numberInput: AttributeCreateWithoutPhone_numberInputInputObject
-      TaxIdCreateManyWithoutAttributeInput: TaxIdCreateManyWithoutAttributeInputInputObject
-      TaxIdCreateWithoutAttributeInput: TaxIdCreateWithoutAttributeInputInputObject
-      UserCreateOneInput: UserCreateOneInputInputObject
-      EmailCreateManyWithoutAttributeInput: EmailCreateManyWithoutAttributeInputInputObject
-      EmailCreateWithoutAttributeInput: EmailCreateWithoutAttributeInputInputObject
-      IdentifiersCreateOneInput: IdentifiersCreateOneInputInputObject
-      IdentifiersCreateInput: IdentifiersCreateInputInputObject
-      TaxIdCreateManyInput: TaxIdCreateManyInputInputObject
-      TaxIdCreateInput: TaxIdCreateInputInputObject
-      AttributeCreateManyWithoutTax_idInput: AttributeCreateManyWithoutTax_idInputInputObject
-      AttributeCreateWithoutTax_idInput: AttributeCreateWithoutTax_idInputInputObject
-      PhoneNumberCreateManyWithoutAttributeInput: PhoneNumberCreateManyWithoutAttributeInputInputObject
-      PhoneNumberCreateWithoutAttributeInput: PhoneNumberCreateWithoutAttributeInputInputObject
-      UserCreateOneWithoutPhone_numberInput: UserCreateOneWithoutPhone_numberInputInputObject
-      UserCreateWithoutPhone_numberInput: UserCreateWithoutPhone_numberInputInputObject
-      EmailCreateManyInput: EmailCreateManyInputInputObject
-      EmailCreateInput: EmailCreateInputInputObject
-      AttributeCreateManyWithoutEmailInput: AttributeCreateManyWithoutEmailInputInputObject
-      AttributeCreateWithoutEmailInput: AttributeCreateWithoutEmailInputInputObject
-      PhoneNumberCreateManyInput: PhoneNumberCreateManyInputInputObject
-      PhoneNumberCreateInput: PhoneNumberCreateInputInputObject
+      PhoneNumberCreateuseInput: PhoneNumberCreateuseInputInputObject
       UserUpdateInput: UserUpdateInputInputObject
-      PhoneNumberUpdateManyWithoutOwnerInput: PhoneNumberUpdateManyWithoutOwnerInputInputObject
-      PhoneNumberUpdateWithWhereUniqueWithoutOwnerInput: PhoneNumberUpdateWithWhereUniqueWithoutOwnerInputInputObject
-      PhoneNumberUpdateWithoutOwnerDataInput: PhoneNumberUpdateWithoutOwnerDataInputInputObject
-      AttributeUpdateManyWithoutPhone_numberInput: AttributeUpdateManyWithoutPhone_numberInputInputObject
-      AttributeUpdateWithWhereUniqueWithoutPhone_numberInput: AttributeUpdateWithWhereUniqueWithoutPhone_numberInputInputObject
-      AttributeUpdateWithoutPhone_numberDataInput: AttributeUpdateWithoutPhone_numberDataInputInputObject
-      TaxIdUpdateManyWithoutAttributeInput: TaxIdUpdateManyWithoutAttributeInputInputObject
-      TaxIdUpdateWithWhereUniqueWithoutAttributeInput: TaxIdUpdateWithWhereUniqueWithoutAttributeInputInputObject
-      TaxIdUpdateWithoutAttributeDataInput: TaxIdUpdateWithoutAttributeDataInputInputObject
-      UserUpdateOneRequiredInput: UserUpdateOneRequiredInputInputObject
-      UserUpdateDataInput: UserUpdateDataInputInputObject
-      IdentifiersUpdateOneRequiredInput: IdentifiersUpdateOneRequiredInputInputObject
-      IdentifiersUpdateDataInput: IdentifiersUpdateDataInputInputObject
-      TaxIdUpdateManyInput: TaxIdUpdateManyInputInputObject
-      TaxIdUpdateWithWhereUniqueNestedInput: TaxIdUpdateWithWhereUniqueNestedInputInputObject
-      TaxIdUpdateDataInput: TaxIdUpdateDataInputInputObject
-      AttributeUpdateManyWithoutTax_idInput: AttributeUpdateManyWithoutTax_idInputInputObject
-      AttributeUpdateWithWhereUniqueWithoutTax_idInput: AttributeUpdateWithWhereUniqueWithoutTax_idInputInputObject
-      AttributeUpdateWithoutTax_idDataInput: AttributeUpdateWithoutTax_idDataInputInputObject
-      EmailUpdateManyWithoutAttributeInput: EmailUpdateManyWithoutAttributeInputInputObject
-      EmailUpdateWithWhereUniqueWithoutAttributeInput: EmailUpdateWithWhereUniqueWithoutAttributeInputInputObject
-      EmailUpdateWithoutAttributeDataInput: EmailUpdateWithoutAttributeDataInputInputObject
-      EmailUpsertWithWhereUniqueWithoutAttributeInput: EmailUpsertWithWhereUniqueWithoutAttributeInputInputObject
+      EmailUpdateManyWithoutOwnerInput: EmailUpdateManyWithoutOwnerInputInputObject
+      EmailUpdateWithWhereUniqueWithoutOwnerInput: EmailUpdateWithWhereUniqueWithoutOwnerInputInputObject
+      EmailUpdateWithoutOwnerDataInput: EmailUpdateWithoutOwnerDataInputInputObject
+      EmailUpsertWithWhereUniqueWithoutOwnerInput: EmailUpsertWithWhereUniqueWithoutOwnerInputInputObject
       EmailScalarWhereInput: EmailScalarWhereInputInputObject
       EmailUpdateManyWithWhereNestedInput: EmailUpdateManyWithWhereNestedInputInputObject
       EmailUpdateManyDataInput: EmailUpdateManyDataInputInputObject
-      PhoneNumberUpdateManyWithoutAttributeInput: PhoneNumberUpdateManyWithoutAttributeInputInputObject
-      PhoneNumberUpdateWithWhereUniqueWithoutAttributeInput: PhoneNumberUpdateWithWhereUniqueWithoutAttributeInputInputObject
-      PhoneNumberUpdateWithoutAttributeDataInput: PhoneNumberUpdateWithoutAttributeDataInputInputObject
-      UserUpdateOneRequiredWithoutPhone_numberInput: UserUpdateOneRequiredWithoutPhone_numberInputInputObject
-      UserUpdateWithoutPhone_numberDataInput: UserUpdateWithoutPhone_numberDataInputInputObject
-      UserUpsertWithoutPhone_numberInput: UserUpsertWithoutPhone_numberInputInputObject
-      PhoneNumberUpsertWithWhereUniqueWithoutAttributeInput: PhoneNumberUpsertWithWhereUniqueWithoutAttributeInputInputObject
+      PhoneNumberUpdateManyWithoutOwnerInput: PhoneNumberUpdateManyWithoutOwnerInputInputObject
+      PhoneNumberUpdateWithWhereUniqueWithoutOwnerInput: PhoneNumberUpdateWithWhereUniqueWithoutOwnerInputInputObject
+      PhoneNumberUpdateWithoutOwnerDataInput: PhoneNumberUpdateWithoutOwnerDataInputInputObject
+      PhoneNumberUpdateuseInput: PhoneNumberUpdateuseInputInputObject
+      PhoneNumberUpsertWithWhereUniqueWithoutOwnerInput: PhoneNumberUpsertWithWhereUniqueWithoutOwnerInputInputObject
       PhoneNumberScalarWhereInput: PhoneNumberScalarWhereInputInputObject
       PhoneNumberUpdateManyWithWhereNestedInput: PhoneNumberUpdateManyWithWhereNestedInputInputObject
       PhoneNumberUpdateManyDataInput: PhoneNumberUpdateManyDataInputInputObject
-      AttributeUpsertWithWhereUniqueWithoutTax_idInput: AttributeUpsertWithWhereUniqueWithoutTax_idInputInputObject
-      AttributeScalarWhereInput: AttributeScalarWhereInputInputObject
-      AttributeUpdateManyWithWhereNestedInput: AttributeUpdateManyWithWhereNestedInputInputObject
-      AttributeUpdateManyDataInput: AttributeUpdateManyDataInputInputObject
-      TaxIdUpsertWithWhereUniqueNestedInput: TaxIdUpsertWithWhereUniqueNestedInputInputObject
-      TaxIdScalarWhereInput: TaxIdScalarWhereInputInputObject
-      EmailUpdateManyInput: EmailUpdateManyInputInputObject
-      EmailUpdateWithWhereUniqueNestedInput: EmailUpdateWithWhereUniqueNestedInputInputObject
-      EmailUpdateDataInput: EmailUpdateDataInputInputObject
-      AttributeUpdateManyWithoutEmailInput: AttributeUpdateManyWithoutEmailInputInputObject
-      AttributeUpdateWithWhereUniqueWithoutEmailInput: AttributeUpdateWithWhereUniqueWithoutEmailInputInputObject
-      AttributeUpdateWithoutEmailDataInput: AttributeUpdateWithoutEmailDataInputInputObject
-      AttributeUpsertWithWhereUniqueWithoutEmailInput: AttributeUpsertWithWhereUniqueWithoutEmailInputInputObject
-      EmailUpsertWithWhereUniqueNestedInput: EmailUpsertWithWhereUniqueNestedInputInputObject
-      PhoneNumberUpdateManyInput: PhoneNumberUpdateManyInputInputObject
-      PhoneNumberUpdateWithWhereUniqueNestedInput: PhoneNumberUpdateWithWhereUniqueNestedInputInputObject
-      PhoneNumberUpdateDataInput: PhoneNumberUpdateDataInputInputObject
-      PhoneNumberUpsertWithWhereUniqueNestedInput: PhoneNumberUpsertWithWhereUniqueNestedInputInputObject
-      IdentifiersUpsertNestedInput: IdentifiersUpsertNestedInputInputObject
-      UserUpsertNestedInput: UserUpsertNestedInputInputObject
-      TaxIdUpsertWithWhereUniqueWithoutAttributeInput: TaxIdUpsertWithWhereUniqueWithoutAttributeInputInputObject
-      AttributeUpsertWithWhereUniqueWithoutPhone_numberInput: AttributeUpsertWithWhereUniqueWithoutPhone_numberInputInputObject
-      PhoneNumberUpsertWithWhereUniqueWithoutOwnerInput: PhoneNumberUpsertWithWhereUniqueWithoutOwnerInputInputObject
       UserUpdateManyMutationInput: UserUpdateManyMutationInputInputObject
-      IdentifiersUpdateInput: IdentifiersUpdateInputInputObject
-      TaxIdUpdateInput: TaxIdUpdateInputInputObject
+      EmailCreateInput: EmailCreateInputInputObject
+      UserCreateOneWithoutEmailsInput: UserCreateOneWithoutEmailsInputInputObject
+      UserCreateWithoutEmailsInput: UserCreateWithoutEmailsInputInputObject
       EmailUpdateInput: EmailUpdateInputInputObject
+      UserUpdateOneWithoutEmailsInput: UserUpdateOneWithoutEmailsInputInputObject
+      UserUpdateWithoutEmailsDataInput: UserUpdateWithoutEmailsDataInputInputObject
+      UserUpsertWithoutEmailsInput: UserUpsertWithoutEmailsInputInputObject
       EmailUpdateManyMutationInput: EmailUpdateManyMutationInputInputObject
+      PhoneNumberCreateInput: PhoneNumberCreateInputInputObject
+      UserCreateOneWithoutPhoneNumbersInput: UserCreateOneWithoutPhoneNumbersInputInputObject
+      UserCreateWithoutPhoneNumbersInput: UserCreateWithoutPhoneNumbersInputInputObject
       PhoneNumberUpdateInput: PhoneNumberUpdateInputInputObject
+      UserUpdateOneWithoutPhoneNumbersInput: UserUpdateOneWithoutPhoneNumbersInputInputObject
+      UserUpdateWithoutPhoneNumbersDataInput: UserUpdateWithoutPhoneNumbersDataInputInputObject
+      UserUpsertWithoutPhoneNumbersInput: UserUpsertWithoutPhoneNumbersInputInputObject
       PhoneNumberUpdateManyMutationInput: PhoneNumberUpdateManyMutationInputInputObject
-      AttributeCreateInput: AttributeCreateInputInputObject
-      AttributeUpdateInput: AttributeUpdateInputInputObject
-      AttributeUpdateManyMutationInput: AttributeUpdateManyMutationInputInputObject
-      TaxIdAttributeCreateInput: TaxIdAttributeCreateInputInputObject
-      TaxIdCreateOneInput: TaxIdCreateOneInputInputObject
-      AttributeCreateOneInput: AttributeCreateOneInputInputObject
-      EmailAttributeCreateInput: EmailAttributeCreateInputInputObject
-      EmailCreateOneInput: EmailCreateOneInputInputObject
-      PhoneNumberAttributeCreateInput: PhoneNumberAttributeCreateInputInputObject
-      PhoneNumberCreateOneInput: PhoneNumberCreateOneInputInputObject
-      FemaleCreateInput: FemaleCreateInputInputObject
-      AttributeCreateManyInput: AttributeCreateManyInputInputObject
-      FemaleUpdateInput: FemaleUpdateInputInputObject
-      AttributeUpdateManyInput: AttributeUpdateManyInputInputObject
-      AttributeUpdateWithWhereUniqueNestedInput: AttributeUpdateWithWhereUniqueNestedInputInputObject
-      AttributeUpdateDataInput: AttributeUpdateDataInputInputObject
-      AttributeUpsertWithWhereUniqueNestedInput: AttributeUpsertWithWhereUniqueNestedInputInputObject
-      MaleCreateInput: MaleCreateInputInputObject
-      MaleUpdateInput: MaleUpdateInputInputObject
       UserSubscriptionWhereInput: UserSubscriptionWhereInputInputObject
-      IdentifiersSubscriptionWhereInput: IdentifiersSubscriptionWhereInputInputObject
-      TaxIdSubscriptionWhereInput: TaxIdSubscriptionWhereInputInputObject
       EmailSubscriptionWhereInput: EmailSubscriptionWhereInputInputObject
       PhoneNumberSubscriptionWhereInput: PhoneNumberSubscriptionWhereInputInputObject
-      AttributeSubscriptionWhereInput: AttributeSubscriptionWhereInputInputObject
-      TaxIdAttributeSubscriptionWhereInput: TaxIdAttributeSubscriptionWhereInputInputObject
-      EmailAttributeSubscriptionWhereInput: EmailAttributeSubscriptionWhereInputInputObject
-      PhoneNumberAttributeSubscriptionWhereInput: PhoneNumberAttributeSubscriptionWhereInputInputObject
-      FemaleSubscriptionWhereInput: FemaleSubscriptionWhereInputInputObject
-      MaleSubscriptionWhereInput: MaleSubscriptionWhereInputInputObject
     }
   }
   enumTypes: {
-    AuthLevel: AuthLevelValues,
-    Gender: GenderValues,
-    PhoneNumberOrderByInput: PhoneNumberOrderByInputValues,
-    AttributeOrderByInput: AttributeOrderByInputValues,
-    TaxIdOrderByInput: TaxIdOrderByInputValues,
     EmailOrderByInput: EmailOrderByInputValues,
+    PhoneNumberOrderByInput: PhoneNumberOrderByInputValues,
+    PhoneNumberUse: PhoneNumberUseValues,
     UserOrderByInput: UserOrderByInputValues,
-    IdentifiersOrderByInput: IdentifiersOrderByInputValues,
-    TaxIdAttributeOrderByInput: TaxIdAttributeOrderByInputValues,
-    EmailAttributeOrderByInput: EmailAttributeOrderByInputValues,
-    PhoneNumberAttributeOrderByInput: PhoneNumberAttributeOrderByInputValues,
-    FemaleOrderByInput: FemaleOrderByInputValues,
-    MaleOrderByInput: MaleOrderByInputValues,
     MutationType: MutationTypeValues,
   }
 }
@@ -325,65 +132,23 @@ type QueryObject =
   | { name: 'user', args?: QueryUserArgs[] | false, alias?: string  } 
   | { name: 'users', args?: QueryUsersArgs[] | false, alias?: string  } 
   | { name: 'usersConnection', args?: QueryUsersConnectionArgs[] | false, alias?: string  } 
-  | { name: 'identifiers', args?: QueryIdentifiersArgs[] | false, alias?: string  } 
-  | { name: 'identifierses', args?: QueryIdentifiersesArgs[] | false, alias?: string  } 
-  | { name: 'identifiersesConnection', args?: QueryIdentifiersesConnectionArgs[] | false, alias?: string  } 
-  | { name: 'taxId', args?: QueryTaxIdArgs[] | false, alias?: string  } 
-  | { name: 'taxIds', args?: QueryTaxIdsArgs[] | false, alias?: string  } 
-  | { name: 'taxIdsConnection', args?: QueryTaxIdsConnectionArgs[] | false, alias?: string  } 
   | { name: 'email', args?: QueryEmailArgs[] | false, alias?: string  } 
   | { name: 'emails', args?: QueryEmailsArgs[] | false, alias?: string  } 
   | { name: 'emailsConnection', args?: QueryEmailsConnectionArgs[] | false, alias?: string  } 
   | { name: 'phoneNumber', args?: QueryPhoneNumberArgs[] | false, alias?: string  } 
   | { name: 'phoneNumbers', args?: QueryPhoneNumbersArgs[] | false, alias?: string  } 
   | { name: 'phoneNumbersConnection', args?: QueryPhoneNumbersConnectionArgs[] | false, alias?: string  } 
-  | { name: 'attribute', args?: QueryAttributeArgs[] | false, alias?: string  } 
-  | { name: 'attributes', args?: QueryAttributesArgs[] | false, alias?: string  } 
-  | { name: 'attributesConnection', args?: QueryAttributesConnectionArgs[] | false, alias?: string  } 
-  | { name: 'taxIdAttributes', args?: QueryTaxIdAttributesArgs[] | false, alias?: string  } 
-  | { name: 'taxIdAttributesConnection', args?: QueryTaxIdAttributesConnectionArgs[] | false, alias?: string  } 
-  | { name: 'emailAttributes', args?: QueryEmailAttributesArgs[] | false, alias?: string  } 
-  | { name: 'emailAttributesConnection', args?: QueryEmailAttributesConnectionArgs[] | false, alias?: string  } 
-  | { name: 'phoneNumberAttributes', args?: QueryPhoneNumberAttributesArgs[] | false, alias?: string  } 
-  | { name: 'phoneNumberAttributesConnection', args?: QueryPhoneNumberAttributesConnectionArgs[] | false, alias?: string  } 
-  | { name: 'female', args?: QueryFemaleArgs[] | false, alias?: string  } 
-  | { name: 'females', args?: QueryFemalesArgs[] | false, alias?: string  } 
-  | { name: 'femalesConnection', args?: QueryFemalesConnectionArgs[] | false, alias?: string  } 
-  | { name: 'male', args?: QueryMaleArgs[] | false, alias?: string  } 
-  | { name: 'males', args?: QueryMalesArgs[] | false, alias?: string  } 
-  | { name: 'malesConnection', args?: QueryMalesConnectionArgs[] | false, alias?: string  } 
 
 type QueryFields =
   | 'user'
   | 'users'
   | 'usersConnection'
-  | 'identifiers'
-  | 'identifierses'
-  | 'identifiersesConnection'
-  | 'taxId'
-  | 'taxIds'
-  | 'taxIdsConnection'
   | 'email'
   | 'emails'
   | 'emailsConnection'
   | 'phoneNumber'
   | 'phoneNumbers'
   | 'phoneNumbersConnection'
-  | 'attribute'
-  | 'attributes'
-  | 'attributesConnection'
-  | 'taxIdAttributes'
-  | 'taxIdAttributesConnection'
-  | 'emailAttributes'
-  | 'emailAttributesConnection'
-  | 'phoneNumberAttributes'
-  | 'phoneNumberAttributesConnection'
-  | 'female'
-  | 'females'
-  | 'femalesConnection'
-  | 'male'
-  | 'males'
-  | 'malesConnection'
 
 
 type QueryUserArgs =
@@ -397,42 +162,6 @@ type QueryUsersArgs =
   | 'first'
   | 'last'
 type QueryUsersConnectionArgs =
-  | 'where'
-  | 'orderBy'
-  | 'skip'
-  | 'after'
-  | 'before'
-  | 'first'
-  | 'last'
-type QueryIdentifiersArgs =
-  | 'where'
-type QueryIdentifiersesArgs =
-  | 'where'
-  | 'orderBy'
-  | 'skip'
-  | 'after'
-  | 'before'
-  | 'first'
-  | 'last'
-type QueryIdentifiersesConnectionArgs =
-  | 'where'
-  | 'orderBy'
-  | 'skip'
-  | 'after'
-  | 'before'
-  | 'first'
-  | 'last'
-type QueryTaxIdArgs =
-  | 'where'
-type QueryTaxIdsArgs =
-  | 'where'
-  | 'orderBy'
-  | 'skip'
-  | 'after'
-  | 'before'
-  | 'first'
-  | 'last'
-type QueryTaxIdsConnectionArgs =
   | 'where'
   | 'orderBy'
   | 'skip'
@@ -469,108 +198,6 @@ type QueryPhoneNumbersArgs =
   | 'first'
   | 'last'
 type QueryPhoneNumbersConnectionArgs =
-  | 'where'
-  | 'orderBy'
-  | 'skip'
-  | 'after'
-  | 'before'
-  | 'first'
-  | 'last'
-type QueryAttributeArgs =
-  | 'where'
-type QueryAttributesArgs =
-  | 'where'
-  | 'orderBy'
-  | 'skip'
-  | 'after'
-  | 'before'
-  | 'first'
-  | 'last'
-type QueryAttributesConnectionArgs =
-  | 'where'
-  | 'orderBy'
-  | 'skip'
-  | 'after'
-  | 'before'
-  | 'first'
-  | 'last'
-type QueryTaxIdAttributesArgs =
-  | 'where'
-  | 'orderBy'
-  | 'skip'
-  | 'after'
-  | 'before'
-  | 'first'
-  | 'last'
-type QueryTaxIdAttributesConnectionArgs =
-  | 'where'
-  | 'orderBy'
-  | 'skip'
-  | 'after'
-  | 'before'
-  | 'first'
-  | 'last'
-type QueryEmailAttributesArgs =
-  | 'where'
-  | 'orderBy'
-  | 'skip'
-  | 'after'
-  | 'before'
-  | 'first'
-  | 'last'
-type QueryEmailAttributesConnectionArgs =
-  | 'where'
-  | 'orderBy'
-  | 'skip'
-  | 'after'
-  | 'before'
-  | 'first'
-  | 'last'
-type QueryPhoneNumberAttributesArgs =
-  | 'where'
-  | 'orderBy'
-  | 'skip'
-  | 'after'
-  | 'before'
-  | 'first'
-  | 'last'
-type QueryPhoneNumberAttributesConnectionArgs =
-  | 'where'
-  | 'orderBy'
-  | 'skip'
-  | 'after'
-  | 'before'
-  | 'first'
-  | 'last'
-type QueryFemaleArgs =
-  | 'where'
-type QueryFemalesArgs =
-  | 'where'
-  | 'orderBy'
-  | 'skip'
-  | 'after'
-  | 'before'
-  | 'first'
-  | 'last'
-type QueryFemalesConnectionArgs =
-  | 'where'
-  | 'orderBy'
-  | 'skip'
-  | 'after'
-  | 'before'
-  | 'first'
-  | 'last'
-type QueryMaleArgs =
-  | 'where'
-type QueryMalesArgs =
-  | 'where'
-  | 'orderBy'
-  | 'skip'
-  | 'after'
-  | 'before'
-  | 'first'
-  | 'last'
-type QueryMalesConnectionArgs =
   | 'where'
   | 'orderBy'
   | 'skip'
@@ -619,84 +246,6 @@ export interface QueryFieldDetails {
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.UserConnection> | prisma.UserConnection
-  }
-  identifiers: {
-    type: 'Identifiers'
-    args: Record<QueryIdentifiersArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"Query">,
-      args: { where: IdentifiersWhereUniqueInput }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Identifiers | null> | prisma.Identifiers | null
-  }
-  identifierses: {
-    type: 'Identifiers'
-    args: Record<QueryIdentifiersesArgs, core.NexusArgDef<string>>
-    description: string
-    list: true
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Query">,
-      args: { where?: IdentifiersWhereInput | null, orderBy?: prisma.IdentifiersOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Identifiers[]> | prisma.Identifiers[]
-  }
-  identifiersesConnection: {
-    type: 'IdentifiersConnection'
-    args: Record<QueryIdentifiersesConnectionArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Query">,
-      args: { where?: IdentifiersWhereInput | null, orderBy?: prisma.IdentifiersOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.IdentifiersConnection> | prisma.IdentifiersConnection
-  }
-  taxId: {
-    type: 'TaxId'
-    args: Record<QueryTaxIdArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"Query">,
-      args: { where: TaxIdWhereUniqueInput }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.TaxId | null> | prisma.TaxId | null
-  }
-  taxIds: {
-    type: 'TaxId'
-    args: Record<QueryTaxIdsArgs, core.NexusArgDef<string>>
-    description: string
-    list: true
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Query">,
-      args: { where?: TaxIdWhereInput | null, orderBy?: prisma.TaxIdOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.TaxId[]> | prisma.TaxId[]
-  }
-  taxIdsConnection: {
-    type: 'TaxIdConnection'
-    args: Record<QueryTaxIdsConnectionArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Query">,
-      args: { where?: TaxIdWhereInput | null, orderBy?: prisma.TaxIdOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.TaxIdConnection> | prisma.TaxIdConnection
   }
   email: {
     type: 'Email'
@@ -776,201 +325,6 @@ export interface QueryFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.PhoneNumberConnection> | prisma.PhoneNumberConnection
   }
-  attribute: {
-    type: 'Attribute'
-    args: Record<QueryAttributeArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"Query">,
-      args: { where: AttributeWhereUniqueInput }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Attribute | null> | prisma.Attribute | null
-  }
-  attributes: {
-    type: 'Attribute'
-    args: Record<QueryAttributesArgs, core.NexusArgDef<string>>
-    description: string
-    list: true
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Query">,
-      args: { where?: AttributeWhereInput | null, orderBy?: prisma.AttributeOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Attribute[]> | prisma.Attribute[]
-  }
-  attributesConnection: {
-    type: 'AttributeConnection'
-    args: Record<QueryAttributesConnectionArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Query">,
-      args: { where?: AttributeWhereInput | null, orderBy?: prisma.AttributeOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.AttributeConnection> | prisma.AttributeConnection
-  }
-  taxIdAttributes: {
-    type: 'TaxIdAttribute'
-    args: Record<QueryTaxIdAttributesArgs, core.NexusArgDef<string>>
-    description: string
-    list: true
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Query">,
-      args: { where?: TaxIdAttributeWhereInput | null, orderBy?: prisma.TaxIdAttributeOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.TaxIdAttribute[]> | prisma.TaxIdAttribute[]
-  }
-  taxIdAttributesConnection: {
-    type: 'TaxIdAttributeConnection'
-    args: Record<QueryTaxIdAttributesConnectionArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Query">,
-      args: { where?: TaxIdAttributeWhereInput | null, orderBy?: prisma.TaxIdAttributeOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.TaxIdAttributeConnection> | prisma.TaxIdAttributeConnection
-  }
-  emailAttributes: {
-    type: 'EmailAttribute'
-    args: Record<QueryEmailAttributesArgs, core.NexusArgDef<string>>
-    description: string
-    list: true
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Query">,
-      args: { where?: EmailAttributeWhereInput | null, orderBy?: prisma.EmailAttributeOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.EmailAttribute[]> | prisma.EmailAttribute[]
-  }
-  emailAttributesConnection: {
-    type: 'EmailAttributeConnection'
-    args: Record<QueryEmailAttributesConnectionArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Query">,
-      args: { where?: EmailAttributeWhereInput | null, orderBy?: prisma.EmailAttributeOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.EmailAttributeConnection> | prisma.EmailAttributeConnection
-  }
-  phoneNumberAttributes: {
-    type: 'PhoneNumberAttribute'
-    args: Record<QueryPhoneNumberAttributesArgs, core.NexusArgDef<string>>
-    description: string
-    list: true
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Query">,
-      args: { where?: PhoneNumberAttributeWhereInput | null, orderBy?: prisma.PhoneNumberAttributeOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.PhoneNumberAttribute[]> | prisma.PhoneNumberAttribute[]
-  }
-  phoneNumberAttributesConnection: {
-    type: 'PhoneNumberAttributeConnection'
-    args: Record<QueryPhoneNumberAttributesConnectionArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Query">,
-      args: { where?: PhoneNumberAttributeWhereInput | null, orderBy?: prisma.PhoneNumberAttributeOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.PhoneNumberAttributeConnection> | prisma.PhoneNumberAttributeConnection
-  }
-  female: {
-    type: 'Female'
-    args: Record<QueryFemaleArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"Query">,
-      args: { where: FemaleWhereUniqueInput }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Female | null> | prisma.Female | null
-  }
-  females: {
-    type: 'Female'
-    args: Record<QueryFemalesArgs, core.NexusArgDef<string>>
-    description: string
-    list: true
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Query">,
-      args: { where?: FemaleWhereInput | null, orderBy?: prisma.FemaleOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Female[]> | prisma.Female[]
-  }
-  femalesConnection: {
-    type: 'FemaleConnection'
-    args: Record<QueryFemalesConnectionArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Query">,
-      args: { where?: FemaleWhereInput | null, orderBy?: prisma.FemaleOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.FemaleConnection> | prisma.FemaleConnection
-  }
-  male: {
-    type: 'Male'
-    args: Record<QueryMaleArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"Query">,
-      args: { where: MaleWhereUniqueInput }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Male | null> | prisma.Male | null
-  }
-  males: {
-    type: 'Male'
-    args: Record<QueryMalesArgs, core.NexusArgDef<string>>
-    description: string
-    list: true
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Query">,
-      args: { where?: MaleWhereInput | null, orderBy?: prisma.MaleOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Male[]> | prisma.Male[]
-  }
-  malesConnection: {
-    type: 'MaleConnection'
-    args: Record<QueryMalesConnectionArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Query">,
-      args: { where?: MaleWhereInput | null, orderBy?: prisma.MaleOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.MaleConnection> | prisma.MaleConnection
-  }
 }
   
 
@@ -979,26 +333,32 @@ export interface QueryFieldDetails {
 type UserObject =
   | UserFields
   | { name: 'id', args?: [] | false, alias?: string  } 
-  | { name: 'createdAt', args?: [] | false, alias?: string  } 
-  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
-  | { name: 'email', args?: [] | false, alias?: string  } 
-  | { name: 'phone_number', args?: UserPhone_numberArgs[] | false, alias?: string  } 
-  | { name: 'role', args?: [] | false, alias?: string  } 
-  | { name: 'gender', args?: [] | false, alias?: string  } 
-  | { name: 'identifiers', args?: [] | false, alias?: string  } 
+  | { name: 'name', args?: [] | false, alias?: string  } 
+  | { name: 'firstName', args?: [] | false, alias?: string  } 
+  | { name: 'lastName', args?: [] | false, alias?: string  } 
+  | { name: 'middleName', args?: [] | false, alias?: string  } 
+  | { name: 'emails', args?: UserEmailsArgs[] | false, alias?: string  } 
+  | { name: 'phoneNumbers', args?: UserPhoneNumbersArgs[] | false, alias?: string  } 
 
 type UserFields =
   | 'id'
-  | 'createdAt'
-  | 'updatedAt'
-  | 'email'
-  | 'phone_number'
-  | 'role'
-  | 'gender'
-  | 'identifiers'
+  | 'name'
+  | 'firstName'
+  | 'lastName'
+  | 'middleName'
+  | 'emails'
+  | 'phoneNumbers'
 
 
-type UserPhone_numberArgs =
+type UserEmailsArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type UserPhoneNumbersArgs =
   | 'where'
   | 'orderBy'
   | 'skip'
@@ -1017,23 +377,15 @@ export interface UserFieldDetails {
     nullable: false
     resolve: undefined
   }
-  createdAt: {
-    type: 'DateTime'
+  name: {
+    type: 'String'
     args: {}
     description: string
     list: undefined
-    nullable: false
+    nullable: true
     resolve: undefined
   }
-  updatedAt: {
-    type: 'DateTime'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  email: {
+  firstName: {
     type: 'String'
     args: {}
     description: string
@@ -1041,207 +393,7 @@ export interface UserFieldDetails {
     nullable: false
     resolve: undefined
   }
-  phone_number: {
-    type: 'PhoneNumber'
-    args: Record<UserPhone_numberArgs, core.NexusArgDef<string>>
-    description: string
-    list: true
-    nullable: false
-    resolve: (
-      root: core.RootValue<"User">,
-      args: { where?: PhoneNumberWhereInput | null, orderBy?: prisma.PhoneNumberOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.PhoneNumber[]> | prisma.PhoneNumber[]
-  }
-  role: {
-    type: 'AuthLevel'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"User">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.AuthLevel | null> | prisma.AuthLevel | null
-  }
-  gender: {
-    type: 'Gender'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"User">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Gender> | prisma.Gender
-  }
-  identifiers: {
-    type: 'Identifiers'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"User">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Identifiers> | prisma.Identifiers
-  }
-}
-  
-
-// Types for PhoneNumber
-
-type PhoneNumberObject =
-  | PhoneNumberFields
-  | { name: 'id', args?: [] | false, alias?: string  } 
-  | { name: 'value', args?: [] | false, alias?: string  } 
-  | { name: 'createdAt', args?: [] | false, alias?: string  } 
-  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
-  | { name: 'owner', args?: [] | false, alias?: string  } 
-  | { name: 'attribute', args?: PhoneNumberAttributeArgs[] | false, alias?: string  } 
-
-type PhoneNumberFields =
-  | 'id'
-  | 'value'
-  | 'createdAt'
-  | 'updatedAt'
-  | 'owner'
-  | 'attribute'
-
-
-type PhoneNumberAttributeArgs =
-  | 'where'
-  | 'orderBy'
-  | 'skip'
-  | 'after'
-  | 'before'
-  | 'first'
-  | 'last'
-  
-
-export interface PhoneNumberFieldDetails {
-  id: {
-    type: 'ID'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  value: {
-    type: 'Int'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: undefined
-  }
-  createdAt: {
-    type: 'DateTime'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  updatedAt: {
-    type: 'DateTime'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  owner: {
-    type: 'User'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"PhoneNumber">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.User> | prisma.User
-  }
-  attribute: {
-    type: 'Attribute'
-    args: Record<PhoneNumberAttributeArgs, core.NexusArgDef<string>>
-    description: string
-    list: true
-    nullable: false
-    resolve: (
-      root: core.RootValue<"PhoneNumber">,
-      args: { where?: AttributeWhereInput | null, orderBy?: prisma.AttributeOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Attribute[]> | prisma.Attribute[]
-  }
-}
-  
-
-// Types for Attribute
-
-type AttributeObject =
-  | AttributeFields
-  | { name: 'id', args?: [] | false, alias?: string  } 
-  | { name: 'attr_type', args?: [] | false, alias?: string  } 
-  | { name: 'tax_id', args?: AttributeTax_idArgs[] | false, alias?: string  } 
-  | { name: 'email', args?: AttributeEmailArgs[] | false, alias?: string  } 
-  | { name: 'phone_number', args?: AttributePhone_numberArgs[] | false, alias?: string  } 
-
-type AttributeFields =
-  | 'id'
-  | 'attr_type'
-  | 'tax_id'
-  | 'email'
-  | 'phone_number'
-
-
-type AttributeTax_idArgs =
-  | 'where'
-  | 'orderBy'
-  | 'skip'
-  | 'after'
-  | 'before'
-  | 'first'
-  | 'last'
-type AttributeEmailArgs =
-  | 'where'
-  | 'orderBy'
-  | 'skip'
-  | 'after'
-  | 'before'
-  | 'first'
-  | 'last'
-type AttributePhone_numberArgs =
-  | 'where'
-  | 'orderBy'
-  | 'skip'
-  | 'after'
-  | 'before'
-  | 'first'
-  | 'last'
-  
-
-export interface AttributeFieldDetails {
-  id: {
-    type: 'ID'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  attr_type: {
+  lastName: {
     type: 'String'
     args: {}
     description: string
@@ -1249,126 +401,39 @@ export interface AttributeFieldDetails {
     nullable: false
     resolve: undefined
   }
-  tax_id: {
-    type: 'TaxId'
-    args: Record<AttributeTax_idArgs, core.NexusArgDef<string>>
+  middleName: {
+    type: 'String'
+    args: {}
     description: string
-    list: true
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Attribute">,
-      args: { where?: TaxIdWhereInput | null, orderBy?: prisma.TaxIdOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.TaxId[]> | prisma.TaxId[]
+    list: undefined
+    nullable: true
+    resolve: undefined
   }
-  email: {
+  emails: {
     type: 'Email'
-    args: Record<AttributeEmailArgs, core.NexusArgDef<string>>
+    args: Record<UserEmailsArgs, core.NexusArgDef<string>>
     description: string
     list: true
     nullable: false
     resolve: (
-      root: core.RootValue<"Attribute">,
+      root: core.RootValue<"User">,
       args: { where?: EmailWhereInput | null, orderBy?: prisma.EmailOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.Email[]> | prisma.Email[]
   }
-  phone_number: {
+  phoneNumbers: {
     type: 'PhoneNumber'
-    args: Record<AttributePhone_numberArgs, core.NexusArgDef<string>>
+    args: Record<UserPhoneNumbersArgs, core.NexusArgDef<string>>
     description: string
     list: true
     nullable: false
     resolve: (
-      root: core.RootValue<"Attribute">,
+      root: core.RootValue<"User">,
       args: { where?: PhoneNumberWhereInput | null, orderBy?: prisma.PhoneNumberOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.PhoneNumber[]> | prisma.PhoneNumber[]
-  }
-}
-  
-
-// Types for TaxId
-
-type TaxIdObject =
-  | TaxIdFields
-  | { name: 'id', args?: [] | false, alias?: string  } 
-  | { name: 'createdAt', args?: [] | false, alias?: string  } 
-  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
-  | { name: 'owner', args?: [] | false, alias?: string  } 
-  | { name: 'attribute', args?: TaxIdAttributeArgs[] | false, alias?: string  } 
-
-type TaxIdFields =
-  | 'id'
-  | 'createdAt'
-  | 'updatedAt'
-  | 'owner'
-  | 'attribute'
-
-
-type TaxIdAttributeArgs =
-  | 'where'
-  | 'orderBy'
-  | 'skip'
-  | 'after'
-  | 'before'
-  | 'first'
-  | 'last'
-  
-
-export interface TaxIdFieldDetails {
-  id: {
-    type: 'ID'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  createdAt: {
-    type: 'DateTime'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  updatedAt: {
-    type: 'DateTime'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  owner: {
-    type: 'User'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"TaxId">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.User> | prisma.User
-  }
-  attribute: {
-    type: 'Attribute'
-    args: Record<TaxIdAttributeArgs, core.NexusArgDef<string>>
-    description: string
-    list: true
-    nullable: false
-    resolve: (
-      root: core.RootValue<"TaxId">,
-      args: { where?: AttributeWhereInput | null, orderBy?: prisma.AttributeOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Attribute[]> | prisma.Attribute[]
   }
 }
   
@@ -1379,28 +444,15 @@ type EmailObject =
   | EmailFields
   | { name: 'id', args?: [] | false, alias?: string  } 
   | { name: 'value', args?: [] | false, alias?: string  } 
-  | { name: 'createdAt', args?: [] | false, alias?: string  } 
-  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
   | { name: 'owner', args?: [] | false, alias?: string  } 
-  | { name: 'attribute', args?: EmailAttributeArgs[] | false, alias?: string  } 
 
 type EmailFields =
   | 'id'
   | 'value'
-  | 'createdAt'
-  | 'updatedAt'
   | 'owner'
-  | 'attribute'
 
 
-type EmailAttributeArgs =
-  | 'where'
-  | 'orderBy'
-  | 'skip'
-  | 'after'
-  | 'before'
-  | 'first'
-  | 'last'
+
   
 
 export interface EmailFieldDetails {
@@ -1420,16 +472,75 @@ export interface EmailFieldDetails {
     nullable: false
     resolve: undefined
   }
-  createdAt: {
-    type: 'DateTime'
+  owner: {
+    type: 'User'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Email">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.User | null> | prisma.User | null
+  }
+}
+  
+
+// Types for PhoneNumber
+
+type PhoneNumberObject =
+  | PhoneNumberFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'type', args?: [] | false, alias?: string  } 
+  | { name: 'use', args?: [] | false, alias?: string  } 
+  | { name: 'value', args?: [] | false, alias?: string  } 
+  | { name: 'owner', args?: [] | false, alias?: string  } 
+
+type PhoneNumberFields =
+  | 'id'
+  | 'type'
+  | 'use'
+  | 'value'
+  | 'owner'
+
+
+
+  
+
+export interface PhoneNumberFieldDetails {
+  id: {
+    type: 'ID'
     args: {}
     description: string
     list: undefined
     nullable: false
     resolve: undefined
   }
-  updatedAt: {
-    type: 'DateTime'
+  type: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  use: {
+    type: 'PhoneNumberUse'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"PhoneNumber">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.PhoneNumberUse[]> | prisma.PhoneNumberUse[]
+  }
+  value: {
+    type: 'String'
     args: {}
     description: string
     list: undefined
@@ -1441,119 +552,13 @@ export interface EmailFieldDetails {
     args: {}
     description: string
     list: undefined
-    nullable: false
+    nullable: true
     resolve: (
-      root: core.RootValue<"Email">,
+      root: core.RootValue<"PhoneNumber">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.User> | prisma.User
-  }
-  attribute: {
-    type: 'Attribute'
-    args: Record<EmailAttributeArgs, core.NexusArgDef<string>>
-    description: string
-    list: true
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Email">,
-      args: { where?: AttributeWhereInput | null, orderBy?: prisma.AttributeOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Attribute[]> | prisma.Attribute[]
-  }
-}
-  
-
-// Types for Identifiers
-
-type IdentifiersObject =
-  | IdentifiersFields
-  | { name: 'id', args?: [] | false, alias?: string  } 
-  | { name: 'tax_id', args?: IdentifiersTax_idArgs[] | false, alias?: string  } 
-  | { name: 'email', args?: IdentifiersEmailArgs[] | false, alias?: string  } 
-  | { name: 'phone_number', args?: IdentifiersPhone_numberArgs[] | false, alias?: string  } 
-
-type IdentifiersFields =
-  | 'id'
-  | 'tax_id'
-  | 'email'
-  | 'phone_number'
-
-
-type IdentifiersTax_idArgs =
-  | 'where'
-  | 'orderBy'
-  | 'skip'
-  | 'after'
-  | 'before'
-  | 'first'
-  | 'last'
-type IdentifiersEmailArgs =
-  | 'where'
-  | 'orderBy'
-  | 'skip'
-  | 'after'
-  | 'before'
-  | 'first'
-  | 'last'
-type IdentifiersPhone_numberArgs =
-  | 'where'
-  | 'orderBy'
-  | 'skip'
-  | 'after'
-  | 'before'
-  | 'first'
-  | 'last'
-  
-
-export interface IdentifiersFieldDetails {
-  id: {
-    type: 'ID'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  tax_id: {
-    type: 'TaxId'
-    args: Record<IdentifiersTax_idArgs, core.NexusArgDef<string>>
-    description: string
-    list: true
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Identifiers">,
-      args: { where?: TaxIdWhereInput | null, orderBy?: prisma.TaxIdOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.TaxId[]> | prisma.TaxId[]
-  }
-  email: {
-    type: 'Email'
-    args: Record<IdentifiersEmailArgs, core.NexusArgDef<string>>
-    description: string
-    list: true
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Identifiers">,
-      args: { where?: EmailWhereInput | null, orderBy?: prisma.EmailOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Email[]> | prisma.Email[]
-  }
-  phone_number: {
-    type: 'PhoneNumber'
-    args: Record<IdentifiersPhone_numberArgs, core.NexusArgDef<string>>
-    description: string
-    list: true
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Identifiers">,
-      args: { where?: PhoneNumberWhereInput | null, orderBy?: prisma.PhoneNumberOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.PhoneNumber[]> | prisma.PhoneNumber[]
+    ) => Promise<prisma.User | null> | prisma.User | null
   }
 }
   
@@ -1727,256 +732,6 @@ type AggregateUserFields =
   
 
 export interface AggregateUserFieldDetails {
-  count: {
-    type: 'Int'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-}
-  
-
-// Types for IdentifiersConnection
-
-type IdentifiersConnectionObject =
-  | IdentifiersConnectionFields
-  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
-  | { name: 'edges', args?: [] | false, alias?: string  } 
-  | { name: 'aggregate', args?: [] | false, alias?: string  } 
-
-type IdentifiersConnectionFields =
-  | 'pageInfo'
-  | 'edges'
-  | 'aggregate'
-
-
-
-  
-
-export interface IdentifiersConnectionFieldDetails {
-  pageInfo: {
-    type: 'PageInfo'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"IdentifiersConnection">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.PageInfo> | prisma.PageInfo
-  }
-  edges: {
-    type: 'IdentifiersEdge'
-    args: {}
-    description: string
-    list: true
-    nullable: false
-    resolve: (
-      root: core.RootValue<"IdentifiersConnection">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.IdentifiersEdge[]> | prisma.IdentifiersEdge[]
-  }
-  aggregate: {
-    type: 'AggregateIdentifiers'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"IdentifiersConnection">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.AggregateIdentifiers> | prisma.AggregateIdentifiers
-  }
-}
-  
-
-// Types for IdentifiersEdge
-
-type IdentifiersEdgeObject =
-  | IdentifiersEdgeFields
-  | { name: 'node', args?: [] | false, alias?: string  } 
-  | { name: 'cursor', args?: [] | false, alias?: string  } 
-
-type IdentifiersEdgeFields =
-  | 'node'
-  | 'cursor'
-
-
-
-  
-
-export interface IdentifiersEdgeFieldDetails {
-  node: {
-    type: 'Identifiers'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"IdentifiersEdge">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Identifiers> | prisma.Identifiers
-  }
-  cursor: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-}
-  
-
-// Types for AggregateIdentifiers
-
-type AggregateIdentifiersObject =
-  | AggregateIdentifiersFields
-  | { name: 'count', args?: [] | false, alias?: string  } 
-
-type AggregateIdentifiersFields =
-  | 'count'
-
-
-
-  
-
-export interface AggregateIdentifiersFieldDetails {
-  count: {
-    type: 'Int'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-}
-  
-
-// Types for TaxIdConnection
-
-type TaxIdConnectionObject =
-  | TaxIdConnectionFields
-  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
-  | { name: 'edges', args?: [] | false, alias?: string  } 
-  | { name: 'aggregate', args?: [] | false, alias?: string  } 
-
-type TaxIdConnectionFields =
-  | 'pageInfo'
-  | 'edges'
-  | 'aggregate'
-
-
-
-  
-
-export interface TaxIdConnectionFieldDetails {
-  pageInfo: {
-    type: 'PageInfo'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"TaxIdConnection">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.PageInfo> | prisma.PageInfo
-  }
-  edges: {
-    type: 'TaxIdEdge'
-    args: {}
-    description: string
-    list: true
-    nullable: false
-    resolve: (
-      root: core.RootValue<"TaxIdConnection">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.TaxIdEdge[]> | prisma.TaxIdEdge[]
-  }
-  aggregate: {
-    type: 'AggregateTaxId'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"TaxIdConnection">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.AggregateTaxId> | prisma.AggregateTaxId
-  }
-}
-  
-
-// Types for TaxIdEdge
-
-type TaxIdEdgeObject =
-  | TaxIdEdgeFields
-  | { name: 'node', args?: [] | false, alias?: string  } 
-  | { name: 'cursor', args?: [] | false, alias?: string  } 
-
-type TaxIdEdgeFields =
-  | 'node'
-  | 'cursor'
-
-
-
-  
-
-export interface TaxIdEdgeFieldDetails {
-  node: {
-    type: 'TaxId'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"TaxIdEdge">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.TaxId> | prisma.TaxId
-  }
-  cursor: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-}
-  
-
-// Types for AggregateTaxId
-
-type AggregateTaxIdObject =
-  | AggregateTaxIdFields
-  | { name: 'count', args?: [] | false, alias?: string  } 
-
-type AggregateTaxIdFields =
-  | 'count'
-
-
-
-  
-
-export interface AggregateTaxIdFieldDetails {
   count: {
     type: 'Int'
     args: {}
@@ -2238,1055 +993,6 @@ export interface AggregatePhoneNumberFieldDetails {
 }
   
 
-// Types for AttributeConnection
-
-type AttributeConnectionObject =
-  | AttributeConnectionFields
-  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
-  | { name: 'edges', args?: [] | false, alias?: string  } 
-  | { name: 'aggregate', args?: [] | false, alias?: string  } 
-
-type AttributeConnectionFields =
-  | 'pageInfo'
-  | 'edges'
-  | 'aggregate'
-
-
-
-  
-
-export interface AttributeConnectionFieldDetails {
-  pageInfo: {
-    type: 'PageInfo'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"AttributeConnection">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.PageInfo> | prisma.PageInfo
-  }
-  edges: {
-    type: 'AttributeEdge'
-    args: {}
-    description: string
-    list: true
-    nullable: false
-    resolve: (
-      root: core.RootValue<"AttributeConnection">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.AttributeEdge[]> | prisma.AttributeEdge[]
-  }
-  aggregate: {
-    type: 'AggregateAttribute'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"AttributeConnection">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.AggregateAttribute> | prisma.AggregateAttribute
-  }
-}
-  
-
-// Types for AttributeEdge
-
-type AttributeEdgeObject =
-  | AttributeEdgeFields
-  | { name: 'node', args?: [] | false, alias?: string  } 
-  | { name: 'cursor', args?: [] | false, alias?: string  } 
-
-type AttributeEdgeFields =
-  | 'node'
-  | 'cursor'
-
-
-
-  
-
-export interface AttributeEdgeFieldDetails {
-  node: {
-    type: 'Attribute'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"AttributeEdge">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Attribute> | prisma.Attribute
-  }
-  cursor: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-}
-  
-
-// Types for AggregateAttribute
-
-type AggregateAttributeObject =
-  | AggregateAttributeFields
-  | { name: 'count', args?: [] | false, alias?: string  } 
-
-type AggregateAttributeFields =
-  | 'count'
-
-
-
-  
-
-export interface AggregateAttributeFieldDetails {
-  count: {
-    type: 'Int'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-}
-  
-
-// Types for TaxIdAttribute
-
-type TaxIdAttributeObject =
-  | TaxIdAttributeFields
-  | { name: 'tax_id', args?: [] | false, alias?: string  } 
-  | { name: 'attribute', args?: [] | false, alias?: string  } 
-
-type TaxIdAttributeFields =
-  | 'tax_id'
-  | 'attribute'
-
-
-
-  
-
-export interface TaxIdAttributeFieldDetails {
-  tax_id: {
-    type: 'TaxId'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"TaxIdAttribute">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.TaxId | null> | prisma.TaxId | null
-  }
-  attribute: {
-    type: 'Attribute'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"TaxIdAttribute">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Attribute | null> | prisma.Attribute | null
-  }
-}
-  
-
-// Types for TaxIdAttributeConnection
-
-type TaxIdAttributeConnectionObject =
-  | TaxIdAttributeConnectionFields
-  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
-  | { name: 'edges', args?: [] | false, alias?: string  } 
-  | { name: 'aggregate', args?: [] | false, alias?: string  } 
-
-type TaxIdAttributeConnectionFields =
-  | 'pageInfo'
-  | 'edges'
-  | 'aggregate'
-
-
-
-  
-
-export interface TaxIdAttributeConnectionFieldDetails {
-  pageInfo: {
-    type: 'PageInfo'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"TaxIdAttributeConnection">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.PageInfo> | prisma.PageInfo
-  }
-  edges: {
-    type: 'TaxIdAttributeEdge'
-    args: {}
-    description: string
-    list: true
-    nullable: false
-    resolve: (
-      root: core.RootValue<"TaxIdAttributeConnection">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.TaxIdAttributeEdge[]> | prisma.TaxIdAttributeEdge[]
-  }
-  aggregate: {
-    type: 'AggregateTaxIdAttribute'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"TaxIdAttributeConnection">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.AggregateTaxIdAttribute> | prisma.AggregateTaxIdAttribute
-  }
-}
-  
-
-// Types for TaxIdAttributeEdge
-
-type TaxIdAttributeEdgeObject =
-  | TaxIdAttributeEdgeFields
-  | { name: 'node', args?: [] | false, alias?: string  } 
-  | { name: 'cursor', args?: [] | false, alias?: string  } 
-
-type TaxIdAttributeEdgeFields =
-  | 'node'
-  | 'cursor'
-
-
-
-  
-
-export interface TaxIdAttributeEdgeFieldDetails {
-  node: {
-    type: 'TaxIdAttribute'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"TaxIdAttributeEdge">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.TaxIdAttribute> | prisma.TaxIdAttribute
-  }
-  cursor: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-}
-  
-
-// Types for AggregateTaxIdAttribute
-
-type AggregateTaxIdAttributeObject =
-  | AggregateTaxIdAttributeFields
-  | { name: 'count', args?: [] | false, alias?: string  } 
-
-type AggregateTaxIdAttributeFields =
-  | 'count'
-
-
-
-  
-
-export interface AggregateTaxIdAttributeFieldDetails {
-  count: {
-    type: 'Int'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-}
-  
-
-// Types for EmailAttribute
-
-type EmailAttributeObject =
-  | EmailAttributeFields
-  | { name: 'email', args?: [] | false, alias?: string  } 
-  | { name: 'attribute', args?: [] | false, alias?: string  } 
-
-type EmailAttributeFields =
-  | 'email'
-  | 'attribute'
-
-
-
-  
-
-export interface EmailAttributeFieldDetails {
-  email: {
-    type: 'Email'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"EmailAttribute">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Email | null> | prisma.Email | null
-  }
-  attribute: {
-    type: 'Attribute'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"EmailAttribute">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Attribute | null> | prisma.Attribute | null
-  }
-}
-  
-
-// Types for EmailAttributeConnection
-
-type EmailAttributeConnectionObject =
-  | EmailAttributeConnectionFields
-  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
-  | { name: 'edges', args?: [] | false, alias?: string  } 
-  | { name: 'aggregate', args?: [] | false, alias?: string  } 
-
-type EmailAttributeConnectionFields =
-  | 'pageInfo'
-  | 'edges'
-  | 'aggregate'
-
-
-
-  
-
-export interface EmailAttributeConnectionFieldDetails {
-  pageInfo: {
-    type: 'PageInfo'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"EmailAttributeConnection">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.PageInfo> | prisma.PageInfo
-  }
-  edges: {
-    type: 'EmailAttributeEdge'
-    args: {}
-    description: string
-    list: true
-    nullable: false
-    resolve: (
-      root: core.RootValue<"EmailAttributeConnection">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.EmailAttributeEdge[]> | prisma.EmailAttributeEdge[]
-  }
-  aggregate: {
-    type: 'AggregateEmailAttribute'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"EmailAttributeConnection">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.AggregateEmailAttribute> | prisma.AggregateEmailAttribute
-  }
-}
-  
-
-// Types for EmailAttributeEdge
-
-type EmailAttributeEdgeObject =
-  | EmailAttributeEdgeFields
-  | { name: 'node', args?: [] | false, alias?: string  } 
-  | { name: 'cursor', args?: [] | false, alias?: string  } 
-
-type EmailAttributeEdgeFields =
-  | 'node'
-  | 'cursor'
-
-
-
-  
-
-export interface EmailAttributeEdgeFieldDetails {
-  node: {
-    type: 'EmailAttribute'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"EmailAttributeEdge">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.EmailAttribute> | prisma.EmailAttribute
-  }
-  cursor: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-}
-  
-
-// Types for AggregateEmailAttribute
-
-type AggregateEmailAttributeObject =
-  | AggregateEmailAttributeFields
-  | { name: 'count', args?: [] | false, alias?: string  } 
-
-type AggregateEmailAttributeFields =
-  | 'count'
-
-
-
-  
-
-export interface AggregateEmailAttributeFieldDetails {
-  count: {
-    type: 'Int'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-}
-  
-
-// Types for PhoneNumberAttribute
-
-type PhoneNumberAttributeObject =
-  | PhoneNumberAttributeFields
-  | { name: 'phone_number', args?: [] | false, alias?: string  } 
-  | { name: 'attribute', args?: [] | false, alias?: string  } 
-
-type PhoneNumberAttributeFields =
-  | 'phone_number'
-  | 'attribute'
-
-
-
-  
-
-export interface PhoneNumberAttributeFieldDetails {
-  phone_number: {
-    type: 'PhoneNumber'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"PhoneNumberAttribute">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.PhoneNumber | null> | prisma.PhoneNumber | null
-  }
-  attribute: {
-    type: 'Attribute'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"PhoneNumberAttribute">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Attribute | null> | prisma.Attribute | null
-  }
-}
-  
-
-// Types for PhoneNumberAttributeConnection
-
-type PhoneNumberAttributeConnectionObject =
-  | PhoneNumberAttributeConnectionFields
-  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
-  | { name: 'edges', args?: [] | false, alias?: string  } 
-  | { name: 'aggregate', args?: [] | false, alias?: string  } 
-
-type PhoneNumberAttributeConnectionFields =
-  | 'pageInfo'
-  | 'edges'
-  | 'aggregate'
-
-
-
-  
-
-export interface PhoneNumberAttributeConnectionFieldDetails {
-  pageInfo: {
-    type: 'PageInfo'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"PhoneNumberAttributeConnection">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.PageInfo> | prisma.PageInfo
-  }
-  edges: {
-    type: 'PhoneNumberAttributeEdge'
-    args: {}
-    description: string
-    list: true
-    nullable: false
-    resolve: (
-      root: core.RootValue<"PhoneNumberAttributeConnection">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.PhoneNumberAttributeEdge[]> | prisma.PhoneNumberAttributeEdge[]
-  }
-  aggregate: {
-    type: 'AggregatePhoneNumberAttribute'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"PhoneNumberAttributeConnection">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.AggregatePhoneNumberAttribute> | prisma.AggregatePhoneNumberAttribute
-  }
-}
-  
-
-// Types for PhoneNumberAttributeEdge
-
-type PhoneNumberAttributeEdgeObject =
-  | PhoneNumberAttributeEdgeFields
-  | { name: 'node', args?: [] | false, alias?: string  } 
-  | { name: 'cursor', args?: [] | false, alias?: string  } 
-
-type PhoneNumberAttributeEdgeFields =
-  | 'node'
-  | 'cursor'
-
-
-
-  
-
-export interface PhoneNumberAttributeEdgeFieldDetails {
-  node: {
-    type: 'PhoneNumberAttribute'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"PhoneNumberAttributeEdge">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.PhoneNumberAttribute> | prisma.PhoneNumberAttribute
-  }
-  cursor: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-}
-  
-
-// Types for AggregatePhoneNumberAttribute
-
-type AggregatePhoneNumberAttributeObject =
-  | AggregatePhoneNumberAttributeFields
-  | { name: 'count', args?: [] | false, alias?: string  } 
-
-type AggregatePhoneNumberAttributeFields =
-  | 'count'
-
-
-
-  
-
-export interface AggregatePhoneNumberAttributeFieldDetails {
-  count: {
-    type: 'Int'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-}
-  
-
-// Types for Female
-
-type FemaleObject =
-  | FemaleFields
-  | { name: 'id', args?: [] | false, alias?: string  } 
-  | { name: 'createdAt', args?: [] | false, alias?: string  } 
-  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
-  | { name: 'owner', args?: [] | false, alias?: string  } 
-  | { name: 'attribute', args?: FemaleAttributeArgs[] | false, alias?: string  } 
-
-type FemaleFields =
-  | 'id'
-  | 'createdAt'
-  | 'updatedAt'
-  | 'owner'
-  | 'attribute'
-
-
-type FemaleAttributeArgs =
-  | 'where'
-  | 'orderBy'
-  | 'skip'
-  | 'after'
-  | 'before'
-  | 'first'
-  | 'last'
-  
-
-export interface FemaleFieldDetails {
-  id: {
-    type: 'ID'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  createdAt: {
-    type: 'DateTime'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  updatedAt: {
-    type: 'DateTime'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  owner: {
-    type: 'User'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Female">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.User> | prisma.User
-  }
-  attribute: {
-    type: 'Attribute'
-    args: Record<FemaleAttributeArgs, core.NexusArgDef<string>>
-    description: string
-    list: true
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Female">,
-      args: { where?: AttributeWhereInput | null, orderBy?: prisma.AttributeOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Attribute[]> | prisma.Attribute[]
-  }
-}
-  
-
-// Types for FemaleConnection
-
-type FemaleConnectionObject =
-  | FemaleConnectionFields
-  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
-  | { name: 'edges', args?: [] | false, alias?: string  } 
-  | { name: 'aggregate', args?: [] | false, alias?: string  } 
-
-type FemaleConnectionFields =
-  | 'pageInfo'
-  | 'edges'
-  | 'aggregate'
-
-
-
-  
-
-export interface FemaleConnectionFieldDetails {
-  pageInfo: {
-    type: 'PageInfo'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"FemaleConnection">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.PageInfo> | prisma.PageInfo
-  }
-  edges: {
-    type: 'FemaleEdge'
-    args: {}
-    description: string
-    list: true
-    nullable: false
-    resolve: (
-      root: core.RootValue<"FemaleConnection">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.FemaleEdge[]> | prisma.FemaleEdge[]
-  }
-  aggregate: {
-    type: 'AggregateFemale'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"FemaleConnection">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.AggregateFemale> | prisma.AggregateFemale
-  }
-}
-  
-
-// Types for FemaleEdge
-
-type FemaleEdgeObject =
-  | FemaleEdgeFields
-  | { name: 'node', args?: [] | false, alias?: string  } 
-  | { name: 'cursor', args?: [] | false, alias?: string  } 
-
-type FemaleEdgeFields =
-  | 'node'
-  | 'cursor'
-
-
-
-  
-
-export interface FemaleEdgeFieldDetails {
-  node: {
-    type: 'Female'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"FemaleEdge">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Female> | prisma.Female
-  }
-  cursor: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-}
-  
-
-// Types for AggregateFemale
-
-type AggregateFemaleObject =
-  | AggregateFemaleFields
-  | { name: 'count', args?: [] | false, alias?: string  } 
-
-type AggregateFemaleFields =
-  | 'count'
-
-
-
-  
-
-export interface AggregateFemaleFieldDetails {
-  count: {
-    type: 'Int'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-}
-  
-
-// Types for Male
-
-type MaleObject =
-  | MaleFields
-  | { name: 'id', args?: [] | false, alias?: string  } 
-  | { name: 'createdAt', args?: [] | false, alias?: string  } 
-  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
-  | { name: 'owner', args?: [] | false, alias?: string  } 
-  | { name: 'attribute', args?: MaleAttributeArgs[] | false, alias?: string  } 
-
-type MaleFields =
-  | 'id'
-  | 'createdAt'
-  | 'updatedAt'
-  | 'owner'
-  | 'attribute'
-
-
-type MaleAttributeArgs =
-  | 'where'
-  | 'orderBy'
-  | 'skip'
-  | 'after'
-  | 'before'
-  | 'first'
-  | 'last'
-  
-
-export interface MaleFieldDetails {
-  id: {
-    type: 'ID'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  createdAt: {
-    type: 'DateTime'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  updatedAt: {
-    type: 'DateTime'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  owner: {
-    type: 'User'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Male">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.User> | prisma.User
-  }
-  attribute: {
-    type: 'Attribute'
-    args: Record<MaleAttributeArgs, core.NexusArgDef<string>>
-    description: string
-    list: true
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Male">,
-      args: { where?: AttributeWhereInput | null, orderBy?: prisma.AttributeOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Attribute[]> | prisma.Attribute[]
-  }
-}
-  
-
-// Types for MaleConnection
-
-type MaleConnectionObject =
-  | MaleConnectionFields
-  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
-  | { name: 'edges', args?: [] | false, alias?: string  } 
-  | { name: 'aggregate', args?: [] | false, alias?: string  } 
-
-type MaleConnectionFields =
-  | 'pageInfo'
-  | 'edges'
-  | 'aggregate'
-
-
-
-  
-
-export interface MaleConnectionFieldDetails {
-  pageInfo: {
-    type: 'PageInfo'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"MaleConnection">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.PageInfo> | prisma.PageInfo
-  }
-  edges: {
-    type: 'MaleEdge'
-    args: {}
-    description: string
-    list: true
-    nullable: false
-    resolve: (
-      root: core.RootValue<"MaleConnection">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.MaleEdge[]> | prisma.MaleEdge[]
-  }
-  aggregate: {
-    type: 'AggregateMale'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"MaleConnection">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.AggregateMale> | prisma.AggregateMale
-  }
-}
-  
-
-// Types for MaleEdge
-
-type MaleEdgeObject =
-  | MaleEdgeFields
-  | { name: 'node', args?: [] | false, alias?: string  } 
-  | { name: 'cursor', args?: [] | false, alias?: string  } 
-
-type MaleEdgeFields =
-  | 'node'
-  | 'cursor'
-
-
-
-  
-
-export interface MaleEdgeFieldDetails {
-  node: {
-    type: 'Male'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"MaleEdge">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Male> | prisma.Male
-  }
-  cursor: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-}
-  
-
-// Types for AggregateMale
-
-type AggregateMaleObject =
-  | AggregateMaleFields
-  | { name: 'count', args?: [] | false, alias?: string  } 
-
-type AggregateMaleFields =
-  | 'count'
-
-
-
-  
-
-export interface AggregateMaleFieldDetails {
-  count: {
-    type: 'Int'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-}
-  
-
 // Types for Mutation
 
 type MutationObject =
@@ -3297,16 +1003,6 @@ type MutationObject =
   | { name: 'upsertUser', args?: MutationUpsertUserArgs[] | false, alias?: string  } 
   | { name: 'deleteUser', args?: MutationDeleteUserArgs[] | false, alias?: string  } 
   | { name: 'deleteManyUsers', args?: MutationDeleteManyUsersArgs[] | false, alias?: string  } 
-  | { name: 'createIdentifiers', args?: MutationCreateIdentifiersArgs[] | false, alias?: string  } 
-  | { name: 'updateIdentifiers', args?: MutationUpdateIdentifiersArgs[] | false, alias?: string  } 
-  | { name: 'upsertIdentifiers', args?: MutationUpsertIdentifiersArgs[] | false, alias?: string  } 
-  | { name: 'deleteIdentifiers', args?: MutationDeleteIdentifiersArgs[] | false, alias?: string  } 
-  | { name: 'deleteManyIdentifierses', args?: MutationDeleteManyIdentifiersesArgs[] | false, alias?: string  } 
-  | { name: 'createTaxId', args?: MutationCreateTaxIdArgs[] | false, alias?: string  } 
-  | { name: 'updateTaxId', args?: MutationUpdateTaxIdArgs[] | false, alias?: string  } 
-  | { name: 'upsertTaxId', args?: MutationUpsertTaxIdArgs[] | false, alias?: string  } 
-  | { name: 'deleteTaxId', args?: MutationDeleteTaxIdArgs[] | false, alias?: string  } 
-  | { name: 'deleteManyTaxIds', args?: MutationDeleteManyTaxIdsArgs[] | false, alias?: string  } 
   | { name: 'createEmail', args?: MutationCreateEmailArgs[] | false, alias?: string  } 
   | { name: 'updateEmail', args?: MutationUpdateEmailArgs[] | false, alias?: string  } 
   | { name: 'updateManyEmails', args?: MutationUpdateManyEmailsArgs[] | false, alias?: string  } 
@@ -3319,28 +1015,6 @@ type MutationObject =
   | { name: 'upsertPhoneNumber', args?: MutationUpsertPhoneNumberArgs[] | false, alias?: string  } 
   | { name: 'deletePhoneNumber', args?: MutationDeletePhoneNumberArgs[] | false, alias?: string  } 
   | { name: 'deleteManyPhoneNumbers', args?: MutationDeleteManyPhoneNumbersArgs[] | false, alias?: string  } 
-  | { name: 'createAttribute', args?: MutationCreateAttributeArgs[] | false, alias?: string  } 
-  | { name: 'updateAttribute', args?: MutationUpdateAttributeArgs[] | false, alias?: string  } 
-  | { name: 'updateManyAttributes', args?: MutationUpdateManyAttributesArgs[] | false, alias?: string  } 
-  | { name: 'upsertAttribute', args?: MutationUpsertAttributeArgs[] | false, alias?: string  } 
-  | { name: 'deleteAttribute', args?: MutationDeleteAttributeArgs[] | false, alias?: string  } 
-  | { name: 'deleteManyAttributes', args?: MutationDeleteManyAttributesArgs[] | false, alias?: string  } 
-  | { name: 'createTaxIdAttribute', args?: MutationCreateTaxIdAttributeArgs[] | false, alias?: string  } 
-  | { name: 'deleteManyTaxIdAttributes', args?: MutationDeleteManyTaxIdAttributesArgs[] | false, alias?: string  } 
-  | { name: 'createEmailAttribute', args?: MutationCreateEmailAttributeArgs[] | false, alias?: string  } 
-  | { name: 'deleteManyEmailAttributes', args?: MutationDeleteManyEmailAttributesArgs[] | false, alias?: string  } 
-  | { name: 'createPhoneNumberAttribute', args?: MutationCreatePhoneNumberAttributeArgs[] | false, alias?: string  } 
-  | { name: 'deleteManyPhoneNumberAttributes', args?: MutationDeleteManyPhoneNumberAttributesArgs[] | false, alias?: string  } 
-  | { name: 'createFemale', args?: MutationCreateFemaleArgs[] | false, alias?: string  } 
-  | { name: 'updateFemale', args?: MutationUpdateFemaleArgs[] | false, alias?: string  } 
-  | { name: 'upsertFemale', args?: MutationUpsertFemaleArgs[] | false, alias?: string  } 
-  | { name: 'deleteFemale', args?: MutationDeleteFemaleArgs[] | false, alias?: string  } 
-  | { name: 'deleteManyFemales', args?: MutationDeleteManyFemalesArgs[] | false, alias?: string  } 
-  | { name: 'createMale', args?: MutationCreateMaleArgs[] | false, alias?: string  } 
-  | { name: 'updateMale', args?: MutationUpdateMaleArgs[] | false, alias?: string  } 
-  | { name: 'upsertMale', args?: MutationUpsertMaleArgs[] | false, alias?: string  } 
-  | { name: 'deleteMale', args?: MutationDeleteMaleArgs[] | false, alias?: string  } 
-  | { name: 'deleteManyMales', args?: MutationDeleteManyMalesArgs[] | false, alias?: string  } 
 
 type MutationFields =
   | 'createUser'
@@ -3349,16 +1023,6 @@ type MutationFields =
   | 'upsertUser'
   | 'deleteUser'
   | 'deleteManyUsers'
-  | 'createIdentifiers'
-  | 'updateIdentifiers'
-  | 'upsertIdentifiers'
-  | 'deleteIdentifiers'
-  | 'deleteManyIdentifierses'
-  | 'createTaxId'
-  | 'updateTaxId'
-  | 'upsertTaxId'
-  | 'deleteTaxId'
-  | 'deleteManyTaxIds'
   | 'createEmail'
   | 'updateEmail'
   | 'updateManyEmails'
@@ -3371,28 +1035,6 @@ type MutationFields =
   | 'upsertPhoneNumber'
   | 'deletePhoneNumber'
   | 'deleteManyPhoneNumbers'
-  | 'createAttribute'
-  | 'updateAttribute'
-  | 'updateManyAttributes'
-  | 'upsertAttribute'
-  | 'deleteAttribute'
-  | 'deleteManyAttributes'
-  | 'createTaxIdAttribute'
-  | 'deleteManyTaxIdAttributes'
-  | 'createEmailAttribute'
-  | 'deleteManyEmailAttributes'
-  | 'createPhoneNumberAttribute'
-  | 'deleteManyPhoneNumberAttributes'
-  | 'createFemale'
-  | 'updateFemale'
-  | 'upsertFemale'
-  | 'deleteFemale'
-  | 'deleteManyFemales'
-  | 'createMale'
-  | 'updateMale'
-  | 'upsertMale'
-  | 'deleteMale'
-  | 'deleteManyMales'
 
 
 type MutationCreateUserArgs =
@@ -3410,32 +1052,6 @@ type MutationUpsertUserArgs =
 type MutationDeleteUserArgs =
   | 'where'
 type MutationDeleteManyUsersArgs =
-  | 'where'
-type MutationCreateIdentifiersArgs =
-  | 'data'
-type MutationUpdateIdentifiersArgs =
-  | 'data'
-  | 'where'
-type MutationUpsertIdentifiersArgs =
-  | 'where'
-  | 'create'
-  | 'update'
-type MutationDeleteIdentifiersArgs =
-  | 'where'
-type MutationDeleteManyIdentifiersesArgs =
-  | 'where'
-type MutationCreateTaxIdArgs =
-  | 'data'
-type MutationUpdateTaxIdArgs =
-  | 'data'
-  | 'where'
-type MutationUpsertTaxIdArgs =
-  | 'where'
-  | 'create'
-  | 'update'
-type MutationDeleteTaxIdArgs =
-  | 'where'
-type MutationDeleteManyTaxIdsArgs =
   | 'where'
 type MutationCreateEmailArgs =
   | 'data'
@@ -3468,60 +1084,6 @@ type MutationUpsertPhoneNumberArgs =
 type MutationDeletePhoneNumberArgs =
   | 'where'
 type MutationDeleteManyPhoneNumbersArgs =
-  | 'where'
-type MutationCreateAttributeArgs =
-  | 'data'
-type MutationUpdateAttributeArgs =
-  | 'data'
-  | 'where'
-type MutationUpdateManyAttributesArgs =
-  | 'data'
-  | 'where'
-type MutationUpsertAttributeArgs =
-  | 'where'
-  | 'create'
-  | 'update'
-type MutationDeleteAttributeArgs =
-  | 'where'
-type MutationDeleteManyAttributesArgs =
-  | 'where'
-type MutationCreateTaxIdAttributeArgs =
-  | 'data'
-type MutationDeleteManyTaxIdAttributesArgs =
-  | 'where'
-type MutationCreateEmailAttributeArgs =
-  | 'data'
-type MutationDeleteManyEmailAttributesArgs =
-  | 'where'
-type MutationCreatePhoneNumberAttributeArgs =
-  | 'data'
-type MutationDeleteManyPhoneNumberAttributesArgs =
-  | 'where'
-type MutationCreateFemaleArgs =
-  | 'data'
-type MutationUpdateFemaleArgs =
-  | 'data'
-  | 'where'
-type MutationUpsertFemaleArgs =
-  | 'where'
-  | 'create'
-  | 'update'
-type MutationDeleteFemaleArgs =
-  | 'where'
-type MutationDeleteManyFemalesArgs =
-  | 'where'
-type MutationCreateMaleArgs =
-  | 'data'
-type MutationUpdateMaleArgs =
-  | 'data'
-  | 'where'
-type MutationUpsertMaleArgs =
-  | 'where'
-  | 'create'
-  | 'update'
-type MutationDeleteMaleArgs =
-  | 'where'
-type MutationDeleteManyMalesArgs =
   | 'where'
   
 
@@ -3600,136 +1162,6 @@ export interface MutationFieldDetails {
     resolve: (
       root: core.RootValue<"Mutation">,
       args: { where?: UserWhereInput | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
-  }
-  createIdentifiers: {
-    type: 'Identifiers'
-    args: Record<MutationCreateIdentifiersArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Mutation">,
-      args: { data: IdentifiersCreateInput }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Identifiers> | prisma.Identifiers
-  }
-  updateIdentifiers: {
-    type: 'Identifiers'
-    args: Record<MutationUpdateIdentifiersArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"Mutation">,
-      args: { data: IdentifiersUpdateInput, where: IdentifiersWhereUniqueInput }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Identifiers | null> | prisma.Identifiers | null
-  }
-  upsertIdentifiers: {
-    type: 'Identifiers'
-    args: Record<MutationUpsertIdentifiersArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Mutation">,
-      args: { where: IdentifiersWhereUniqueInput, create: IdentifiersCreateInput, update: IdentifiersUpdateInput }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Identifiers> | prisma.Identifiers
-  }
-  deleteIdentifiers: {
-    type: 'Identifiers'
-    args: Record<MutationDeleteIdentifiersArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"Mutation">,
-      args: { where: IdentifiersWhereUniqueInput }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Identifiers | null> | prisma.Identifiers | null
-  }
-  deleteManyIdentifierses: {
-    type: 'BatchPayload'
-    args: Record<MutationDeleteManyIdentifiersesArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Mutation">,
-      args: { where?: IdentifiersWhereInput | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
-  }
-  createTaxId: {
-    type: 'TaxId'
-    args: Record<MutationCreateTaxIdArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Mutation">,
-      args: { data: TaxIdCreateInput }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.TaxId> | prisma.TaxId
-  }
-  updateTaxId: {
-    type: 'TaxId'
-    args: Record<MutationUpdateTaxIdArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"Mutation">,
-      args: { data: TaxIdUpdateInput, where: TaxIdWhereUniqueInput }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.TaxId | null> | prisma.TaxId | null
-  }
-  upsertTaxId: {
-    type: 'TaxId'
-    args: Record<MutationUpsertTaxIdArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Mutation">,
-      args: { where: TaxIdWhereUniqueInput, create: TaxIdCreateInput, update: TaxIdUpdateInput }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.TaxId> | prisma.TaxId
-  }
-  deleteTaxId: {
-    type: 'TaxId'
-    args: Record<MutationDeleteTaxIdArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"Mutation">,
-      args: { where: TaxIdWhereUniqueInput }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.TaxId | null> | prisma.TaxId | null
-  }
-  deleteManyTaxIds: {
-    type: 'BatchPayload'
-    args: Record<MutationDeleteManyTaxIdsArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Mutation">,
-      args: { where?: TaxIdWhereInput | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
@@ -3890,292 +1322,6 @@ export interface MutationFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
   }
-  createAttribute: {
-    type: 'Attribute'
-    args: Record<MutationCreateAttributeArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Mutation">,
-      args: { data: AttributeCreateInput }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Attribute> | prisma.Attribute
-  }
-  updateAttribute: {
-    type: 'Attribute'
-    args: Record<MutationUpdateAttributeArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"Mutation">,
-      args: { data: AttributeUpdateInput, where: AttributeWhereUniqueInput }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Attribute | null> | prisma.Attribute | null
-  }
-  updateManyAttributes: {
-    type: 'BatchPayload'
-    args: Record<MutationUpdateManyAttributesArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Mutation">,
-      args: { data: AttributeUpdateManyMutationInput, where?: AttributeWhereInput | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
-  }
-  upsertAttribute: {
-    type: 'Attribute'
-    args: Record<MutationUpsertAttributeArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Mutation">,
-      args: { where: AttributeWhereUniqueInput, create: AttributeCreateInput, update: AttributeUpdateInput }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Attribute> | prisma.Attribute
-  }
-  deleteAttribute: {
-    type: 'Attribute'
-    args: Record<MutationDeleteAttributeArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"Mutation">,
-      args: { where: AttributeWhereUniqueInput }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Attribute | null> | prisma.Attribute | null
-  }
-  deleteManyAttributes: {
-    type: 'BatchPayload'
-    args: Record<MutationDeleteManyAttributesArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Mutation">,
-      args: { where?: AttributeWhereInput | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
-  }
-  createTaxIdAttribute: {
-    type: 'TaxIdAttribute'
-    args: Record<MutationCreateTaxIdAttributeArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Mutation">,
-      args: { data: TaxIdAttributeCreateInput }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.TaxIdAttribute> | prisma.TaxIdAttribute
-  }
-  deleteManyTaxIdAttributes: {
-    type: 'BatchPayload'
-    args: Record<MutationDeleteManyTaxIdAttributesArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Mutation">,
-      args: { where?: TaxIdAttributeWhereInput | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
-  }
-  createEmailAttribute: {
-    type: 'EmailAttribute'
-    args: Record<MutationCreateEmailAttributeArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Mutation">,
-      args: { data: EmailAttributeCreateInput }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.EmailAttribute> | prisma.EmailAttribute
-  }
-  deleteManyEmailAttributes: {
-    type: 'BatchPayload'
-    args: Record<MutationDeleteManyEmailAttributesArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Mutation">,
-      args: { where?: EmailAttributeWhereInput | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
-  }
-  createPhoneNumberAttribute: {
-    type: 'PhoneNumberAttribute'
-    args: Record<MutationCreatePhoneNumberAttributeArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Mutation">,
-      args: { data: PhoneNumberAttributeCreateInput }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.PhoneNumberAttribute> | prisma.PhoneNumberAttribute
-  }
-  deleteManyPhoneNumberAttributes: {
-    type: 'BatchPayload'
-    args: Record<MutationDeleteManyPhoneNumberAttributesArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Mutation">,
-      args: { where?: PhoneNumberAttributeWhereInput | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
-  }
-  createFemale: {
-    type: 'Female'
-    args: Record<MutationCreateFemaleArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Mutation">,
-      args: { data: FemaleCreateInput }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Female> | prisma.Female
-  }
-  updateFemale: {
-    type: 'Female'
-    args: Record<MutationUpdateFemaleArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"Mutation">,
-      args: { data: FemaleUpdateInput, where: FemaleWhereUniqueInput }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Female | null> | prisma.Female | null
-  }
-  upsertFemale: {
-    type: 'Female'
-    args: Record<MutationUpsertFemaleArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Mutation">,
-      args: { where: FemaleWhereUniqueInput, create: FemaleCreateInput, update: FemaleUpdateInput }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Female> | prisma.Female
-  }
-  deleteFemale: {
-    type: 'Female'
-    args: Record<MutationDeleteFemaleArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"Mutation">,
-      args: { where: FemaleWhereUniqueInput }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Female | null> | prisma.Female | null
-  }
-  deleteManyFemales: {
-    type: 'BatchPayload'
-    args: Record<MutationDeleteManyFemalesArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Mutation">,
-      args: { where?: FemaleWhereInput | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
-  }
-  createMale: {
-    type: 'Male'
-    args: Record<MutationCreateMaleArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Mutation">,
-      args: { data: MaleCreateInput }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Male> | prisma.Male
-  }
-  updateMale: {
-    type: 'Male'
-    args: Record<MutationUpdateMaleArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"Mutation">,
-      args: { data: MaleUpdateInput, where: MaleWhereUniqueInput }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Male | null> | prisma.Male | null
-  }
-  upsertMale: {
-    type: 'Male'
-    args: Record<MutationUpsertMaleArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Mutation">,
-      args: { where: MaleWhereUniqueInput, create: MaleCreateInput, update: MaleUpdateInput }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Male> | prisma.Male
-  }
-  deleteMale: {
-    type: 'Male'
-    args: Record<MutationDeleteMaleArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"Mutation">,
-      args: { where: MaleWhereUniqueInput }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Male | null> | prisma.Male | null
-  }
-  deleteManyMales: {
-    type: 'BatchPayload'
-    args: Record<MutationDeleteManyMalesArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"Mutation">,
-      args: { where?: MaleWhereInput | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
-  }
 }
   
 
@@ -4209,52 +1355,20 @@ export interface BatchPayloadFieldDetails {
 type SubscriptionObject =
   | SubscriptionFields
   | { name: 'user', args?: SubscriptionUserArgs[] | false, alias?: string  } 
-  | { name: 'identifiers', args?: SubscriptionIdentifiersArgs[] | false, alias?: string  } 
-  | { name: 'taxId', args?: SubscriptionTaxIdArgs[] | false, alias?: string  } 
   | { name: 'email', args?: SubscriptionEmailArgs[] | false, alias?: string  } 
   | { name: 'phoneNumber', args?: SubscriptionPhoneNumberArgs[] | false, alias?: string  } 
-  | { name: 'attribute', args?: SubscriptionAttributeArgs[] | false, alias?: string  } 
-  | { name: 'taxIdAttribute', args?: SubscriptionTaxIdAttributeArgs[] | false, alias?: string  } 
-  | { name: 'emailAttribute', args?: SubscriptionEmailAttributeArgs[] | false, alias?: string  } 
-  | { name: 'phoneNumberAttribute', args?: SubscriptionPhoneNumberAttributeArgs[] | false, alias?: string  } 
-  | { name: 'female', args?: SubscriptionFemaleArgs[] | false, alias?: string  } 
-  | { name: 'male', args?: SubscriptionMaleArgs[] | false, alias?: string  } 
 
 type SubscriptionFields =
   | 'user'
-  | 'identifiers'
-  | 'taxId'
   | 'email'
   | 'phoneNumber'
-  | 'attribute'
-  | 'taxIdAttribute'
-  | 'emailAttribute'
-  | 'phoneNumberAttribute'
-  | 'female'
-  | 'male'
 
 
 type SubscriptionUserArgs =
   | 'where'
-type SubscriptionIdentifiersArgs =
-  | 'where'
-type SubscriptionTaxIdArgs =
-  | 'where'
 type SubscriptionEmailArgs =
   | 'where'
 type SubscriptionPhoneNumberArgs =
-  | 'where'
-type SubscriptionAttributeArgs =
-  | 'where'
-type SubscriptionTaxIdAttributeArgs =
-  | 'where'
-type SubscriptionEmailAttributeArgs =
-  | 'where'
-type SubscriptionPhoneNumberAttributeArgs =
-  | 'where'
-type SubscriptionFemaleArgs =
-  | 'where'
-type SubscriptionMaleArgs =
   | 'where'
   
 
@@ -4271,32 +1385,6 @@ export interface SubscriptionFieldDetails {
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.UserSubscriptionPayload | null> | prisma.UserSubscriptionPayload | null
-  }
-  identifiers: {
-    type: 'IdentifiersSubscriptionPayload'
-    args: Record<SubscriptionIdentifiersArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"Subscription">,
-      args: { where?: IdentifiersSubscriptionWhereInput | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.IdentifiersSubscriptionPayload | null> | prisma.IdentifiersSubscriptionPayload | null
-  }
-  taxId: {
-    type: 'TaxIdSubscriptionPayload'
-    args: Record<SubscriptionTaxIdArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"Subscription">,
-      args: { where?: TaxIdSubscriptionWhereInput | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.TaxIdSubscriptionPayload | null> | prisma.TaxIdSubscriptionPayload | null
   }
   email: {
     type: 'EmailSubscriptionPayload'
@@ -4323,84 +1411,6 @@ export interface SubscriptionFieldDetails {
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.PhoneNumberSubscriptionPayload | null> | prisma.PhoneNumberSubscriptionPayload | null
-  }
-  attribute: {
-    type: 'AttributeSubscriptionPayload'
-    args: Record<SubscriptionAttributeArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"Subscription">,
-      args: { where?: AttributeSubscriptionWhereInput | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.AttributeSubscriptionPayload | null> | prisma.AttributeSubscriptionPayload | null
-  }
-  taxIdAttribute: {
-    type: 'TaxIdAttributeSubscriptionPayload'
-    args: Record<SubscriptionTaxIdAttributeArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"Subscription">,
-      args: { where?: TaxIdAttributeSubscriptionWhereInput | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.TaxIdAttributeSubscriptionPayload | null> | prisma.TaxIdAttributeSubscriptionPayload | null
-  }
-  emailAttribute: {
-    type: 'EmailAttributeSubscriptionPayload'
-    args: Record<SubscriptionEmailAttributeArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"Subscription">,
-      args: { where?: EmailAttributeSubscriptionWhereInput | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.EmailAttributeSubscriptionPayload | null> | prisma.EmailAttributeSubscriptionPayload | null
-  }
-  phoneNumberAttribute: {
-    type: 'PhoneNumberAttributeSubscriptionPayload'
-    args: Record<SubscriptionPhoneNumberAttributeArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"Subscription">,
-      args: { where?: PhoneNumberAttributeSubscriptionWhereInput | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.PhoneNumberAttributeSubscriptionPayload | null> | prisma.PhoneNumberAttributeSubscriptionPayload | null
-  }
-  female: {
-    type: 'FemaleSubscriptionPayload'
-    args: Record<SubscriptionFemaleArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"Subscription">,
-      args: { where?: FemaleSubscriptionWhereInput | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.FemaleSubscriptionPayload | null> | prisma.FemaleSubscriptionPayload | null
-  }
-  male: {
-    type: 'MaleSubscriptionPayload'
-    args: Record<SubscriptionMaleArgs, core.NexusArgDef<string>>
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"Subscription">,
-      args: { where?: MaleSubscriptionWhereInput | null }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.MaleSubscriptionPayload | null> | prisma.MaleSubscriptionPayload | null
   }
 }
   
@@ -4480,19 +1490,17 @@ export interface UserSubscriptionPayloadFieldDetails {
 type UserPreviousValuesObject =
   | UserPreviousValuesFields
   | { name: 'id', args?: [] | false, alias?: string  } 
-  | { name: 'createdAt', args?: [] | false, alias?: string  } 
-  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
-  | { name: 'email', args?: [] | false, alias?: string  } 
-  | { name: 'role', args?: [] | false, alias?: string  } 
-  | { name: 'gender', args?: [] | false, alias?: string  } 
+  | { name: 'name', args?: [] | false, alias?: string  } 
+  | { name: 'firstName', args?: [] | false, alias?: string  } 
+  | { name: 'lastName', args?: [] | false, alias?: string  } 
+  | { name: 'middleName', args?: [] | false, alias?: string  } 
 
 type UserPreviousValuesFields =
   | 'id'
-  | 'createdAt'
-  | 'updatedAt'
-  | 'email'
-  | 'role'
-  | 'gender'
+  | 'name'
+  | 'firstName'
+  | 'lastName'
+  | 'middleName'
 
 
 
@@ -4507,23 +1515,15 @@ export interface UserPreviousValuesFieldDetails {
     nullable: false
     resolve: undefined
   }
-  createdAt: {
-    type: 'DateTime'
+  name: {
+    type: 'String'
     args: {}
     description: string
     list: undefined
-    nullable: false
+    nullable: true
     resolve: undefined
   }
-  updatedAt: {
-    type: 'DateTime'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  email: {
+  firstName: {
     type: 'String'
     args: {}
     description: string
@@ -4531,240 +1531,20 @@ export interface UserPreviousValuesFieldDetails {
     nullable: false
     resolve: undefined
   }
-  role: {
-    type: 'AuthLevel'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"UserPreviousValues">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.AuthLevel | null> | prisma.AuthLevel | null
-  }
-  gender: {
-    type: 'Gender'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"UserPreviousValues">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Gender> | prisma.Gender
-  }
-}
-  
-
-// Types for IdentifiersSubscriptionPayload
-
-type IdentifiersSubscriptionPayloadObject =
-  | IdentifiersSubscriptionPayloadFields
-  | { name: 'mutation', args?: [] | false, alias?: string  } 
-  | { name: 'node', args?: [] | false, alias?: string  } 
-  | { name: 'updatedFields', args?: [] | false, alias?: string  } 
-  | { name: 'previousValues', args?: [] | false, alias?: string  } 
-
-type IdentifiersSubscriptionPayloadFields =
-  | 'mutation'
-  | 'node'
-  | 'updatedFields'
-  | 'previousValues'
-
-
-
-  
-
-export interface IdentifiersSubscriptionPayloadFieldDetails {
-  mutation: {
-    type: 'MutationType'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"IdentifiersSubscriptionPayload">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.MutationType> | prisma.MutationType
-  }
-  node: {
-    type: 'Identifiers'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"IdentifiersSubscriptionPayload">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Identifiers | null> | prisma.Identifiers | null
-  }
-  updatedFields: {
+  lastName: {
     type: 'String'
     args: {}
     description: string
-    list: true
-    nullable: false
-    resolve: undefined
-  }
-  previousValues: {
-    type: 'IdentifiersPreviousValues'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"IdentifiersSubscriptionPayload">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.IdentifiersPreviousValues | null> | prisma.IdentifiersPreviousValues | null
-  }
-}
-  
-
-// Types for IdentifiersPreviousValues
-
-type IdentifiersPreviousValuesObject =
-  | IdentifiersPreviousValuesFields
-  | { name: 'id', args?: [] | false, alias?: string  } 
-
-type IdentifiersPreviousValuesFields =
-  | 'id'
-
-
-
-  
-
-export interface IdentifiersPreviousValuesFieldDetails {
-  id: {
-    type: 'ID'
-    args: {}
-    description: string
     list: undefined
     nullable: false
     resolve: undefined
   }
-}
-  
-
-// Types for TaxIdSubscriptionPayload
-
-type TaxIdSubscriptionPayloadObject =
-  | TaxIdSubscriptionPayloadFields
-  | { name: 'mutation', args?: [] | false, alias?: string  } 
-  | { name: 'node', args?: [] | false, alias?: string  } 
-  | { name: 'updatedFields', args?: [] | false, alias?: string  } 
-  | { name: 'previousValues', args?: [] | false, alias?: string  } 
-
-type TaxIdSubscriptionPayloadFields =
-  | 'mutation'
-  | 'node'
-  | 'updatedFields'
-  | 'previousValues'
-
-
-
-  
-
-export interface TaxIdSubscriptionPayloadFieldDetails {
-  mutation: {
-    type: 'MutationType'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"TaxIdSubscriptionPayload">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.MutationType> | prisma.MutationType
-  }
-  node: {
-    type: 'TaxId'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"TaxIdSubscriptionPayload">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.TaxId | null> | prisma.TaxId | null
-  }
-  updatedFields: {
+  middleName: {
     type: 'String'
     args: {}
     description: string
-    list: true
-    nullable: false
-    resolve: undefined
-  }
-  previousValues: {
-    type: 'TaxIdPreviousValues'
-    args: {}
-    description: string
     list: undefined
     nullable: true
-    resolve: (
-      root: core.RootValue<"TaxIdSubscriptionPayload">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.TaxIdPreviousValues | null> | prisma.TaxIdPreviousValues | null
-  }
-}
-  
-
-// Types for TaxIdPreviousValues
-
-type TaxIdPreviousValuesObject =
-  | TaxIdPreviousValuesFields
-  | { name: 'id', args?: [] | false, alias?: string  } 
-  | { name: 'createdAt', args?: [] | false, alias?: string  } 
-  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
-
-type TaxIdPreviousValuesFields =
-  | 'id'
-  | 'createdAt'
-  | 'updatedAt'
-
-
-
-  
-
-export interface TaxIdPreviousValuesFieldDetails {
-  id: {
-    type: 'ID'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  createdAt: {
-    type: 'DateTime'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  updatedAt: {
-    type: 'DateTime'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
     resolve: undefined
   }
 }
@@ -4846,14 +1626,10 @@ type EmailPreviousValuesObject =
   | EmailPreviousValuesFields
   | { name: 'id', args?: [] | false, alias?: string  } 
   | { name: 'value', args?: [] | false, alias?: string  } 
-  | { name: 'createdAt', args?: [] | false, alias?: string  } 
-  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
 
 type EmailPreviousValuesFields =
   | 'id'
   | 'value'
-  | 'createdAt'
-  | 'updatedAt'
 
 
 
@@ -4870,22 +1646,6 @@ export interface EmailPreviousValuesFieldDetails {
   }
   value: {
     type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  createdAt: {
-    type: 'DateTime'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  updatedAt: {
-    type: 'DateTime'
     args: {}
     description: string
     list: undefined
@@ -4970,15 +1730,15 @@ export interface PhoneNumberSubscriptionPayloadFieldDetails {
 type PhoneNumberPreviousValuesObject =
   | PhoneNumberPreviousValuesFields
   | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'type', args?: [] | false, alias?: string  } 
+  | { name: 'use', args?: [] | false, alias?: string  } 
   | { name: 'value', args?: [] | false, alias?: string  } 
-  | { name: 'createdAt', args?: [] | false, alias?: string  } 
-  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
 
 type PhoneNumberPreviousValuesFields =
   | 'id'
+  | 'type'
+  | 'use'
   | 'value'
-  | 'createdAt'
-  | 'updatedAt'
 
 
 
@@ -4993,524 +1753,29 @@ export interface PhoneNumberPreviousValuesFieldDetails {
     nullable: false
     resolve: undefined
   }
+  type: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  use: {
+    type: 'PhoneNumberUse'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"PhoneNumberPreviousValues">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.PhoneNumberUse[]> | prisma.PhoneNumberUse[]
+  }
   value: {
-    type: 'Int'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: undefined
-  }
-  createdAt: {
-    type: 'DateTime'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  updatedAt: {
-    type: 'DateTime'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-}
-  
-
-// Types for AttributeSubscriptionPayload
-
-type AttributeSubscriptionPayloadObject =
-  | AttributeSubscriptionPayloadFields
-  | { name: 'mutation', args?: [] | false, alias?: string  } 
-  | { name: 'node', args?: [] | false, alias?: string  } 
-  | { name: 'updatedFields', args?: [] | false, alias?: string  } 
-  | { name: 'previousValues', args?: [] | false, alias?: string  } 
-
-type AttributeSubscriptionPayloadFields =
-  | 'mutation'
-  | 'node'
-  | 'updatedFields'
-  | 'previousValues'
-
-
-
-  
-
-export interface AttributeSubscriptionPayloadFieldDetails {
-  mutation: {
-    type: 'MutationType'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"AttributeSubscriptionPayload">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.MutationType> | prisma.MutationType
-  }
-  node: {
-    type: 'Attribute'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"AttributeSubscriptionPayload">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Attribute | null> | prisma.Attribute | null
-  }
-  updatedFields: {
     type: 'String'
-    args: {}
-    description: string
-    list: true
-    nullable: false
-    resolve: undefined
-  }
-  previousValues: {
-    type: 'AttributePreviousValues'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"AttributeSubscriptionPayload">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.AttributePreviousValues | null> | prisma.AttributePreviousValues | null
-  }
-}
-  
-
-// Types for AttributePreviousValues
-
-type AttributePreviousValuesObject =
-  | AttributePreviousValuesFields
-  | { name: 'id', args?: [] | false, alias?: string  } 
-  | { name: 'attr_type', args?: [] | false, alias?: string  } 
-
-type AttributePreviousValuesFields =
-  | 'id'
-  | 'attr_type'
-
-
-
-  
-
-export interface AttributePreviousValuesFieldDetails {
-  id: {
-    type: 'ID'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  attr_type: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-}
-  
-
-// Types for TaxIdAttributeSubscriptionPayload
-
-type TaxIdAttributeSubscriptionPayloadObject =
-  | TaxIdAttributeSubscriptionPayloadFields
-  | { name: 'mutation', args?: [] | false, alias?: string  } 
-  | { name: 'node', args?: [] | false, alias?: string  } 
-  | { name: 'updatedFields', args?: [] | false, alias?: string  } 
-
-type TaxIdAttributeSubscriptionPayloadFields =
-  | 'mutation'
-  | 'node'
-  | 'updatedFields'
-
-
-
-  
-
-export interface TaxIdAttributeSubscriptionPayloadFieldDetails {
-  mutation: {
-    type: 'MutationType'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"TaxIdAttributeSubscriptionPayload">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.MutationType> | prisma.MutationType
-  }
-  node: {
-    type: 'TaxIdAttribute'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"TaxIdAttributeSubscriptionPayload">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.TaxIdAttribute | null> | prisma.TaxIdAttribute | null
-  }
-  updatedFields: {
-    type: 'String'
-    args: {}
-    description: string
-    list: true
-    nullable: false
-    resolve: undefined
-  }
-}
-  
-
-// Types for EmailAttributeSubscriptionPayload
-
-type EmailAttributeSubscriptionPayloadObject =
-  | EmailAttributeSubscriptionPayloadFields
-  | { name: 'mutation', args?: [] | false, alias?: string  } 
-  | { name: 'node', args?: [] | false, alias?: string  } 
-  | { name: 'updatedFields', args?: [] | false, alias?: string  } 
-
-type EmailAttributeSubscriptionPayloadFields =
-  | 'mutation'
-  | 'node'
-  | 'updatedFields'
-
-
-
-  
-
-export interface EmailAttributeSubscriptionPayloadFieldDetails {
-  mutation: {
-    type: 'MutationType'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"EmailAttributeSubscriptionPayload">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.MutationType> | prisma.MutationType
-  }
-  node: {
-    type: 'EmailAttribute'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"EmailAttributeSubscriptionPayload">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.EmailAttribute | null> | prisma.EmailAttribute | null
-  }
-  updatedFields: {
-    type: 'String'
-    args: {}
-    description: string
-    list: true
-    nullable: false
-    resolve: undefined
-  }
-}
-  
-
-// Types for PhoneNumberAttributeSubscriptionPayload
-
-type PhoneNumberAttributeSubscriptionPayloadObject =
-  | PhoneNumberAttributeSubscriptionPayloadFields
-  | { name: 'mutation', args?: [] | false, alias?: string  } 
-  | { name: 'node', args?: [] | false, alias?: string  } 
-  | { name: 'updatedFields', args?: [] | false, alias?: string  } 
-
-type PhoneNumberAttributeSubscriptionPayloadFields =
-  | 'mutation'
-  | 'node'
-  | 'updatedFields'
-
-
-
-  
-
-export interface PhoneNumberAttributeSubscriptionPayloadFieldDetails {
-  mutation: {
-    type: 'MutationType'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"PhoneNumberAttributeSubscriptionPayload">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.MutationType> | prisma.MutationType
-  }
-  node: {
-    type: 'PhoneNumberAttribute'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"PhoneNumberAttributeSubscriptionPayload">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.PhoneNumberAttribute | null> | prisma.PhoneNumberAttribute | null
-  }
-  updatedFields: {
-    type: 'String'
-    args: {}
-    description: string
-    list: true
-    nullable: false
-    resolve: undefined
-  }
-}
-  
-
-// Types for FemaleSubscriptionPayload
-
-type FemaleSubscriptionPayloadObject =
-  | FemaleSubscriptionPayloadFields
-  | { name: 'mutation', args?: [] | false, alias?: string  } 
-  | { name: 'node', args?: [] | false, alias?: string  } 
-  | { name: 'updatedFields', args?: [] | false, alias?: string  } 
-  | { name: 'previousValues', args?: [] | false, alias?: string  } 
-
-type FemaleSubscriptionPayloadFields =
-  | 'mutation'
-  | 'node'
-  | 'updatedFields'
-  | 'previousValues'
-
-
-
-  
-
-export interface FemaleSubscriptionPayloadFieldDetails {
-  mutation: {
-    type: 'MutationType'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"FemaleSubscriptionPayload">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.MutationType> | prisma.MutationType
-  }
-  node: {
-    type: 'Female'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"FemaleSubscriptionPayload">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Female | null> | prisma.Female | null
-  }
-  updatedFields: {
-    type: 'String'
-    args: {}
-    description: string
-    list: true
-    nullable: false
-    resolve: undefined
-  }
-  previousValues: {
-    type: 'FemalePreviousValues'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"FemaleSubscriptionPayload">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.FemalePreviousValues | null> | prisma.FemalePreviousValues | null
-  }
-}
-  
-
-// Types for FemalePreviousValues
-
-type FemalePreviousValuesObject =
-  | FemalePreviousValuesFields
-  | { name: 'id', args?: [] | false, alias?: string  } 
-  | { name: 'createdAt', args?: [] | false, alias?: string  } 
-  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
-
-type FemalePreviousValuesFields =
-  | 'id'
-  | 'createdAt'
-  | 'updatedAt'
-
-
-
-  
-
-export interface FemalePreviousValuesFieldDetails {
-  id: {
-    type: 'ID'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  createdAt: {
-    type: 'DateTime'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  updatedAt: {
-    type: 'DateTime'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-}
-  
-
-// Types for MaleSubscriptionPayload
-
-type MaleSubscriptionPayloadObject =
-  | MaleSubscriptionPayloadFields
-  | { name: 'mutation', args?: [] | false, alias?: string  } 
-  | { name: 'node', args?: [] | false, alias?: string  } 
-  | { name: 'updatedFields', args?: [] | false, alias?: string  } 
-  | { name: 'previousValues', args?: [] | false, alias?: string  } 
-
-type MaleSubscriptionPayloadFields =
-  | 'mutation'
-  | 'node'
-  | 'updatedFields'
-  | 'previousValues'
-
-
-
-  
-
-export interface MaleSubscriptionPayloadFieldDetails {
-  mutation: {
-    type: 'MutationType'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"MaleSubscriptionPayload">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.MutationType> | prisma.MutationType
-  }
-  node: {
-    type: 'Male'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"MaleSubscriptionPayload">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.Male | null> | prisma.Male | null
-  }
-  updatedFields: {
-    type: 'String'
-    args: {}
-    description: string
-    list: true
-    nullable: false
-    resolve: undefined
-  }
-  previousValues: {
-    type: 'MalePreviousValues'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"MaleSubscriptionPayload">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.MalePreviousValues | null> | prisma.MalePreviousValues | null
-  }
-}
-  
-
-// Types for MalePreviousValues
-
-type MalePreviousValuesObject =
-  | MalePreviousValuesFields
-  | { name: 'id', args?: [] | false, alias?: string  } 
-  | { name: 'createdAt', args?: [] | false, alias?: string  } 
-  | { name: 'updatedAt', args?: [] | false, alias?: string  } 
-
-type MalePreviousValuesFields =
-  | 'id'
-  | 'createdAt'
-  | 'updatedAt'
-
-
-
-  
-
-export interface MalePreviousValuesFieldDetails {
-  id: {
-    type: 'ID'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  createdAt: {
-    type: 'DateTime'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  updatedAt: {
-    type: 'DateTime'
     args: {}
     description: string
     list: undefined
@@ -5523,451 +1788,10 @@ export interface MalePreviousValuesFieldDetails {
 
 export interface UserWhereUniqueInput {
   id?: string | null
-  email?: string | null
 }
 export type UserWhereUniqueInputInputObject =
   | Extract<keyof UserWhereUniqueInput, string>
   | { name: 'id', alias?: string  } 
-  | { name: 'email', alias?: string  } 
-  
-export interface PhoneNumberWhereInput {
-  id?: string | null
-  id_not?: string | null
-  id_in?: string[]
-  id_not_in?: string[]
-  id_lt?: string | null
-  id_lte?: string | null
-  id_gt?: string | null
-  id_gte?: string | null
-  id_contains?: string | null
-  id_not_contains?: string | null
-  id_starts_with?: string | null
-  id_not_starts_with?: string | null
-  id_ends_with?: string | null
-  id_not_ends_with?: string | null
-  value?: number | null
-  value_not?: number | null
-  value_in?: number[]
-  value_not_in?: number[]
-  value_lt?: number | null
-  value_lte?: number | null
-  value_gt?: number | null
-  value_gte?: number | null
-  createdAt?: string | null
-  createdAt_not?: string | null
-  createdAt_in?: string[]
-  createdAt_not_in?: string[]
-  createdAt_lt?: string | null
-  createdAt_lte?: string | null
-  createdAt_gt?: string | null
-  createdAt_gte?: string | null
-  updatedAt?: string | null
-  updatedAt_not?: string | null
-  updatedAt_in?: string[]
-  updatedAt_not_in?: string[]
-  updatedAt_lt?: string | null
-  updatedAt_lte?: string | null
-  updatedAt_gt?: string | null
-  updatedAt_gte?: string | null
-  owner?: UserWhereInput | null
-  attribute_every?: AttributeWhereInput | null
-  attribute_some?: AttributeWhereInput | null
-  attribute_none?: AttributeWhereInput | null
-  AND?: PhoneNumberWhereInput[]
-  OR?: PhoneNumberWhereInput[]
-  NOT?: PhoneNumberWhereInput[]
-}
-export type PhoneNumberWhereInputInputObject =
-  | Extract<keyof PhoneNumberWhereInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'id_not', alias?: string  } 
-  | { name: 'id_in', alias?: string  } 
-  | { name: 'id_not_in', alias?: string  } 
-  | { name: 'id_lt', alias?: string  } 
-  | { name: 'id_lte', alias?: string  } 
-  | { name: 'id_gt', alias?: string  } 
-  | { name: 'id_gte', alias?: string  } 
-  | { name: 'id_contains', alias?: string  } 
-  | { name: 'id_not_contains', alias?: string  } 
-  | { name: 'id_starts_with', alias?: string  } 
-  | { name: 'id_not_starts_with', alias?: string  } 
-  | { name: 'id_ends_with', alias?: string  } 
-  | { name: 'id_not_ends_with', alias?: string  } 
-  | { name: 'value', alias?: string  } 
-  | { name: 'value_not', alias?: string  } 
-  | { name: 'value_in', alias?: string  } 
-  | { name: 'value_not_in', alias?: string  } 
-  | { name: 'value_lt', alias?: string  } 
-  | { name: 'value_lte', alias?: string  } 
-  | { name: 'value_gt', alias?: string  } 
-  | { name: 'value_gte', alias?: string  } 
-  | { name: 'createdAt', alias?: string  } 
-  | { name: 'createdAt_not', alias?: string  } 
-  | { name: 'createdAt_in', alias?: string  } 
-  | { name: 'createdAt_not_in', alias?: string  } 
-  | { name: 'createdAt_lt', alias?: string  } 
-  | { name: 'createdAt_lte', alias?: string  } 
-  | { name: 'createdAt_gt', alias?: string  } 
-  | { name: 'createdAt_gte', alias?: string  } 
-  | { name: 'updatedAt', alias?: string  } 
-  | { name: 'updatedAt_not', alias?: string  } 
-  | { name: 'updatedAt_in', alias?: string  } 
-  | { name: 'updatedAt_not_in', alias?: string  } 
-  | { name: 'updatedAt_lt', alias?: string  } 
-  | { name: 'updatedAt_lte', alias?: string  } 
-  | { name: 'updatedAt_gt', alias?: string  } 
-  | { name: 'updatedAt_gte', alias?: string  } 
-  | { name: 'owner', alias?: string  } 
-  | { name: 'attribute_every', alias?: string  } 
-  | { name: 'attribute_some', alias?: string  } 
-  | { name: 'attribute_none', alias?: string  } 
-  | { name: 'AND', alias?: string  } 
-  | { name: 'OR', alias?: string  } 
-  | { name: 'NOT', alias?: string  } 
-  
-export interface UserWhereInput {
-  id?: string | null
-  id_not?: string | null
-  id_in?: string[]
-  id_not_in?: string[]
-  id_lt?: string | null
-  id_lte?: string | null
-  id_gt?: string | null
-  id_gte?: string | null
-  id_contains?: string | null
-  id_not_contains?: string | null
-  id_starts_with?: string | null
-  id_not_starts_with?: string | null
-  id_ends_with?: string | null
-  id_not_ends_with?: string | null
-  createdAt?: string | null
-  createdAt_not?: string | null
-  createdAt_in?: string[]
-  createdAt_not_in?: string[]
-  createdAt_lt?: string | null
-  createdAt_lte?: string | null
-  createdAt_gt?: string | null
-  createdAt_gte?: string | null
-  updatedAt?: string | null
-  updatedAt_not?: string | null
-  updatedAt_in?: string[]
-  updatedAt_not_in?: string[]
-  updatedAt_lt?: string | null
-  updatedAt_lte?: string | null
-  updatedAt_gt?: string | null
-  updatedAt_gte?: string | null
-  email?: string | null
-  email_not?: string | null
-  email_in?: string[]
-  email_not_in?: string[]
-  email_lt?: string | null
-  email_lte?: string | null
-  email_gt?: string | null
-  email_gte?: string | null
-  email_contains?: string | null
-  email_not_contains?: string | null
-  email_starts_with?: string | null
-  email_not_starts_with?: string | null
-  email_ends_with?: string | null
-  email_not_ends_with?: string | null
-  phone_number_every?: PhoneNumberWhereInput | null
-  phone_number_some?: PhoneNumberWhereInput | null
-  phone_number_none?: PhoneNumberWhereInput | null
-  role?: prisma.AuthLevel | null
-  role_not?: prisma.AuthLevel | null
-  role_in?: prisma.AuthLevel[]
-  role_not_in?: prisma.AuthLevel[]
-  gender?: prisma.Gender | null
-  gender_not?: prisma.Gender | null
-  gender_in?: prisma.Gender[]
-  gender_not_in?: prisma.Gender[]
-  identifiers?: IdentifiersWhereInput | null
-  AND?: UserWhereInput[]
-  OR?: UserWhereInput[]
-  NOT?: UserWhereInput[]
-}
-export type UserWhereInputInputObject =
-  | Extract<keyof UserWhereInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'id_not', alias?: string  } 
-  | { name: 'id_in', alias?: string  } 
-  | { name: 'id_not_in', alias?: string  } 
-  | { name: 'id_lt', alias?: string  } 
-  | { name: 'id_lte', alias?: string  } 
-  | { name: 'id_gt', alias?: string  } 
-  | { name: 'id_gte', alias?: string  } 
-  | { name: 'id_contains', alias?: string  } 
-  | { name: 'id_not_contains', alias?: string  } 
-  | { name: 'id_starts_with', alias?: string  } 
-  | { name: 'id_not_starts_with', alias?: string  } 
-  | { name: 'id_ends_with', alias?: string  } 
-  | { name: 'id_not_ends_with', alias?: string  } 
-  | { name: 'createdAt', alias?: string  } 
-  | { name: 'createdAt_not', alias?: string  } 
-  | { name: 'createdAt_in', alias?: string  } 
-  | { name: 'createdAt_not_in', alias?: string  } 
-  | { name: 'createdAt_lt', alias?: string  } 
-  | { name: 'createdAt_lte', alias?: string  } 
-  | { name: 'createdAt_gt', alias?: string  } 
-  | { name: 'createdAt_gte', alias?: string  } 
-  | { name: 'updatedAt', alias?: string  } 
-  | { name: 'updatedAt_not', alias?: string  } 
-  | { name: 'updatedAt_in', alias?: string  } 
-  | { name: 'updatedAt_not_in', alias?: string  } 
-  | { name: 'updatedAt_lt', alias?: string  } 
-  | { name: 'updatedAt_lte', alias?: string  } 
-  | { name: 'updatedAt_gt', alias?: string  } 
-  | { name: 'updatedAt_gte', alias?: string  } 
-  | { name: 'email', alias?: string  } 
-  | { name: 'email_not', alias?: string  } 
-  | { name: 'email_in', alias?: string  } 
-  | { name: 'email_not_in', alias?: string  } 
-  | { name: 'email_lt', alias?: string  } 
-  | { name: 'email_lte', alias?: string  } 
-  | { name: 'email_gt', alias?: string  } 
-  | { name: 'email_gte', alias?: string  } 
-  | { name: 'email_contains', alias?: string  } 
-  | { name: 'email_not_contains', alias?: string  } 
-  | { name: 'email_starts_with', alias?: string  } 
-  | { name: 'email_not_starts_with', alias?: string  } 
-  | { name: 'email_ends_with', alias?: string  } 
-  | { name: 'email_not_ends_with', alias?: string  } 
-  | { name: 'phone_number_every', alias?: string  } 
-  | { name: 'phone_number_some', alias?: string  } 
-  | { name: 'phone_number_none', alias?: string  } 
-  | { name: 'role', alias?: string  } 
-  | { name: 'role_not', alias?: string  } 
-  | { name: 'role_in', alias?: string  } 
-  | { name: 'role_not_in', alias?: string  } 
-  | { name: 'gender', alias?: string  } 
-  | { name: 'gender_not', alias?: string  } 
-  | { name: 'gender_in', alias?: string  } 
-  | { name: 'gender_not_in', alias?: string  } 
-  | { name: 'identifiers', alias?: string  } 
-  | { name: 'AND', alias?: string  } 
-  | { name: 'OR', alias?: string  } 
-  | { name: 'NOT', alias?: string  } 
-  
-export interface IdentifiersWhereInput {
-  id?: string | null
-  id_not?: string | null
-  id_in?: string[]
-  id_not_in?: string[]
-  id_lt?: string | null
-  id_lte?: string | null
-  id_gt?: string | null
-  id_gte?: string | null
-  id_contains?: string | null
-  id_not_contains?: string | null
-  id_starts_with?: string | null
-  id_not_starts_with?: string | null
-  id_ends_with?: string | null
-  id_not_ends_with?: string | null
-  tax_id_every?: TaxIdWhereInput | null
-  tax_id_some?: TaxIdWhereInput | null
-  tax_id_none?: TaxIdWhereInput | null
-  email_every?: EmailWhereInput | null
-  email_some?: EmailWhereInput | null
-  email_none?: EmailWhereInput | null
-  phone_number_every?: PhoneNumberWhereInput | null
-  phone_number_some?: PhoneNumberWhereInput | null
-  phone_number_none?: PhoneNumberWhereInput | null
-  AND?: IdentifiersWhereInput[]
-  OR?: IdentifiersWhereInput[]
-  NOT?: IdentifiersWhereInput[]
-}
-export type IdentifiersWhereInputInputObject =
-  | Extract<keyof IdentifiersWhereInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'id_not', alias?: string  } 
-  | { name: 'id_in', alias?: string  } 
-  | { name: 'id_not_in', alias?: string  } 
-  | { name: 'id_lt', alias?: string  } 
-  | { name: 'id_lte', alias?: string  } 
-  | { name: 'id_gt', alias?: string  } 
-  | { name: 'id_gte', alias?: string  } 
-  | { name: 'id_contains', alias?: string  } 
-  | { name: 'id_not_contains', alias?: string  } 
-  | { name: 'id_starts_with', alias?: string  } 
-  | { name: 'id_not_starts_with', alias?: string  } 
-  | { name: 'id_ends_with', alias?: string  } 
-  | { name: 'id_not_ends_with', alias?: string  } 
-  | { name: 'tax_id_every', alias?: string  } 
-  | { name: 'tax_id_some', alias?: string  } 
-  | { name: 'tax_id_none', alias?: string  } 
-  | { name: 'email_every', alias?: string  } 
-  | { name: 'email_some', alias?: string  } 
-  | { name: 'email_none', alias?: string  } 
-  | { name: 'phone_number_every', alias?: string  } 
-  | { name: 'phone_number_some', alias?: string  } 
-  | { name: 'phone_number_none', alias?: string  } 
-  | { name: 'AND', alias?: string  } 
-  | { name: 'OR', alias?: string  } 
-  | { name: 'NOT', alias?: string  } 
-  
-export interface TaxIdWhereInput {
-  id?: string | null
-  id_not?: string | null
-  id_in?: string[]
-  id_not_in?: string[]
-  id_lt?: string | null
-  id_lte?: string | null
-  id_gt?: string | null
-  id_gte?: string | null
-  id_contains?: string | null
-  id_not_contains?: string | null
-  id_starts_with?: string | null
-  id_not_starts_with?: string | null
-  id_ends_with?: string | null
-  id_not_ends_with?: string | null
-  createdAt?: string | null
-  createdAt_not?: string | null
-  createdAt_in?: string[]
-  createdAt_not_in?: string[]
-  createdAt_lt?: string | null
-  createdAt_lte?: string | null
-  createdAt_gt?: string | null
-  createdAt_gte?: string | null
-  updatedAt?: string | null
-  updatedAt_not?: string | null
-  updatedAt_in?: string[]
-  updatedAt_not_in?: string[]
-  updatedAt_lt?: string | null
-  updatedAt_lte?: string | null
-  updatedAt_gt?: string | null
-  updatedAt_gte?: string | null
-  owner?: UserWhereInput | null
-  attribute_every?: AttributeWhereInput | null
-  attribute_some?: AttributeWhereInput | null
-  attribute_none?: AttributeWhereInput | null
-  AND?: TaxIdWhereInput[]
-  OR?: TaxIdWhereInput[]
-  NOT?: TaxIdWhereInput[]
-}
-export type TaxIdWhereInputInputObject =
-  | Extract<keyof TaxIdWhereInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'id_not', alias?: string  } 
-  | { name: 'id_in', alias?: string  } 
-  | { name: 'id_not_in', alias?: string  } 
-  | { name: 'id_lt', alias?: string  } 
-  | { name: 'id_lte', alias?: string  } 
-  | { name: 'id_gt', alias?: string  } 
-  | { name: 'id_gte', alias?: string  } 
-  | { name: 'id_contains', alias?: string  } 
-  | { name: 'id_not_contains', alias?: string  } 
-  | { name: 'id_starts_with', alias?: string  } 
-  | { name: 'id_not_starts_with', alias?: string  } 
-  | { name: 'id_ends_with', alias?: string  } 
-  | { name: 'id_not_ends_with', alias?: string  } 
-  | { name: 'createdAt', alias?: string  } 
-  | { name: 'createdAt_not', alias?: string  } 
-  | { name: 'createdAt_in', alias?: string  } 
-  | { name: 'createdAt_not_in', alias?: string  } 
-  | { name: 'createdAt_lt', alias?: string  } 
-  | { name: 'createdAt_lte', alias?: string  } 
-  | { name: 'createdAt_gt', alias?: string  } 
-  | { name: 'createdAt_gte', alias?: string  } 
-  | { name: 'updatedAt', alias?: string  } 
-  | { name: 'updatedAt_not', alias?: string  } 
-  | { name: 'updatedAt_in', alias?: string  } 
-  | { name: 'updatedAt_not_in', alias?: string  } 
-  | { name: 'updatedAt_lt', alias?: string  } 
-  | { name: 'updatedAt_lte', alias?: string  } 
-  | { name: 'updatedAt_gt', alias?: string  } 
-  | { name: 'updatedAt_gte', alias?: string  } 
-  | { name: 'owner', alias?: string  } 
-  | { name: 'attribute_every', alias?: string  } 
-  | { name: 'attribute_some', alias?: string  } 
-  | { name: 'attribute_none', alias?: string  } 
-  | { name: 'AND', alias?: string  } 
-  | { name: 'OR', alias?: string  } 
-  | { name: 'NOT', alias?: string  } 
-  
-export interface AttributeWhereInput {
-  id?: string | null
-  id_not?: string | null
-  id_in?: string[]
-  id_not_in?: string[]
-  id_lt?: string | null
-  id_lte?: string | null
-  id_gt?: string | null
-  id_gte?: string | null
-  id_contains?: string | null
-  id_not_contains?: string | null
-  id_starts_with?: string | null
-  id_not_starts_with?: string | null
-  id_ends_with?: string | null
-  id_not_ends_with?: string | null
-  attr_type?: string | null
-  attr_type_not?: string | null
-  attr_type_in?: string[]
-  attr_type_not_in?: string[]
-  attr_type_lt?: string | null
-  attr_type_lte?: string | null
-  attr_type_gt?: string | null
-  attr_type_gte?: string | null
-  attr_type_contains?: string | null
-  attr_type_not_contains?: string | null
-  attr_type_starts_with?: string | null
-  attr_type_not_starts_with?: string | null
-  attr_type_ends_with?: string | null
-  attr_type_not_ends_with?: string | null
-  tax_id_every?: TaxIdWhereInput | null
-  tax_id_some?: TaxIdWhereInput | null
-  tax_id_none?: TaxIdWhereInput | null
-  email_every?: EmailWhereInput | null
-  email_some?: EmailWhereInput | null
-  email_none?: EmailWhereInput | null
-  phone_number_every?: PhoneNumberWhereInput | null
-  phone_number_some?: PhoneNumberWhereInput | null
-  phone_number_none?: PhoneNumberWhereInput | null
-  AND?: AttributeWhereInput[]
-  OR?: AttributeWhereInput[]
-  NOT?: AttributeWhereInput[]
-}
-export type AttributeWhereInputInputObject =
-  | Extract<keyof AttributeWhereInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'id_not', alias?: string  } 
-  | { name: 'id_in', alias?: string  } 
-  | { name: 'id_not_in', alias?: string  } 
-  | { name: 'id_lt', alias?: string  } 
-  | { name: 'id_lte', alias?: string  } 
-  | { name: 'id_gt', alias?: string  } 
-  | { name: 'id_gte', alias?: string  } 
-  | { name: 'id_contains', alias?: string  } 
-  | { name: 'id_not_contains', alias?: string  } 
-  | { name: 'id_starts_with', alias?: string  } 
-  | { name: 'id_not_starts_with', alias?: string  } 
-  | { name: 'id_ends_with', alias?: string  } 
-  | { name: 'id_not_ends_with', alias?: string  } 
-  | { name: 'attr_type', alias?: string  } 
-  | { name: 'attr_type_not', alias?: string  } 
-  | { name: 'attr_type_in', alias?: string  } 
-  | { name: 'attr_type_not_in', alias?: string  } 
-  | { name: 'attr_type_lt', alias?: string  } 
-  | { name: 'attr_type_lte', alias?: string  } 
-  | { name: 'attr_type_gt', alias?: string  } 
-  | { name: 'attr_type_gte', alias?: string  } 
-  | { name: 'attr_type_contains', alias?: string  } 
-  | { name: 'attr_type_not_contains', alias?: string  } 
-  | { name: 'attr_type_starts_with', alias?: string  } 
-  | { name: 'attr_type_not_starts_with', alias?: string  } 
-  | { name: 'attr_type_ends_with', alias?: string  } 
-  | { name: 'attr_type_not_ends_with', alias?: string  } 
-  | { name: 'tax_id_every', alias?: string  } 
-  | { name: 'tax_id_some', alias?: string  } 
-  | { name: 'tax_id_none', alias?: string  } 
-  | { name: 'email_every', alias?: string  } 
-  | { name: 'email_some', alias?: string  } 
-  | { name: 'email_none', alias?: string  } 
-  | { name: 'phone_number_every', alias?: string  } 
-  | { name: 'phone_number_some', alias?: string  } 
-  | { name: 'phone_number_none', alias?: string  } 
-  | { name: 'AND', alias?: string  } 
-  | { name: 'OR', alias?: string  } 
-  | { name: 'NOT', alias?: string  } 
   
 export interface EmailWhereInput {
   id?: string | null
@@ -5998,26 +1822,7 @@ export interface EmailWhereInput {
   value_not_starts_with?: string | null
   value_ends_with?: string | null
   value_not_ends_with?: string | null
-  createdAt?: string | null
-  createdAt_not?: string | null
-  createdAt_in?: string[]
-  createdAt_not_in?: string[]
-  createdAt_lt?: string | null
-  createdAt_lte?: string | null
-  createdAt_gt?: string | null
-  createdAt_gte?: string | null
-  updatedAt?: string | null
-  updatedAt_not?: string | null
-  updatedAt_in?: string[]
-  updatedAt_not_in?: string[]
-  updatedAt_lt?: string | null
-  updatedAt_lte?: string | null
-  updatedAt_gt?: string | null
-  updatedAt_gte?: string | null
   owner?: UserWhereInput | null
-  attribute_every?: AttributeWhereInput | null
-  attribute_some?: AttributeWhereInput | null
-  attribute_none?: AttributeWhereInput | null
   AND?: EmailWhereInput[]
   OR?: EmailWhereInput[]
   NOT?: EmailWhereInput[]
@@ -6052,43 +1857,270 @@ export type EmailWhereInputInputObject =
   | { name: 'value_not_starts_with', alias?: string  } 
   | { name: 'value_ends_with', alias?: string  } 
   | { name: 'value_not_ends_with', alias?: string  } 
-  | { name: 'createdAt', alias?: string  } 
-  | { name: 'createdAt_not', alias?: string  } 
-  | { name: 'createdAt_in', alias?: string  } 
-  | { name: 'createdAt_not_in', alias?: string  } 
-  | { name: 'createdAt_lt', alias?: string  } 
-  | { name: 'createdAt_lte', alias?: string  } 
-  | { name: 'createdAt_gt', alias?: string  } 
-  | { name: 'createdAt_gte', alias?: string  } 
-  | { name: 'updatedAt', alias?: string  } 
-  | { name: 'updatedAt_not', alias?: string  } 
-  | { name: 'updatedAt_in', alias?: string  } 
-  | { name: 'updatedAt_not_in', alias?: string  } 
-  | { name: 'updatedAt_lt', alias?: string  } 
-  | { name: 'updatedAt_lte', alias?: string  } 
-  | { name: 'updatedAt_gt', alias?: string  } 
-  | { name: 'updatedAt_gte', alias?: string  } 
   | { name: 'owner', alias?: string  } 
-  | { name: 'attribute_every', alias?: string  } 
-  | { name: 'attribute_some', alias?: string  } 
-  | { name: 'attribute_none', alias?: string  } 
   | { name: 'AND', alias?: string  } 
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
   
-export interface IdentifiersWhereUniqueInput {
+export interface UserWhereInput {
   id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  name?: string | null
+  name_not?: string | null
+  name_in?: string[]
+  name_not_in?: string[]
+  name_lt?: string | null
+  name_lte?: string | null
+  name_gt?: string | null
+  name_gte?: string | null
+  name_contains?: string | null
+  name_not_contains?: string | null
+  name_starts_with?: string | null
+  name_not_starts_with?: string | null
+  name_ends_with?: string | null
+  name_not_ends_with?: string | null
+  firstName?: string | null
+  firstName_not?: string | null
+  firstName_in?: string[]
+  firstName_not_in?: string[]
+  firstName_lt?: string | null
+  firstName_lte?: string | null
+  firstName_gt?: string | null
+  firstName_gte?: string | null
+  firstName_contains?: string | null
+  firstName_not_contains?: string | null
+  firstName_starts_with?: string | null
+  firstName_not_starts_with?: string | null
+  firstName_ends_with?: string | null
+  firstName_not_ends_with?: string | null
+  lastName?: string | null
+  lastName_not?: string | null
+  lastName_in?: string[]
+  lastName_not_in?: string[]
+  lastName_lt?: string | null
+  lastName_lte?: string | null
+  lastName_gt?: string | null
+  lastName_gte?: string | null
+  lastName_contains?: string | null
+  lastName_not_contains?: string | null
+  lastName_starts_with?: string | null
+  lastName_not_starts_with?: string | null
+  lastName_ends_with?: string | null
+  lastName_not_ends_with?: string | null
+  middleName?: string | null
+  middleName_not?: string | null
+  middleName_in?: string[]
+  middleName_not_in?: string[]
+  middleName_lt?: string | null
+  middleName_lte?: string | null
+  middleName_gt?: string | null
+  middleName_gte?: string | null
+  middleName_contains?: string | null
+  middleName_not_contains?: string | null
+  middleName_starts_with?: string | null
+  middleName_not_starts_with?: string | null
+  middleName_ends_with?: string | null
+  middleName_not_ends_with?: string | null
+  emails_every?: EmailWhereInput | null
+  emails_some?: EmailWhereInput | null
+  emails_none?: EmailWhereInput | null
+  phoneNumbers_every?: PhoneNumberWhereInput | null
+  phoneNumbers_some?: PhoneNumberWhereInput | null
+  phoneNumbers_none?: PhoneNumberWhereInput | null
+  AND?: UserWhereInput[]
+  OR?: UserWhereInput[]
+  NOT?: UserWhereInput[]
 }
-export type IdentifiersWhereUniqueInputInputObject =
-  | Extract<keyof IdentifiersWhereUniqueInput, string>
+export type UserWhereInputInputObject =
+  | Extract<keyof UserWhereInput, string>
   | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'name_not', alias?: string  } 
+  | { name: 'name_in', alias?: string  } 
+  | { name: 'name_not_in', alias?: string  } 
+  | { name: 'name_lt', alias?: string  } 
+  | { name: 'name_lte', alias?: string  } 
+  | { name: 'name_gt', alias?: string  } 
+  | { name: 'name_gte', alias?: string  } 
+  | { name: 'name_contains', alias?: string  } 
+  | { name: 'name_not_contains', alias?: string  } 
+  | { name: 'name_starts_with', alias?: string  } 
+  | { name: 'name_not_starts_with', alias?: string  } 
+  | { name: 'name_ends_with', alias?: string  } 
+  | { name: 'name_not_ends_with', alias?: string  } 
+  | { name: 'firstName', alias?: string  } 
+  | { name: 'firstName_not', alias?: string  } 
+  | { name: 'firstName_in', alias?: string  } 
+  | { name: 'firstName_not_in', alias?: string  } 
+  | { name: 'firstName_lt', alias?: string  } 
+  | { name: 'firstName_lte', alias?: string  } 
+  | { name: 'firstName_gt', alias?: string  } 
+  | { name: 'firstName_gte', alias?: string  } 
+  | { name: 'firstName_contains', alias?: string  } 
+  | { name: 'firstName_not_contains', alias?: string  } 
+  | { name: 'firstName_starts_with', alias?: string  } 
+  | { name: 'firstName_not_starts_with', alias?: string  } 
+  | { name: 'firstName_ends_with', alias?: string  } 
+  | { name: 'firstName_not_ends_with', alias?: string  } 
+  | { name: 'lastName', alias?: string  } 
+  | { name: 'lastName_not', alias?: string  } 
+  | { name: 'lastName_in', alias?: string  } 
+  | { name: 'lastName_not_in', alias?: string  } 
+  | { name: 'lastName_lt', alias?: string  } 
+  | { name: 'lastName_lte', alias?: string  } 
+  | { name: 'lastName_gt', alias?: string  } 
+  | { name: 'lastName_gte', alias?: string  } 
+  | { name: 'lastName_contains', alias?: string  } 
+  | { name: 'lastName_not_contains', alias?: string  } 
+  | { name: 'lastName_starts_with', alias?: string  } 
+  | { name: 'lastName_not_starts_with', alias?: string  } 
+  | { name: 'lastName_ends_with', alias?: string  } 
+  | { name: 'lastName_not_ends_with', alias?: string  } 
+  | { name: 'middleName', alias?: string  } 
+  | { name: 'middleName_not', alias?: string  } 
+  | { name: 'middleName_in', alias?: string  } 
+  | { name: 'middleName_not_in', alias?: string  } 
+  | { name: 'middleName_lt', alias?: string  } 
+  | { name: 'middleName_lte', alias?: string  } 
+  | { name: 'middleName_gt', alias?: string  } 
+  | { name: 'middleName_gte', alias?: string  } 
+  | { name: 'middleName_contains', alias?: string  } 
+  | { name: 'middleName_not_contains', alias?: string  } 
+  | { name: 'middleName_starts_with', alias?: string  } 
+  | { name: 'middleName_not_starts_with', alias?: string  } 
+  | { name: 'middleName_ends_with', alias?: string  } 
+  | { name: 'middleName_not_ends_with', alias?: string  } 
+  | { name: 'emails_every', alias?: string  } 
+  | { name: 'emails_some', alias?: string  } 
+  | { name: 'emails_none', alias?: string  } 
+  | { name: 'phoneNumbers_every', alias?: string  } 
+  | { name: 'phoneNumbers_some', alias?: string  } 
+  | { name: 'phoneNumbers_none', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
   
-export interface TaxIdWhereUniqueInput {
+export interface PhoneNumberWhereInput {
   id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  type?: string | null
+  type_not?: string | null
+  type_in?: string[]
+  type_not_in?: string[]
+  type_lt?: string | null
+  type_lte?: string | null
+  type_gt?: string | null
+  type_gte?: string | null
+  type_contains?: string | null
+  type_not_contains?: string | null
+  type_starts_with?: string | null
+  type_not_starts_with?: string | null
+  type_ends_with?: string | null
+  type_not_ends_with?: string | null
+  value?: string | null
+  value_not?: string | null
+  value_in?: string[]
+  value_not_in?: string[]
+  value_lt?: string | null
+  value_lte?: string | null
+  value_gt?: string | null
+  value_gte?: string | null
+  value_contains?: string | null
+  value_not_contains?: string | null
+  value_starts_with?: string | null
+  value_not_starts_with?: string | null
+  value_ends_with?: string | null
+  value_not_ends_with?: string | null
+  owner?: UserWhereInput | null
+  AND?: PhoneNumberWhereInput[]
+  OR?: PhoneNumberWhereInput[]
+  NOT?: PhoneNumberWhereInput[]
 }
-export type TaxIdWhereUniqueInputInputObject =
-  | Extract<keyof TaxIdWhereUniqueInput, string>
+export type PhoneNumberWhereInputInputObject =
+  | Extract<keyof PhoneNumberWhereInput, string>
   | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'type', alias?: string  } 
+  | { name: 'type_not', alias?: string  } 
+  | { name: 'type_in', alias?: string  } 
+  | { name: 'type_not_in', alias?: string  } 
+  | { name: 'type_lt', alias?: string  } 
+  | { name: 'type_lte', alias?: string  } 
+  | { name: 'type_gt', alias?: string  } 
+  | { name: 'type_gte', alias?: string  } 
+  | { name: 'type_contains', alias?: string  } 
+  | { name: 'type_not_contains', alias?: string  } 
+  | { name: 'type_starts_with', alias?: string  } 
+  | { name: 'type_not_starts_with', alias?: string  } 
+  | { name: 'type_ends_with', alias?: string  } 
+  | { name: 'type_not_ends_with', alias?: string  } 
+  | { name: 'value', alias?: string  } 
+  | { name: 'value_not', alias?: string  } 
+  | { name: 'value_in', alias?: string  } 
+  | { name: 'value_not_in', alias?: string  } 
+  | { name: 'value_lt', alias?: string  } 
+  | { name: 'value_lte', alias?: string  } 
+  | { name: 'value_gt', alias?: string  } 
+  | { name: 'value_gte', alias?: string  } 
+  | { name: 'value_contains', alias?: string  } 
+  | { name: 'value_not_contains', alias?: string  } 
+  | { name: 'value_starts_with', alias?: string  } 
+  | { name: 'value_not_starts_with', alias?: string  } 
+  | { name: 'value_ends_with', alias?: string  } 
+  | { name: 'value_not_ends_with', alias?: string  } 
+  | { name: 'owner', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
   
 export interface EmailWhereUniqueInput {
   id?: string | null
@@ -6104,246 +2136,42 @@ export type PhoneNumberWhereUniqueInputInputObject =
   | Extract<keyof PhoneNumberWhereUniqueInput, string>
   | { name: 'id', alias?: string  } 
   
-export interface AttributeWhereUniqueInput {
-  id?: string | null
-}
-export type AttributeWhereUniqueInputInputObject =
-  | Extract<keyof AttributeWhereUniqueInput, string>
-  | { name: 'id', alias?: string  } 
-  
-export interface TaxIdAttributeWhereInput {
-  tax_id?: TaxIdWhereInput | null
-  attribute?: AttributeWhereInput | null
-  AND?: TaxIdAttributeWhereInput[]
-  OR?: TaxIdAttributeWhereInput[]
-  NOT?: TaxIdAttributeWhereInput[]
-}
-export type TaxIdAttributeWhereInputInputObject =
-  | Extract<keyof TaxIdAttributeWhereInput, string>
-  | { name: 'tax_id', alias?: string  } 
-  | { name: 'attribute', alias?: string  } 
-  | { name: 'AND', alias?: string  } 
-  | { name: 'OR', alias?: string  } 
-  | { name: 'NOT', alias?: string  } 
-  
-export interface EmailAttributeWhereInput {
-  email?: EmailWhereInput | null
-  attribute?: AttributeWhereInput | null
-  AND?: EmailAttributeWhereInput[]
-  OR?: EmailAttributeWhereInput[]
-  NOT?: EmailAttributeWhereInput[]
-}
-export type EmailAttributeWhereInputInputObject =
-  | Extract<keyof EmailAttributeWhereInput, string>
-  | { name: 'email', alias?: string  } 
-  | { name: 'attribute', alias?: string  } 
-  | { name: 'AND', alias?: string  } 
-  | { name: 'OR', alias?: string  } 
-  | { name: 'NOT', alias?: string  } 
-  
-export interface PhoneNumberAttributeWhereInput {
-  phone_number?: PhoneNumberWhereInput | null
-  attribute?: AttributeWhereInput | null
-  AND?: PhoneNumberAttributeWhereInput[]
-  OR?: PhoneNumberAttributeWhereInput[]
-  NOT?: PhoneNumberAttributeWhereInput[]
-}
-export type PhoneNumberAttributeWhereInputInputObject =
-  | Extract<keyof PhoneNumberAttributeWhereInput, string>
-  | { name: 'phone_number', alias?: string  } 
-  | { name: 'attribute', alias?: string  } 
-  | { name: 'AND', alias?: string  } 
-  | { name: 'OR', alias?: string  } 
-  | { name: 'NOT', alias?: string  } 
-  
-export interface FemaleWhereUniqueInput {
-  id?: string | null
-}
-export type FemaleWhereUniqueInputInputObject =
-  | Extract<keyof FemaleWhereUniqueInput, string>
-  | { name: 'id', alias?: string  } 
-  
-export interface FemaleWhereInput {
-  id?: string | null
-  id_not?: string | null
-  id_in?: string[]
-  id_not_in?: string[]
-  id_lt?: string | null
-  id_lte?: string | null
-  id_gt?: string | null
-  id_gte?: string | null
-  id_contains?: string | null
-  id_not_contains?: string | null
-  id_starts_with?: string | null
-  id_not_starts_with?: string | null
-  id_ends_with?: string | null
-  id_not_ends_with?: string | null
-  createdAt?: string | null
-  createdAt_not?: string | null
-  createdAt_in?: string[]
-  createdAt_not_in?: string[]
-  createdAt_lt?: string | null
-  createdAt_lte?: string | null
-  createdAt_gt?: string | null
-  createdAt_gte?: string | null
-  updatedAt?: string | null
-  updatedAt_not?: string | null
-  updatedAt_in?: string[]
-  updatedAt_not_in?: string[]
-  updatedAt_lt?: string | null
-  updatedAt_lte?: string | null
-  updatedAt_gt?: string | null
-  updatedAt_gte?: string | null
-  owner?: UserWhereInput | null
-  attribute_every?: AttributeWhereInput | null
-  attribute_some?: AttributeWhereInput | null
-  attribute_none?: AttributeWhereInput | null
-  AND?: FemaleWhereInput[]
-  OR?: FemaleWhereInput[]
-  NOT?: FemaleWhereInput[]
-}
-export type FemaleWhereInputInputObject =
-  | Extract<keyof FemaleWhereInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'id_not', alias?: string  } 
-  | { name: 'id_in', alias?: string  } 
-  | { name: 'id_not_in', alias?: string  } 
-  | { name: 'id_lt', alias?: string  } 
-  | { name: 'id_lte', alias?: string  } 
-  | { name: 'id_gt', alias?: string  } 
-  | { name: 'id_gte', alias?: string  } 
-  | { name: 'id_contains', alias?: string  } 
-  | { name: 'id_not_contains', alias?: string  } 
-  | { name: 'id_starts_with', alias?: string  } 
-  | { name: 'id_not_starts_with', alias?: string  } 
-  | { name: 'id_ends_with', alias?: string  } 
-  | { name: 'id_not_ends_with', alias?: string  } 
-  | { name: 'createdAt', alias?: string  } 
-  | { name: 'createdAt_not', alias?: string  } 
-  | { name: 'createdAt_in', alias?: string  } 
-  | { name: 'createdAt_not_in', alias?: string  } 
-  | { name: 'createdAt_lt', alias?: string  } 
-  | { name: 'createdAt_lte', alias?: string  } 
-  | { name: 'createdAt_gt', alias?: string  } 
-  | { name: 'createdAt_gte', alias?: string  } 
-  | { name: 'updatedAt', alias?: string  } 
-  | { name: 'updatedAt_not', alias?: string  } 
-  | { name: 'updatedAt_in', alias?: string  } 
-  | { name: 'updatedAt_not_in', alias?: string  } 
-  | { name: 'updatedAt_lt', alias?: string  } 
-  | { name: 'updatedAt_lte', alias?: string  } 
-  | { name: 'updatedAt_gt', alias?: string  } 
-  | { name: 'updatedAt_gte', alias?: string  } 
-  | { name: 'owner', alias?: string  } 
-  | { name: 'attribute_every', alias?: string  } 
-  | { name: 'attribute_some', alias?: string  } 
-  | { name: 'attribute_none', alias?: string  } 
-  | { name: 'AND', alias?: string  } 
-  | { name: 'OR', alias?: string  } 
-  | { name: 'NOT', alias?: string  } 
-  
-export interface MaleWhereUniqueInput {
-  id?: string | null
-}
-export type MaleWhereUniqueInputInputObject =
-  | Extract<keyof MaleWhereUniqueInput, string>
-  | { name: 'id', alias?: string  } 
-  
-export interface MaleWhereInput {
-  id?: string | null
-  id_not?: string | null
-  id_in?: string[]
-  id_not_in?: string[]
-  id_lt?: string | null
-  id_lte?: string | null
-  id_gt?: string | null
-  id_gte?: string | null
-  id_contains?: string | null
-  id_not_contains?: string | null
-  id_starts_with?: string | null
-  id_not_starts_with?: string | null
-  id_ends_with?: string | null
-  id_not_ends_with?: string | null
-  createdAt?: string | null
-  createdAt_not?: string | null
-  createdAt_in?: string[]
-  createdAt_not_in?: string[]
-  createdAt_lt?: string | null
-  createdAt_lte?: string | null
-  createdAt_gt?: string | null
-  createdAt_gte?: string | null
-  updatedAt?: string | null
-  updatedAt_not?: string | null
-  updatedAt_in?: string[]
-  updatedAt_not_in?: string[]
-  updatedAt_lt?: string | null
-  updatedAt_lte?: string | null
-  updatedAt_gt?: string | null
-  updatedAt_gte?: string | null
-  owner?: UserWhereInput | null
-  attribute_every?: AttributeWhereInput | null
-  attribute_some?: AttributeWhereInput | null
-  attribute_none?: AttributeWhereInput | null
-  AND?: MaleWhereInput[]
-  OR?: MaleWhereInput[]
-  NOT?: MaleWhereInput[]
-}
-export type MaleWhereInputInputObject =
-  | Extract<keyof MaleWhereInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'id_not', alias?: string  } 
-  | { name: 'id_in', alias?: string  } 
-  | { name: 'id_not_in', alias?: string  } 
-  | { name: 'id_lt', alias?: string  } 
-  | { name: 'id_lte', alias?: string  } 
-  | { name: 'id_gt', alias?: string  } 
-  | { name: 'id_gte', alias?: string  } 
-  | { name: 'id_contains', alias?: string  } 
-  | { name: 'id_not_contains', alias?: string  } 
-  | { name: 'id_starts_with', alias?: string  } 
-  | { name: 'id_not_starts_with', alias?: string  } 
-  | { name: 'id_ends_with', alias?: string  } 
-  | { name: 'id_not_ends_with', alias?: string  } 
-  | { name: 'createdAt', alias?: string  } 
-  | { name: 'createdAt_not', alias?: string  } 
-  | { name: 'createdAt_in', alias?: string  } 
-  | { name: 'createdAt_not_in', alias?: string  } 
-  | { name: 'createdAt_lt', alias?: string  } 
-  | { name: 'createdAt_lte', alias?: string  } 
-  | { name: 'createdAt_gt', alias?: string  } 
-  | { name: 'createdAt_gte', alias?: string  } 
-  | { name: 'updatedAt', alias?: string  } 
-  | { name: 'updatedAt_not', alias?: string  } 
-  | { name: 'updatedAt_in', alias?: string  } 
-  | { name: 'updatedAt_not_in', alias?: string  } 
-  | { name: 'updatedAt_lt', alias?: string  } 
-  | { name: 'updatedAt_lte', alias?: string  } 
-  | { name: 'updatedAt_gt', alias?: string  } 
-  | { name: 'updatedAt_gte', alias?: string  } 
-  | { name: 'owner', alias?: string  } 
-  | { name: 'attribute_every', alias?: string  } 
-  | { name: 'attribute_some', alias?: string  } 
-  | { name: 'attribute_none', alias?: string  } 
-  | { name: 'AND', alias?: string  } 
-  | { name: 'OR', alias?: string  } 
-  | { name: 'NOT', alias?: string  } 
-  
 export interface UserCreateInput {
   id?: string | null
-  email?: string
-  phone_number?: PhoneNumberCreateManyWithoutOwnerInput | null
-  role?: prisma.AuthLevel | null
-  gender?: prisma.Gender
-  identifiers?: IdentifiersCreateOneInput
+  name?: string | null
+  firstName?: string
+  lastName?: string
+  middleName?: string | null
+  emails?: EmailCreateManyWithoutOwnerInput | null
+  phoneNumbers?: PhoneNumberCreateManyWithoutOwnerInput | null
 }
 export type UserCreateInputInputObject =
   | Extract<keyof UserCreateInput, string>
   | { name: 'id', alias?: string  } 
-  | { name: 'email', alias?: string  } 
-  | { name: 'phone_number', alias?: string  } 
-  | { name: 'role', alias?: string  } 
-  | { name: 'gender', alias?: string  } 
-  | { name: 'identifiers', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'firstName', alias?: string  } 
+  | { name: 'lastName', alias?: string  } 
+  | { name: 'middleName', alias?: string  } 
+  | { name: 'emails', alias?: string  } 
+  | { name: 'phoneNumbers', alias?: string  } 
+  
+export interface EmailCreateManyWithoutOwnerInput {
+  create?: EmailCreateWithoutOwnerInput[]
+  connect?: EmailWhereUniqueInput[]
+}
+export type EmailCreateManyWithoutOwnerInputInputObject =
+  | Extract<keyof EmailCreateManyWithoutOwnerInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface EmailCreateWithoutOwnerInput {
+  id?: string | null
+  value?: string
+}
+export type EmailCreateWithoutOwnerInputInputObject =
+  | Extract<keyof EmailCreateWithoutOwnerInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'value', alias?: string  } 
   
 export interface PhoneNumberCreateManyWithoutOwnerInput {
   create?: PhoneNumberCreateWithoutOwnerInput[]
@@ -6356,541 +2184,54 @@ export type PhoneNumberCreateManyWithoutOwnerInputInputObject =
   
 export interface PhoneNumberCreateWithoutOwnerInput {
   id?: string | null
-  value?: number | null
-  attribute?: AttributeCreateManyWithoutPhone_numberInput | null
+  type?: string
+  use?: PhoneNumberCreateuseInput | null
+  value?: string
 }
 export type PhoneNumberCreateWithoutOwnerInputInputObject =
   | Extract<keyof PhoneNumberCreateWithoutOwnerInput, string>
   | { name: 'id', alias?: string  } 
+  | { name: 'type', alias?: string  } 
+  | { name: 'use', alias?: string  } 
   | { name: 'value', alias?: string  } 
-  | { name: 'attribute', alias?: string  } 
   
-export interface AttributeCreateManyWithoutPhone_numberInput {
-  create?: AttributeCreateWithoutPhone_numberInput[]
-  connect?: AttributeWhereUniqueInput[]
+export interface PhoneNumberCreateuseInput {
+  set?: prisma.PhoneNumberUse[]
 }
-export type AttributeCreateManyWithoutPhone_numberInputInputObject =
-  | Extract<keyof AttributeCreateManyWithoutPhone_numberInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface AttributeCreateWithoutPhone_numberInput {
-  id?: string | null
-  attr_type?: string
-  tax_id?: TaxIdCreateManyWithoutAttributeInput | null
-  email?: EmailCreateManyWithoutAttributeInput | null
-}
-export type AttributeCreateWithoutPhone_numberInputInputObject =
-  | Extract<keyof AttributeCreateWithoutPhone_numberInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'attr_type', alias?: string  } 
-  | { name: 'tax_id', alias?: string  } 
-  | { name: 'email', alias?: string  } 
-  
-export interface TaxIdCreateManyWithoutAttributeInput {
-  create?: TaxIdCreateWithoutAttributeInput[]
-  connect?: TaxIdWhereUniqueInput[]
-}
-export type TaxIdCreateManyWithoutAttributeInputInputObject =
-  | Extract<keyof TaxIdCreateManyWithoutAttributeInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface TaxIdCreateWithoutAttributeInput {
-  id?: string | null
-  owner?: UserCreateOneInput
-}
-export type TaxIdCreateWithoutAttributeInputInputObject =
-  | Extract<keyof TaxIdCreateWithoutAttributeInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'owner', alias?: string  } 
-  
-export interface UserCreateOneInput {
-  create?: UserCreateInput | null
-  connect?: UserWhereUniqueInput | null
-}
-export type UserCreateOneInputInputObject =
-  | Extract<keyof UserCreateOneInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface EmailCreateManyWithoutAttributeInput {
-  create?: EmailCreateWithoutAttributeInput[]
-  connect?: EmailWhereUniqueInput[]
-}
-export type EmailCreateManyWithoutAttributeInputInputObject =
-  | Extract<keyof EmailCreateManyWithoutAttributeInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface EmailCreateWithoutAttributeInput {
-  id?: string | null
-  value?: string
-  owner?: UserCreateOneInput
-}
-export type EmailCreateWithoutAttributeInputInputObject =
-  | Extract<keyof EmailCreateWithoutAttributeInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'value', alias?: string  } 
-  | { name: 'owner', alias?: string  } 
-  
-export interface IdentifiersCreateOneInput {
-  create?: IdentifiersCreateInput | null
-  connect?: IdentifiersWhereUniqueInput | null
-}
-export type IdentifiersCreateOneInputInputObject =
-  | Extract<keyof IdentifiersCreateOneInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface IdentifiersCreateInput {
-  id?: string | null
-  tax_id?: TaxIdCreateManyInput | null
-  email?: EmailCreateManyInput | null
-  phone_number?: PhoneNumberCreateManyInput | null
-}
-export type IdentifiersCreateInputInputObject =
-  | Extract<keyof IdentifiersCreateInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'tax_id', alias?: string  } 
-  | { name: 'email', alias?: string  } 
-  | { name: 'phone_number', alias?: string  } 
-  
-export interface TaxIdCreateManyInput {
-  create?: TaxIdCreateInput[]
-  connect?: TaxIdWhereUniqueInput[]
-}
-export type TaxIdCreateManyInputInputObject =
-  | Extract<keyof TaxIdCreateManyInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface TaxIdCreateInput {
-  id?: string | null
-  owner?: UserCreateOneInput
-  attribute?: AttributeCreateManyWithoutTax_idInput | null
-}
-export type TaxIdCreateInputInputObject =
-  | Extract<keyof TaxIdCreateInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'owner', alias?: string  } 
-  | { name: 'attribute', alias?: string  } 
-  
-export interface AttributeCreateManyWithoutTax_idInput {
-  create?: AttributeCreateWithoutTax_idInput[]
-  connect?: AttributeWhereUniqueInput[]
-}
-export type AttributeCreateManyWithoutTax_idInputInputObject =
-  | Extract<keyof AttributeCreateManyWithoutTax_idInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface AttributeCreateWithoutTax_idInput {
-  id?: string | null
-  attr_type?: string
-  email?: EmailCreateManyWithoutAttributeInput | null
-  phone_number?: PhoneNumberCreateManyWithoutAttributeInput | null
-}
-export type AttributeCreateWithoutTax_idInputInputObject =
-  | Extract<keyof AttributeCreateWithoutTax_idInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'attr_type', alias?: string  } 
-  | { name: 'email', alias?: string  } 
-  | { name: 'phone_number', alias?: string  } 
-  
-export interface PhoneNumberCreateManyWithoutAttributeInput {
-  create?: PhoneNumberCreateWithoutAttributeInput[]
-  connect?: PhoneNumberWhereUniqueInput[]
-}
-export type PhoneNumberCreateManyWithoutAttributeInputInputObject =
-  | Extract<keyof PhoneNumberCreateManyWithoutAttributeInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface PhoneNumberCreateWithoutAttributeInput {
-  id?: string | null
-  value?: number | null
-  owner?: UserCreateOneWithoutPhone_numberInput
-}
-export type PhoneNumberCreateWithoutAttributeInputInputObject =
-  | Extract<keyof PhoneNumberCreateWithoutAttributeInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'value', alias?: string  } 
-  | { name: 'owner', alias?: string  } 
-  
-export interface UserCreateOneWithoutPhone_numberInput {
-  create?: UserCreateWithoutPhone_numberInput | null
-  connect?: UserWhereUniqueInput | null
-}
-export type UserCreateOneWithoutPhone_numberInputInputObject =
-  | Extract<keyof UserCreateOneWithoutPhone_numberInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface UserCreateWithoutPhone_numberInput {
-  id?: string | null
-  email?: string
-  role?: prisma.AuthLevel | null
-  gender?: prisma.Gender
-  identifiers?: IdentifiersCreateOneInput
-}
-export type UserCreateWithoutPhone_numberInputInputObject =
-  | Extract<keyof UserCreateWithoutPhone_numberInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'email', alias?: string  } 
-  | { name: 'role', alias?: string  } 
-  | { name: 'gender', alias?: string  } 
-  | { name: 'identifiers', alias?: string  } 
-  
-export interface EmailCreateManyInput {
-  create?: EmailCreateInput[]
-  connect?: EmailWhereUniqueInput[]
-}
-export type EmailCreateManyInputInputObject =
-  | Extract<keyof EmailCreateManyInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface EmailCreateInput {
-  id?: string | null
-  value?: string
-  owner?: UserCreateOneInput
-  attribute?: AttributeCreateManyWithoutEmailInput | null
-}
-export type EmailCreateInputInputObject =
-  | Extract<keyof EmailCreateInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'value', alias?: string  } 
-  | { name: 'owner', alias?: string  } 
-  | { name: 'attribute', alias?: string  } 
-  
-export interface AttributeCreateManyWithoutEmailInput {
-  create?: AttributeCreateWithoutEmailInput[]
-  connect?: AttributeWhereUniqueInput[]
-}
-export type AttributeCreateManyWithoutEmailInputInputObject =
-  | Extract<keyof AttributeCreateManyWithoutEmailInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface AttributeCreateWithoutEmailInput {
-  id?: string | null
-  attr_type?: string
-  tax_id?: TaxIdCreateManyWithoutAttributeInput | null
-  phone_number?: PhoneNumberCreateManyWithoutAttributeInput | null
-}
-export type AttributeCreateWithoutEmailInputInputObject =
-  | Extract<keyof AttributeCreateWithoutEmailInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'attr_type', alias?: string  } 
-  | { name: 'tax_id', alias?: string  } 
-  | { name: 'phone_number', alias?: string  } 
-  
-export interface PhoneNumberCreateManyInput {
-  create?: PhoneNumberCreateInput[]
-  connect?: PhoneNumberWhereUniqueInput[]
-}
-export type PhoneNumberCreateManyInputInputObject =
-  | Extract<keyof PhoneNumberCreateManyInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface PhoneNumberCreateInput {
-  id?: string | null
-  value?: number | null
-  owner?: UserCreateOneWithoutPhone_numberInput
-  attribute?: AttributeCreateManyWithoutPhone_numberInput | null
-}
-export type PhoneNumberCreateInputInputObject =
-  | Extract<keyof PhoneNumberCreateInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'value', alias?: string  } 
-  | { name: 'owner', alias?: string  } 
-  | { name: 'attribute', alias?: string  } 
+export type PhoneNumberCreateuseInputInputObject =
+  | Extract<keyof PhoneNumberCreateuseInput, string>
+  | { name: 'set', alias?: string  } 
   
 export interface UserUpdateInput {
-  email?: string | null
-  phone_number?: PhoneNumberUpdateManyWithoutOwnerInput | null
-  role?: prisma.AuthLevel | null
-  gender?: prisma.Gender | null
-  identifiers?: IdentifiersUpdateOneRequiredInput | null
+  name?: string | null
+  firstName?: string | null
+  lastName?: string | null
+  middleName?: string | null
+  emails?: EmailUpdateManyWithoutOwnerInput | null
+  phoneNumbers?: PhoneNumberUpdateManyWithoutOwnerInput | null
 }
 export type UserUpdateInputInputObject =
   | Extract<keyof UserUpdateInput, string>
-  | { name: 'email', alias?: string  } 
-  | { name: 'phone_number', alias?: string  } 
-  | { name: 'role', alias?: string  } 
-  | { name: 'gender', alias?: string  } 
-  | { name: 'identifiers', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'firstName', alias?: string  } 
+  | { name: 'lastName', alias?: string  } 
+  | { name: 'middleName', alias?: string  } 
+  | { name: 'emails', alias?: string  } 
+  | { name: 'phoneNumbers', alias?: string  } 
   
-export interface PhoneNumberUpdateManyWithoutOwnerInput {
-  create?: PhoneNumberCreateWithoutOwnerInput[]
-  delete?: PhoneNumberWhereUniqueInput[]
-  connect?: PhoneNumberWhereUniqueInput[]
-  set?: PhoneNumberWhereUniqueInput[]
-  disconnect?: PhoneNumberWhereUniqueInput[]
-  update?: PhoneNumberUpdateWithWhereUniqueWithoutOwnerInput[]
-  upsert?: PhoneNumberUpsertWithWhereUniqueWithoutOwnerInput[]
-  deleteMany?: PhoneNumberScalarWhereInput[]
-  updateMany?: PhoneNumberUpdateManyWithWhereNestedInput[]
-}
-export type PhoneNumberUpdateManyWithoutOwnerInputInputObject =
-  | Extract<keyof PhoneNumberUpdateManyWithoutOwnerInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'delete', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  | { name: 'set', alias?: string  } 
-  | { name: 'disconnect', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'upsert', alias?: string  } 
-  | { name: 'deleteMany', alias?: string  } 
-  | { name: 'updateMany', alias?: string  } 
-  
-export interface PhoneNumberUpdateWithWhereUniqueWithoutOwnerInput {
-  where?: PhoneNumberWhereUniqueInput
-  data?: PhoneNumberUpdateWithoutOwnerDataInput
-}
-export type PhoneNumberUpdateWithWhereUniqueWithoutOwnerInputInputObject =
-  | Extract<keyof PhoneNumberUpdateWithWhereUniqueWithoutOwnerInput, string>
-  | { name: 'where', alias?: string  } 
-  | { name: 'data', alias?: string  } 
-  
-export interface PhoneNumberUpdateWithoutOwnerDataInput {
-  value?: number | null
-  attribute?: AttributeUpdateManyWithoutPhone_numberInput | null
-}
-export type PhoneNumberUpdateWithoutOwnerDataInputInputObject =
-  | Extract<keyof PhoneNumberUpdateWithoutOwnerDataInput, string>
-  | { name: 'value', alias?: string  } 
-  | { name: 'attribute', alias?: string  } 
-  
-export interface AttributeUpdateManyWithoutPhone_numberInput {
-  create?: AttributeCreateWithoutPhone_numberInput[]
-  delete?: AttributeWhereUniqueInput[]
-  connect?: AttributeWhereUniqueInput[]
-  set?: AttributeWhereUniqueInput[]
-  disconnect?: AttributeWhereUniqueInput[]
-  update?: AttributeUpdateWithWhereUniqueWithoutPhone_numberInput[]
-  upsert?: AttributeUpsertWithWhereUniqueWithoutPhone_numberInput[]
-  deleteMany?: AttributeScalarWhereInput[]
-  updateMany?: AttributeUpdateManyWithWhereNestedInput[]
-}
-export type AttributeUpdateManyWithoutPhone_numberInputInputObject =
-  | Extract<keyof AttributeUpdateManyWithoutPhone_numberInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'delete', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  | { name: 'set', alias?: string  } 
-  | { name: 'disconnect', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'upsert', alias?: string  } 
-  | { name: 'deleteMany', alias?: string  } 
-  | { name: 'updateMany', alias?: string  } 
-  
-export interface AttributeUpdateWithWhereUniqueWithoutPhone_numberInput {
-  where?: AttributeWhereUniqueInput
-  data?: AttributeUpdateWithoutPhone_numberDataInput
-}
-export type AttributeUpdateWithWhereUniqueWithoutPhone_numberInputInputObject =
-  | Extract<keyof AttributeUpdateWithWhereUniqueWithoutPhone_numberInput, string>
-  | { name: 'where', alias?: string  } 
-  | { name: 'data', alias?: string  } 
-  
-export interface AttributeUpdateWithoutPhone_numberDataInput {
-  attr_type?: string | null
-  tax_id?: TaxIdUpdateManyWithoutAttributeInput | null
-  email?: EmailUpdateManyWithoutAttributeInput | null
-}
-export type AttributeUpdateWithoutPhone_numberDataInputInputObject =
-  | Extract<keyof AttributeUpdateWithoutPhone_numberDataInput, string>
-  | { name: 'attr_type', alias?: string  } 
-  | { name: 'tax_id', alias?: string  } 
-  | { name: 'email', alias?: string  } 
-  
-export interface TaxIdUpdateManyWithoutAttributeInput {
-  create?: TaxIdCreateWithoutAttributeInput[]
-  delete?: TaxIdWhereUniqueInput[]
-  connect?: TaxIdWhereUniqueInput[]
-  set?: TaxIdWhereUniqueInput[]
-  disconnect?: TaxIdWhereUniqueInput[]
-  update?: TaxIdUpdateWithWhereUniqueWithoutAttributeInput[]
-  upsert?: TaxIdUpsertWithWhereUniqueWithoutAttributeInput[]
-  deleteMany?: TaxIdScalarWhereInput[]
-}
-export type TaxIdUpdateManyWithoutAttributeInputInputObject =
-  | Extract<keyof TaxIdUpdateManyWithoutAttributeInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'delete', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  | { name: 'set', alias?: string  } 
-  | { name: 'disconnect', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'upsert', alias?: string  } 
-  | { name: 'deleteMany', alias?: string  } 
-  
-export interface TaxIdUpdateWithWhereUniqueWithoutAttributeInput {
-  where?: TaxIdWhereUniqueInput
-  data?: TaxIdUpdateWithoutAttributeDataInput
-}
-export type TaxIdUpdateWithWhereUniqueWithoutAttributeInputInputObject =
-  | Extract<keyof TaxIdUpdateWithWhereUniqueWithoutAttributeInput, string>
-  | { name: 'where', alias?: string  } 
-  | { name: 'data', alias?: string  } 
-  
-export interface TaxIdUpdateWithoutAttributeDataInput {
-  owner?: UserUpdateOneRequiredInput | null
-}
-export type TaxIdUpdateWithoutAttributeDataInputInputObject =
-  | Extract<keyof TaxIdUpdateWithoutAttributeDataInput, string>
-  | { name: 'owner', alias?: string  } 
-  
-export interface UserUpdateOneRequiredInput {
-  create?: UserCreateInput | null
-  update?: UserUpdateDataInput | null
-  upsert?: UserUpsertNestedInput | null
-  connect?: UserWhereUniqueInput | null
-}
-export type UserUpdateOneRequiredInputInputObject =
-  | Extract<keyof UserUpdateOneRequiredInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'upsert', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface UserUpdateDataInput {
-  email?: string | null
-  phone_number?: PhoneNumberUpdateManyWithoutOwnerInput | null
-  role?: prisma.AuthLevel | null
-  gender?: prisma.Gender | null
-  identifiers?: IdentifiersUpdateOneRequiredInput | null
-}
-export type UserUpdateDataInputInputObject =
-  | Extract<keyof UserUpdateDataInput, string>
-  | { name: 'email', alias?: string  } 
-  | { name: 'phone_number', alias?: string  } 
-  | { name: 'role', alias?: string  } 
-  | { name: 'gender', alias?: string  } 
-  | { name: 'identifiers', alias?: string  } 
-  
-export interface IdentifiersUpdateOneRequiredInput {
-  create?: IdentifiersCreateInput | null
-  update?: IdentifiersUpdateDataInput | null
-  upsert?: IdentifiersUpsertNestedInput | null
-  connect?: IdentifiersWhereUniqueInput | null
-}
-export type IdentifiersUpdateOneRequiredInputInputObject =
-  | Extract<keyof IdentifiersUpdateOneRequiredInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'upsert', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface IdentifiersUpdateDataInput {
-  tax_id?: TaxIdUpdateManyInput | null
-  email?: EmailUpdateManyInput | null
-  phone_number?: PhoneNumberUpdateManyInput | null
-}
-export type IdentifiersUpdateDataInputInputObject =
-  | Extract<keyof IdentifiersUpdateDataInput, string>
-  | { name: 'tax_id', alias?: string  } 
-  | { name: 'email', alias?: string  } 
-  | { name: 'phone_number', alias?: string  } 
-  
-export interface TaxIdUpdateManyInput {
-  create?: TaxIdCreateInput[]
-  update?: TaxIdUpdateWithWhereUniqueNestedInput[]
-  upsert?: TaxIdUpsertWithWhereUniqueNestedInput[]
-  delete?: TaxIdWhereUniqueInput[]
-  connect?: TaxIdWhereUniqueInput[]
-  set?: TaxIdWhereUniqueInput[]
-  disconnect?: TaxIdWhereUniqueInput[]
-  deleteMany?: TaxIdScalarWhereInput[]
-}
-export type TaxIdUpdateManyInputInputObject =
-  | Extract<keyof TaxIdUpdateManyInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'upsert', alias?: string  } 
-  | { name: 'delete', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  | { name: 'set', alias?: string  } 
-  | { name: 'disconnect', alias?: string  } 
-  | { name: 'deleteMany', alias?: string  } 
-  
-export interface TaxIdUpdateWithWhereUniqueNestedInput {
-  where?: TaxIdWhereUniqueInput
-  data?: TaxIdUpdateDataInput
-}
-export type TaxIdUpdateWithWhereUniqueNestedInputInputObject =
-  | Extract<keyof TaxIdUpdateWithWhereUniqueNestedInput, string>
-  | { name: 'where', alias?: string  } 
-  | { name: 'data', alias?: string  } 
-  
-export interface TaxIdUpdateDataInput {
-  owner?: UserUpdateOneRequiredInput | null
-  attribute?: AttributeUpdateManyWithoutTax_idInput | null
-}
-export type TaxIdUpdateDataInputInputObject =
-  | Extract<keyof TaxIdUpdateDataInput, string>
-  | { name: 'owner', alias?: string  } 
-  | { name: 'attribute', alias?: string  } 
-  
-export interface AttributeUpdateManyWithoutTax_idInput {
-  create?: AttributeCreateWithoutTax_idInput[]
-  delete?: AttributeWhereUniqueInput[]
-  connect?: AttributeWhereUniqueInput[]
-  set?: AttributeWhereUniqueInput[]
-  disconnect?: AttributeWhereUniqueInput[]
-  update?: AttributeUpdateWithWhereUniqueWithoutTax_idInput[]
-  upsert?: AttributeUpsertWithWhereUniqueWithoutTax_idInput[]
-  deleteMany?: AttributeScalarWhereInput[]
-  updateMany?: AttributeUpdateManyWithWhereNestedInput[]
-}
-export type AttributeUpdateManyWithoutTax_idInputInputObject =
-  | Extract<keyof AttributeUpdateManyWithoutTax_idInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'delete', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  | { name: 'set', alias?: string  } 
-  | { name: 'disconnect', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'upsert', alias?: string  } 
-  | { name: 'deleteMany', alias?: string  } 
-  | { name: 'updateMany', alias?: string  } 
-  
-export interface AttributeUpdateWithWhereUniqueWithoutTax_idInput {
-  where?: AttributeWhereUniqueInput
-  data?: AttributeUpdateWithoutTax_idDataInput
-}
-export type AttributeUpdateWithWhereUniqueWithoutTax_idInputInputObject =
-  | Extract<keyof AttributeUpdateWithWhereUniqueWithoutTax_idInput, string>
-  | { name: 'where', alias?: string  } 
-  | { name: 'data', alias?: string  } 
-  
-export interface AttributeUpdateWithoutTax_idDataInput {
-  attr_type?: string | null
-  email?: EmailUpdateManyWithoutAttributeInput | null
-  phone_number?: PhoneNumberUpdateManyWithoutAttributeInput | null
-}
-export type AttributeUpdateWithoutTax_idDataInputInputObject =
-  | Extract<keyof AttributeUpdateWithoutTax_idDataInput, string>
-  | { name: 'attr_type', alias?: string  } 
-  | { name: 'email', alias?: string  } 
-  | { name: 'phone_number', alias?: string  } 
-  
-export interface EmailUpdateManyWithoutAttributeInput {
-  create?: EmailCreateWithoutAttributeInput[]
+export interface EmailUpdateManyWithoutOwnerInput {
+  create?: EmailCreateWithoutOwnerInput[]
   delete?: EmailWhereUniqueInput[]
   connect?: EmailWhereUniqueInput[]
   set?: EmailWhereUniqueInput[]
   disconnect?: EmailWhereUniqueInput[]
-  update?: EmailUpdateWithWhereUniqueWithoutAttributeInput[]
-  upsert?: EmailUpsertWithWhereUniqueWithoutAttributeInput[]
+  update?: EmailUpdateWithWhereUniqueWithoutOwnerInput[]
+  upsert?: EmailUpsertWithWhereUniqueWithoutOwnerInput[]
   deleteMany?: EmailScalarWhereInput[]
   updateMany?: EmailUpdateManyWithWhereNestedInput[]
 }
-export type EmailUpdateManyWithoutAttributeInputInputObject =
-  | Extract<keyof EmailUpdateManyWithoutAttributeInput, string>
+export type EmailUpdateManyWithoutOwnerInputInputObject =
+  | Extract<keyof EmailUpdateManyWithoutOwnerInput, string>
   | { name: 'create', alias?: string  } 
   | { name: 'delete', alias?: string  } 
   | { name: 'connect', alias?: string  } 
@@ -6901,31 +2242,29 @@ export type EmailUpdateManyWithoutAttributeInputInputObject =
   | { name: 'deleteMany', alias?: string  } 
   | { name: 'updateMany', alias?: string  } 
   
-export interface EmailUpdateWithWhereUniqueWithoutAttributeInput {
+export interface EmailUpdateWithWhereUniqueWithoutOwnerInput {
   where?: EmailWhereUniqueInput
-  data?: EmailUpdateWithoutAttributeDataInput
+  data?: EmailUpdateWithoutOwnerDataInput
 }
-export type EmailUpdateWithWhereUniqueWithoutAttributeInputInputObject =
-  | Extract<keyof EmailUpdateWithWhereUniqueWithoutAttributeInput, string>
+export type EmailUpdateWithWhereUniqueWithoutOwnerInputInputObject =
+  | Extract<keyof EmailUpdateWithWhereUniqueWithoutOwnerInput, string>
   | { name: 'where', alias?: string  } 
   | { name: 'data', alias?: string  } 
   
-export interface EmailUpdateWithoutAttributeDataInput {
+export interface EmailUpdateWithoutOwnerDataInput {
   value?: string | null
-  owner?: UserUpdateOneRequiredInput | null
 }
-export type EmailUpdateWithoutAttributeDataInputInputObject =
-  | Extract<keyof EmailUpdateWithoutAttributeDataInput, string>
+export type EmailUpdateWithoutOwnerDataInputInputObject =
+  | Extract<keyof EmailUpdateWithoutOwnerDataInput, string>
   | { name: 'value', alias?: string  } 
-  | { name: 'owner', alias?: string  } 
   
-export interface EmailUpsertWithWhereUniqueWithoutAttributeInput {
+export interface EmailUpsertWithWhereUniqueWithoutOwnerInput {
   where?: EmailWhereUniqueInput
-  update?: EmailUpdateWithoutAttributeDataInput
-  create?: EmailCreateWithoutAttributeInput
+  update?: EmailUpdateWithoutOwnerDataInput
+  create?: EmailCreateWithoutOwnerInput
 }
-export type EmailUpsertWithWhereUniqueWithoutAttributeInputInputObject =
-  | Extract<keyof EmailUpsertWithWhereUniqueWithoutAttributeInput, string>
+export type EmailUpsertWithWhereUniqueWithoutOwnerInputInputObject =
+  | Extract<keyof EmailUpsertWithWhereUniqueWithoutOwnerInput, string>
   | { name: 'where', alias?: string  } 
   | { name: 'update', alias?: string  } 
   | { name: 'create', alias?: string  } 
@@ -6959,22 +2298,6 @@ export interface EmailScalarWhereInput {
   value_not_starts_with?: string | null
   value_ends_with?: string | null
   value_not_ends_with?: string | null
-  createdAt?: string | null
-  createdAt_not?: string | null
-  createdAt_in?: string[]
-  createdAt_not_in?: string[]
-  createdAt_lt?: string | null
-  createdAt_lte?: string | null
-  createdAt_gt?: string | null
-  createdAt_gte?: string | null
-  updatedAt?: string | null
-  updatedAt_not?: string | null
-  updatedAt_in?: string[]
-  updatedAt_not_in?: string[]
-  updatedAt_lt?: string | null
-  updatedAt_lte?: string | null
-  updatedAt_gt?: string | null
-  updatedAt_gte?: string | null
   AND?: EmailScalarWhereInput[]
   OR?: EmailScalarWhereInput[]
   NOT?: EmailScalarWhereInput[]
@@ -7009,22 +2332,6 @@ export type EmailScalarWhereInputInputObject =
   | { name: 'value_not_starts_with', alias?: string  } 
   | { name: 'value_ends_with', alias?: string  } 
   | { name: 'value_not_ends_with', alias?: string  } 
-  | { name: 'createdAt', alias?: string  } 
-  | { name: 'createdAt_not', alias?: string  } 
-  | { name: 'createdAt_in', alias?: string  } 
-  | { name: 'createdAt_not_in', alias?: string  } 
-  | { name: 'createdAt_lt', alias?: string  } 
-  | { name: 'createdAt_lte', alias?: string  } 
-  | { name: 'createdAt_gt', alias?: string  } 
-  | { name: 'createdAt_gte', alias?: string  } 
-  | { name: 'updatedAt', alias?: string  } 
-  | { name: 'updatedAt_not', alias?: string  } 
-  | { name: 'updatedAt_in', alias?: string  } 
-  | { name: 'updatedAt_not_in', alias?: string  } 
-  | { name: 'updatedAt_lt', alias?: string  } 
-  | { name: 'updatedAt_lte', alias?: string  } 
-  | { name: 'updatedAt_gt', alias?: string  } 
-  | { name: 'updatedAt_gte', alias?: string  } 
   | { name: 'AND', alias?: string  } 
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
@@ -7045,19 +2352,19 @@ export type EmailUpdateManyDataInputInputObject =
   | Extract<keyof EmailUpdateManyDataInput, string>
   | { name: 'value', alias?: string  } 
   
-export interface PhoneNumberUpdateManyWithoutAttributeInput {
-  create?: PhoneNumberCreateWithoutAttributeInput[]
+export interface PhoneNumberUpdateManyWithoutOwnerInput {
+  create?: PhoneNumberCreateWithoutOwnerInput[]
   delete?: PhoneNumberWhereUniqueInput[]
   connect?: PhoneNumberWhereUniqueInput[]
   set?: PhoneNumberWhereUniqueInput[]
   disconnect?: PhoneNumberWhereUniqueInput[]
-  update?: PhoneNumberUpdateWithWhereUniqueWithoutAttributeInput[]
-  upsert?: PhoneNumberUpsertWithWhereUniqueWithoutAttributeInput[]
+  update?: PhoneNumberUpdateWithWhereUniqueWithoutOwnerInput[]
+  upsert?: PhoneNumberUpsertWithWhereUniqueWithoutOwnerInput[]
   deleteMany?: PhoneNumberScalarWhereInput[]
   updateMany?: PhoneNumberUpdateManyWithWhereNestedInput[]
 }
-export type PhoneNumberUpdateManyWithoutAttributeInputInputObject =
-  | Extract<keyof PhoneNumberUpdateManyWithoutAttributeInput, string>
+export type PhoneNumberUpdateManyWithoutOwnerInputInputObject =
+  | Extract<keyof PhoneNumberUpdateManyWithoutOwnerInput, string>
   | { name: 'create', alias?: string  } 
   | { name: 'delete', alias?: string  } 
   | { name: 'connect', alias?: string  } 
@@ -7068,66 +2375,40 @@ export type PhoneNumberUpdateManyWithoutAttributeInputInputObject =
   | { name: 'deleteMany', alias?: string  } 
   | { name: 'updateMany', alias?: string  } 
   
-export interface PhoneNumberUpdateWithWhereUniqueWithoutAttributeInput {
+export interface PhoneNumberUpdateWithWhereUniqueWithoutOwnerInput {
   where?: PhoneNumberWhereUniqueInput
-  data?: PhoneNumberUpdateWithoutAttributeDataInput
+  data?: PhoneNumberUpdateWithoutOwnerDataInput
 }
-export type PhoneNumberUpdateWithWhereUniqueWithoutAttributeInputInputObject =
-  | Extract<keyof PhoneNumberUpdateWithWhereUniqueWithoutAttributeInput, string>
+export type PhoneNumberUpdateWithWhereUniqueWithoutOwnerInputInputObject =
+  | Extract<keyof PhoneNumberUpdateWithWhereUniqueWithoutOwnerInput, string>
   | { name: 'where', alias?: string  } 
   | { name: 'data', alias?: string  } 
   
-export interface PhoneNumberUpdateWithoutAttributeDataInput {
-  value?: number | null
-  owner?: UserUpdateOneRequiredWithoutPhone_numberInput | null
+export interface PhoneNumberUpdateWithoutOwnerDataInput {
+  type?: string | null
+  use?: PhoneNumberUpdateuseInput | null
+  value?: string | null
 }
-export type PhoneNumberUpdateWithoutAttributeDataInputInputObject =
-  | Extract<keyof PhoneNumberUpdateWithoutAttributeDataInput, string>
+export type PhoneNumberUpdateWithoutOwnerDataInputInputObject =
+  | Extract<keyof PhoneNumberUpdateWithoutOwnerDataInput, string>
+  | { name: 'type', alias?: string  } 
+  | { name: 'use', alias?: string  } 
   | { name: 'value', alias?: string  } 
-  | { name: 'owner', alias?: string  } 
   
-export interface UserUpdateOneRequiredWithoutPhone_numberInput {
-  create?: UserCreateWithoutPhone_numberInput | null
-  update?: UserUpdateWithoutPhone_numberDataInput | null
-  upsert?: UserUpsertWithoutPhone_numberInput | null
-  connect?: UserWhereUniqueInput | null
+export interface PhoneNumberUpdateuseInput {
+  set?: prisma.PhoneNumberUse[]
 }
-export type UserUpdateOneRequiredWithoutPhone_numberInputInputObject =
-  | Extract<keyof UserUpdateOneRequiredWithoutPhone_numberInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'upsert', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
+export type PhoneNumberUpdateuseInputInputObject =
+  | Extract<keyof PhoneNumberUpdateuseInput, string>
+  | { name: 'set', alias?: string  } 
   
-export interface UserUpdateWithoutPhone_numberDataInput {
-  email?: string | null
-  role?: prisma.AuthLevel | null
-  gender?: prisma.Gender | null
-  identifiers?: IdentifiersUpdateOneRequiredInput | null
-}
-export type UserUpdateWithoutPhone_numberDataInputInputObject =
-  | Extract<keyof UserUpdateWithoutPhone_numberDataInput, string>
-  | { name: 'email', alias?: string  } 
-  | { name: 'role', alias?: string  } 
-  | { name: 'gender', alias?: string  } 
-  | { name: 'identifiers', alias?: string  } 
-  
-export interface UserUpsertWithoutPhone_numberInput {
-  update?: UserUpdateWithoutPhone_numberDataInput
-  create?: UserCreateWithoutPhone_numberInput
-}
-export type UserUpsertWithoutPhone_numberInputInputObject =
-  | Extract<keyof UserUpsertWithoutPhone_numberInput, string>
-  | { name: 'update', alias?: string  } 
-  | { name: 'create', alias?: string  } 
-  
-export interface PhoneNumberUpsertWithWhereUniqueWithoutAttributeInput {
+export interface PhoneNumberUpsertWithWhereUniqueWithoutOwnerInput {
   where?: PhoneNumberWhereUniqueInput
-  update?: PhoneNumberUpdateWithoutAttributeDataInput
-  create?: PhoneNumberCreateWithoutAttributeInput
+  update?: PhoneNumberUpdateWithoutOwnerDataInput
+  create?: PhoneNumberCreateWithoutOwnerInput
 }
-export type PhoneNumberUpsertWithWhereUniqueWithoutAttributeInputInputObject =
-  | Extract<keyof PhoneNumberUpsertWithWhereUniqueWithoutAttributeInput, string>
+export type PhoneNumberUpsertWithWhereUniqueWithoutOwnerInputInputObject =
+  | Extract<keyof PhoneNumberUpsertWithWhereUniqueWithoutOwnerInput, string>
   | { name: 'where', alias?: string  } 
   | { name: 'update', alias?: string  } 
   | { name: 'create', alias?: string  } 
@@ -7147,30 +2428,34 @@ export interface PhoneNumberScalarWhereInput {
   id_not_starts_with?: string | null
   id_ends_with?: string | null
   id_not_ends_with?: string | null
-  value?: number | null
-  value_not?: number | null
-  value_in?: number[]
-  value_not_in?: number[]
-  value_lt?: number | null
-  value_lte?: number | null
-  value_gt?: number | null
-  value_gte?: number | null
-  createdAt?: string | null
-  createdAt_not?: string | null
-  createdAt_in?: string[]
-  createdAt_not_in?: string[]
-  createdAt_lt?: string | null
-  createdAt_lte?: string | null
-  createdAt_gt?: string | null
-  createdAt_gte?: string | null
-  updatedAt?: string | null
-  updatedAt_not?: string | null
-  updatedAt_in?: string[]
-  updatedAt_not_in?: string[]
-  updatedAt_lt?: string | null
-  updatedAt_lte?: string | null
-  updatedAt_gt?: string | null
-  updatedAt_gte?: string | null
+  type?: string | null
+  type_not?: string | null
+  type_in?: string[]
+  type_not_in?: string[]
+  type_lt?: string | null
+  type_lte?: string | null
+  type_gt?: string | null
+  type_gte?: string | null
+  type_contains?: string | null
+  type_not_contains?: string | null
+  type_starts_with?: string | null
+  type_not_starts_with?: string | null
+  type_ends_with?: string | null
+  type_not_ends_with?: string | null
+  value?: string | null
+  value_not?: string | null
+  value_in?: string[]
+  value_not_in?: string[]
+  value_lt?: string | null
+  value_lte?: string | null
+  value_gt?: string | null
+  value_gte?: string | null
+  value_contains?: string | null
+  value_not_contains?: string | null
+  value_starts_with?: string | null
+  value_not_starts_with?: string | null
+  value_ends_with?: string | null
+  value_not_ends_with?: string | null
   AND?: PhoneNumberScalarWhereInput[]
   OR?: PhoneNumberScalarWhereInput[]
   NOT?: PhoneNumberScalarWhereInput[]
@@ -7191,6 +2476,20 @@ export type PhoneNumberScalarWhereInputInputObject =
   | { name: 'id_not_starts_with', alias?: string  } 
   | { name: 'id_ends_with', alias?: string  } 
   | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'type', alias?: string  } 
+  | { name: 'type_not', alias?: string  } 
+  | { name: 'type_in', alias?: string  } 
+  | { name: 'type_not_in', alias?: string  } 
+  | { name: 'type_lt', alias?: string  } 
+  | { name: 'type_lte', alias?: string  } 
+  | { name: 'type_gt', alias?: string  } 
+  | { name: 'type_gte', alias?: string  } 
+  | { name: 'type_contains', alias?: string  } 
+  | { name: 'type_not_contains', alias?: string  } 
+  | { name: 'type_starts_with', alias?: string  } 
+  | { name: 'type_not_starts_with', alias?: string  } 
+  | { name: 'type_ends_with', alias?: string  } 
+  | { name: 'type_not_ends_with', alias?: string  } 
   | { name: 'value', alias?: string  } 
   | { name: 'value_not', alias?: string  } 
   | { name: 'value_in', alias?: string  } 
@@ -7199,22 +2498,12 @@ export type PhoneNumberScalarWhereInputInputObject =
   | { name: 'value_lte', alias?: string  } 
   | { name: 'value_gt', alias?: string  } 
   | { name: 'value_gte', alias?: string  } 
-  | { name: 'createdAt', alias?: string  } 
-  | { name: 'createdAt_not', alias?: string  } 
-  | { name: 'createdAt_in', alias?: string  } 
-  | { name: 'createdAt_not_in', alias?: string  } 
-  | { name: 'createdAt_lt', alias?: string  } 
-  | { name: 'createdAt_lte', alias?: string  } 
-  | { name: 'createdAt_gt', alias?: string  } 
-  | { name: 'createdAt_gte', alias?: string  } 
-  | { name: 'updatedAt', alias?: string  } 
-  | { name: 'updatedAt_not', alias?: string  } 
-  | { name: 'updatedAt_in', alias?: string  } 
-  | { name: 'updatedAt_not_in', alias?: string  } 
-  | { name: 'updatedAt_lt', alias?: string  } 
-  | { name: 'updatedAt_lte', alias?: string  } 
-  | { name: 'updatedAt_gt', alias?: string  } 
-  | { name: 'updatedAt_gte', alias?: string  } 
+  | { name: 'value_contains', alias?: string  } 
+  | { name: 'value_not_contains', alias?: string  } 
+  | { name: 'value_starts_with', alias?: string  } 
+  | { name: 'value_not_starts_with', alias?: string  } 
+  | { name: 'value_ends_with', alias?: string  } 
+  | { name: 'value_not_ends_with', alias?: string  } 
   | { name: 'AND', alias?: string  } 
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
@@ -7229,442 +2518,115 @@ export type PhoneNumberUpdateManyWithWhereNestedInputInputObject =
   | { name: 'data', alias?: string  } 
   
 export interface PhoneNumberUpdateManyDataInput {
-  value?: number | null
+  type?: string | null
+  use?: PhoneNumberUpdateuseInput | null
+  value?: string | null
 }
 export type PhoneNumberUpdateManyDataInputInputObject =
   | Extract<keyof PhoneNumberUpdateManyDataInput, string>
+  | { name: 'type', alias?: string  } 
+  | { name: 'use', alias?: string  } 
   | { name: 'value', alias?: string  } 
-  
-export interface AttributeUpsertWithWhereUniqueWithoutTax_idInput {
-  where?: AttributeWhereUniqueInput
-  update?: AttributeUpdateWithoutTax_idDataInput
-  create?: AttributeCreateWithoutTax_idInput
-}
-export type AttributeUpsertWithWhereUniqueWithoutTax_idInputInputObject =
-  | Extract<keyof AttributeUpsertWithWhereUniqueWithoutTax_idInput, string>
-  | { name: 'where', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'create', alias?: string  } 
-  
-export interface AttributeScalarWhereInput {
-  id?: string | null
-  id_not?: string | null
-  id_in?: string[]
-  id_not_in?: string[]
-  id_lt?: string | null
-  id_lte?: string | null
-  id_gt?: string | null
-  id_gte?: string | null
-  id_contains?: string | null
-  id_not_contains?: string | null
-  id_starts_with?: string | null
-  id_not_starts_with?: string | null
-  id_ends_with?: string | null
-  id_not_ends_with?: string | null
-  attr_type?: string | null
-  attr_type_not?: string | null
-  attr_type_in?: string[]
-  attr_type_not_in?: string[]
-  attr_type_lt?: string | null
-  attr_type_lte?: string | null
-  attr_type_gt?: string | null
-  attr_type_gte?: string | null
-  attr_type_contains?: string | null
-  attr_type_not_contains?: string | null
-  attr_type_starts_with?: string | null
-  attr_type_not_starts_with?: string | null
-  attr_type_ends_with?: string | null
-  attr_type_not_ends_with?: string | null
-  AND?: AttributeScalarWhereInput[]
-  OR?: AttributeScalarWhereInput[]
-  NOT?: AttributeScalarWhereInput[]
-}
-export type AttributeScalarWhereInputInputObject =
-  | Extract<keyof AttributeScalarWhereInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'id_not', alias?: string  } 
-  | { name: 'id_in', alias?: string  } 
-  | { name: 'id_not_in', alias?: string  } 
-  | { name: 'id_lt', alias?: string  } 
-  | { name: 'id_lte', alias?: string  } 
-  | { name: 'id_gt', alias?: string  } 
-  | { name: 'id_gte', alias?: string  } 
-  | { name: 'id_contains', alias?: string  } 
-  | { name: 'id_not_contains', alias?: string  } 
-  | { name: 'id_starts_with', alias?: string  } 
-  | { name: 'id_not_starts_with', alias?: string  } 
-  | { name: 'id_ends_with', alias?: string  } 
-  | { name: 'id_not_ends_with', alias?: string  } 
-  | { name: 'attr_type', alias?: string  } 
-  | { name: 'attr_type_not', alias?: string  } 
-  | { name: 'attr_type_in', alias?: string  } 
-  | { name: 'attr_type_not_in', alias?: string  } 
-  | { name: 'attr_type_lt', alias?: string  } 
-  | { name: 'attr_type_lte', alias?: string  } 
-  | { name: 'attr_type_gt', alias?: string  } 
-  | { name: 'attr_type_gte', alias?: string  } 
-  | { name: 'attr_type_contains', alias?: string  } 
-  | { name: 'attr_type_not_contains', alias?: string  } 
-  | { name: 'attr_type_starts_with', alias?: string  } 
-  | { name: 'attr_type_not_starts_with', alias?: string  } 
-  | { name: 'attr_type_ends_with', alias?: string  } 
-  | { name: 'attr_type_not_ends_with', alias?: string  } 
-  | { name: 'AND', alias?: string  } 
-  | { name: 'OR', alias?: string  } 
-  | { name: 'NOT', alias?: string  } 
-  
-export interface AttributeUpdateManyWithWhereNestedInput {
-  where?: AttributeScalarWhereInput
-  data?: AttributeUpdateManyDataInput
-}
-export type AttributeUpdateManyWithWhereNestedInputInputObject =
-  | Extract<keyof AttributeUpdateManyWithWhereNestedInput, string>
-  | { name: 'where', alias?: string  } 
-  | { name: 'data', alias?: string  } 
-  
-export interface AttributeUpdateManyDataInput {
-  attr_type?: string | null
-}
-export type AttributeUpdateManyDataInputInputObject =
-  | Extract<keyof AttributeUpdateManyDataInput, string>
-  | { name: 'attr_type', alias?: string  } 
-  
-export interface TaxIdUpsertWithWhereUniqueNestedInput {
-  where?: TaxIdWhereUniqueInput
-  update?: TaxIdUpdateDataInput
-  create?: TaxIdCreateInput
-}
-export type TaxIdUpsertWithWhereUniqueNestedInputInputObject =
-  | Extract<keyof TaxIdUpsertWithWhereUniqueNestedInput, string>
-  | { name: 'where', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'create', alias?: string  } 
-  
-export interface TaxIdScalarWhereInput {
-  id?: string | null
-  id_not?: string | null
-  id_in?: string[]
-  id_not_in?: string[]
-  id_lt?: string | null
-  id_lte?: string | null
-  id_gt?: string | null
-  id_gte?: string | null
-  id_contains?: string | null
-  id_not_contains?: string | null
-  id_starts_with?: string | null
-  id_not_starts_with?: string | null
-  id_ends_with?: string | null
-  id_not_ends_with?: string | null
-  createdAt?: string | null
-  createdAt_not?: string | null
-  createdAt_in?: string[]
-  createdAt_not_in?: string[]
-  createdAt_lt?: string | null
-  createdAt_lte?: string | null
-  createdAt_gt?: string | null
-  createdAt_gte?: string | null
-  updatedAt?: string | null
-  updatedAt_not?: string | null
-  updatedAt_in?: string[]
-  updatedAt_not_in?: string[]
-  updatedAt_lt?: string | null
-  updatedAt_lte?: string | null
-  updatedAt_gt?: string | null
-  updatedAt_gte?: string | null
-  AND?: TaxIdScalarWhereInput[]
-  OR?: TaxIdScalarWhereInput[]
-  NOT?: TaxIdScalarWhereInput[]
-}
-export type TaxIdScalarWhereInputInputObject =
-  | Extract<keyof TaxIdScalarWhereInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'id_not', alias?: string  } 
-  | { name: 'id_in', alias?: string  } 
-  | { name: 'id_not_in', alias?: string  } 
-  | { name: 'id_lt', alias?: string  } 
-  | { name: 'id_lte', alias?: string  } 
-  | { name: 'id_gt', alias?: string  } 
-  | { name: 'id_gte', alias?: string  } 
-  | { name: 'id_contains', alias?: string  } 
-  | { name: 'id_not_contains', alias?: string  } 
-  | { name: 'id_starts_with', alias?: string  } 
-  | { name: 'id_not_starts_with', alias?: string  } 
-  | { name: 'id_ends_with', alias?: string  } 
-  | { name: 'id_not_ends_with', alias?: string  } 
-  | { name: 'createdAt', alias?: string  } 
-  | { name: 'createdAt_not', alias?: string  } 
-  | { name: 'createdAt_in', alias?: string  } 
-  | { name: 'createdAt_not_in', alias?: string  } 
-  | { name: 'createdAt_lt', alias?: string  } 
-  | { name: 'createdAt_lte', alias?: string  } 
-  | { name: 'createdAt_gt', alias?: string  } 
-  | { name: 'createdAt_gte', alias?: string  } 
-  | { name: 'updatedAt', alias?: string  } 
-  | { name: 'updatedAt_not', alias?: string  } 
-  | { name: 'updatedAt_in', alias?: string  } 
-  | { name: 'updatedAt_not_in', alias?: string  } 
-  | { name: 'updatedAt_lt', alias?: string  } 
-  | { name: 'updatedAt_lte', alias?: string  } 
-  | { name: 'updatedAt_gt', alias?: string  } 
-  | { name: 'updatedAt_gte', alias?: string  } 
-  | { name: 'AND', alias?: string  } 
-  | { name: 'OR', alias?: string  } 
-  | { name: 'NOT', alias?: string  } 
-  
-export interface EmailUpdateManyInput {
-  create?: EmailCreateInput[]
-  update?: EmailUpdateWithWhereUniqueNestedInput[]
-  upsert?: EmailUpsertWithWhereUniqueNestedInput[]
-  delete?: EmailWhereUniqueInput[]
-  connect?: EmailWhereUniqueInput[]
-  set?: EmailWhereUniqueInput[]
-  disconnect?: EmailWhereUniqueInput[]
-  deleteMany?: EmailScalarWhereInput[]
-  updateMany?: EmailUpdateManyWithWhereNestedInput[]
-}
-export type EmailUpdateManyInputInputObject =
-  | Extract<keyof EmailUpdateManyInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'upsert', alias?: string  } 
-  | { name: 'delete', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  | { name: 'set', alias?: string  } 
-  | { name: 'disconnect', alias?: string  } 
-  | { name: 'deleteMany', alias?: string  } 
-  | { name: 'updateMany', alias?: string  } 
-  
-export interface EmailUpdateWithWhereUniqueNestedInput {
-  where?: EmailWhereUniqueInput
-  data?: EmailUpdateDataInput
-}
-export type EmailUpdateWithWhereUniqueNestedInputInputObject =
-  | Extract<keyof EmailUpdateWithWhereUniqueNestedInput, string>
-  | { name: 'where', alias?: string  } 
-  | { name: 'data', alias?: string  } 
-  
-export interface EmailUpdateDataInput {
-  value?: string | null
-  owner?: UserUpdateOneRequiredInput | null
-  attribute?: AttributeUpdateManyWithoutEmailInput | null
-}
-export type EmailUpdateDataInputInputObject =
-  | Extract<keyof EmailUpdateDataInput, string>
-  | { name: 'value', alias?: string  } 
-  | { name: 'owner', alias?: string  } 
-  | { name: 'attribute', alias?: string  } 
-  
-export interface AttributeUpdateManyWithoutEmailInput {
-  create?: AttributeCreateWithoutEmailInput[]
-  delete?: AttributeWhereUniqueInput[]
-  connect?: AttributeWhereUniqueInput[]
-  set?: AttributeWhereUniqueInput[]
-  disconnect?: AttributeWhereUniqueInput[]
-  update?: AttributeUpdateWithWhereUniqueWithoutEmailInput[]
-  upsert?: AttributeUpsertWithWhereUniqueWithoutEmailInput[]
-  deleteMany?: AttributeScalarWhereInput[]
-  updateMany?: AttributeUpdateManyWithWhereNestedInput[]
-}
-export type AttributeUpdateManyWithoutEmailInputInputObject =
-  | Extract<keyof AttributeUpdateManyWithoutEmailInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'delete', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  | { name: 'set', alias?: string  } 
-  | { name: 'disconnect', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'upsert', alias?: string  } 
-  | { name: 'deleteMany', alias?: string  } 
-  | { name: 'updateMany', alias?: string  } 
-  
-export interface AttributeUpdateWithWhereUniqueWithoutEmailInput {
-  where?: AttributeWhereUniqueInput
-  data?: AttributeUpdateWithoutEmailDataInput
-}
-export type AttributeUpdateWithWhereUniqueWithoutEmailInputInputObject =
-  | Extract<keyof AttributeUpdateWithWhereUniqueWithoutEmailInput, string>
-  | { name: 'where', alias?: string  } 
-  | { name: 'data', alias?: string  } 
-  
-export interface AttributeUpdateWithoutEmailDataInput {
-  attr_type?: string | null
-  tax_id?: TaxIdUpdateManyWithoutAttributeInput | null
-  phone_number?: PhoneNumberUpdateManyWithoutAttributeInput | null
-}
-export type AttributeUpdateWithoutEmailDataInputInputObject =
-  | Extract<keyof AttributeUpdateWithoutEmailDataInput, string>
-  | { name: 'attr_type', alias?: string  } 
-  | { name: 'tax_id', alias?: string  } 
-  | { name: 'phone_number', alias?: string  } 
-  
-export interface AttributeUpsertWithWhereUniqueWithoutEmailInput {
-  where?: AttributeWhereUniqueInput
-  update?: AttributeUpdateWithoutEmailDataInput
-  create?: AttributeCreateWithoutEmailInput
-}
-export type AttributeUpsertWithWhereUniqueWithoutEmailInputInputObject =
-  | Extract<keyof AttributeUpsertWithWhereUniqueWithoutEmailInput, string>
-  | { name: 'where', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'create', alias?: string  } 
-  
-export interface EmailUpsertWithWhereUniqueNestedInput {
-  where?: EmailWhereUniqueInput
-  update?: EmailUpdateDataInput
-  create?: EmailCreateInput
-}
-export type EmailUpsertWithWhereUniqueNestedInputInputObject =
-  | Extract<keyof EmailUpsertWithWhereUniqueNestedInput, string>
-  | { name: 'where', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'create', alias?: string  } 
-  
-export interface PhoneNumberUpdateManyInput {
-  create?: PhoneNumberCreateInput[]
-  update?: PhoneNumberUpdateWithWhereUniqueNestedInput[]
-  upsert?: PhoneNumberUpsertWithWhereUniqueNestedInput[]
-  delete?: PhoneNumberWhereUniqueInput[]
-  connect?: PhoneNumberWhereUniqueInput[]
-  set?: PhoneNumberWhereUniqueInput[]
-  disconnect?: PhoneNumberWhereUniqueInput[]
-  deleteMany?: PhoneNumberScalarWhereInput[]
-  updateMany?: PhoneNumberUpdateManyWithWhereNestedInput[]
-}
-export type PhoneNumberUpdateManyInputInputObject =
-  | Extract<keyof PhoneNumberUpdateManyInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'upsert', alias?: string  } 
-  | { name: 'delete', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  | { name: 'set', alias?: string  } 
-  | { name: 'disconnect', alias?: string  } 
-  | { name: 'deleteMany', alias?: string  } 
-  | { name: 'updateMany', alias?: string  } 
-  
-export interface PhoneNumberUpdateWithWhereUniqueNestedInput {
-  where?: PhoneNumberWhereUniqueInput
-  data?: PhoneNumberUpdateDataInput
-}
-export type PhoneNumberUpdateWithWhereUniqueNestedInputInputObject =
-  | Extract<keyof PhoneNumberUpdateWithWhereUniqueNestedInput, string>
-  | { name: 'where', alias?: string  } 
-  | { name: 'data', alias?: string  } 
-  
-export interface PhoneNumberUpdateDataInput {
-  value?: number | null
-  owner?: UserUpdateOneRequiredWithoutPhone_numberInput | null
-  attribute?: AttributeUpdateManyWithoutPhone_numberInput | null
-}
-export type PhoneNumberUpdateDataInputInputObject =
-  | Extract<keyof PhoneNumberUpdateDataInput, string>
-  | { name: 'value', alias?: string  } 
-  | { name: 'owner', alias?: string  } 
-  | { name: 'attribute', alias?: string  } 
-  
-export interface PhoneNumberUpsertWithWhereUniqueNestedInput {
-  where?: PhoneNumberWhereUniqueInput
-  update?: PhoneNumberUpdateDataInput
-  create?: PhoneNumberCreateInput
-}
-export type PhoneNumberUpsertWithWhereUniqueNestedInputInputObject =
-  | Extract<keyof PhoneNumberUpsertWithWhereUniqueNestedInput, string>
-  | { name: 'where', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'create', alias?: string  } 
-  
-export interface IdentifiersUpsertNestedInput {
-  update?: IdentifiersUpdateDataInput
-  create?: IdentifiersCreateInput
-}
-export type IdentifiersUpsertNestedInputInputObject =
-  | Extract<keyof IdentifiersUpsertNestedInput, string>
-  | { name: 'update', alias?: string  } 
-  | { name: 'create', alias?: string  } 
-  
-export interface UserUpsertNestedInput {
-  update?: UserUpdateDataInput
-  create?: UserCreateInput
-}
-export type UserUpsertNestedInputInputObject =
-  | Extract<keyof UserUpsertNestedInput, string>
-  | { name: 'update', alias?: string  } 
-  | { name: 'create', alias?: string  } 
-  
-export interface TaxIdUpsertWithWhereUniqueWithoutAttributeInput {
-  where?: TaxIdWhereUniqueInput
-  update?: TaxIdUpdateWithoutAttributeDataInput
-  create?: TaxIdCreateWithoutAttributeInput
-}
-export type TaxIdUpsertWithWhereUniqueWithoutAttributeInputInputObject =
-  | Extract<keyof TaxIdUpsertWithWhereUniqueWithoutAttributeInput, string>
-  | { name: 'where', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'create', alias?: string  } 
-  
-export interface AttributeUpsertWithWhereUniqueWithoutPhone_numberInput {
-  where?: AttributeWhereUniqueInput
-  update?: AttributeUpdateWithoutPhone_numberDataInput
-  create?: AttributeCreateWithoutPhone_numberInput
-}
-export type AttributeUpsertWithWhereUniqueWithoutPhone_numberInputInputObject =
-  | Extract<keyof AttributeUpsertWithWhereUniqueWithoutPhone_numberInput, string>
-  | { name: 'where', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'create', alias?: string  } 
-  
-export interface PhoneNumberUpsertWithWhereUniqueWithoutOwnerInput {
-  where?: PhoneNumberWhereUniqueInput
-  update?: PhoneNumberUpdateWithoutOwnerDataInput
-  create?: PhoneNumberCreateWithoutOwnerInput
-}
-export type PhoneNumberUpsertWithWhereUniqueWithoutOwnerInputInputObject =
-  | Extract<keyof PhoneNumberUpsertWithWhereUniqueWithoutOwnerInput, string>
-  | { name: 'where', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'create', alias?: string  } 
   
 export interface UserUpdateManyMutationInput {
-  email?: string | null
-  role?: prisma.AuthLevel | null
-  gender?: prisma.Gender | null
+  name?: string | null
+  firstName?: string | null
+  lastName?: string | null
+  middleName?: string | null
 }
 export type UserUpdateManyMutationInputInputObject =
   | Extract<keyof UserUpdateManyMutationInput, string>
-  | { name: 'email', alias?: string  } 
-  | { name: 'role', alias?: string  } 
-  | { name: 'gender', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'firstName', alias?: string  } 
+  | { name: 'lastName', alias?: string  } 
+  | { name: 'middleName', alias?: string  } 
   
-export interface IdentifiersUpdateInput {
-  tax_id?: TaxIdUpdateManyInput | null
-  email?: EmailUpdateManyInput | null
-  phone_number?: PhoneNumberUpdateManyInput | null
+export interface EmailCreateInput {
+  id?: string | null
+  value?: string
+  owner?: UserCreateOneWithoutEmailsInput | null
 }
-export type IdentifiersUpdateInputInputObject =
-  | Extract<keyof IdentifiersUpdateInput, string>
-  | { name: 'tax_id', alias?: string  } 
-  | { name: 'email', alias?: string  } 
-  | { name: 'phone_number', alias?: string  } 
-  
-export interface TaxIdUpdateInput {
-  owner?: UserUpdateOneRequiredInput | null
-  attribute?: AttributeUpdateManyWithoutTax_idInput | null
-}
-export type TaxIdUpdateInputInputObject =
-  | Extract<keyof TaxIdUpdateInput, string>
+export type EmailCreateInputInputObject =
+  | Extract<keyof EmailCreateInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'value', alias?: string  } 
   | { name: 'owner', alias?: string  } 
-  | { name: 'attribute', alias?: string  } 
+  
+export interface UserCreateOneWithoutEmailsInput {
+  create?: UserCreateWithoutEmailsInput | null
+  connect?: UserWhereUniqueInput | null
+}
+export type UserCreateOneWithoutEmailsInputInputObject =
+  | Extract<keyof UserCreateOneWithoutEmailsInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface UserCreateWithoutEmailsInput {
+  id?: string | null
+  name?: string | null
+  firstName?: string
+  lastName?: string
+  middleName?: string | null
+  phoneNumbers?: PhoneNumberCreateManyWithoutOwnerInput | null
+}
+export type UserCreateWithoutEmailsInputInputObject =
+  | Extract<keyof UserCreateWithoutEmailsInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'firstName', alias?: string  } 
+  | { name: 'lastName', alias?: string  } 
+  | { name: 'middleName', alias?: string  } 
+  | { name: 'phoneNumbers', alias?: string  } 
   
 export interface EmailUpdateInput {
   value?: string | null
-  owner?: UserUpdateOneRequiredInput | null
-  attribute?: AttributeUpdateManyWithoutEmailInput | null
+  owner?: UserUpdateOneWithoutEmailsInput | null
 }
 export type EmailUpdateInputInputObject =
   | Extract<keyof EmailUpdateInput, string>
   | { name: 'value', alias?: string  } 
   | { name: 'owner', alias?: string  } 
-  | { name: 'attribute', alias?: string  } 
+  
+export interface UserUpdateOneWithoutEmailsInput {
+  create?: UserCreateWithoutEmailsInput | null
+  update?: UserUpdateWithoutEmailsDataInput | null
+  upsert?: UserUpsertWithoutEmailsInput | null
+  delete?: boolean | null
+  disconnect?: boolean | null
+  connect?: UserWhereUniqueInput | null
+}
+export type UserUpdateOneWithoutEmailsInputInputObject =
+  | Extract<keyof UserUpdateOneWithoutEmailsInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface UserUpdateWithoutEmailsDataInput {
+  name?: string | null
+  firstName?: string | null
+  lastName?: string | null
+  middleName?: string | null
+  phoneNumbers?: PhoneNumberUpdateManyWithoutOwnerInput | null
+}
+export type UserUpdateWithoutEmailsDataInputInputObject =
+  | Extract<keyof UserUpdateWithoutEmailsDataInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'firstName', alias?: string  } 
+  | { name: 'lastName', alias?: string  } 
+  | { name: 'middleName', alias?: string  } 
+  | { name: 'phoneNumbers', alias?: string  } 
+  
+export interface UserUpsertWithoutEmailsInput {
+  update?: UserUpdateWithoutEmailsDataInput
+  create?: UserCreateWithoutEmailsInput
+}
+export type UserUpsertWithoutEmailsInputInputObject =
+  | Extract<keyof UserUpsertWithoutEmailsInput, string>
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
   
 export interface EmailUpdateManyMutationInput {
   value?: string | null
@@ -7673,226 +2635,111 @@ export type EmailUpdateManyMutationInputInputObject =
   | Extract<keyof EmailUpdateManyMutationInput, string>
   | { name: 'value', alias?: string  } 
   
+export interface PhoneNumberCreateInput {
+  id?: string | null
+  type?: string
+  use?: PhoneNumberCreateuseInput | null
+  value?: string
+  owner?: UserCreateOneWithoutPhoneNumbersInput | null
+}
+export type PhoneNumberCreateInputInputObject =
+  | Extract<keyof PhoneNumberCreateInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'type', alias?: string  } 
+  | { name: 'use', alias?: string  } 
+  | { name: 'value', alias?: string  } 
+  | { name: 'owner', alias?: string  } 
+  
+export interface UserCreateOneWithoutPhoneNumbersInput {
+  create?: UserCreateWithoutPhoneNumbersInput | null
+  connect?: UserWhereUniqueInput | null
+}
+export type UserCreateOneWithoutPhoneNumbersInputInputObject =
+  | Extract<keyof UserCreateOneWithoutPhoneNumbersInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface UserCreateWithoutPhoneNumbersInput {
+  id?: string | null
+  name?: string | null
+  firstName?: string
+  lastName?: string
+  middleName?: string | null
+  emails?: EmailCreateManyWithoutOwnerInput | null
+}
+export type UserCreateWithoutPhoneNumbersInputInputObject =
+  | Extract<keyof UserCreateWithoutPhoneNumbersInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  | { name: 'firstName', alias?: string  } 
+  | { name: 'lastName', alias?: string  } 
+  | { name: 'middleName', alias?: string  } 
+  | { name: 'emails', alias?: string  } 
+  
 export interface PhoneNumberUpdateInput {
-  value?: number | null
-  owner?: UserUpdateOneRequiredWithoutPhone_numberInput | null
-  attribute?: AttributeUpdateManyWithoutPhone_numberInput | null
+  type?: string | null
+  use?: PhoneNumberUpdateuseInput | null
+  value?: string | null
+  owner?: UserUpdateOneWithoutPhoneNumbersInput | null
 }
 export type PhoneNumberUpdateInputInputObject =
   | Extract<keyof PhoneNumberUpdateInput, string>
+  | { name: 'type', alias?: string  } 
+  | { name: 'use', alias?: string  } 
   | { name: 'value', alias?: string  } 
   | { name: 'owner', alias?: string  } 
-  | { name: 'attribute', alias?: string  } 
   
-export interface PhoneNumberUpdateManyMutationInput {
-  value?: number | null
+export interface UserUpdateOneWithoutPhoneNumbersInput {
+  create?: UserCreateWithoutPhoneNumbersInput | null
+  update?: UserUpdateWithoutPhoneNumbersDataInput | null
+  upsert?: UserUpsertWithoutPhoneNumbersInput | null
+  delete?: boolean | null
+  disconnect?: boolean | null
+  connect?: UserWhereUniqueInput | null
 }
-export type PhoneNumberUpdateManyMutationInputInputObject =
-  | Extract<keyof PhoneNumberUpdateManyMutationInput, string>
-  | { name: 'value', alias?: string  } 
-  
-export interface AttributeCreateInput {
-  id?: string | null
-  attr_type?: string
-  tax_id?: TaxIdCreateManyWithoutAttributeInput | null
-  email?: EmailCreateManyWithoutAttributeInput | null
-  phone_number?: PhoneNumberCreateManyWithoutAttributeInput | null
-}
-export type AttributeCreateInputInputObject =
-  | Extract<keyof AttributeCreateInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'attr_type', alias?: string  } 
-  | { name: 'tax_id', alias?: string  } 
-  | { name: 'email', alias?: string  } 
-  | { name: 'phone_number', alias?: string  } 
-  
-export interface AttributeUpdateInput {
-  attr_type?: string | null
-  tax_id?: TaxIdUpdateManyWithoutAttributeInput | null
-  email?: EmailUpdateManyWithoutAttributeInput | null
-  phone_number?: PhoneNumberUpdateManyWithoutAttributeInput | null
-}
-export type AttributeUpdateInputInputObject =
-  | Extract<keyof AttributeUpdateInput, string>
-  | { name: 'attr_type', alias?: string  } 
-  | { name: 'tax_id', alias?: string  } 
-  | { name: 'email', alias?: string  } 
-  | { name: 'phone_number', alias?: string  } 
-  
-export interface AttributeUpdateManyMutationInput {
-  attr_type?: string | null
-}
-export type AttributeUpdateManyMutationInputInputObject =
-  | Extract<keyof AttributeUpdateManyMutationInput, string>
-  | { name: 'attr_type', alias?: string  } 
-  
-export interface TaxIdAttributeCreateInput {
-  tax_id?: TaxIdCreateOneInput | null
-  attribute?: AttributeCreateOneInput | null
-}
-export type TaxIdAttributeCreateInputInputObject =
-  | Extract<keyof TaxIdAttributeCreateInput, string>
-  | { name: 'tax_id', alias?: string  } 
-  | { name: 'attribute', alias?: string  } 
-  
-export interface TaxIdCreateOneInput {
-  create?: TaxIdCreateInput | null
-  connect?: TaxIdWhereUniqueInput | null
-}
-export type TaxIdCreateOneInputInputObject =
-  | Extract<keyof TaxIdCreateOneInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface AttributeCreateOneInput {
-  create?: AttributeCreateInput | null
-  connect?: AttributeWhereUniqueInput | null
-}
-export type AttributeCreateOneInputInputObject =
-  | Extract<keyof AttributeCreateOneInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface EmailAttributeCreateInput {
-  email?: EmailCreateOneInput | null
-  attribute?: AttributeCreateOneInput | null
-}
-export type EmailAttributeCreateInputInputObject =
-  | Extract<keyof EmailAttributeCreateInput, string>
-  | { name: 'email', alias?: string  } 
-  | { name: 'attribute', alias?: string  } 
-  
-export interface EmailCreateOneInput {
-  create?: EmailCreateInput | null
-  connect?: EmailWhereUniqueInput | null
-}
-export type EmailCreateOneInputInputObject =
-  | Extract<keyof EmailCreateOneInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface PhoneNumberAttributeCreateInput {
-  phone_number?: PhoneNumberCreateOneInput | null
-  attribute?: AttributeCreateOneInput | null
-}
-export type PhoneNumberAttributeCreateInputInputObject =
-  | Extract<keyof PhoneNumberAttributeCreateInput, string>
-  | { name: 'phone_number', alias?: string  } 
-  | { name: 'attribute', alias?: string  } 
-  
-export interface PhoneNumberCreateOneInput {
-  create?: PhoneNumberCreateInput | null
-  connect?: PhoneNumberWhereUniqueInput | null
-}
-export type PhoneNumberCreateOneInputInputObject =
-  | Extract<keyof PhoneNumberCreateOneInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface FemaleCreateInput {
-  id?: string | null
-  owner?: UserCreateOneInput
-  attribute?: AttributeCreateManyInput | null
-}
-export type FemaleCreateInputInputObject =
-  | Extract<keyof FemaleCreateInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'owner', alias?: string  } 
-  | { name: 'attribute', alias?: string  } 
-  
-export interface AttributeCreateManyInput {
-  create?: AttributeCreateInput[]
-  connect?: AttributeWhereUniqueInput[]
-}
-export type AttributeCreateManyInputInputObject =
-  | Extract<keyof AttributeCreateManyInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface FemaleUpdateInput {
-  owner?: UserUpdateOneRequiredInput | null
-  attribute?: AttributeUpdateManyInput | null
-}
-export type FemaleUpdateInputInputObject =
-  | Extract<keyof FemaleUpdateInput, string>
-  | { name: 'owner', alias?: string  } 
-  | { name: 'attribute', alias?: string  } 
-  
-export interface AttributeUpdateManyInput {
-  create?: AttributeCreateInput[]
-  update?: AttributeUpdateWithWhereUniqueNestedInput[]
-  upsert?: AttributeUpsertWithWhereUniqueNestedInput[]
-  delete?: AttributeWhereUniqueInput[]
-  connect?: AttributeWhereUniqueInput[]
-  set?: AttributeWhereUniqueInput[]
-  disconnect?: AttributeWhereUniqueInput[]
-  deleteMany?: AttributeScalarWhereInput[]
-  updateMany?: AttributeUpdateManyWithWhereNestedInput[]
-}
-export type AttributeUpdateManyInputInputObject =
-  | Extract<keyof AttributeUpdateManyInput, string>
+export type UserUpdateOneWithoutPhoneNumbersInputInputObject =
+  | Extract<keyof UserUpdateOneWithoutPhoneNumbersInput, string>
   | { name: 'create', alias?: string  } 
   | { name: 'update', alias?: string  } 
   | { name: 'upsert', alias?: string  } 
   | { name: 'delete', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  | { name: 'set', alias?: string  } 
   | { name: 'disconnect', alias?: string  } 
-  | { name: 'deleteMany', alias?: string  } 
-  | { name: 'updateMany', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
   
-export interface AttributeUpdateWithWhereUniqueNestedInput {
-  where?: AttributeWhereUniqueInput
-  data?: AttributeUpdateDataInput
+export interface UserUpdateWithoutPhoneNumbersDataInput {
+  name?: string | null
+  firstName?: string | null
+  lastName?: string | null
+  middleName?: string | null
+  emails?: EmailUpdateManyWithoutOwnerInput | null
 }
-export type AttributeUpdateWithWhereUniqueNestedInputInputObject =
-  | Extract<keyof AttributeUpdateWithWhereUniqueNestedInput, string>
-  | { name: 'where', alias?: string  } 
-  | { name: 'data', alias?: string  } 
+export type UserUpdateWithoutPhoneNumbersDataInputInputObject =
+  | Extract<keyof UserUpdateWithoutPhoneNumbersDataInput, string>
+  | { name: 'name', alias?: string  } 
+  | { name: 'firstName', alias?: string  } 
+  | { name: 'lastName', alias?: string  } 
+  | { name: 'middleName', alias?: string  } 
+  | { name: 'emails', alias?: string  } 
   
-export interface AttributeUpdateDataInput {
-  attr_type?: string | null
-  tax_id?: TaxIdUpdateManyWithoutAttributeInput | null
-  email?: EmailUpdateManyWithoutAttributeInput | null
-  phone_number?: PhoneNumberUpdateManyWithoutAttributeInput | null
+export interface UserUpsertWithoutPhoneNumbersInput {
+  update?: UserUpdateWithoutPhoneNumbersDataInput
+  create?: UserCreateWithoutPhoneNumbersInput
 }
-export type AttributeUpdateDataInputInputObject =
-  | Extract<keyof AttributeUpdateDataInput, string>
-  | { name: 'attr_type', alias?: string  } 
-  | { name: 'tax_id', alias?: string  } 
-  | { name: 'email', alias?: string  } 
-  | { name: 'phone_number', alias?: string  } 
-  
-export interface AttributeUpsertWithWhereUniqueNestedInput {
-  where?: AttributeWhereUniqueInput
-  update?: AttributeUpdateDataInput
-  create?: AttributeCreateInput
-}
-export type AttributeUpsertWithWhereUniqueNestedInputInputObject =
-  | Extract<keyof AttributeUpsertWithWhereUniqueNestedInput, string>
-  | { name: 'where', alias?: string  } 
+export type UserUpsertWithoutPhoneNumbersInputInputObject =
+  | Extract<keyof UserUpsertWithoutPhoneNumbersInput, string>
   | { name: 'update', alias?: string  } 
   | { name: 'create', alias?: string  } 
   
-export interface MaleCreateInput {
-  id?: string | null
-  owner?: UserCreateOneInput
-  attribute?: AttributeCreateManyInput | null
+export interface PhoneNumberUpdateManyMutationInput {
+  type?: string | null
+  use?: PhoneNumberUpdateuseInput | null
+  value?: string | null
 }
-export type MaleCreateInputInputObject =
-  | Extract<keyof MaleCreateInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'owner', alias?: string  } 
-  | { name: 'attribute', alias?: string  } 
-  
-export interface MaleUpdateInput {
-  owner?: UserUpdateOneRequiredInput | null
-  attribute?: AttributeUpdateManyInput | null
-}
-export type MaleUpdateInputInputObject =
-  | Extract<keyof MaleUpdateInput, string>
-  | { name: 'owner', alias?: string  } 
-  | { name: 'attribute', alias?: string  } 
+export type PhoneNumberUpdateManyMutationInputInputObject =
+  | Extract<keyof PhoneNumberUpdateManyMutationInput, string>
+  | { name: 'type', alias?: string  } 
+  | { name: 'use', alias?: string  } 
+  | { name: 'value', alias?: string  } 
   
 export interface UserSubscriptionWhereInput {
   mutation_in?: prisma.MutationType[]
@@ -7906,48 +2753,6 @@ export interface UserSubscriptionWhereInput {
 }
 export type UserSubscriptionWhereInputInputObject =
   | Extract<keyof UserSubscriptionWhereInput, string>
-  | { name: 'mutation_in', alias?: string  } 
-  | { name: 'updatedFields_contains', alias?: string  } 
-  | { name: 'updatedFields_contains_every', alias?: string  } 
-  | { name: 'updatedFields_contains_some', alias?: string  } 
-  | { name: 'node', alias?: string  } 
-  | { name: 'AND', alias?: string  } 
-  | { name: 'OR', alias?: string  } 
-  | { name: 'NOT', alias?: string  } 
-  
-export interface IdentifiersSubscriptionWhereInput {
-  mutation_in?: prisma.MutationType[]
-  updatedFields_contains?: string | null
-  updatedFields_contains_every?: string[]
-  updatedFields_contains_some?: string[]
-  node?: IdentifiersWhereInput | null
-  AND?: IdentifiersSubscriptionWhereInput[]
-  OR?: IdentifiersSubscriptionWhereInput[]
-  NOT?: IdentifiersSubscriptionWhereInput[]
-}
-export type IdentifiersSubscriptionWhereInputInputObject =
-  | Extract<keyof IdentifiersSubscriptionWhereInput, string>
-  | { name: 'mutation_in', alias?: string  } 
-  | { name: 'updatedFields_contains', alias?: string  } 
-  | { name: 'updatedFields_contains_every', alias?: string  } 
-  | { name: 'updatedFields_contains_some', alias?: string  } 
-  | { name: 'node', alias?: string  } 
-  | { name: 'AND', alias?: string  } 
-  | { name: 'OR', alias?: string  } 
-  | { name: 'NOT', alias?: string  } 
-  
-export interface TaxIdSubscriptionWhereInput {
-  mutation_in?: prisma.MutationType[]
-  updatedFields_contains?: string | null
-  updatedFields_contains_every?: string[]
-  updatedFields_contains_some?: string[]
-  node?: TaxIdWhereInput | null
-  AND?: TaxIdSubscriptionWhereInput[]
-  OR?: TaxIdSubscriptionWhereInput[]
-  NOT?: TaxIdSubscriptionWhereInput[]
-}
-export type TaxIdSubscriptionWhereInputInputObject =
-  | Extract<keyof TaxIdSubscriptionWhereInput, string>
   | { name: 'mutation_in', alias?: string  } 
   | { name: 'updatedFields_contains', alias?: string  } 
   | { name: 'updatedFields_contains_every', alias?: string  } 
@@ -7999,171 +2804,7 @@ export type PhoneNumberSubscriptionWhereInputInputObject =
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
   
-export interface AttributeSubscriptionWhereInput {
-  mutation_in?: prisma.MutationType[]
-  updatedFields_contains?: string | null
-  updatedFields_contains_every?: string[]
-  updatedFields_contains_some?: string[]
-  node?: AttributeWhereInput | null
-  AND?: AttributeSubscriptionWhereInput[]
-  OR?: AttributeSubscriptionWhereInput[]
-  NOT?: AttributeSubscriptionWhereInput[]
-}
-export type AttributeSubscriptionWhereInputInputObject =
-  | Extract<keyof AttributeSubscriptionWhereInput, string>
-  | { name: 'mutation_in', alias?: string  } 
-  | { name: 'updatedFields_contains', alias?: string  } 
-  | { name: 'updatedFields_contains_every', alias?: string  } 
-  | { name: 'updatedFields_contains_some', alias?: string  } 
-  | { name: 'node', alias?: string  } 
-  | { name: 'AND', alias?: string  } 
-  | { name: 'OR', alias?: string  } 
-  | { name: 'NOT', alias?: string  } 
-  
-export interface TaxIdAttributeSubscriptionWhereInput {
-  mutation_in?: prisma.MutationType[]
-  updatedFields_contains?: string | null
-  updatedFields_contains_every?: string[]
-  updatedFields_contains_some?: string[]
-  node?: TaxIdAttributeWhereInput | null
-  AND?: TaxIdAttributeSubscriptionWhereInput[]
-  OR?: TaxIdAttributeSubscriptionWhereInput[]
-  NOT?: TaxIdAttributeSubscriptionWhereInput[]
-}
-export type TaxIdAttributeSubscriptionWhereInputInputObject =
-  | Extract<keyof TaxIdAttributeSubscriptionWhereInput, string>
-  | { name: 'mutation_in', alias?: string  } 
-  | { name: 'updatedFields_contains', alias?: string  } 
-  | { name: 'updatedFields_contains_every', alias?: string  } 
-  | { name: 'updatedFields_contains_some', alias?: string  } 
-  | { name: 'node', alias?: string  } 
-  | { name: 'AND', alias?: string  } 
-  | { name: 'OR', alias?: string  } 
-  | { name: 'NOT', alias?: string  } 
-  
-export interface EmailAttributeSubscriptionWhereInput {
-  mutation_in?: prisma.MutationType[]
-  updatedFields_contains?: string | null
-  updatedFields_contains_every?: string[]
-  updatedFields_contains_some?: string[]
-  node?: EmailAttributeWhereInput | null
-  AND?: EmailAttributeSubscriptionWhereInput[]
-  OR?: EmailAttributeSubscriptionWhereInput[]
-  NOT?: EmailAttributeSubscriptionWhereInput[]
-}
-export type EmailAttributeSubscriptionWhereInputInputObject =
-  | Extract<keyof EmailAttributeSubscriptionWhereInput, string>
-  | { name: 'mutation_in', alias?: string  } 
-  | { name: 'updatedFields_contains', alias?: string  } 
-  | { name: 'updatedFields_contains_every', alias?: string  } 
-  | { name: 'updatedFields_contains_some', alias?: string  } 
-  | { name: 'node', alias?: string  } 
-  | { name: 'AND', alias?: string  } 
-  | { name: 'OR', alias?: string  } 
-  | { name: 'NOT', alias?: string  } 
-  
-export interface PhoneNumberAttributeSubscriptionWhereInput {
-  mutation_in?: prisma.MutationType[]
-  updatedFields_contains?: string | null
-  updatedFields_contains_every?: string[]
-  updatedFields_contains_some?: string[]
-  node?: PhoneNumberAttributeWhereInput | null
-  AND?: PhoneNumberAttributeSubscriptionWhereInput[]
-  OR?: PhoneNumberAttributeSubscriptionWhereInput[]
-  NOT?: PhoneNumberAttributeSubscriptionWhereInput[]
-}
-export type PhoneNumberAttributeSubscriptionWhereInputInputObject =
-  | Extract<keyof PhoneNumberAttributeSubscriptionWhereInput, string>
-  | { name: 'mutation_in', alias?: string  } 
-  | { name: 'updatedFields_contains', alias?: string  } 
-  | { name: 'updatedFields_contains_every', alias?: string  } 
-  | { name: 'updatedFields_contains_some', alias?: string  } 
-  | { name: 'node', alias?: string  } 
-  | { name: 'AND', alias?: string  } 
-  | { name: 'OR', alias?: string  } 
-  | { name: 'NOT', alias?: string  } 
-  
-export interface FemaleSubscriptionWhereInput {
-  mutation_in?: prisma.MutationType[]
-  updatedFields_contains?: string | null
-  updatedFields_contains_every?: string[]
-  updatedFields_contains_some?: string[]
-  node?: FemaleWhereInput | null
-  AND?: FemaleSubscriptionWhereInput[]
-  OR?: FemaleSubscriptionWhereInput[]
-  NOT?: FemaleSubscriptionWhereInput[]
-}
-export type FemaleSubscriptionWhereInputInputObject =
-  | Extract<keyof FemaleSubscriptionWhereInput, string>
-  | { name: 'mutation_in', alias?: string  } 
-  | { name: 'updatedFields_contains', alias?: string  } 
-  | { name: 'updatedFields_contains_every', alias?: string  } 
-  | { name: 'updatedFields_contains_some', alias?: string  } 
-  | { name: 'node', alias?: string  } 
-  | { name: 'AND', alias?: string  } 
-  | { name: 'OR', alias?: string  } 
-  | { name: 'NOT', alias?: string  } 
-  
-export interface MaleSubscriptionWhereInput {
-  mutation_in?: prisma.MutationType[]
-  updatedFields_contains?: string | null
-  updatedFields_contains_every?: string[]
-  updatedFields_contains_some?: string[]
-  node?: MaleWhereInput | null
-  AND?: MaleSubscriptionWhereInput[]
-  OR?: MaleSubscriptionWhereInput[]
-  NOT?: MaleSubscriptionWhereInput[]
-}
-export type MaleSubscriptionWhereInputInputObject =
-  | Extract<keyof MaleSubscriptionWhereInput, string>
-  | { name: 'mutation_in', alias?: string  } 
-  | { name: 'updatedFields_contains', alias?: string  } 
-  | { name: 'updatedFields_contains_every', alias?: string  } 
-  | { name: 'updatedFields_contains_some', alias?: string  } 
-  | { name: 'node', alias?: string  } 
-  | { name: 'AND', alias?: string  } 
-  | { name: 'OR', alias?: string  } 
-  | { name: 'NOT', alias?: string  } 
-  
 
-export type AuthLevelValues =
-  | 'ADMIN'
-  | 'USER'
-  | 'PROSPECT'
-  | 'BLACKLISTED'
-  
-export type GenderValues =
-  | 'M'
-  | 'F'
-  
-export type PhoneNumberOrderByInputValues =
-  | 'id_ASC'
-  | 'id_DESC'
-  | 'value_ASC'
-  | 'value_DESC'
-  | 'createdAt_ASC'
-  | 'createdAt_DESC'
-  | 'updatedAt_ASC'
-  | 'updatedAt_DESC'
-  
-export type AttributeOrderByInputValues =
-  | 'id_ASC'
-  | 'id_DESC'
-  | 'attr_type_ASC'
-  | 'attr_type_DESC'
-  | 'createdAt_ASC'
-  | 'createdAt_DESC'
-  | 'updatedAt_ASC'
-  | 'updatedAt_DESC'
-  
-export type TaxIdOrderByInputValues =
-  | 'id_ASC'
-  | 'id_DESC'
-  | 'createdAt_ASC'
-  | 'createdAt_DESC'
-  | 'updatedAt_ASC'
-  | 'updatedAt_DESC'
-  
 export type EmailOrderByInputValues =
   | 'id_ASC'
   | 'id_DESC'
@@ -8174,63 +2815,33 @@ export type EmailOrderByInputValues =
   | 'updatedAt_ASC'
   | 'updatedAt_DESC'
   
+export type PhoneNumberOrderByInputValues =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'type_ASC'
+  | 'type_DESC'
+  | 'value_ASC'
+  | 'value_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  
+export type PhoneNumberUseValues =
+  | 'PERSONAL'
+  | 'WORK'
+  
 export type UserOrderByInputValues =
   | 'id_ASC'
   | 'id_DESC'
-  | 'createdAt_ASC'
-  | 'createdAt_DESC'
-  | 'updatedAt_ASC'
-  | 'updatedAt_DESC'
-  | 'email_ASC'
-  | 'email_DESC'
-  | 'role_ASC'
-  | 'role_DESC'
-  | 'gender_ASC'
-  | 'gender_DESC'
-  
-export type IdentifiersOrderByInputValues =
-  | 'id_ASC'
-  | 'id_DESC'
-  | 'createdAt_ASC'
-  | 'createdAt_DESC'
-  | 'updatedAt_ASC'
-  | 'updatedAt_DESC'
-  
-export type TaxIdAttributeOrderByInputValues =
-  | 'id_ASC'
-  | 'id_DESC'
-  | 'createdAt_ASC'
-  | 'createdAt_DESC'
-  | 'updatedAt_ASC'
-  | 'updatedAt_DESC'
-  
-export type EmailAttributeOrderByInputValues =
-  | 'id_ASC'
-  | 'id_DESC'
-  | 'createdAt_ASC'
-  | 'createdAt_DESC'
-  | 'updatedAt_ASC'
-  | 'updatedAt_DESC'
-  
-export type PhoneNumberAttributeOrderByInputValues =
-  | 'id_ASC'
-  | 'id_DESC'
-  | 'createdAt_ASC'
-  | 'createdAt_DESC'
-  | 'updatedAt_ASC'
-  | 'updatedAt_DESC'
-  
-export type FemaleOrderByInputValues =
-  | 'id_ASC'
-  | 'id_DESC'
-  | 'createdAt_ASC'
-  | 'createdAt_DESC'
-  | 'updatedAt_ASC'
-  | 'updatedAt_DESC'
-  
-export type MaleOrderByInputValues =
-  | 'id_ASC'
-  | 'id_DESC'
+  | 'name_ASC'
+  | 'name_DESC'
+  | 'firstName_ASC'
+  | 'firstName_DESC'
+  | 'lastName_ASC'
+  | 'lastName_DESC'
+  | 'middleName_ASC'
+  | 'middleName_DESC'
   | 'createdAt_ASC'
   | 'createdAt_DESC'
   | 'updatedAt_ASC'
