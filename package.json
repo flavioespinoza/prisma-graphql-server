@@ -13,6 +13,7 @@
 		"cli": "ts-node ./generated/prisma-client/index.ts",
 		"dev": "ts-node ./index.ts",
 		"test-data": "ts-node ./api/_testData.ts",
+		"seed": "ts-node ./api/seed.spongebob.ts",
 		"build": "tsc"
 
 	},

@@ -1,17 +1,10 @@
 type User @db(name: "user") {
   id: ID! @id
   createdAt: DateTime! @createdAt
+	name: String!
   email: String! @unique
-  name: String
   role: Role @default(value: USER)
   posts: [Post!]!
-  profile: Profile @relation(link: INLINE)
-}
-
-type Profile @db(name: "profile") {
-  id: ID! @id
-  user: User!
-  bio: String!
 }
 
 type Post @db(name: "post") {

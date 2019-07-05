@@ -1,5 +1,98 @@
-# Docker Commands
-Notes
+# Docker
+
+**stop running containers and delete all containers**
+```bash
+dkill
+```
+<details>
+
+<summary>full command</summary>
+
+```bash
+docker rm -f $(docker ps -qa)
+```
+
+</details>
+
+<br/>
+
+**delete all images**
+```bash
+ikill
+```
+<details>
+
+<summary>full command</summary>
+
+```bash
+docker rmi $(docker images -q)
+```
+
+</details>
+
+<br/>
+
+**stop and delete all containers and images**
+```bash
+dkillall
+```
+<details>
+
+<summary>full command</summary>
+
+```bash
+docker rm -f $(docker ps -qa); docker rmi $(docker images -q);
+```
+
+</details>
+
+<br/>
+
+**list containers**
+```bash
+dls
+```
+
+<details>
+
+<summary>full command</summary>
+
+```bash
+docker container ls --all --format 'table {{.ID}}\t{{.Status}}\t{{.Names}}\t{{.Networks}}'
+```
+
+</details>
+
+<br/>
+
+**list images**
+```bash
+dli
+```
+
+<details>
+
+<summary>full command</summary>
+
+```bash
+docker images
+```
+
+</details>
+
+---
+
+<!--
+-------------------------------------------------
+---- Docker Examples
+-------------------------------------------------
+-->
+
+# Docker Examples  
+
+<details>
+
+<summary>Expand for examples and detailed docker commands </summary>
 
 ## List-La-List
 
@@ -60,10 +153,7 @@ docker run -td --name 'MY_CONTAINER_NAME' 'REPOSITORY'
 docker run -td --name 'my_awesome_node_container' 'flavioespinoza/alpine-node'
 ```
 
-
-
 ### run from image
-
 List images:
 ```bash
 docker images
@@ -126,34 +216,4 @@ docker exec -ti example-webapp sh
 docker exec -ti f2ac06425f0f sh
 ```
 
-#### verify node and npm installation
-```bash
-node --version && npm --version
-```
-```bash
-# Output
-v10.16.0
-6.9.0
-```
-
-
-# GitHub - New Repository
-
-```bash
-echo "# commands" >> README.md
-git init
-git add README.md
-git status
-git add .
-git commit -m "first commit"
-git remote add origin https://github.com/flavioespinoza/commands.git
-git push -u origin master
-```
-
-## Checount Remote Branch
-
-
-```bash
-git checkout --track origin/jwt
-```
-
+</details>

@@ -73,9 +73,9 @@ async function _each(arr, callback) {
 				}
 			}
 
-			const new_user = await prisma.createUser(x)
+			// const new_user = await prisma.createUser(x)
 
-			console.log(new_user)
+			// console.log(new_user)
 
 		})
 

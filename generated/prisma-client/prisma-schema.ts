@@ -2,11 +2,11 @@
   // Please don't change this file manually but run `prisma generate` to update it.
   // For more information, please read the docs: https://www.prisma.io/docs/prisma-client/
 
-export const typeDefs = /* GraphQL */ `type AggregateEmail {
+export const typeDefs = /* GraphQL */ `type AggregateCategory {
   count: Int!
 }
 
-type AggregatePhoneNumber {
+type AggregatePost {
   count: Int!
 }
 
@@ -18,645 +18,52 @@ type BatchPayload {
   count: Long!
 }
 
-type Email {
+type Category {
   id: ID!
-  value: String!
-  owner: User
+  name: String!
+  posts(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Post!]
 }
 
-type EmailConnection {
+type CategoryConnection {
   pageInfo: PageInfo!
-  edges: [EmailEdge]!
-  aggregate: AggregateEmail!
+  edges: [CategoryEdge]!
+  aggregate: AggregateCategory!
 }
 
-input EmailCreateInput {
+input CategoryCreateInput {
   id: ID
-  value: String!
-  owner: UserCreateOneWithoutEmailsInput
+  name: String!
+  posts: PostCreateManyWithoutCategoriesInput
 }
 
-input EmailCreateManyWithoutOwnerInput {
-  create: [EmailCreateWithoutOwnerInput!]
-  connect: [EmailWhereUniqueInput!]
+input CategoryCreateManyWithoutPostsInput {
+  create: [CategoryCreateWithoutPostsInput!]
+  connect: [CategoryWhereUniqueInput!]
 }
 
-input EmailCreateWithoutOwnerInput {
+input CategoryCreateWithoutPostsInput {
   id: ID
-  value: String!
+  name: String!
 }
 
-type EmailEdge {
-  node: Email!
+type CategoryEdge {
+  node: Category!
   cursor: String!
 }
 
-enum EmailOrderByInput {
-  id_ASC
-  id_DESC
-  value_ASC
-  value_DESC
-}
-
-type EmailPreviousValues {
-  id: ID!
-  value: String!
-}
-
-input EmailScalarWhereInput {
-  id: ID
-  id_not: ID
-  id_in: [ID!]
-  id_not_in: [ID!]
-  id_lt: ID
-  id_lte: ID
-  id_gt: ID
-  id_gte: ID
-  id_contains: ID
-  id_not_contains: ID
-  id_starts_with: ID
-  id_not_starts_with: ID
-  id_ends_with: ID
-  id_not_ends_with: ID
-  value: String
-  value_not: String
-  value_in: [String!]
-  value_not_in: [String!]
-  value_lt: String
-  value_lte: String
-  value_gt: String
-  value_gte: String
-  value_contains: String
-  value_not_contains: String
-  value_starts_with: String
-  value_not_starts_with: String
-  value_ends_with: String
-  value_not_ends_with: String
-  AND: [EmailScalarWhereInput!]
-  OR: [EmailScalarWhereInput!]
-  NOT: [EmailScalarWhereInput!]
-}
-
-type EmailSubscriptionPayload {
-  mutation: MutationType!
-  node: Email
-  updatedFields: [String!]
-  previousValues: EmailPreviousValues
-}
-
-input EmailSubscriptionWhereInput {
-  mutation_in: [MutationType!]
-  updatedFields_contains: String
-  updatedFields_contains_every: [String!]
-  updatedFields_contains_some: [String!]
-  node: EmailWhereInput
-  AND: [EmailSubscriptionWhereInput!]
-  OR: [EmailSubscriptionWhereInput!]
-  NOT: [EmailSubscriptionWhereInput!]
-}
-
-input EmailUpdateInput {
-  value: String
-  owner: UserUpdateOneWithoutEmailsInput
-}
-
-input EmailUpdateManyDataInput {
-  value: String
-}
-
-input EmailUpdateManyMutationInput {
-  value: String
-}
-
-input EmailUpdateManyWithoutOwnerInput {
-  create: [EmailCreateWithoutOwnerInput!]
-  delete: [EmailWhereUniqueInput!]
-  connect: [EmailWhereUniqueInput!]
-  set: [EmailWhereUniqueInput!]
-  disconnect: [EmailWhereUniqueInput!]
-  update: [EmailUpdateWithWhereUniqueWithoutOwnerInput!]
-  upsert: [EmailUpsertWithWhereUniqueWithoutOwnerInput!]
-  deleteMany: [EmailScalarWhereInput!]
-  updateMany: [EmailUpdateManyWithWhereNestedInput!]
-}
-
-input EmailUpdateManyWithWhereNestedInput {
-  where: EmailScalarWhereInput!
-  data: EmailUpdateManyDataInput!
-}
-
-input EmailUpdateWithoutOwnerDataInput {
-  value: String
-}
-
-input EmailUpdateWithWhereUniqueWithoutOwnerInput {
-  where: EmailWhereUniqueInput!
-  data: EmailUpdateWithoutOwnerDataInput!
-}
-
-input EmailUpsertWithWhereUniqueWithoutOwnerInput {
-  where: EmailWhereUniqueInput!
-  update: EmailUpdateWithoutOwnerDataInput!
-  create: EmailCreateWithoutOwnerInput!
-}
-
-input EmailWhereInput {
-  id: ID
-  id_not: ID
-  id_in: [ID!]
-  id_not_in: [ID!]
-  id_lt: ID
-  id_lte: ID
-  id_gt: ID
-  id_gte: ID
-  id_contains: ID
-  id_not_contains: ID
-  id_starts_with: ID
-  id_not_starts_with: ID
-  id_ends_with: ID
-  id_not_ends_with: ID
-  value: String
-  value_not: String
-  value_in: [String!]
-  value_not_in: [String!]
-  value_lt: String
-  value_lte: String
-  value_gt: String
-  value_gte: String
-  value_contains: String
-  value_not_contains: String
-  value_starts_with: String
-  value_not_starts_with: String
-  value_ends_with: String
-  value_not_ends_with: String
-  owner: UserWhereInput
-  AND: [EmailWhereInput!]
-  OR: [EmailWhereInput!]
-  NOT: [EmailWhereInput!]
-}
-
-input EmailWhereUniqueInput {
-  id: ID
-}
-
-scalar Long
-
-type Mutation {
-  createEmail(data: EmailCreateInput!): Email!
-  updateEmail(data: EmailUpdateInput!, where: EmailWhereUniqueInput!): Email
-  updateManyEmails(data: EmailUpdateManyMutationInput!, where: EmailWhereInput): BatchPayload!
-  upsertEmail(where: EmailWhereUniqueInput!, create: EmailCreateInput!, update: EmailUpdateInput!): Email!
-  deleteEmail(where: EmailWhereUniqueInput!): Email
-  deleteManyEmails(where: EmailWhereInput): BatchPayload!
-  createPhoneNumber(data: PhoneNumberCreateInput!): PhoneNumber!
-  updatePhoneNumber(data: PhoneNumberUpdateInput!, where: PhoneNumberWhereUniqueInput!): PhoneNumber
-  updateManyPhoneNumbers(data: PhoneNumberUpdateManyMutationInput!, where: PhoneNumberWhereInput): BatchPayload!
-  upsertPhoneNumber(where: PhoneNumberWhereUniqueInput!, create: PhoneNumberCreateInput!, update: PhoneNumberUpdateInput!): PhoneNumber!
-  deletePhoneNumber(where: PhoneNumberWhereUniqueInput!): PhoneNumber
-  deleteManyPhoneNumbers(where: PhoneNumberWhereInput): BatchPayload!
-  createUser(data: UserCreateInput!): User!
-  updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
-  updateManyUsers(data: UserUpdateManyMutationInput!, where: UserWhereInput): BatchPayload!
-  upsertUser(where: UserWhereUniqueInput!, create: UserCreateInput!, update: UserUpdateInput!): User!
-  deleteUser(where: UserWhereUniqueInput!): User
-  deleteManyUsers(where: UserWhereInput): BatchPayload!
-}
-
-enum MutationType {
-  CREATED
-  UPDATED
-  DELETED
-}
-
-interface Node {
-  id: ID!
-}
-
-type PageInfo {
-  hasNextPage: Boolean!
-  hasPreviousPage: Boolean!
-  startCursor: String
-  endCursor: String
-}
-
-type PhoneNumber {
-  id: ID!
-  type: String!
-  use: [PhoneNumberUse!]!
-  value: String!
-  owner: User
-}
-
-type PhoneNumberConnection {
-  pageInfo: PageInfo!
-  edges: [PhoneNumberEdge]!
-  aggregate: AggregatePhoneNumber!
-}
-
-input PhoneNumberCreateInput {
-  id: ID
-  type: String!
-  use: PhoneNumberCreateuseInput
-  value: String!
-  owner: UserCreateOneWithoutPhoneNumbersInput
-}
-
-input PhoneNumberCreateManyWithoutOwnerInput {
-  create: [PhoneNumberCreateWithoutOwnerInput!]
-  connect: [PhoneNumberWhereUniqueInput!]
-}
-
-input PhoneNumberCreateuseInput {
-  set: [PhoneNumberUse!]
-}
-
-input PhoneNumberCreateWithoutOwnerInput {
-  id: ID
-  type: String!
-  use: PhoneNumberCreateuseInput
-  value: String!
-}
-
-type PhoneNumberEdge {
-  node: PhoneNumber!
-  cursor: String!
-}
-
-enum PhoneNumberOrderByInput {
-  id_ASC
-  id_DESC
-  type_ASC
-  type_DESC
-  value_ASC
-  value_DESC
-}
-
-type PhoneNumberPreviousValues {
-  id: ID!
-  type: String!
-  use: [PhoneNumberUse!]!
-  value: String!
-}
-
-input PhoneNumberScalarWhereInput {
-  id: ID
-  id_not: ID
-  id_in: [ID!]
-  id_not_in: [ID!]
-  id_lt: ID
-  id_lte: ID
-  id_gt: ID
-  id_gte: ID
-  id_contains: ID
-  id_not_contains: ID
-  id_starts_with: ID
-  id_not_starts_with: ID
-  id_ends_with: ID
-  id_not_ends_with: ID
-  type: String
-  type_not: String
-  type_in: [String!]
-  type_not_in: [String!]
-  type_lt: String
-  type_lte: String
-  type_gt: String
-  type_gte: String
-  type_contains: String
-  type_not_contains: String
-  type_starts_with: String
-  type_not_starts_with: String
-  type_ends_with: String
-  type_not_ends_with: String
-  value: String
-  value_not: String
-  value_in: [String!]
-  value_not_in: [String!]
-  value_lt: String
-  value_lte: String
-  value_gt: String
-  value_gte: String
-  value_contains: String
-  value_not_contains: String
-  value_starts_with: String
-  value_not_starts_with: String
-  value_ends_with: String
-  value_not_ends_with: String
-  AND: [PhoneNumberScalarWhereInput!]
-  OR: [PhoneNumberScalarWhereInput!]
-  NOT: [PhoneNumberScalarWhereInput!]
-}
-
-type PhoneNumberSubscriptionPayload {
-  mutation: MutationType!
-  node: PhoneNumber
-  updatedFields: [String!]
-  previousValues: PhoneNumberPreviousValues
-}
-
-input PhoneNumberSubscriptionWhereInput {
-  mutation_in: [MutationType!]
-  updatedFields_contains: String
-  updatedFields_contains_every: [String!]
-  updatedFields_contains_some: [String!]
-  node: PhoneNumberWhereInput
-  AND: [PhoneNumberSubscriptionWhereInput!]
-  OR: [PhoneNumberSubscriptionWhereInput!]
-  NOT: [PhoneNumberSubscriptionWhereInput!]
-}
-
-input PhoneNumberUpdateInput {
-  type: String
-  use: PhoneNumberUpdateuseInput
-  value: String
-  owner: UserUpdateOneWithoutPhoneNumbersInput
-}
-
-input PhoneNumberUpdateManyDataInput {
-  type: String
-  use: PhoneNumberUpdateuseInput
-  value: String
-}
-
-input PhoneNumberUpdateManyMutationInput {
-  type: String
-  use: PhoneNumberUpdateuseInput
-  value: String
-}
-
-input PhoneNumberUpdateManyWithoutOwnerInput {
-  create: [PhoneNumberCreateWithoutOwnerInput!]
-  delete: [PhoneNumberWhereUniqueInput!]
-  connect: [PhoneNumberWhereUniqueInput!]
-  set: [PhoneNumberWhereUniqueInput!]
-  disconnect: [PhoneNumberWhereUniqueInput!]
-  update: [PhoneNumberUpdateWithWhereUniqueWithoutOwnerInput!]
-  upsert: [PhoneNumberUpsertWithWhereUniqueWithoutOwnerInput!]
-  deleteMany: [PhoneNumberScalarWhereInput!]
-  updateMany: [PhoneNumberUpdateManyWithWhereNestedInput!]
-}
-
-input PhoneNumberUpdateManyWithWhereNestedInput {
-  where: PhoneNumberScalarWhereInput!
-  data: PhoneNumberUpdateManyDataInput!
-}
-
-input PhoneNumberUpdateuseInput {
-  set: [PhoneNumberUse!]
-}
-
-input PhoneNumberUpdateWithoutOwnerDataInput {
-  type: String
-  use: PhoneNumberUpdateuseInput
-  value: String
-}
-
-input PhoneNumberUpdateWithWhereUniqueWithoutOwnerInput {
-  where: PhoneNumberWhereUniqueInput!
-  data: PhoneNumberUpdateWithoutOwnerDataInput!
-}
-
-input PhoneNumberUpsertWithWhereUniqueWithoutOwnerInput {
-  where: PhoneNumberWhereUniqueInput!
-  update: PhoneNumberUpdateWithoutOwnerDataInput!
-  create: PhoneNumberCreateWithoutOwnerInput!
-}
-
-enum PhoneNumberUse {
-  PERSONAL
-  WORK
-}
-
-input PhoneNumberWhereInput {
-  id: ID
-  id_not: ID
-  id_in: [ID!]
-  id_not_in: [ID!]
-  id_lt: ID
-  id_lte: ID
-  id_gt: ID
-  id_gte: ID
-  id_contains: ID
-  id_not_contains: ID
-  id_starts_with: ID
-  id_not_starts_with: ID
-  id_ends_with: ID
-  id_not_ends_with: ID
-  type: String
-  type_not: String
-  type_in: [String!]
-  type_not_in: [String!]
-  type_lt: String
-  type_lte: String
-  type_gt: String
-  type_gte: String
-  type_contains: String
-  type_not_contains: String
-  type_starts_with: String
-  type_not_starts_with: String
-  type_ends_with: String
-  type_not_ends_with: String
-  value: String
-  value_not: String
-  value_in: [String!]
-  value_not_in: [String!]
-  value_lt: String
-  value_lte: String
-  value_gt: String
-  value_gte: String
-  value_contains: String
-  value_not_contains: String
-  value_starts_with: String
-  value_not_starts_with: String
-  value_ends_with: String
-  value_not_ends_with: String
-  owner: UserWhereInput
-  AND: [PhoneNumberWhereInput!]
-  OR: [PhoneNumberWhereInput!]
-  NOT: [PhoneNumberWhereInput!]
-}
-
-input PhoneNumberWhereUniqueInput {
-  id: ID
-}
-
-type Query {
-  email(where: EmailWhereUniqueInput!): Email
-  emails(where: EmailWhereInput, orderBy: EmailOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Email]!
-  emailsConnection(where: EmailWhereInput, orderBy: EmailOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): EmailConnection!
-  phoneNumber(where: PhoneNumberWhereUniqueInput!): PhoneNumber
-  phoneNumbers(where: PhoneNumberWhereInput, orderBy: PhoneNumberOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [PhoneNumber]!
-  phoneNumbersConnection(where: PhoneNumberWhereInput, orderBy: PhoneNumberOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PhoneNumberConnection!
-  user(where: UserWhereUniqueInput!): User
-  users(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User]!
-  usersConnection(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UserConnection!
-  node(id: ID!): Node
-}
-
-type Subscription {
-  email(where: EmailSubscriptionWhereInput): EmailSubscriptionPayload
-  phoneNumber(where: PhoneNumberSubscriptionWhereInput): PhoneNumberSubscriptionPayload
-  user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
-}
-
-type User {
-  id: ID!
-  name: String
-  firstName: String!
-  lastName: String!
-  middleName: String
-  emails(where: EmailWhereInput, orderBy: EmailOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Email!]
-  phoneNumbers(where: PhoneNumberWhereInput, orderBy: PhoneNumberOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [PhoneNumber!]
-}
-
-type UserConnection {
-  pageInfo: PageInfo!
-  edges: [UserEdge]!
-  aggregate: AggregateUser!
-}
-
-input UserCreateInput {
-  id: ID
-  name: String
-  firstName: String!
-  lastName: String!
-  middleName: String
-  emails: EmailCreateManyWithoutOwnerInput
-  phoneNumbers: PhoneNumberCreateManyWithoutOwnerInput
-}
-
-input UserCreateOneWithoutEmailsInput {
-  create: UserCreateWithoutEmailsInput
-  connect: UserWhereUniqueInput
-}
-
-input UserCreateOneWithoutPhoneNumbersInput {
-  create: UserCreateWithoutPhoneNumbersInput
-  connect: UserWhereUniqueInput
-}
-
-input UserCreateWithoutEmailsInput {
-  id: ID
-  name: String
-  firstName: String!
-  lastName: String!
-  middleName: String
-  phoneNumbers: PhoneNumberCreateManyWithoutOwnerInput
-}
-
-input UserCreateWithoutPhoneNumbersInput {
-  id: ID
-  name: String
-  firstName: String!
-  lastName: String!
-  middleName: String
-  emails: EmailCreateManyWithoutOwnerInput
-}
-
-type UserEdge {
-  node: User!
-  cursor: String!
-}
-
-enum UserOrderByInput {
+enum CategoryOrderByInput {
   id_ASC
   id_DESC
   name_ASC
   name_DESC
-  firstName_ASC
-  firstName_DESC
-  lastName_ASC
-  lastName_DESC
-  middleName_ASC
-  middleName_DESC
 }
 
-type UserPreviousValues {
+type CategoryPreviousValues {
   id: ID!
-  name: String
-  firstName: String!
-  lastName: String!
-  middleName: String
+  name: String!
 }
 
-type UserSubscriptionPayload {
-  mutation: MutationType!
-  node: User
-  updatedFields: [String!]
-  previousValues: UserPreviousValues
-}
-
-input UserSubscriptionWhereInput {
-  mutation_in: [MutationType!]
-  updatedFields_contains: String
-  updatedFields_contains_every: [String!]
-  updatedFields_contains_some: [String!]
-  node: UserWhereInput
-  AND: [UserSubscriptionWhereInput!]
-  OR: [UserSubscriptionWhereInput!]
-  NOT: [UserSubscriptionWhereInput!]
-}
-
-input UserUpdateInput {
-  name: String
-  firstName: String
-  lastName: String
-  middleName: String
-  emails: EmailUpdateManyWithoutOwnerInput
-  phoneNumbers: PhoneNumberUpdateManyWithoutOwnerInput
-}
-
-input UserUpdateManyMutationInput {
-  name: String
-  firstName: String
-  lastName: String
-  middleName: String
-}
-
-input UserUpdateOneWithoutEmailsInput {
-  create: UserCreateWithoutEmailsInput
-  update: UserUpdateWithoutEmailsDataInput
-  upsert: UserUpsertWithoutEmailsInput
-  delete: Boolean
-  disconnect: Boolean
-  connect: UserWhereUniqueInput
-}
-
-input UserUpdateOneWithoutPhoneNumbersInput {
-  create: UserCreateWithoutPhoneNumbersInput
-  update: UserUpdateWithoutPhoneNumbersDataInput
-  upsert: UserUpsertWithoutPhoneNumbersInput
-  delete: Boolean
-  disconnect: Boolean
-  connect: UserWhereUniqueInput
-}
-
-input UserUpdateWithoutEmailsDataInput {
-  name: String
-  firstName: String
-  lastName: String
-  middleName: String
-  phoneNumbers: PhoneNumberUpdateManyWithoutOwnerInput
-}
-
-input UserUpdateWithoutPhoneNumbersDataInput {
-  name: String
-  firstName: String
-  lastName: String
-  middleName: String
-  emails: EmailUpdateManyWithoutOwnerInput
-}
-
-input UserUpsertWithoutEmailsInput {
-  update: UserUpdateWithoutEmailsDataInput!
-  create: UserCreateWithoutEmailsInput!
-}
-
-input UserUpsertWithoutPhoneNumbersInput {
-  update: UserUpdateWithoutPhoneNumbersDataInput!
-  create: UserCreateWithoutPhoneNumbersInput!
-}
-
-input UserWhereInput {
+input CategoryScalarWhereInput {
   id: ID
   id_not: ID
   id_in: [ID!]
@@ -685,54 +92,593 @@ input UserWhereInput {
   name_not_starts_with: String
   name_ends_with: String
   name_not_ends_with: String
-  firstName: String
-  firstName_not: String
-  firstName_in: [String!]
-  firstName_not_in: [String!]
-  firstName_lt: String
-  firstName_lte: String
-  firstName_gt: String
-  firstName_gte: String
-  firstName_contains: String
-  firstName_not_contains: String
-  firstName_starts_with: String
-  firstName_not_starts_with: String
-  firstName_ends_with: String
-  firstName_not_ends_with: String
-  lastName: String
-  lastName_not: String
-  lastName_in: [String!]
-  lastName_not_in: [String!]
-  lastName_lt: String
-  lastName_lte: String
-  lastName_gt: String
-  lastName_gte: String
-  lastName_contains: String
-  lastName_not_contains: String
-  lastName_starts_with: String
-  lastName_not_starts_with: String
-  lastName_ends_with: String
-  lastName_not_ends_with: String
-  middleName: String
-  middleName_not: String
-  middleName_in: [String!]
-  middleName_not_in: [String!]
-  middleName_lt: String
-  middleName_lte: String
-  middleName_gt: String
-  middleName_gte: String
-  middleName_contains: String
-  middleName_not_contains: String
-  middleName_starts_with: String
-  middleName_not_starts_with: String
-  middleName_ends_with: String
-  middleName_not_ends_with: String
-  emails_every: EmailWhereInput
-  emails_some: EmailWhereInput
-  emails_none: EmailWhereInput
-  phoneNumbers_every: PhoneNumberWhereInput
-  phoneNumbers_some: PhoneNumberWhereInput
-  phoneNumbers_none: PhoneNumberWhereInput
+  AND: [CategoryScalarWhereInput!]
+  OR: [CategoryScalarWhereInput!]
+  NOT: [CategoryScalarWhereInput!]
+}
+
+type CategorySubscriptionPayload {
+  mutation: MutationType!
+  node: Category
+  updatedFields: [String!]
+  previousValues: CategoryPreviousValues
+}
+
+input CategorySubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: CategoryWhereInput
+  AND: [CategorySubscriptionWhereInput!]
+  OR: [CategorySubscriptionWhereInput!]
+  NOT: [CategorySubscriptionWhereInput!]
+}
+
+input CategoryUpdateInput {
+  name: String
+  posts: PostUpdateManyWithoutCategoriesInput
+}
+
+input CategoryUpdateManyDataInput {
+  name: String
+}
+
+input CategoryUpdateManyMutationInput {
+  name: String
+}
+
+input CategoryUpdateManyWithoutPostsInput {
+  create: [CategoryCreateWithoutPostsInput!]
+  delete: [CategoryWhereUniqueInput!]
+  connect: [CategoryWhereUniqueInput!]
+  set: [CategoryWhereUniqueInput!]
+  disconnect: [CategoryWhereUniqueInput!]
+  update: [CategoryUpdateWithWhereUniqueWithoutPostsInput!]
+  upsert: [CategoryUpsertWithWhereUniqueWithoutPostsInput!]
+  deleteMany: [CategoryScalarWhereInput!]
+  updateMany: [CategoryUpdateManyWithWhereNestedInput!]
+}
+
+input CategoryUpdateManyWithWhereNestedInput {
+  where: CategoryScalarWhereInput!
+  data: CategoryUpdateManyDataInput!
+}
+
+input CategoryUpdateWithoutPostsDataInput {
+  name: String
+}
+
+input CategoryUpdateWithWhereUniqueWithoutPostsInput {
+  where: CategoryWhereUniqueInput!
+  data: CategoryUpdateWithoutPostsDataInput!
+}
+
+input CategoryUpsertWithWhereUniqueWithoutPostsInput {
+  where: CategoryWhereUniqueInput!
+  update: CategoryUpdateWithoutPostsDataInput!
+  create: CategoryCreateWithoutPostsInput!
+}
+
+input CategoryWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  posts_every: PostWhereInput
+  posts_some: PostWhereInput
+  posts_none: PostWhereInput
+  AND: [CategoryWhereInput!]
+  OR: [CategoryWhereInput!]
+  NOT: [CategoryWhereInput!]
+}
+
+input CategoryWhereUniqueInput {
+  id: ID
+}
+
+scalar DateTime
+
+scalar Long
+
+type Mutation {
+  createCategory(data: CategoryCreateInput!): Category!
+  updateCategory(data: CategoryUpdateInput!, where: CategoryWhereUniqueInput!): Category
+  updateManyCategories(data: CategoryUpdateManyMutationInput!, where: CategoryWhereInput): BatchPayload!
+  upsertCategory(where: CategoryWhereUniqueInput!, create: CategoryCreateInput!, update: CategoryUpdateInput!): Category!
+  deleteCategory(where: CategoryWhereUniqueInput!): Category
+  deleteManyCategories(where: CategoryWhereInput): BatchPayload!
+  createPost(data: PostCreateInput!): Post!
+  updatePost(data: PostUpdateInput!, where: PostWhereUniqueInput!): Post
+  updateManyPosts(data: PostUpdateManyMutationInput!, where: PostWhereInput): BatchPayload!
+  upsertPost(where: PostWhereUniqueInput!, create: PostCreateInput!, update: PostUpdateInput!): Post!
+  deletePost(where: PostWhereUniqueInput!): Post
+  deleteManyPosts(where: PostWhereInput): BatchPayload!
+  createUser(data: UserCreateInput!): User!
+  updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
+  updateManyUsers(data: UserUpdateManyMutationInput!, where: UserWhereInput): BatchPayload!
+  upsertUser(where: UserWhereUniqueInput!, create: UserCreateInput!, update: UserUpdateInput!): User!
+  deleteUser(where: UserWhereUniqueInput!): User
+  deleteManyUsers(where: UserWhereInput): BatchPayload!
+}
+
+enum MutationType {
+  CREATED
+  UPDATED
+  DELETED
+}
+
+interface Node {
+  id: ID!
+}
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+  endCursor: String
+}
+
+type Post {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  author: User!
+  published: Boolean!
+  categories(where: CategoryWhereInput, orderBy: CategoryOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Category!]
+}
+
+type PostConnection {
+  pageInfo: PageInfo!
+  edges: [PostEdge]!
+  aggregate: AggregatePost!
+}
+
+input PostCreateInput {
+  id: ID
+  author: UserCreateOneWithoutPostsInput!
+  published: Boolean
+  categories: CategoryCreateManyWithoutPostsInput
+}
+
+input PostCreateManyWithoutAuthorInput {
+  create: [PostCreateWithoutAuthorInput!]
+  connect: [PostWhereUniqueInput!]
+}
+
+input PostCreateManyWithoutCategoriesInput {
+  create: [PostCreateWithoutCategoriesInput!]
+  connect: [PostWhereUniqueInput!]
+}
+
+input PostCreateWithoutAuthorInput {
+  id: ID
+  published: Boolean
+  categories: CategoryCreateManyWithoutPostsInput
+}
+
+input PostCreateWithoutCategoriesInput {
+  id: ID
+  author: UserCreateOneWithoutPostsInput!
+  published: Boolean
+}
+
+type PostEdge {
+  node: Post!
+  cursor: String!
+}
+
+enum PostOrderByInput {
+  id_ASC
+  id_DESC
+  createdAt_ASC
+  createdAt_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  published_ASC
+  published_DESC
+}
+
+type PostPreviousValues {
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  published: Boolean!
+}
+
+input PostScalarWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  published: Boolean
+  published_not: Boolean
+  AND: [PostScalarWhereInput!]
+  OR: [PostScalarWhereInput!]
+  NOT: [PostScalarWhereInput!]
+}
+
+type PostSubscriptionPayload {
+  mutation: MutationType!
+  node: Post
+  updatedFields: [String!]
+  previousValues: PostPreviousValues
+}
+
+input PostSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: PostWhereInput
+  AND: [PostSubscriptionWhereInput!]
+  OR: [PostSubscriptionWhereInput!]
+  NOT: [PostSubscriptionWhereInput!]
+}
+
+input PostUpdateInput {
+  author: UserUpdateOneRequiredWithoutPostsInput
+  published: Boolean
+  categories: CategoryUpdateManyWithoutPostsInput
+}
+
+input PostUpdateManyDataInput {
+  published: Boolean
+}
+
+input PostUpdateManyMutationInput {
+  published: Boolean
+}
+
+input PostUpdateManyWithoutAuthorInput {
+  create: [PostCreateWithoutAuthorInput!]
+  delete: [PostWhereUniqueInput!]
+  connect: [PostWhereUniqueInput!]
+  set: [PostWhereUniqueInput!]
+  disconnect: [PostWhereUniqueInput!]
+  update: [PostUpdateWithWhereUniqueWithoutAuthorInput!]
+  upsert: [PostUpsertWithWhereUniqueWithoutAuthorInput!]
+  deleteMany: [PostScalarWhereInput!]
+  updateMany: [PostUpdateManyWithWhereNestedInput!]
+}
+
+input PostUpdateManyWithoutCategoriesInput {
+  create: [PostCreateWithoutCategoriesInput!]
+  delete: [PostWhereUniqueInput!]
+  connect: [PostWhereUniqueInput!]
+  set: [PostWhereUniqueInput!]
+  disconnect: [PostWhereUniqueInput!]
+  update: [PostUpdateWithWhereUniqueWithoutCategoriesInput!]
+  upsert: [PostUpsertWithWhereUniqueWithoutCategoriesInput!]
+  deleteMany: [PostScalarWhereInput!]
+  updateMany: [PostUpdateManyWithWhereNestedInput!]
+}
+
+input PostUpdateManyWithWhereNestedInput {
+  where: PostScalarWhereInput!
+  data: PostUpdateManyDataInput!
+}
+
+input PostUpdateWithoutAuthorDataInput {
+  published: Boolean
+  categories: CategoryUpdateManyWithoutPostsInput
+}
+
+input PostUpdateWithoutCategoriesDataInput {
+  author: UserUpdateOneRequiredWithoutPostsInput
+  published: Boolean
+}
+
+input PostUpdateWithWhereUniqueWithoutAuthorInput {
+  where: PostWhereUniqueInput!
+  data: PostUpdateWithoutAuthorDataInput!
+}
+
+input PostUpdateWithWhereUniqueWithoutCategoriesInput {
+  where: PostWhereUniqueInput!
+  data: PostUpdateWithoutCategoriesDataInput!
+}
+
+input PostUpsertWithWhereUniqueWithoutAuthorInput {
+  where: PostWhereUniqueInput!
+  update: PostUpdateWithoutAuthorDataInput!
+  create: PostCreateWithoutAuthorInput!
+}
+
+input PostUpsertWithWhereUniqueWithoutCategoriesInput {
+  where: PostWhereUniqueInput!
+  update: PostUpdateWithoutCategoriesDataInput!
+  create: PostCreateWithoutCategoriesInput!
+}
+
+input PostWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  updatedAt: DateTime
+  updatedAt_not: DateTime
+  updatedAt_in: [DateTime!]
+  updatedAt_not_in: [DateTime!]
+  updatedAt_lt: DateTime
+  updatedAt_lte: DateTime
+  updatedAt_gt: DateTime
+  updatedAt_gte: DateTime
+  author: UserWhereInput
+  published: Boolean
+  published_not: Boolean
+  categories_every: CategoryWhereInput
+  categories_some: CategoryWhereInput
+  categories_none: CategoryWhereInput
+  AND: [PostWhereInput!]
+  OR: [PostWhereInput!]
+  NOT: [PostWhereInput!]
+}
+
+input PostWhereUniqueInput {
+  id: ID
+}
+
+type Query {
+  category(where: CategoryWhereUniqueInput!): Category
+  categories(where: CategoryWhereInput, orderBy: CategoryOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Category]!
+  categoriesConnection(where: CategoryWhereInput, orderBy: CategoryOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): CategoryConnection!
+  post(where: PostWhereUniqueInput!): Post
+  posts(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Post]!
+  postsConnection(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): PostConnection!
+  user(where: UserWhereUniqueInput!): User
+  users(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [User]!
+  usersConnection(where: UserWhereInput, orderBy: UserOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): UserConnection!
+  node(id: ID!): Node
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+type Subscription {
+  category(where: CategorySubscriptionWhereInput): CategorySubscriptionPayload
+  post(where: PostSubscriptionWhereInput): PostSubscriptionPayload
+  user(where: UserSubscriptionWhereInput): UserSubscriptionPayload
+}
+
+type User {
+  id: ID!
+  createdAt: DateTime!
+  name: String!
+  email: String!
+  role: Role
+  posts(where: PostWhereInput, orderBy: PostOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Post!]
+}
+
+type UserConnection {
+  pageInfo: PageInfo!
+  edges: [UserEdge]!
+  aggregate: AggregateUser!
+}
+
+input UserCreateInput {
+  id: ID
+  name: String!
+  email: String!
+  role: Role
+  posts: PostCreateManyWithoutAuthorInput
+}
+
+input UserCreateOneWithoutPostsInput {
+  create: UserCreateWithoutPostsInput
+  connect: UserWhereUniqueInput
+}
+
+input UserCreateWithoutPostsInput {
+  id: ID
+  name: String!
+  email: String!
+  role: Role
+}
+
+type UserEdge {
+  node: User!
+  cursor: String!
+}
+
+enum UserOrderByInput {
+  id_ASC
+  id_DESC
+  createdAt_ASC
+  createdAt_DESC
+  name_ASC
+  name_DESC
+  email_ASC
+  email_DESC
+  role_ASC
+  role_DESC
+}
+
+type UserPreviousValues {
+  id: ID!
+  createdAt: DateTime!
+  name: String!
+  email: String!
+  role: Role
+}
+
+type UserSubscriptionPayload {
+  mutation: MutationType!
+  node: User
+  updatedFields: [String!]
+  previousValues: UserPreviousValues
+}
+
+input UserSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: UserWhereInput
+  AND: [UserSubscriptionWhereInput!]
+  OR: [UserSubscriptionWhereInput!]
+  NOT: [UserSubscriptionWhereInput!]
+}
+
+input UserUpdateInput {
+  name: String
+  email: String
+  role: Role
+  posts: PostUpdateManyWithoutAuthorInput
+}
+
+input UserUpdateManyMutationInput {
+  name: String
+  email: String
+  role: Role
+}
+
+input UserUpdateOneRequiredWithoutPostsInput {
+  create: UserCreateWithoutPostsInput
+  update: UserUpdateWithoutPostsDataInput
+  upsert: UserUpsertWithoutPostsInput
+  connect: UserWhereUniqueInput
+}
+
+input UserUpdateWithoutPostsDataInput {
+  name: String
+  email: String
+  role: Role
+}
+
+input UserUpsertWithoutPostsInput {
+  update: UserUpdateWithoutPostsDataInput!
+  create: UserCreateWithoutPostsInput!
+}
+
+input UserWhereInput {
+  id: ID
+  id_not: ID
+  id_in: [ID!]
+  id_not_in: [ID!]
+  id_lt: ID
+  id_lte: ID
+  id_gt: ID
+  id_gte: ID
+  id_contains: ID
+  id_not_contains: ID
+  id_starts_with: ID
+  id_not_starts_with: ID
+  id_ends_with: ID
+  id_not_ends_with: ID
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_lt: String
+  name_lte: String
+  name_gt: String
+  name_gte: String
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  email: String
+  email_not: String
+  email_in: [String!]
+  email_not_in: [String!]
+  email_lt: String
+  email_lte: String
+  email_gt: String
+  email_gte: String
+  email_contains: String
+  email_not_contains: String
+  email_starts_with: String
+  email_not_starts_with: String
+  email_ends_with: String
+  email_not_ends_with: String
+  role: Role
+  role_not: Role
+  role_in: [Role!]
+  role_not_in: [Role!]
+  posts_every: PostWhereInput
+  posts_some: PostWhereInput
+  posts_none: PostWhereInput
   AND: [UserWhereInput!]
   OR: [UserWhereInput!]
   NOT: [UserWhereInput!]
@@ -740,5 +686,6 @@ input UserWhereInput {
 
 input UserWhereUniqueInput {
   id: ID
+  email: String
 }
 `
