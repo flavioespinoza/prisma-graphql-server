@@ -5,7 +5,7 @@ GraphQL `data-models` are organized in terms of `types` and `fields`, not endpoi
 
 The `type` based `data-model` auto-generates `schema` and `docs` with all possible CRUD operations.  
 
-_And, if that wern't cool enouth!_ :)
+_And, if that wasn't cool enough!_ :)
 
 `prisma` along with `nexus` auto-generates a typescript `client` with all `query` & `mutation` methods.
 

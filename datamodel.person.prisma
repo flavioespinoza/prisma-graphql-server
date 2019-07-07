@@ -1,0 +1,41 @@
+type Person @db(name: "user") {
+  id: ID! @id
+	createdAt: DateTime! @createdAt
+	updatedAt: DateTime! @updatedAt
+  birthDate: BirthDate!
+	name: String!
+  email: String! @unique
+  role: Role @default(value: USER)
+  phoneNubers: [PhoneNumber!]!
+}
+
+type PhoneNumber @db(name: "phone_number") {
+  id: ID! @id
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  owner: Person!
+  isMobile: Boolean! @default(value: true)
+  phoneNumberUses: [PhoneNumberUse!]! @relation(link: TABLE, name: "PostPhoneNumberUse")
+}
+
+type PhoneNumberUse @db(name: "phone_number_use") {
+  id: ID! @id
+  name: String!
+  phoneNumber: [PhoneNumber!]! @relation(name: "PostPhoneNumberUse")
+}
+
+type PostPhoneNumberUse @db(name: "post_phone_number_user") @relationTable {
+  phoneNumber: PhoneNumber
+  phoneNumberUse: PhoneNumberUse
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+type BirthDate {
+  id: ID! @id
+  person: Person!
+  date: Date!
+}
