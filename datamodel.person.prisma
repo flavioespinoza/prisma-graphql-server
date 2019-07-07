@@ -5,8 +5,8 @@ type Person @db(name: "user") {
   birthDate: BirthDate!
 	name: String!
   email: String! @unique
-  role: Role @default(value: USER)
   phoneNubers: [PhoneNumber!]!
+  authzLevel: Role @default(value: USER)
 }
 
 type PhoneNumber @db(name: "phone_number") {
@@ -29,13 +29,13 @@ type PostPhoneNumberUse @db(name: "post_phone_number_user") @relationTable {
   phoneNumberUse: PhoneNumberUse
 }
 
-enum Role {
+enum AuthzLevel {
   USER
   ADMIN
 }
 
 type BirthDate {
   id: ID! @id
-  person: Person!
+  person: !
   date: Date!
 }
