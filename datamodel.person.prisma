@@ -1,41 +1,45 @@
-type Person @db(name: "user") {
-  id: ID! @id
-	createdAt: DateTime! @createdAt
-	updatedAt: DateTime! @updatedAt
-  birthDate: BirthDate!
+type Person @db(name: "person") {
+	id: ID! @id
+	birthDate: BirthDate!
 	name: String!
-  email: String! @unique
-  phoneNubers: [PhoneNumber!]!
-  authzLevel: Role @default(value: USER)
+	email: String! @unique
+	phoneNumbers: [PhoneNumber!]!
+	gender: Gender @default(value: M)
+}
+
+enum PhoneNumberType {
+	MOBILE
+	LAND_LINE
+	MOBILE_APP
+	WEB_APP
 }
 
 type PhoneNumber @db(name: "phone_number") {
-  id: ID! @id
-  createdAt: DateTime! @createdAt
-  updatedAt: DateTime! @updatedAt
-  owner: Person!
-  isMobile: Boolean! @default(value: true)
-  phoneNumberUses: [PhoneNumberUse!]! @relation(link: TABLE, name: "PostPhoneNumberUse")
+	id: ID! @id
+	type: PhoneNumberType! @default(value: MOBILE)
+	owner: Person!
+	isActive: Boolean! @default(value: true) # example of a boolean
+	phoneUses: [PhoneUse!]! @relation(link: TABLE, name: "PhoneNumberPhoneUse")
 }
 
-type PhoneNumberUse @db(name: "phone_number_use") {
-  id: ID! @id
-  name: String!
-  phoneNumber: [PhoneNumber!]! @relation(name: "PostPhoneNumberUse")
+type PhoneUse @db(name: "phone_use") {
+	id: ID! @id
+	use: String!
+	phoneNumbers: [PhoneNumber!]! @relation(name: "PhoneNumberPhoneUse")
 }
 
-type PostPhoneNumberUse @db(name: "post_phone_number_user") @relationTable {
-  phoneNumber: PhoneNumber
-  phoneNumberUse: PhoneNumberUse
+type PhoneNumberPhoneUse @db(name: "phone_number_phone_use") @relationTable {
+	phoneNumber: PhoneNumber
+	phoneUse: PhoneUse
 }
 
-enum AuthzLevel {
-  USER
-  ADMIN
+enum Gender {
+	M
+	F
 }
 
 type BirthDate {
-  id: ID! @id
-  person: !
-  date: Date!
+	id: ID! @id
+	person: !
+	date: Date!
 }
